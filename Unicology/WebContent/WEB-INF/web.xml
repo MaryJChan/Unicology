@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>UFController</servlet-name>
+    <servlet-class>com.unicology.controller.UnicolFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UFController</servlet-name>
+    <url-pattern>*.unicol</url-pattern>
+  </servlet-mapping>
 </web-app>
