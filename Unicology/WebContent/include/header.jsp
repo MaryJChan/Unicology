@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Header</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Slab');
@@ -11,7 +11,7 @@
       body{
             margin:0;
             padding:0;
-            font-family: 'NanumGothic', '³ª´®°íµñ','NanumGothicWeb', '¸¼Àº °íµñ', 'Malgun Gothic', Dotum;
+            font-family: 'NanumGothic', 'ë‚˜ëˆ”ê³ ë”•','NanumGothicWeb', 'ë§‘ì€ ê³ ë”•', 'Malgun Gothic', Dotum;
       }
       #Header_box{
             height: 160px;
@@ -117,11 +117,11 @@
             <!-- Header_top  -->
             <div id="Header_top">
                   <div id="Header_top_wrap">
-                        <a href="#" class="Header_inner" id="Header_login">·Î±×ÀÎ</a>
+                        <a href="#" class="Header_inner" id="Header_login">ë¡œê·¸ì¸</a>
                         <span id="Header_bar"></span>
-                        <a href="#" class="Header_inner" id="Header_member">È¸¿ø°¡ÀÔ</a>
+                        <a href="#" class="Header_inner" id="Header_member">íšŒì›ê°€ì…</a>
                         <span id="Header_bar"></span>
-                        <a href="#" class="Header_inner" id="Header_mypage">¸¶ÀÌÆäÀÌÁö</a>
+                        <a href="#" class="Header_inner" id="Header_mypage">ë§ˆì´í˜ì´ì§€</a>
                         <span id="Header_bar"></span>
                         <a href="#" class="Header_inner" id="Header_contact"><img alt="letter_img" src="../image/index_Img/header-letter.png" id="Header_imag"></a>
                   </div>
@@ -135,10 +135,10 @@
             <!-- Header_bottom -->
             <div id="Header_bottom">
                   <div id="Header_bottom_inner">
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_view">±â¾÷ÀÚ¼Ò¼­</a></div>
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_keyword">ÀÚ¼Ò¼­ÇÙ½ÉÅ°¿öµåºĞ¼®</a></div>
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_writing">ÀÚ¼Ò¼­ÀÛ¼º</a></div>
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_admin">ÀÌ·Â¼­°ü¸®</a></div>
+                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_view">ê¸°ì—…ìì†Œì„œ</a></div>
+                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_keyword">ìì†Œì„œí•µì‹¬í‚¤ì›Œë“œë¶„ì„</a></div>
+                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_writing">ìì†Œì„œì‘ì„±</a></div>
+                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_admin">ì´ë ¥ì„œê´€ë¦¬</a></div>
                         <div class="Header_bottom_rowimg"><a href="#" class="Header_bottom_img"><img alt="Header_hamberger" src="../image/index_Img/hemberger.png" id="Header_bottom_img"></a></div>
                   </div>
             </div>

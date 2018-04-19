@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Slab');
@@ -109,30 +109,30 @@
       <!-- Footer -->
       <div id="footer_box">
             <div id="logo_name">
-                  <a href="#">LOGOÀÚ¸®</a>
+                  <a href="#">LOGOìžë¦¬</a>
             </div>
             <div id="footer_info_wrap">
                   <div class="footer_info_top_wrap">
-                        <a href="#" class="footer_info_top" id="com_info">È¸»ç¼Ò°³</a>
+                        <a href="#" class="footer_info_top" id="com_info">íšŒì‚¬ì†Œê°œ</a>
                         <span id="footer_info_top_bar2"></span>
-                        <a href="#" class="footer_info_top" id="com_use_term">ÀÌ¿ë¾à°ü</a>
+                        <a href="#" class="footer_info_top" id="com_use_term">ì´ìš©ì•½ê´€</a>
                         <span id="footer_info_top_bar2"></span>
-                        <a href="#" class="footer_info_top" id="com_privacy">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</a>
+                        <a href="#" class="footer_info_top" id="com_privacy">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</a>
                   </div>
                   <div class="footer_info_bottom_wrap">
-                        <div class="footer_info_bottom">À¯´ÏÄÝ·ÎÁö ±¤ÁÖ±¤¿ª½Ã ºÏ±¸ ÁßÈï1µ¿ °æ¾ç·Î 170</div>
+                        <div class="footer_info_bottom">ìœ ë‹ˆì½œë¡œì§€ ê´‘ì£¼ê´‘ì—­ì‹œ ë¶êµ¬ ì¤‘í¥1ë™ ê²½ì–‘ë¡œ 170</div>
                         <span id="footer_info_top_bar2"></span>
-                        <div class="footer_info_bottom">ÀüÈ­:062-345-1023</div>
+                        <div class="footer_info_bottom">ì „í™”:062-345-1023</div>
                         <span id="footer_info_top_bar2"></span>
-                        <div class="footer_info_bottom">ÆÑ½º:062-345-1024</div>
+                        <div class="footer_info_bottom">íŒ©ìŠ¤:062-345-1024</div>
                         <span id="footer_info_top_bar2"></span>
                         <div class="footer_info_bottom" id="last_width1">Email:unicology@gmail.com</div>      
-                        <div class="footer_info_bottom">»ç¾÷ÀÚµî·Ï¹øÈ£:123-98-45678</div>
+                        <div class="footer_info_bottom">ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸:123-98-45678</div>
                         <span id="footer_info_top_bar2"></span>
-                        <div class="footer_info_bottom" id="last_width2">´ëÇ¥:À¯´ÏÄÜ</div>          
-                        <div class="footer_info_bottom">COPYRIGHT¨Ïunicology.co.kr¡¡¡¡ALL LIGHT RESERVED DESIGNED BY UNIQOLOGY</div>      
+                        <div class="footer_info_bottom" id="last_width2">ëŒ€í‘œ:ìœ ë‹ˆì½˜</div>          
+                        <div class="footer_info_bottom">COPYRIGHTâ“’unicology.co.krã€€ã€€ALL LIGHT RESERVED DESIGNED BY UNIQOLOGY</div>      
                         <div id="top_btn">
-                              <a class="top_btn" href="#">¡ã</a>
+                              <a class="top_btn" href="#">â–²</a>
                               <a class="top_btn" href="#">TOP</a>
                         </div>      
                   </div>

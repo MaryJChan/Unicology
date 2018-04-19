@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Slab');
@@ -73,31 +73,31 @@
       $(document).ready(function(){
             
             
-            /* hover��� �߰��ϱ� !! */
+            /* hover기능 추가하기 !! */
             
-            // ����ڼҼ� �̵�
+            // 기업자소서 이동
             $("#coverletter").on("click",function(){
-                  alert("����ڼҼ��������� �̵��ҿ���"); 
+                  alert("기업자소서페이지로 이동할예정"); 
             });
             
-            // �ڼҼ��ٽ�Ű���� �̵�
+            // 자소서핵심키워드 이동
             $("#keyword").on("click",function(){
-                  alert("�ڼҼ��ٽ�Ű����� �̵��ҿ���"); 
+                  alert("자소서핵심키워드로 이동할예정"); 
             });
             
-            // �ڱ�Ұ����ۼ� �̵�
+            // 자기소개서작성 이동
             $("#write").on("click",function(){
-                  alert("�ڱ�Ұ����ۼ����� �̵��ҿ���"); 
+                  alert("자기소개서작성으로 이동할예정"); 
             });
             
-            // ���������� �̵�
+            // 마이페이지 이동
             $("#mypage").on("click",function(){
-                  alert("������������ �̵��ҿ���");
+                  alert("마이페이지로 이동할예정");
             });
             
-            // �̷¼����� �̵�
+            // 이력서관리 이동
             $("#resume").on("click",function(){
-                  alert("�̷¼������� �̵��ҿ���");
+                  alert("이력서관리로 이동할예정");
             });
       });
 </script>
@@ -122,10 +122,10 @@
       <!-- Main-img-bottom -->
       <div id="Main_subject_box">
             <div>
-                  <div id="point_subject">3������ �ٽɱ��</div>
+                  <div id="point_subject">3가지의 핵심기능</div>
             </div>
-            <div class="Main_subject" id="Main_subject1">�ٽ� KEYWORD ,</div>
-            <div class="Main_subject" id="Main_subject2">�ڼҼ��� Smart�ϰ�</div>
+            <div class="Main_subject" id="Main_subject1">핵심 KEYWORD ,</div>
+            <div class="Main_subject" id="Main_subject2">자소서도 Smart하게</div>
       </div>
       
       <!-- Main_info -->
