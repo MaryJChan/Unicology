@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="../include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -14,9 +15,19 @@
 	#wrap {
 		
 	}
+	a {
+		text-decoration: none;
+	}
+	a:active,a:visited {
+		color: inherit;
+	}
 	#header_div{
-          width: 140px;
-          margin: 62px auto;
+        margin: 62px auto;
+     	text-align: center;
+     	font-weight: bold;
+     	font-size: 30px;
+     	color: #6495ED;
+     	letter-spacing: 3px;
      }
 	#container {
 		width: 768px;
@@ -61,6 +72,7 @@
 		display: inline-block;
 		
 	}
+	/* 주소 */
     #jusobutton {
           color: white;
           font-weight: bold;
@@ -82,6 +94,7 @@
          margin: 0px auto;
          text-align: center;
     }
+    /* 생일 */
 	#birthDiv {
 		padding: 0;
 		height: 38px;
@@ -98,7 +111,7 @@
 		font-weight: bold;
 	}
 	.birth {
-		height: 30px;
+		height: 28px;
 		margin: 0 5px 5px;
 	}
 	#birthmonth  {
@@ -108,12 +121,16 @@
 		border: 1px solid #dadada;
 		margin: 0 5px 5px;
 	}
+	/* 성별 */ 
 	.sexDiv1 {
 		width: 200px;
 		height: 31px;
 		display: inline-block;
 		position: relative;
-	} 
+	}
+	#man,#woman {
+		margin-left: 20px;
+	}
 	.sexlabel {
 		width: 200px;
 		height: 31px;
@@ -127,13 +144,16 @@
 		text-align: center;
 		color: #dcdcdc;
 		background-color: #fff; 
+		margin-left: 15px;
 	}
+	/* 관심직무 */
 	#duty_select {
 		border: 1px solid #6495ED;
 		color: #6495ED;
 		cursor: pointer;
 		display: inline-block;
-		width: 75px;
+		padding: 2px 5px;
+		border-radius: 5px;
 	}
 	.duty_modal {
 	   	display: none; /* Hidden by default */
@@ -176,6 +196,36 @@
 		float: left;
 		width: 130px;
 	}
+	/* 학력 */ 
+	#gradeselect {
+		font-weight: bold;
+		height: 30px;
+		width: 100px;
+		border: 1px solid #dadada;
+		margin: 0 5px 5px;
+	}
+	/* 학교 */
+	.search_btn {
+		border: 1px solid #6495ED;
+		color: #6495ED;
+		cursor: pointer;
+		display: inline-block;
+		padding: 2px 5px;
+		border-radius: 5px;
+	}
+	/* 입학~졸업년도 */
+	.school_ {
+		font-weight: bold;
+		height: 30px;
+		border: 1px solid #dadada;
+		margin: 0 5px 5px;
+	}
+	.year {
+		width: 100px;
+	}
+	.mon {
+		width: 50px;
+	}
 	#agree {
 		margin: 100px auto;
 		width: 460px;
@@ -190,6 +240,8 @@
 	}
 	#agree_a {
 		display: inline-block;
+		color: #fff;
+		text-decoration: none;
 	}
 	/* footer */
 	#footer * {
@@ -217,23 +269,11 @@
      }
 </style>
 </head>
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	/* e mail 도메인 사이트 바뀌는 방법 */
-	$(document).on("change","#emailselect",function () {
-		var emailselect = $("#emailselect").val();
-		var email_adress = $("#email_adress");
-		if (emailselect =="직접입력") {
-			email_adress.attr("readonly",false);
-			email_adress.focus();
-			email_adress.val("");
-		}else {
-			email_adress.val(emailselect);
-			email_adress.attr("readonly",true);
-			}
-	});
+	$(document).ready(function (){
 		
-	// 남여 선택
+	// 남여 선택시 색변화
 	$(document).on("click", "#manlabel" ,function (){
 		$("#manlabel").css("color","#6495ED");
 		$("#manlabel").css("border","1px solid #6495ED");
@@ -248,25 +288,56 @@
 		$("#manlabel").css("color","#dcdcdc");
 		$("#manlabel").css("border","1px solid #dcdcdc");
 	});
-	
+	//최종학력
 	$(document).on("change","#gradeselect",function (){
-		var gradeselect = $("#gradeselect").val();
+		var gradeselect = $(this).val();
 		var grade = $("#get_grade");
 		grade.val(gradeselect);
 	});
+	//입학년도/졸업월/졸업년도/졸업월	
+	$(document).on("change","#ent_year",function (){
+		var eyselect = $(this).val();
+		var atten_ey = $("#atten_ey");
+		atten_ey.val(eyselect);
+	});
+	$(document).on("change","#ent_month",function (){
+		var emselect = $(this).val();
+		var atten_em = $("#atten_em");
+		atten_em.val(emselect);
+	});
+	$(document).on("change","#gradu_year",function (){
+		var gyselect = $(this).val();
+		var atten_gy = $("#atten_gy");
+		atten_gy.val(gyselect);
+	});
+	$(document).on("change","#gradu_month",function (){
+		var gmselect = $(this).val();
+		var atten_gm = $("#atten_gm");
+		atten_gm.val(gmselect);
+	});
+	
+	//var get_atten = atten_ey+atten_em+atten_gy+atten_gm;
+		
+	
+	
+	//가입하기
+	$(document).on("click","#agree_a",function (){
+		alert(get_atten);
+		//$("#frm_member").submit();
+	});
+});	
 </script>
 <body>
 	<div id="wrap">
          <div id="header_div">
-              <a href="index.sidedish">
-                   <img alt="유니콜로지 로고" src="image/logo_1020.png">
-              </a>
+              <p>회원가입</p>
          </div>
           
 		<div id="container">
 			<div id="content">
-				<form id="frm_member" name="frm_member" action="memberInsert.sidedish" method="POST">
+				<form id="frm_member" name="frm_member" action="plusmemberInsert.sidedish" method="POST">
 				<div class="row_group">
+					<!-- 주소 -->
 					<div id="addrDiv" class="join_row">
                                         <input type="text" id="sample4_postcode" name="sample4_postcode" class="addr_bar" placeholder="우편번호">
                                         <input type="button" onclick="sample4_execDaumPostcode()" id="jusobutton"  value="우편번호 찾기"><br>
@@ -274,8 +345,7 @@
                                         <input type="text" id="sample4_jibunAddress" name="sample4_jibunAddress" class="addr_bar" placeholder="지번주소" style="border: 1px solid #ddd;">
                                         <span id="guide" style="color:#999"></span>
                     </div>
-				</div>
-				<div class="row_group">
+                    <!-- 성별  -->
 					<div id="sexDiv" class="join_row">
 						<span id="sexDiv_man" class="sexDiv1">
 						<input type="radio" id="man" name="get_sex" value="M">남
@@ -286,6 +356,7 @@
 						<label class="sexlabel" id="womanlabel" for ="woman">여자</label>
 						</span>
 					</div>
+					<!-- 생일 -->
 					<div id="birthDiv" class="join_row">
 						<div id="birth1">생일</div>
 						<input type="text" id="birthyear" name="birthyear" class="birth" maxlength="2" placeholder="년19(2자)">
@@ -308,9 +379,11 @@
 					</div>					
 				</div>
 				<div class="row_group">
+					<!-- 관심직무 -->
 					<div id="dutyDiv" class="join_row">
 						<input type="text" id="get_duty" name="get_duty" value="" placeholder="관심직무">
 						 <div id="duty_select">선택하기</div>
+						 <!-- 직무 모달창 -->
 						  <div id="dutyModal" class="duty_modal">
 						    <div class="duty_modal_content">
 						      <span class="close">&times;</span>
@@ -318,14 +391,15 @@
 						      	
 						      </div>
 						      <div class="group_items_area">
-						      
+						      	
 						      </div>
 						    </div>
 						
 						  </div>
 					</div>
+					<!-- 학력 -->
 					<div id="gradeDiv" class="join_row">
-						<input type="text" id="get_grade" name ="get_grade" readonly="readonly" placeholder="최종학력">
+						<input type="text" id="get_grade" name ="get_grade" readonly="readonly" placeholder="최종학력(졸업예정포함)">
 						<select id="gradeselect">
 							<option value="" selected="selected">학력선택</option>
 							<option value="고등학교" >고등학교</option>
@@ -333,6 +407,208 @@
 							<option value="대학원(석사)">대학원(석사)</option>
 							<option value="대학원(박사)">대학원(박사)</option>
 						</select>
+					</div>
+					<!-- 학교 오픈api -->
+					<div id="schoolDiv" class="join_row">
+						<input type="text" id="get_school" name="get_school" readonly="readonly" placeholder="학교명을 검색해주세요.">
+						<a href="#"><div class="school search_btn">검색</div></a>
+					</div>
+					<!-- 재학기간 -->
+					<div id="attenDiv" class="join_row">
+						<input type="hidden" id="atten_ey" name="atten_ey">
+						<input type="hidden" id="atten_em" name="atten_em">
+						<input type="hidden" id="atten_gy" name="atten_gy">
+						<input type="hidden" id="atten_gm" name="atten_gm">
+						<select id="ent_year" class="school_ year">
+							<option value="입학년도" selected="selected">입학년도</option>
+							<option value="2018">2018</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
+							<option value="2010">2010</option>
+							<option value="2009">2009</option>
+							<option value="2008">2008</option>
+							<option value="2007">2007</option>
+							<option value="2006">2006</option>
+							<option value="2005">2005</option>
+							<option value="2004">2004</option>
+							<option value="2003">2003</option>
+							<option value="2002">2002</option>
+							<option value="2001">2001</option>
+							<option value="2000">2000</option>
+							<option value="1999">1999</option>
+							<option value="1998">1998</option>
+							<option value="1997">1997</option>
+							<option value="1996">1996</option>
+							<option value="1995">1995</option>
+							<option value="1994">1994</option>
+							<option value="1993">1993</option>
+							<option value="1992">1992</option>
+							<option value="1991">1991</option>
+							<option value="1990">1990</option>
+							<option value="1989">1989</option>
+							<option value="1988">1988</option>
+							<option value="1987">1987</option>
+							<option value="1986">1986</option>
+							<option value="1985">1985</option>
+							<option value="1984">1984</option>
+							<option value="1983">1983</option>
+							<option value="1982">1982</option>
+							<option value="1981">1981</option>
+							<option value="1980">1980</option>
+							<option value="1979">1979</option>
+							<option value="1978">1978</option>
+							<option value="1977">1977</option>
+							<option value="1976">1976</option>
+							<option value="1975">1975</option>
+							<option value="1974">1974</option>
+							<option value="1973">1973</option>
+							<option value="1972">1972</option>
+							<option value="1971">1971</option>
+							<option value="1970">1970</option>
+							<option value="1969">1969</option>
+							<option value="1968">1968</option>
+							<option value="1967">1967</option>
+							<option value="1966">1966</option>
+							<option value="1965">1965</option>
+							<option value="1964">1964</option>
+							<option value="1963">1963</option>
+							<option value="1962">1962</option>
+							<option value="1961">1961</option>
+							<option value="1960">1960</option>
+							<option value="1959">1959</option>
+							<option value="1958">1958</option>
+							<option value="1957">1957</option>
+							<option value="1956">1956</option>
+							<option value="1955">1955</option>
+							<option value="1954">1954</option>
+							<option value="1953">1953</option>
+							<option value="1952">1952</option>
+							<option value="1951">1951</option>
+							<option value="1950">1950</option>
+						</select>
+						<select id="ent_month" class="school_ mon">
+							<option value="월" selected="selected">월</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						~ 
+						<select id="gradu_year" class="school_ year">
+							<option value="졸업년도" selected="selected">졸업년도</option>
+							<option value="2028">2028</option>
+							<option value="2027">2027</option>
+							<option value="2026">2026</option>
+							<option value="2025">2025</option>
+							<option value="2024">2024</option>
+							<option value="2023">2023</option>
+							<option value="2022">2022</option>
+							<option value="2021">2021</option>
+							<option value="2020">2020</option>
+							<option value="2019">2019</option>
+							<option value="2018">2018</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
+							<option value="2010">2010</option>
+							<option value="2009">2009</option>
+							<option value="2008">2008</option>
+							<option value="2007">2007</option>
+							<option value="2006">2006</option>
+							<option value="2005">2005</option>
+							<option value="2004">2004</option>
+							<option value="2003">2003</option>
+							<option value="2002">2002</option>
+							<option value="2001">2001</option>
+							<option value="2000">2000</option>
+							<option value="1999">1999</option>
+							<option value="1998">1998</option>
+							<option value="1997">1997</option>
+							<option value="1996">1996</option>
+							<option value="1995">1995</option>
+							<option value="1994">1994</option>
+							<option value="1993">1993</option>
+							<option value="1992">1992</option>
+							<option value="1991">1991</option>
+							<option value="1990">1990</option>
+							<option value="1989">1989</option>
+							<option value="1988">1988</option>
+							<option value="1987">1987</option>
+							<option value="1986">1986</option>
+							<option value="1985">1985</option>
+							<option value="1984">1984</option>
+							<option value="1983">1983</option>
+							<option value="1982">1982</option>
+							<option value="1981">1981</option>
+							<option value="1980">1980</option>
+							<option value="1979">1979</option>
+							<option value="1978">1978</option>
+							<option value="1977">1977</option>
+							<option value="1976">1976</option>
+							<option value="1975">1975</option>
+							<option value="1974">1974</option>
+							<option value="1973">1973</option>
+							<option value="1972">1972</option>
+							<option value="1971">1971</option>
+							<option value="1970">1970</option>
+							<option value="1969">1969</option>
+							<option value="1968">1968</option>
+							<option value="1967">1967</option>
+							<option value="1966">1966</option>
+							<option value="1965">1965</option>
+							<option value="1964">1964</option>
+							<option value="1963">1963</option>
+							<option value="1962">1962</option>
+							<option value="1961">1961</option>
+							<option value="1960">1960</option>
+							<option value="1959">1959</option>
+							<option value="1958">1958</option>
+							<option value="1957">1957</option>
+							<option value="1956">1956</option>
+							<option value="1955">1955</option>
+							<option value="1954">1954</option>
+							<option value="1953">1953</option>
+							<option value="1952">1952</option>
+							<option value="1951">1951</option>
+							<option value="1950">1950</option>
+						</select>
+						<select id="gradu_month" class="school_ mon">
+							<option value="월" selected="selected">월</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+					</div>
+					<!-- 학과 오픈api -->
+					<div id="majorlDiv" class="join_row">
+						<input type="text" id="get_major" name="get_major" readonly="readonly" placeholder="학과명을 검색해주세요.">
+						<a href="#"><div class="major search_btn">검색</div></a>
 					</div>
 				</div>
 					 <div id="agree"><a href="#" id="agree_a">∨	가입하기</a></div> 

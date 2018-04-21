@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="../include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,11 +11,12 @@
 		margin: 0;
 		padding: 0;
 	}
-	body {
-		background-color: #dadada;
-	}
 	h1#logo {
+		margin: 10px 0;
 		font-size: 2em;
+		text-align: center;
+		letter-spacing: 3px;
+		color: #6495ED; 
 	}
 	 div#constract_header, div#container, div#footer {
           width: 768px;
@@ -28,14 +30,6 @@
      	height: 81px;
      	text-align: center;
      	padding: 20px 0 15px;
-     }
-     .n_logo {
-     	display: block;
-     	width: 140px;
-     	height: 50px;
-     	margin: 0 auto;
-     	box-sizing: border-box;
-     	border: 1px solid blue;
      }
       /* container */
      form#join_content {
@@ -183,16 +177,15 @@
           height: 61px;
           /* padding-top: 1px; */
           text-align: center;
+          background-color: #dcdcdc;
      }
      .btn_default {
           color: #333;
           border: 1px solid #e7e7e7;
-          background-color: #fff;
      }
      .btn_agree {
           color: #333;
           border: 1px solid #e7e7e7;
-          background-color: #fff;
      }
      a {
           text-decoration: none;
@@ -256,24 +249,26 @@
 <script type="text/javascript">
      $(document).ready(function () {
     	 
+    	 	// 필수 버튼 직접 눌렀을 때 색 변하기
+           $(".ckboxs").on("click",function (){
        	  	var li1 = $("#li1box").is(":checked");
             var li2 = $("#li2box").is(":checked");
-    	 
-           $(".ckboxs").on("click",function (){
-    		if (li1 != true && li2 != true) {
-    			$(".btn_agree").css("color","#333").css("background-color","#fff").css("border","1px solid #fff");
-   			}else {
-   	         $(".btn_agree").css("color","#fff").css("background-color","#6495ED").css("border","1px solid #6495ED");
+            
+    		if (li1 == true && li2 == true) {
+   	         	$(".btn_agree").css("color","#fff").css("background-color","#6495ED").css("border","1px solid #6495ED");
+   			}else if(li1 == false || li2 == false){
+    			$(".btn_agree").css("color","#333").css("background-color","#dcdcdc").css("border","1px solid #fff");
    			}
 			 
     	 });
-    	 
+    	 	// 전체 버튼 눌렀을 때 색 변하기
           $("#cbox").on("click", function (){
-        	  
-   	      if (li1 == true && li2 == true) {
-   	         $(".btn_agree").css("color","#333").css("background-color","#fff").css("border","1px solid #fff");
-   			}else {
+       	  	var li1 = $("#li1box").is(":checked");
+            var li2 = $("#li2box").is(":checked");
+   	      if (li1 == false || li2 == false) {
    	         $(".btn_agree").css("color","#fff").css("background-color","#6495ED").css("border","1px solid #6495ED");
+   			}else  if(li1 == true && li2 == true){
+   	         $(".btn_agree").css("color","#333").css("background-color","#dcdcdc").css("border","1px solid #fff");
    			}	    
    	      
           var acheck = $("#cbox").is(":checked");
@@ -313,7 +308,7 @@
 <body>
 	<!-- 로고 헤더 창 -->
 	<div id="constract_header">
-		<h1 id="logo"><a href="#" class="n_logo"></a></h1>
+		<h1 id="logo">회원가입동의</h1>
 	</div>
 	<!-- 메인 창 -->
 	<div id="container">
@@ -392,7 +387,7 @@
 							</div>
 						</div>
 						<div id="err_check">
-                                   <span id="err_check_msg">몽촌반찬 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</span>
+                                   <span id="err_check_msg">유니콜로지 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</span>
                          </div>
 					</li>
 										
@@ -400,8 +395,9 @@
 			</div>
 			<!-- 동의 비동의 버튼 -->
 			<div class="btn_double_area">
-				<span><a href="#" class="btn_type btn_default">비동의</a></span>
-				<span><a href="#" class="btn_type btn_agree">동의</a></span>
+				<span><a href="../index/index.jsp" class="btn_type btn_default">비동의</a></span>
+				<!-- mybatis 적용전 -->
+				<span><a href="../member/member.jsp" class="btn_type btn_agree">동의</a></span>
 			</div>
 		</form>
 	</div>
