@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,12 +29,13 @@
 		padding: 20px 0 60px;
 	}
 	
-	/* 컨텐츠 영역 */
+	/* 컨텐츠 영역(높이 수정할것) */
 	#inner_mypage {
 		position: static;
 		width: 1200px;
-		min-height: 500px;
+		/* min-height: 500px; */
 		margin: 0 auto;
+		height: 1400px;
 	}
 	
 	/* 사이드 영역  */
@@ -95,7 +96,6 @@
 		margin: 0 30px;
 		padding-top: 15px;
 		height: 130px;
-		
 	}
 	
 	
@@ -135,11 +135,67 @@
 	
 	#desc {
 		height: 39px;
-		border-bottom: 1px solid #ebebeb;
+	    border-bottom: 1px solid #ebebeb;
+	    line-height: 39px;
+	    font-size: 18px;
+	    font-weight: bold;
+	}
+	
+	#summary_inner {
+		width: 100%;
+	}
+	
+	.recurit_sector {
+		font-size: 13px;
+    	color: #888;
+	}
+	
+	.bar {
+		font-size: 11px;
+		padding: 0 3px;
+		color: #e5e5e5;
+		
+	}
+	
+	.info_date{
+		width: 80px;
+	    font-size: 12px;
+	    color: #666;
+	    text-align: center;
+	    vertical-align: middle;
+	    display: table-cell;
+	}    
+	
+	.btn_immediately {
+		width: 103px;
+	    height: 28px;
+	    box-sizing: border-box;
+	    overflow: hidden;
+	    text-align: center;
+	    border: 0;
+	    padding: 0;
+	    vertical-align: top;
+	    cursor: pointer;
+	    background: #ff8d5a;
+	    margin-top: 10px;
+	}
+	
+	.span_immediately {
+		background: #ff8d5a;
+	    color: #fff;
+	    border: 1px solid #ff8d5a;
+	}
+	
+	#info_list {
+		padding: 20px 10px 20px 0;
+	    width: 630px;
+	    line-height: 22px;
+	    display: table-cell;
 	}
 	
 	/* summary 탭영역  */
 	.recruit_list_navigation {
+		
 	
 	}
 	
@@ -150,17 +206,21 @@
 	}
 	
 	.recruit_list_navigation li {
-		width: 193px;
+		width: 195px;
 		height: 55px;
 		float: left;
-		border-top: 1px solid #e6e6e6;
-		border-right: 1px solid #e6e6e6;
-		border-left: 1px solid #e6e6e6;
+	    background: #fafafa;
+	    border-top: 1px solid #e6e6e6;
+	    border-right: 1px solid #e6e6e6;
+	    border-left: 1px solid #e6e6e6;
+	    margin-top: -1px;
+	    margin-right: -1px;
+	    margin-left: -1px;
 		text-align: center;
     	line-height: 55px;
 	}
 	
-	.on {
+	.recruit_list_navigation li.on {
 		background: #fff;
 		border-color: #888b9e;
 		z-index: 2;
@@ -169,16 +229,73 @@
 	/* left side 메뉴 (이력서 관리 및 회원정보 수정) */
 	#section_leftmenu {
 		float: left;
+		position: absolute;
+		background-color: white;
+    	top: 402px;
+    	box-shadow: 0 1px 1px 1px rgba(0,0,0,0.1);
+    	width: 190px;
 	}
 	
+	.leftmenu {
+		padding: 15px 20px;
+		border-top: 1px solid #eeeef0;
+	}
 	
+	.leftmenu_title {
+	    padding: 5px 0;
+	    font-size: 16px;
+	    font-weight: bold;
+	    color: #000;	
+	}
+	
+	.leftmenu li {
+	    padding: 1px 0 1px 10px;
+	    font-size: 13px;
+	    color: #666;
+	}
+	
+	/*right side 메뉴  */
+
+	
+	#section_rightmenu {
+		position: relative;
+		float: right;
+		background-color: white;
+    	box-shadow: 0 1px 1px 1px rgba(0,0,0,0.1);
+    	width: 120px;
+    	margin-top: 10px;
+    	margin-right: 50px;
+	}
+	
+	.rightmenu li a {
+		display: block;
+	    height: 22px;
+	    padding: 12px 0 0 16px;
+	    font-size: 12px;
+	    letter-spacing: -0.75px;
+	    color: #666;
+	}
+	
+	.rightmenu span {
+		padding-right: 3px;
+	}
 </style>
 </head>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$(".recruit_list_navigation li").on("click", function(){
+			alert("!!클릭");
+			$(this).attr("class","on");	
+		});	
+	});
+</script>
 <body>
 	<div id="mypageContainer">
 		<div id="inner_mypage">
 		
-			<!-- 사이드 영역  -->
+			<!-- 사이드 영역(left)  -->
 			<aside class="aside_wrap">
 			<a href="#"><img id="preference_img" alt="" src="../image/mypage/preference.png"></a>
 				<div class="profile_wrap">
@@ -186,19 +303,51 @@
 					<h2 id="h_name">박아영 님</h2>
 					<a id="resume_register" href="#">내 이력서 등록</a>
 				</div>
-			
+			</aside>
 			
 			<div id="section_leftmenu">
 				<div class="leftmenu">
 					<h2 class="leftmenu_title">이력서 관리</h2>
 						<ul>
-							<li>이력서 등록</li>
-							<li>이력서 관리</li>
+							<li><a href="#">이력서 등록</a></li>
+							<li><a href="#">이력서 관리</a></li>
+						</ul>
+				</div>
+				<div class="leftmenu">
+					<h2 class="leftmenu_title">회원정보 관리</h2>
+						<ul>
+							<li><a href="#">회원정보 수정</a></li>
+							<li><a href="#">비밀번호 변경</a></li>
 						</ul>
 				</div>
 			</div>
-				
-			</aside>
+
+			<div id="section_rightmenu">
+				<div class="rightmenu">
+					<ul>
+						<li>
+							<a href="#">
+							<span><img alt="" src="../image/mypage/write.png">자소서 작성</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							<span><img alt="" src="../image/mypage/spell.png">맞춤법 검사</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							<span><img alt="" src="../image/mypage/count.png">글자수 세기</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+							<span><img alt="" src="../image/mypage/calculator.png">학점 변환</span>
+							</a>
+						</li>
+					</ul>				
+				</div>
+			</div>
 			
 			<!--  -->
 			<div id="summary_wrap">  
@@ -249,16 +398,200 @@
 					</ul>
 				</div>
 				
+				<!-- 반복할 부분  -->
 				<div id="recruit_summary">
 					<div id="desc">
-						<strong>마감임박!!</strong> 놓치면 후회해요.
+						한국디자인진흥원	
 					</div>
 					<div id="summary_inner">
 						<ul id="info_list">
-							<li class="company_name">(주)우아한 형제들</li>
-							<li class="recruit_name">[배달의민족]부문별 신입/경력 공채</li>
-							<li class="recurit_sector">신입 · 경력 학력무관 서울전체 정규직, 계약직 </li>
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
 						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div id="recruit_summary">
+					<div id="desc">
+						한국디자인진흥원	
+					</div>
+					<div id="summary_inner">
+						<ul id="info_list">
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
+						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div id="recruit_summary">
+					<div id="desc">
+						한국디자인진흥원	
+					</div>
+					<div id="summary_inner">
+						<ul id="info_list">
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
+						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div id="recruit_summary">
+					<div id="desc">
+						한국디자인진흥원	
+					</div>
+					<div id="summary_inner">
+						<ul id="info_list">
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
+						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div id="recruit_summary">
+					<div id="desc">
+						한국디자인진흥원	
+					</div>
+					<div id="summary_inner">
+						<ul id="info_list">
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
+						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div id="recruit_summary">
+					<div id="desc">
+						한국디자인진흥원	
+					</div>
+					<div id="summary_inner">
+						<ul id="info_list">
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
+						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div id="recruit_summary">
+					<div id="desc">
+						한국디자인진흥원	
+					</div>
+					<div id="summary_inner">
+						<ul id="info_list">
+							<li class="company_name"></li>
+							<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
+							<li class="recurit_sector">
+								<span>신입 · 경력 </span> 
+								<span class="bar">|</span>
+								<span >학력무관</span>
+								<span class="bar">|</span> 
+								<span>서울전체</span>
+								<span class="bar">|</span>
+								<span>정규직, 계약직</span>
+							</li>
+						</ul>
+						
+						<div class="info_date">
+							<span>~05/04(금)</span><br>
+							<button class="btn_immediately">	
+								<span class="span_immediately">즉시지원</span>
+							</button>
+						</div>
 					</div>
 				</div>
 				
