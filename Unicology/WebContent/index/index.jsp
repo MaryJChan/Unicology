@@ -269,6 +269,12 @@
       	text-align: center;
       	line-height: 491px;
       }
+      .group_in{
+      	color: #999;
+      }
+      .keyword_box_tag{
+      	back
+      }
 </style>
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -301,6 +307,10 @@
             $("#resume").on("click",function(){
                   alert("이력서관리로 이동할예정");
             });
+            
+            $("#group_total2").on("click",function(){
+            	$("#group_total2").css("color","#ff6813");
+            });
       });
 </script>
 </head>
@@ -318,7 +328,7 @@
 	            </div>
 	            <div class="Main_rhom" id="Main_rhom2">
 	                  <a href="#" id="keyword"><img alt="rhombus"src="../image/index_Img/rhombus2.png"></a>
-	                  <a href="#" id="mypage"><img alt="rhombus"src="../image/index_Img/rhombus4.png"></a>
+	                  <a href="../mypage/mypage.jsp" id="mypage"><img alt="rhombus"src="../image/index_Img/rhombus4.png"></a>
 	            </div>
 	      </div>
 	      
@@ -382,18 +392,18 @@
 	      	</div>
 	      	<div id="keyword_wrap">
 		      	<div class="groups">
-		      		<div class="group" id="group_total">전체</div>
-		      		<div class="group">경영/사무</div>
-		      		<div class="group">마케팅/무역/유통</div>
-		      		<div class="group">영업/고객상담</div>
-		      		<div class="group">IT/인터넷</div>
-		      		<div class="group">연구개발/설계</div>
-		      		<div class="group">생산/제조</div>
-		      		<div class="group">전문/특수직</div>
-		      		<div class="group">디자인</div>
-		      		<div class="group">미디어</div>
-		      		<div class="group">서비스</div>
-		      		<div class="group">건설</div>
+		      		<div class="group" id="group_total"><div class="keyword_box_tag" id="keyword_box_tag1"></div><a href="#keyword_box_title" class="group_in" id="group_total2">전체</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag2"></div><a href="#keyword_box_title" class="group_in" id="group_manage_office">경영/사무</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag3"></div><a href="#keyword_box_title" class="group_in" id="group_market_trade_circulation">마케팅/무역/유통</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag4"></div><a href="#keyword_box_title" class="group_in" id="group_sales_consulation">영업/고객상담</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag5"></div><a href="#keyword_box_title" class="group_in" id="group_it_internet">IT/인터넷</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag6"></div><a href="#keyword_box_title" class="group_in" id="group_research_design">연구개발/설계</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag7"></div><a href="#keyword_box_title" class="group_in" id="group_production_manufacturing">생산/제조</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag8"></div><a href="#keyword_box_title" class="group_in" id="group_specialty_special">전문/특수직</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag9"></div><a href="#keyword_box_title" class="group_in" id="group_design">디자인</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag10"></div><a href="#keyword_box_title" class="group_in" id="group_media">미디어</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag11"></div><a href="#keyword_box_title" class="group_in" id="group_service">서비스</a></div>
+		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag12"></div><a href="#keyword_box_title" class="group_in" id="group_build">건설</a></div>
 		      	</div>
 		      	<div class="keyword_view">!키워드 시각화해서 보여줄 공간!</div>
 	      	</div>
