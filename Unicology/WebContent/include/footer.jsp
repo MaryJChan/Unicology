@@ -9,10 +9,9 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Slab');
 @import url(http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb);
       /* footer */
-      body{
+      body,ul{
             margin: 0;
             padding: 0;
-            cursor: pointer;
       }
       a{
             text-decoration: none;
@@ -20,27 +19,25 @@
       }
       #footer_box{
             width: 100%;
-            height: 200px;
+            height: 150px;
             background-color: #999999;
             position: relative;
       }
       #logo_name{
             display: inline-block;
             width: 30%;
-            height: 200px;
-            border: 1px solid blue;
+            height: 150px;
       }
       #footer_info_wrap{
             display: inline-block;
             width: 70%;
-            height: 200px;
-            border: 1px solid black;
+            height: 150px;
             position: absolute;
       }
       .footer_info_top_wrap{
             display: inline-block;
             margin-left:30px;
-            padding: 40px 0 25px 10px;
+            padding: 10px 0 10px 10px;
             width: 96%;
             border-bottom: 1px solid #666666;
       }
@@ -71,7 +68,7 @@
       #last_width2{
             width: 450px;
       }
-      #top_btn{
+     /*  #top_btn{
             width: 40px;
             height: 40px;
             background-color: #e7e7e7;
@@ -85,24 +82,23 @@
             width: 40px;
             color: black;
             text-align: center;
-      }
+      } */
 </style>
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-    window.onscroll = function(){scrollFunction()};
-   
-    function scrollFunction(){
-          if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-               document.getElementById("top_btn").style.display="block";
-          }else{
-               document.getElementById("top_btn").style.display="none";
-          }
-    }
-   
-    function topFunction(){
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-    }
+   $(document).ready(function(){
+	  $(window).scroll(function(){
+		  if($(this).scrollTop()>200){
+			  $("#top_btn").fadeIn();
+		  }else{
+			  $("#top_btn").fadeOut();
+		  }
+	  });
+	  $("#top_btn").click(function(){
+		  $('html, body').animate({scrollTop : 0},400);
+		  return false;
+	  });
+   });
 </script>
 </head>
 <body>
@@ -131,10 +127,10 @@
                         <span id="footer_info_top_bar2"></span>
                         <div class="footer_info_bottom" id="last_width2">대표:유니콘</div>          
                         <div class="footer_info_bottom">COPYRIGHTⓒunicology.co.kr　　ALL LIGHT RESERVED DESIGNED BY UNIQOLOGY</div>      
-                        <div id="top_btn">
+                        <!-- <div id="top_btn">
                               <a class="top_btn" href="#">▲</a>
                               <a class="top_btn" href="#">TOP</a>
-                        </div>      
+                        </div>       -->
                   </div>
             </div>
       </div>
