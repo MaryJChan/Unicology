@@ -12,6 +12,9 @@
 		margin: 0;
 		padding: 0;
 	}
+	ul,li {
+		list-style: none;
+	}
 	#wrap {
 		
 	}
@@ -170,11 +173,67 @@
 	}
 	.duty_modal_content {
 	    width: 75%;
+	    height: 450px;
 		padding: 16px;
 		background-color: #fefefe;
 		width: 460px;
 		margin: 0 auto;
 	}
+	#dutygroup {
+		width: 100%;
+		height: 100%;
+	}
+	.group_list {
+		width: 150px;
+		border-radius: 4px;
+		box-sizing: border-box;
+		display: inline-block;
+	}
+	.group_list li {
+	    background-color: #dadada;
+	    height: 40px;
+	    line-height: 40px;
+	    color: #fff;
+	    padding-left: 5px;
+	    border-bottom: 2px solid #fff;
+    }
+    .on{
+    	background-color: #fff!important;
+    	color: #dadada!important;
+    }
+    .group_items_area {
+    	display: inline-block;
+	    background-color: #fff;
+	    float: right;
+	    border-radius: 20px;
+	    text-align: center;
+	    margin-left: 10px;
+	    width: 300px;
+	    height: 100%;
+    }
+    #group_title {
+    	color: #6495ED;
+    	font-weight: bold;
+    }
+    #group_content {
+    	display: inline-block;
+    	height: 70%;
+    	width: 100%;
+    	border-bottom: 2px solid #dadada;
+    }
+    .group_content_explain {
+    	font-size: 13px;
+	    color: #333;
+	    float: left;
+	    width: 50%;
+	    margin: 4px 0;
+	    font-weight: normal;
+	    text-align: left;
+    }
+    #group_result {
+    	display:inline-block;
+    	height: 30%;
+    }
 	.close {
 	    float: right;
 		font-weight: bold;
@@ -191,10 +250,6 @@
 	    color: #000;
 	    text-decoration: none;
 	    cursor: pointer;
-	}
-	.group_list {
-		float: left;
-		width: 130px;
 	}
 	/* 학력 */ 
 	#gradeselect {
@@ -292,7 +347,10 @@
 	$(document).on("change","#gradeselect",function (){
 		var gradeselect = $(this).val();
 		var grade = $("#get_grade");
-		grade.val(gradeselect);
+		
+		var val = grade.val(gradeselect);
+		alert(val);
+		
 	});
 	//입학년도/졸업월/졸업년도/졸업월	
 	$(document).on("change","#ent_year",function (){
@@ -325,6 +383,58 @@
 		alert(get_atten);
 		//$("#frm_member").submit();
 	});
+	
+	//테스트중
+	$(".group_list li").on("click", function(){
+		$(".group_list li").removeClass('on');
+		var test =$(this).attr("class","on");	
+		if (test.text() == "경영/사무"){
+			$("#group_title").text("경영/사무");
+			$(".group_business").css("display","block");
+			$(".group_marketing").css("display","none");
+		}
+		else if(test.text() == "마케팅/무역/유통") {
+			$("#group_title").text("마케팅/무역/유통");
+			$(".group_business").css("display","none");
+			$(".group_marketing").css("display","block");
+		}
+		else if(test.text() == "영업/고객상담") {
+			$("#group_title").text("영업/고객상담");
+		}
+		else if(test.text() == "IT/인터넷") {
+			$("#group_title").text("IT/인터넷");
+		}
+		else if(test.text() == "연구개발/설계") {
+			$("#group_title").text("연구개발/설계");
+		}
+		else if(test.text() == "생산/제조") {
+			$("#group_title").text("생산/제조");
+		}
+		else if(test.text() == "전문/특수직") {
+			$("#group_title").text("전문/특수직");
+		}
+		else if(test.text() == "디자인") {
+			$("#group_title").text("디자인");
+		}
+		else if(test.text() == "미디어") {
+			$("#group_title").text("미디어");
+		}
+		else if(test.text() == "서비스") {
+			$("#group_title").text("서비스");
+		}
+		else if(test.text() == "건설") {
+			$("#group_title").text("건설");
+		}
+		
+	});	
+	//테스트 2
+	$("input[name=group_business_result]").on("change",function(){
+		var test = $(this).text();
+		alert(test);
+	});
+
+
+
 });	
 </script>
 <body>
@@ -386,12 +496,52 @@
 						 <!-- 직무 모달창 -->
 						  <div id="dutyModal" class="duty_modal">
 						    <div class="duty_modal_content">
-						      <span class="close">&times;</span>
-						      <div class="group_list">
-						      	
-						      </div>
-						      <div class="group_items_area">
-						      	
+						      <div id="dutygroup">
+							      <ul class="group_list">
+						      		<li class="on" id="group_business" >경영/사무</li>
+						      		<li id="group_marketing">마케팅/무역/유통</li>
+						      		<li id="group_GRO">영업/고객상담</li>
+						      		<li id="group_IT">IT/인터넷</li>
+						      		<li id="group_develop">연구개발/설계</li>
+						      		<li id="group_production">생산/제조</li>
+						      		<li id="group_profession">전문/특수직</li>
+						      		<li id="group_design">디자인</li>
+						      		<li id="group_media">미디어</li>
+						      		<li id="group_service">서비스</li>
+						      		<li id="group_build">건설</li>	
+							      </ul>
+							      <div class="group_items_area">
+								      <span class="close">&times;</span>
+								      <div id="group_title">
+								      		직무를 선택해주세요.
+								      </div>
+								      <div id="group_content">
+								      	<div class="group_business">
+									      	<form>
+									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_business_result">기획/전략/경영</label>
+									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_business_result">인사/노무/교육</label>
+									      		<label for="3" class="group_content_explain"><input type="checkbox" id="3" name="group_business_result">재무/세무/IR</label>
+									      		<label for="4" class="group_content_explain"><input type="checkbox" id="4" name="group_business_result">일반사무/총무/법무</label>
+									      		<label for="5" class="group_content_explain"><input type="checkbox" id="5" name="group_business_result">경리/회계/결산</label>
+									      		<label for="6" class="group_content_explain"><input type="checkbox" id="6" name="group_business_result">비서/사무보조</label>
+									      	</form>
+								      	</div>
+								      	<div class="group_marketing">
+									      	<form>
+									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_marketing_result">마케팅/광고</label>
+									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_marketing_result">유통/물류/재고</label>
+									      		<label for="3" class="group_content_explain"><input type="checkbox" id="3" name="group_marketing_result">홍보/PR</label>
+									      		<label for="4" class="group_content_explain"><input type="checkbox" id="4" name="group_marketing_result">무역/해외영업</label>
+									      		<label for="5" class="group_content_explain"><input type="checkbox" id="5" name="group_marketing_result">구매/자재</label>
+									      		<label for="6" class="group_content_explain"><input type="checkbox" id="6" name="group_marketing_result">운전/운송</label>
+									      		<label for="7" class="group_content_explain"><input type="checkbox" id="7" name="group_marketing_result">상품기획/MD</label>
+									      	</form>
+								      	</div>
+								      </div>
+								      <div id="group_result">
+								      	선택한 직무
+								      </div>
+							      </div>
 						      </div>
 						    </div>
 						
@@ -625,6 +775,7 @@
 		</div>
 	</div>	
 </body>
+<%@include file="../include/footer.jsp"%>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 //Get the modal
