@@ -254,7 +254,6 @@
       	line-height: 40px;
       	border-top: 1px solid #ddd;
       	color: #999;
-      	padding-left: 25px;
       }
       #group_total{
       	border-top: 0;
@@ -271,9 +270,13 @@
       }
       .group_in{
       	color: #999;
+      	margin-left: 25px;
       }
       .keyword_box_tag{
-      	back
+      	background-color: white;
+      	width: 5px;
+      	height: 18px;
+      	display: inline-block;
       }
 </style>
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
@@ -289,14 +292,21 @@
             });
             
             // 자소서핵심키워드 이동
-            $("#keyword").on("click",function(){
-                  alert("자소서핵심키워드로 이동할예정"); 
-            });
+           $("#keyword").click(function(){
+            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
+                 $('html, body').animate({
+                 	scrollTop: 1400
+                 }, 500);
+      	  	});
             
-            // 자기소개서작성 이동
-            $("#write").on("click",function(){
-                  alert("자기소개서작성으로 이동할예정"); 
-            });
+            // 자기소개서
+            $("#write").click(function(){
+            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
+                 $('html, body').animate({
+                 	scrollTop: 800
+                 }, 500);
+      	  	});
+           
             
             // 마이페이지 이동
             $("#mypage").on("click",function(){
@@ -304,13 +314,51 @@
             });
             
             // 이력서관리 이동
-            $("#resume").on("click",function(){
-                  alert("이력서관리로 이동할예정");
+            $("#resume").click(function(){
+            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
+                 $('html, body').animate({
+                 	scrollTop: 2000
+                 }, 500);
+      	  	});
+            
+           /*  $("#group_total2").on("click",function(){
+            	$(this).css("color","#ff6813");
+            	$(".keyword_box_tag#keyword_box_tag1").css("background-color","#ff6813");
+            	$("#keyword_box_tag2").css("background-color","white");
+            	$("#keyword_box_tag3").css("background-color","white");
+            	$("#keyword_box_tag4").css("background-color","white");
+            	$("#keyword_box_tag5").css("background-color","white");
+            	$("#keyword_box_tag6").css("background-color","white");
+            	$("#keyword_box_tag7").css("background-color","white");
+            	$("#keyword_box_tag8").css("background-color","white");
+            	$("#keyword_box_tag9").css("background-color","white");
+            	$("#keyword_box_tag10").css("background-color","white");
+            	$("#keyword_box_tag11").css("background-color","white");
+            	$("#keyword_box_tag12").css("background-color","white");
             });
             
-            $("#group_total2").on("click",function(){
-            	$("#group_total2").css("color","#ff6813");
-            });
+            $("#group_manage_office").on("click",function(){
+            	$(this).css("color","#ff6813");
+            	$("#keyword_box_tag2").css("background-color","#ff6813");
+            	$("#keyword_box_tag1").css("background-color","white");$("#group_total").css("color","white");
+            	$("#keyword_box_tag3").css("background-color","white");$(".keyword_box_tag#keyword_box_tag3").css("color","white");
+            	$("#keyword_box_tag4").css("background-color","white");$(".keyword_box_tag#keyword_box_tag4").css("color","white");
+            	$("#keyword_box_tag5").css("background-color","white");$(".keyword_box_tag#keyword_box_tag5").css("color","white");
+            	$("#keyword_box_tag6").css("background-color","white");$(".keyword_box_tag#keyword_box_tag6").css("color","white");
+            	$("#keyword_box_tag7").css("background-color","white");$(".keyword_box_tag#keyword_box_tag7").css("color","white");
+            	$("#keyword_box_tag8").css("background-color","white");$(".keyword_box_tag#keyword_box_tag8").css("color","white");
+            	$("#keyword_box_tag9").css("background-color","white");$(".keyword_box_tag#keyword_box_tag9").css("color","white");
+            	$("#keyword_box_tag10").css("background-color","white");$(".keyword_box_tag#keyword_box_tag10").css("color","white");
+            	$("#keyword_box_tag11").css("background-color","white");$(".keyword_box_tag#keyword_box_tag11").css("color","white");
+            	$("#keyword_box_tag12").css("background-color","white");$(".keyword_box_tag#keyword_box_tag12").css("color","white");
+            }); */
+            
+            // 직업분류
+            $(".group_in").click(function() {
+            	$(this).remove('style');
+            	  var background_css = $('div').attr('id');
+            	  $(this).css("background-color","#ff6813");
+            }); 
       });
 </script>
 </head>
@@ -392,7 +440,7 @@
 	      	</div>
 	      	<div id="keyword_wrap">
 		      	<div class="groups">
-		      		<div class="group" id="group_total"><div class="keyword_box_tag" id="keyword_box_tag1"></div><a href="#keyword_box_title" class="group_in" id="group_total2">전체</a></div>
+		      		<div class="group" id="group_total"><div class="keyword_box_tag" id="keyword_box_tag1"></div><label class="group_in" id="group_total2">전체</label></div>
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag2"></div><a href="#keyword_box_title" class="group_in" id="group_manage_office">경영/사무</a></div>
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag3"></div><a href="#keyword_box_title" class="group_in" id="group_market_trade_circulation">마케팅/무역/유통</a></div>
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag4"></div><a href="#keyword_box_title" class="group_in" id="group_sales_consulation">영업/고객상담</a></div>
