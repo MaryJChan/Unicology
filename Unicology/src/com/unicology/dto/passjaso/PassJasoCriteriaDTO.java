@@ -1,12 +1,12 @@
-package com.unicology.dto.empinfo;
+package com.unicology.dto.passjaso;
 
 //검색기준 또는 분류기준
-public class EmpCriteriaDTO {
+public class PassJasoCriteriaDTO {
 	private int page;					// 페이지번호(하단의 번호들 클릭)
 	private int perPageNum;		// 한 페이지에 보여줄 게시글 수
 	
 	// 디폴트 생성자에 기본값 지정
-	public EmpCriteriaDTO() {
+	public PassJasoCriteriaDTO() {
 		this.page = 1;
 		this.perPageNum = 20;
 	}	

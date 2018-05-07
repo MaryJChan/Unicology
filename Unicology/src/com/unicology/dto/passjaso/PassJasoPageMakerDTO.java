@@ -1,8 +1,8 @@
-package com.unicology.dto.empinfo;
+package com.unicology.dto.passjaso;
 
-import com.unicology.dto.empinfo.EmpCriteriaDTO;
+import com.unicology.dto.passjaso.PassJasoCriteriaDTO;
 
-public class EmpPageMakerDTO {
+public class PassJasoPageMakerDTO {
 	private int totalCount;						// 전체 데이터 개수
 	private int startPage;							// 시작 페이지 번호
 	private int endPage;							// 끝 페이지 번호
@@ -11,7 +11,7 @@ public class EmpPageMakerDTO {
 	
 	private int displayPageNum = 10;	// 화면에 보여지는 블럭 수
 	
-	private EmpCriteriaDTO criDto;
+	private PassJasoCriteriaDTO criDto;
 
 	public int getTotalCount() {
 		return totalCount;
@@ -77,11 +77,11 @@ public class EmpPageMakerDTO {
 		this.displayPageNum = displayPageNum;
 	}
 
-	public EmpCriteriaDTO getCriDto() {
+	public PassJasoCriteriaDTO getCriDto() {
 		return criDto;
 	}
 
-	public void setCriDto(EmpCriteriaDTO criDto) {
+	public void setCriDto(PassJasoCriteriaDTO criDto) {
 		this.criDto = criDto;
 	}	
 	
