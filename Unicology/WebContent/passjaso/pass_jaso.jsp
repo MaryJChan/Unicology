@@ -24,12 +24,10 @@
 	}
 	#passJaso_Wrap {
 		width: 100%;
-		height: 100%;
 		margin: 50px auto 100px auto;
 	}
 	#passJaso_Area{
 		width: 960px;
-		height: 100%;
 		margin: 0 auto;
 	}
 	#passJaso_Count {

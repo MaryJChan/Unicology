@@ -9,7 +9,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.unicology.dao.passjaso.PassJasoDAO;
-import com.unicology.dto.jasosu.JasosuDTO;
 import com.unicology.dto.passjaso.PassJasoDTO;
 
 public class Index {
