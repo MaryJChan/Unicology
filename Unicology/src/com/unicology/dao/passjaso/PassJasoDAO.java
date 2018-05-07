@@ -8,8 +8,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.dto.passjaso.PassJasoCriteriaDTO;
+import com.unicology.dto.passjaso.PassJasoDTO;
 import com.unicology.mybatis.SqlMapConfig;
 
 public class PassJasoDAO {
@@ -35,11 +35,11 @@ public class PassJasoDAO {
 	}
 
 	// 합격자소서 페이지 이동시 pagenation용 코딩
-	public List<EmpInfoDTO> passJasoListAll(PassJasoCriteriaDTO criDto) {
+	public List<PassJasoDTO> passJasoListAll(PassJasoCriteriaDTO criDto) {
 		sqlSession = sqlSessionFactory.openSession();
-		List<EmpInfoDTO> list = new ArrayList<>();
+		List<PassJasoDTO> list = new ArrayList<>();
 		try {
-			list = sqlSession.selectList("empListCriteria", criDto);
+			list = sqlSession.selectList("passJasoCriteria", criDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -52,7 +52,7 @@ public class PassJasoDAO {
 	public int totalCount() {
 		sqlSession = sqlSessionFactory.openSession();
 		try {
-			result = sqlSession.selectOne("empCountPaging");
+			result = sqlSession.selectOne("passJasoCountPaging");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

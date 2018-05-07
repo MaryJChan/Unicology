@@ -42,7 +42,7 @@ public class PassJaso implements Action{
 		PassJasoDAO eDao = PassJasoDAO.getInstance();
 		
 		// bDao에 listAll메서드에 criDto를 매게변수로 주고 Mapper를 통해 조건에 맞는 행을 담아 list변수에 저장
-		List<EmpInfoDTO>list = eDao.passJasoListAll(criDto);
+		List<PassJasoDTO>list = eDao.passJasoListAll(criDto);
 		
 		// list를 view딴으로 보냄
 		request.setAttribute("passJasoList", list);

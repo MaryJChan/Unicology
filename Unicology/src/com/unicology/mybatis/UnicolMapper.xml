@@ -18,8 +18,12 @@
 		INSERT INTO empinfo
     	VALUES((SELECT nvl(max(eno)+1, 1) from empinfo), #{companyName}, #{title}, #{href}, #{clasificar}, #{subclass}, #{career}, #{education}, #{employmentType}, #{work_place}, #{deadlines})
 	</insert>
-	<!-- 채용 공고 출력 및 pagenation -->
-	<select id="empListCriteria" resultType="eDTO">
+	
+	
+	<!-- ======================합격자소서 웹 크롤링 Mapper ======================  -->
+	
+	<!-- 합격자소서 출력 및 pagenation -->
+	<select id="passJasoCriteria" resultType="eDTO">
 		<![CDATA[
 			SELECT * FROM (
 				SELECT rownum rnum, a.*
@@ -32,8 +36,8 @@
 			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
 		]]>
 	</select>
-	<!-- 채용공고 List 총 개수 -->
-	<select id="empCountPaging" resultType="int">
+	<!-- 합격자소서 List 총 개수 -->
+	<select id="passJasoCountPaging" resultType="int">
 		<!-- 부등호나 느낌표가 들어갈때에는 CDATA를 써줘야함(태그가 아님을 명시) -->
 		<![CDATA[
 			SELECT count(eno) FROM empinfo
