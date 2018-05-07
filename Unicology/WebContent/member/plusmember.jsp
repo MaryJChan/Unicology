@@ -221,6 +221,9 @@
     	width: 100%;
     	border-bottom: 2px solid #dadada;
     }
+    .group_business,.group_marketing {
+    	display: none;
+    }
     .group_content_explain {
     	font-size: 13px;
 	    color: #333;
@@ -428,7 +431,7 @@
 		
 	});	
 	//테스트 2
-	$("input[name=group_business_result]").on("change",function(){
+	$("input[name=group_business_result]").on("click",function(){
 		var test = $(this).text();
 		alert(test);
 	});
@@ -553,9 +556,9 @@
 						<select id="gradeselect">
 							<option value="" selected="selected">학력선택</option>
 							<option value="고등학교" >고등학교</option>
+							<option value="대학(2,3년)">대학(2,3년)</option>
 							<option value="대학교">대학교</option>
-							<option value="대학원(석사)">대학원(석사)</option>
-							<option value="대학원(박사)">대학원(박사)</option>
+							<option value="대학원">대학원</option>
 						</select>
 					</div>
 					<!-- 학교 오픈api -->
