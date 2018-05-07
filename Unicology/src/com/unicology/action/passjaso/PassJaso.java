@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.dao.passjaso.PassJasoDAO;
-import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.dto.passjaso.PassJasoCriteriaDTO;
+import com.unicology.dto.passjaso.PassJasoDTO;
 import com.unicology.dto.passjaso.PassJasoPageMakerDTO;
 
 public class PassJaso implements Action{

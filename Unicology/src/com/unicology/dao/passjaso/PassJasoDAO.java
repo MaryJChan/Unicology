@@ -33,6 +33,19 @@ public class PassJasoDAO {
 	public static PassJasoDAO getInstance() {
 		return instance;
 	}
+	
+	// 합격 자소서 웹크롤링 Insert코딩
+	public void PassJaso_Insert(PassJasoDTO pDto) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			result = sqlSession.insert("passJaso", pDto);
+			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+	}
 
 	// 합격자소서 페이지 이동시 pagenation용 코딩
 	public List<PassJasoDTO> passJasoListAll(PassJasoCriteriaDTO criDto) {
@@ -60,4 +73,6 @@ public class PassJasoDAO {
 		}
 		return result;
 	}
+
+
 }

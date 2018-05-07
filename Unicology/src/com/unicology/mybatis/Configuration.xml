@@ -16,8 +16,10 @@
 		<typeAlias type="com.unicology.dto.jasosu.JasosuDTO"  alias="jDTO"/>
 		<!-- 채용공고 크롤링 DTO -->
 		<typeAlias type="com.unicology.dto.empinfo.EmpInfoDTO"  alias="eDTO"/>
-		<!-- 채용공고 pagenationDTO -->
-		<typeAlias type="com.unicology.dto.empinfo.EmpCriteriaDTO"  alias="ecDTO"/>
+		<!-- 합격자소서 크롤링 DTO -->
+		<typeAlias type="com.unicology.dto.passjaso.PassJasoDTO"  alias="pDTO"/>
+		<!-- 합격자소서 pagenationDTO -->
+		<typeAlias type="com.unicology.dto.passjaso.PassJasoCriteriaDTO"  alias="pcDTO"/>
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->
