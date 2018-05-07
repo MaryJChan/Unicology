@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.unicology.dao.passjaso.PassJasoDAO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.mybatis.SqlMapConfig;
 

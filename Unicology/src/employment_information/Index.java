@@ -6,7 +6,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import com.unicology.dao.passjaso.PassJasoDAO;
+import com.unicology.dao.empinfo.EmpInfoDAO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 
 public class Index {
@@ -166,7 +166,7 @@ public class Index {
 					
                     // eDto 에 변수 저장
                     EmpInfoDTO eDto = new EmpInfoDTO(companyName, title, href, clasificar, subclass, career, education, employmentType, work_place, deadlines);
-                    PassJasoDAO eDao = PassJasoDAO.getInstance();
+                    EmpInfoDAO eDao = EmpInfoDAO.getInstance();
                     // DAO에 Jaso_Insert클래스에 jDto를 매게변수로 보냄
 					eDao.EmpInfo_Insert(eDto);
 					
