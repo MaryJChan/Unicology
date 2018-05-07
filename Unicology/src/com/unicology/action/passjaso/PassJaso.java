@@ -1,4 +1,4 @@
-package com.unicology.action.employmentnotice;
+package com.unicology.action.passjaso;
 
 import java.io.IOException;
 import java.util.Date;
@@ -15,12 +15,12 @@ import com.unicology.dto.empinfo.EmpCriteriaDTO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.dto.empinfo.EmpPageMakerDTO;
 
-public class EmploymentNoticeView implements Action{
+public class PassJaso implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "employmentNotice/employmentNotice_View.jsp";		
+		String url = "passjaso/pass_jaso.jsp";		
 		
 		// 객체 생성과 동시에 page = 1, perPageNum = 10이됨
 		EmpCriteriaDTO criDto = new EmpCriteriaDTO();

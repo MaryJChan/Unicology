@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
-import com.unicology.action.employmentnotice.EmploymentNoticeView;
+import com.unicology.action.passjaso.PassJaso;
 
 @WebServlet("/UnicolFrontController")
 public class UnicolFrontController extends HttpServlet{
@@ -52,12 +52,12 @@ public class UnicolFrontController extends HttpServlet{
  		}
  		// ======================= 자소서 작성 페이지 ======================= //
  		else if (command.equals("/jasowrite.unicol")) {
- 			action = new EmploymentNoticeView();	
+ 			action = new PassJaso();	
 			forward = action.excute(request, response);
  		}
- 		// ======================= 채용공고 페이지 ======================= //
- 		else if (command.equals("/employmentnoticeview.unicol")) {
- 			action = new EmploymentNoticeView();	
+ 		// ======================= 합격 자소서 페이지 ======================= //
+ 		else if (command.equals("/passjaso.unicol")) {
+ 			action = new PassJaso();	
 			forward = action.excute(request, response);
  		}
  		
