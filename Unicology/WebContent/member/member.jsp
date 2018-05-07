@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="../include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,8 +15,13 @@
 		
 	}
 	#header_div{
-          width: 140px;
-          margin: 62px auto;
+        margin: 62px auto;
+     	text-align: center;
+     	font-weight: bold;
+     	font-size: 30px;
+     	color: #6495ED;
+     	letter-spacing: 3px;
+     	
      }
 	#container {
 		width: 768px;
@@ -129,6 +135,8 @@
 	}
 	#agree_a {
 		display: inline-block;
+		color: #fff;
+		text-decoration: none;
 	}
 	/* footer */
 	#footer * {
@@ -155,9 +163,11 @@
           text-decoration: underline;
      }
 </style>
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
+		
+		
 		$(document).on("click","#agree_a",function (){
 
 		var id = $.trim($("#get_id").val());
@@ -220,7 +230,24 @@
 		}
 		else if (name != ""){
 			$(".essential").css("display","none");
+			$("#get_phone").focus();
 		}
+		var regPhone = /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
+		if (phone == "") {
+			$("#get_phone").focus();
+			$("#alert_phone").text("필수 정보입니다.").css("display","block");
+			$("#phoneDiv").css("background-color","#fef3f3").css("border","1px solid red");
+			return false;
+			}else if($.isNumeric(phone)==false){
+				$("#get_phone").focus();
+				$("#get_phone").val("");
+				$("#alert_phone").text("숫자만 입력해주세요.").css("display","block");
+				return false;
+			}else if(!regPhone.test(phone)){
+				$("#get_phone").focus();
+				$("#alert_phone").text("정확한 정보만 입력해주세요.").css("display","block");
+				return false;
+			}	
 		var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 		if ($("#email").val() == "") {
 			$("#alert_email").text("필수 정보입니다.").css("display","block");
@@ -242,24 +269,11 @@
 				$(".essential").css("display","none");
 				$("#get_phone").focus();
 			}
-		var regPhone = /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
-		if (phone == "") {
-			$("#get_phone").focus();
-			$("#alert_phone").text("필수 정보입니다.").css("display","block");
-			$("#phoneDiv").css("background-color","#fef3f3").css("border","1px solid red");
-			return false;
-			}else if($.isNumeric(phone)==false){
-				$("#get_phone").focus();
-				$("#get_phone").val("");
-				$("#alert_phone").text("숫자만 입력해주세요.").css("display","block");
-				return false;
-			}else if(!regPhone.test(phone)){
-				$("#get_phone").focus();
-				$("#alert_phone").text("정확한 정보만 입력해주세요.").css("display","block");
-				return false;
-			}	
 		
+		
+		confirm("추가 입력하시겠습니까?(Y)"<br>"이대로 가입하기(N)");
 		$("#frm_member").submit();
+
 	});
 
 	
@@ -350,11 +364,8 @@
 <body>
 	<div id="wrap">
          <div id="header_div">
-              <a href="index.sidedish">
-                   <img alt="유니콜로지 로고" src="image/logo_1020.png">
-              </a>
+         	<p>회원가입</p>
          </div>
-          
 		<div id="container">
 			<div id="content">
 				<form id="frm_member" name="frm_member" action="memberInsert.sidedish" method="POST">
@@ -414,3 +425,4 @@
 	</div>
 </body>
 </html>
+<%@include file="../include/footer.jsp"%>
