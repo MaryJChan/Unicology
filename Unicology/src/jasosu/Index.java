@@ -7,6 +7,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import com.unicology.dao.jasosu.JasosuDAO;
+import com.unicology.dto.jasosu.JasosuDTO;
 public class Index {
       
 	// 크롤링할 메인페이지 sub_url변수에 저장
@@ -26,11 +29,11 @@ public class Index {
 		//contents 카운팅 변수
 		int contents_count = 0;
 		
-		JasosuDAO jDao = new JasosuDAO();
+		JasosuDAO jDao = JasosuDAO.getInstance();
 		// field 배치 저장위해 ArrayList객체 생성
 		ArrayList<String> field = new ArrayList<>();
               
-		while(page <= 2) {
+		while(page <= 237) {
 				// 페이지 카운팅을 위해 1증가
 				count += 1;
 				

@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	body{
+	body {
 		margin: 0px;
 		padding: 0px;
 		font-family: 'Nanum Gothic', sans-serif;
@@ -24,8 +24,9 @@
 	#jasowrite_wrap{
 		width: 700px;
 		height: calc(100% - 20px);
-		margin: 20px auto 0;
+		margin: 50px auto 100px auto;
 		box-shadow: 0px 0px 5px #d8d8d8;
+		position: relative;
 	}
 	#jasowrite_title_wrap{
 		position:relative;
@@ -120,12 +121,39 @@
 		color: #888;
 		font-weight: bold;
 	}
-	.jasowrite_answer_font {
-	
+	#jasowrite_rimot_wrap {
+		background-color: #black;
+		position: fixed;
+		bottom:  15%;
+		right: 10%;
+		cursor: move;
+	}
+	#jasowrite_rimot_area {
+		width: 130px;
+		height: 400px;
+		box-shadow: 0px 0px 5px #d8d8d8;
+	}
+	#jasowrite_rimot_title {
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		font-size: 15px;
+		color: #6495ed;
+		border-bottom: 1px solid #ccc;
+		text-align: center;
+	}
+	#jasowrite_rimot_new {
+		width: 80%;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		margin: 10px auto;
+		border: 1px solid #ccc;
 	}
 </style>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-
+	
 </script>
 </head>
 <body>
@@ -155,7 +183,18 @@
 					)
 				</div>
 			</div>
-		</div>		
+		</div>			
 	</div>
+	<div id="jasowrite_rimot_wrap">
+		<div id="jasowrite_rimot_area">
+			<div id="jasowrite_rimot_title">Unicology</div>
+			<div id="jasowrite_rimot_new" class="">새자소서</div>
+			<div id="jasowrite_rimot_chk">맞춤법 검사</div>
+			<div id="jasowrite_rimot_save">저장하기</div>
+			<div id="jasowrite_rimot_load">불러오기</div>
+		</div>
+	</div>			
+	
+
 </body>
 </html>
