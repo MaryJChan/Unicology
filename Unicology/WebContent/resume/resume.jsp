@@ -33,10 +33,8 @@
       .resume_page{
             background-color: #ececec;
             width: 100%;
-            padding-bottom: 50px;
       }
       .resume_inner_page{
-            padding-top:50px;
             width: 80%;
             margin: 0 auto;
       }
@@ -420,9 +418,6 @@
       <div class="resume_page">
             <div class="resume_inner_page">
                   <form action="resume_insert.unicology" method="post">
-                        <div class="resume_title">
-                              <input id="resume_title" name="resume_title" type="text" placeholder="기업에게 나에대해 알려보세요. 강점,목표,관심분야도 좋아요" maxlength="100">
-                        </div>
                         
                         <!-- 수상 -->
                         <div class="award_title">수상</div>
@@ -439,7 +434,7 @@
                                     <label for="award_year" id="award_year_label">연도</label>
                                     <input type="text" name="award_year" id="award_year" class="award">
                               </div>
-                              <button class="x_btn" id="award_x">x</button>
+                              <button class="x_btn" id="award_x">&times;</button>
                               <div class="award_div" id="award_content_div">
                                     <label id="award_content_label" for="award_content">
                                           수여내용
@@ -458,7 +453,7 @@
                               <input type="text" id="country_start">
                               <label for="country_end" id="country_end_label">종료년월</label>
                               <input type="text" id="country_end">
-                              <button class="x_btn" id="award_x">x</button>
+                              <button class="x_btn" id="award_x">&times;</button>
                               <div class="abroad_div" id="abroad_content_div">
                                     <label id="abroad_content_label" for="abroad_content">
                                           내용
@@ -514,7 +509,7 @@
                                     <option value="비즈니스 회화가능">비즈니스 회화가능</option>
                                     <option value="원어민 수준">원어민 수준</option>
                               </select>
-                              <button class="x_btn" id="award_x">x</button>
+                              <button class="x_btn" id="award_x">&times;</button>
                               
                         </div>
                         <button class="plus_btn"><img alt="plus" src="../image/resume_img/plus_btn.png" id="abroad_btn">어학 추가</button>

@@ -16,22 +16,20 @@
       .resume_page{
             background-color: #ececec;
             width: 100%;
-            padding-bottom: 50px;
       }
-      .resume_inner_page{
+      .resume_inner_page1{
             padding-top:50px;
             width: 80%;
             margin: 0 auto;
-            border: 1px solid black;
       }
       .resume_title{
-            width: 75%;
+            width: 78%;
             height: 80px;
             border: 0;
             margin-bottom: 20px;
       }
       #resume_title{
-            width: 100%;
+            width: 98%;
             height:80px;
             font-size: 30px;        
             border: 0;
@@ -46,7 +44,7 @@
             font-size: 20px;
       }
       .formWrap {
-      	width: 940px;
+      	width: 100%;
       	position: relative;
       }
       .formheader {
@@ -63,7 +61,7 @@
       }
       .form {
 		    position: relative;
-		    width: 940px;
+		    width: 950px;
 		    padding: 20px 20px 10px;
 		    background-color: #fff;
 		    border: 1px solid #dbe0e9;
@@ -171,7 +169,7 @@
 	  /* 다슬이거 추가 내용 */
 	  .plus_btn_front {
 	  	margin-bottom: 34px;
-	    width: 100%;
+	    width: 78.15%;
 	    height: 50px;
 	    text-align: center;
 	    line-height: 50px;
@@ -210,7 +208,7 @@
 <body>
       <!-- .unicology로 임의로 정함 -->
       <div class="resume_page">
-            <div class="resume_inner_page">
+            <div class="resume_inner_page1">
                   <form action="resume_insert.unicology" method="post">
                         <div class="resume_title">
                               <input id="resume_title" name="resume_title" type="text" placeholder="기업에게 나에대해 알려보세요. 강점,목표,관심분야도 좋아요" maxlength="100">
