@@ -64,7 +64,6 @@
       .form {
 		    position: relative;
 		    width: 940px;
-		    margin-bottom: 34px;
 		    padding: 20px 20px 10px;
 		    background-color: #fff;
 		    border: 1px solid #dbe0e9;
@@ -169,6 +168,43 @@
 	  .entrance_year,.graduation_year,.graduation_status{
 	  	width: 115px;
 	  }
+	  /* 다슬이거 추가 내용 */
+	  .plus_btn_front {
+	  	margin-bottom: 34px;
+	    width: 100%;
+	    height: 50px;
+	    text-align: center;
+	    line-height: 50px;
+	    border-top: 1px solid #eee;
+	    box-sizing: border-box;
+	    background-color: #fff;
+	    border: none;
+	    font-size: 16px;
+	    border: 1px solid #dbe0e9;
+	    border-top: 0;
+		}
+		button {
+		    cursor: pointer;
+		}
+		.x_btn {
+		    width: 35px;
+		    height: 35px;
+		    background-color: #BABABA;
+		    color: white;
+		    font-size: 30px;
+		    text-align: center;
+		    line-height: 35px;
+		    border: none;
+		    position: absolute;
+		    right: 0;
+		    top: -1px;
+		}
+		#award_btn {
+		    width: 20px;
+		    height: 20px;
+		    vertical-align: middle;
+		    padding: 0 8px;
+		}
 </style>
 </head>
 <body>
@@ -205,6 +241,7 @@
                         				<input type="text" id="UserEmail" name="UserEmail" value="세션email">
                         			</div>
                         		</div>
+                        		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value profile_tel">
                         				<label for="UserTel">전화번호</label>
@@ -247,7 +284,7 @@
 		                       			</div>
 		                       			<div class="selectbox graduation_status high" style="margin: 0;">
 		                        				<label style="margin-left: -20px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: -10px;">
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: -10px; border-left: 0;">
 		                        					<option value="졸업">졸업</option>
 													<option value="졸업예정">졸업예정</option>
 		                        				</select>
@@ -264,8 +301,8 @@
 		                       				<input type="text" name="graduationYear" id="graduationYear">
 		                       			</div>
 		                       			<div class="selectbox graduation_status univ" style="margin: 0;">
-		                        				<label style="margin-left: -20px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: -10px;">
+		                        				<label style="margin-left: -10px;">졸업상태</label>
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="졸업">졸업</option>
 													<option value="졸업예정">졸업예정</option>
 		                        				</select>
@@ -282,8 +319,8 @@
 		                       				<input type="text" name="graduationYear" id="graduationYear">
 		                       			</div>
 		                       			<div class="selectbox graduation_status highschool" style="margin: 0;">
-		                        				<label style="margin-left: -20px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: -10px;">
+		                        				<label style="margin-left: -10px;">졸업상태</label>
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="졸업">졸업</option>
 													<option value="졸업예정">졸업예정</option>
 		                        				</select>
@@ -300,14 +337,15 @@
 		                       				<input type="text" name="graduationYear" id="graduationYear">
 		                       			</div>
 		                       			<div class="selectbox graduation_status highschool" style="margin: 0;">
-		                        				<label style="margin-left: -20px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: -10px;">
+		                        				<label style="margin-left: -10px;">졸업상태</label>
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="졸업">졸업</option>
 													<option value="졸업예정">졸업예정</option>
 		                        				</select>
 		                       			</div>
 	                       			</div>
 	                       		</div>
+	                       		<button class="x_btn" id="award_x">&times;</button>
 	                        	<div class="row non_high" style="display: inline-block;">
 	                        		<div class="input value major" style="width: 465px;">
 			                       				<label for="major">전공명</label>
@@ -318,8 +356,8 @@
 		                       				<input type="text" name="majorGrade" id="majorGrade">
 	                       			</div>
 	                       			<div class="selectbox major_totalgrade">
-		                        				<label style="margin-left: -10px;">총점</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0;">
+		                        				<label style="margin-left: -10px; ">총점</label>
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="4.5">4.5</option>
 		                        					<option value="4.3">4.3</option>
 		                        					<option value="4.0">4.0</option>
@@ -328,6 +366,7 @@
 	                       			</div>
 	                        	</div>
                         	</div>
+                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">추가</button>
                         </div>
                         <!-- 경력 -->
                          <div class="formWrap career">
@@ -351,6 +390,7 @@
 			                       				<input type="text" name="resigncom" id="resigncom" placeholder="2016.06">
 	                       			</div>
                         		</div>
+                        		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value position" style="width: 278px;">
 			                       				<label for="position">직급/직책</label>
@@ -372,6 +412,7 @@
 	                       			</div>
                         		</div>
                         	</div>
+                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">추가</button>
                         </div>
                         <!-- 인턴 대외활동 -->
                         <div class="formWrap intern">
@@ -402,6 +443,7 @@
 			                       				<input type="text" name="endintern" id="endintern" placeholder="2016.06">
 	                       			</div>
                         		</div>
+                        		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
 	                       			<div class="input value interncontent" style="width: 898px; height: 122px;">
 			                       				<label for="interncontent">활동내용</label>
@@ -409,17 +451,18 @@
 	                       			</div>
                         		</div>
                         	</div>
+                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">인턴·대외활동 추가</button>
                         </div>
                         <!-- 교육 -->
                         <div class="formWrap learning">
                         	<h2 class="formheader">교육</h2> 
                         	<div class="form formlearning">
                         		<div class="row">
-                        			<div class="input value learningname" style="width: 314px;">
+                        			<div class="input value learningname" style="width: 310px;">
 			                       				<label for="learningname">교육명</label>
 			                       				<input type="text" name="learningname" id="learningname">
 	                       			</div>
-                        			<div class="input value learningorgan" style="width: 314px;">
+                        			<div class="input value learningorgan" style="width: 310px;">
 			                       				<label for="learningorgan">교육기관</label>
 			                       				<input type="text" name="learningorgan" id="learningorgan">
 	                       			</div>
@@ -432,6 +475,7 @@
 			                       				<input type="text" name="endlearning" id="endlearning" placeholder="2016.06">
 	                       			</div>
                         		</div>
+                        		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value learningcontent" style="width: 898px; height: 122px;">
 			                       				<label for="learningcontent">교육내용</label>
@@ -439,6 +483,7 @@
 	                       			</div>
                         		</div>
                         	</div>
+                    	    <button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">교육 추가</button>
                         </div>
                         <!-- 자격증 -->
                         <div class="formWrap license">
@@ -458,14 +503,16 @@
 			                       				<input type="text" name="startlearning" id="startlearning" placeholder="2016.03">
 	                       			</div>
                         		</div>
+                        		<button class="x_btn" id="award_x">&times;</button>
                         	</div>
+                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">자격증 추가</button>
                         </div>
                   </form>
             </div>
       </div>
 </body>
 </html>
-
+<%@include file="resume.jsp" %>
 
                         		
                         		
