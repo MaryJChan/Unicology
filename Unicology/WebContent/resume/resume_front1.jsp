@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
       }
-      .resume_page{
+      .resume_page1{
             background-color: #ececec;
             width: 100%;
       }
@@ -207,7 +207,7 @@
 </head>
 <body>
       <!-- .unicology로 임의로 정함 -->
-      <div class="resume_page">
+      <div class="resume_page1">
             <div class="resume_inner_page1">
                   <form action="resume_insert.unicology" method="post">
                         <div class="resume_title">

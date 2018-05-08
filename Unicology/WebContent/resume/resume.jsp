@@ -33,6 +33,7 @@
       .resume_page{
             background-color: #ececec;
             width: 100%;
+            padding-bottom: 50px;
       }
       .resume_inner_page{
             width: 80%;
