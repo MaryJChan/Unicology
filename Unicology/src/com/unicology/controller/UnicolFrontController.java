@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
+import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.passjaso.PassJaso;
 
 @WebServlet("/UnicolFrontController")
@@ -60,6 +61,14 @@ public class UnicolFrontController extends HttpServlet{
  			action = new PassJaso();	
 			forward = action.excute(request, response);
  		}
+ 		
+ 		 // 2018.05.08 박아영 추가
+        // ======================= 채용공고 페이지 ======================= //
+        else if (command.equals("/mypage/joblist.unicol")) {
+            action = new EmpInfoAction();   
+           forward = action.excute(request, response);
+        }
+
  		
  		// 실제로 동작하는곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
  		if(forward != null) {
