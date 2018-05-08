@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+	$(document).ready(function(){
+		$(".businesswork").focus(function(){
+			$(".businesswork").css("height","244px");
+		});
+		
+	});
 </script>
 <style type="text/css">
       body,ul{
@@ -76,7 +82,7 @@
 	  	z-index: 10;
 	  	padding-top: 19px;
 	  }
-	  .input.value label,.selectbox label{
+	  .input.value label,.selectbox label,.textarea label{
 	  	top: 9px;
 	  	font-size: 11px;
 	  	color: #a8a8a8;
@@ -143,6 +149,10 @@
 	  	position: absolute;
 	  	left: 25px;
 	  }
+	  .textarea label {
+	  	position: absolute;
+	  	left: 15px;
+	  }
 	  .selectbox select {
 	  	width: 115px;
 	  	height: 62px;
@@ -166,6 +176,37 @@
 	  .entrance_year,.graduation_year,.graduation_status{
 	  	width: 115px;
 	  }
+	  .textarea {
+	    position: relative;
+	    display: inline-block;
+	    zoom: 1;
+	    width: 100%;
+	    margin-right: 10px;
+	    padding: 28px 0 0;
+	    border: 1px solid #ddd;
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    vertical-align: top;
+	    text-align: left;
+	    margin-left: 10px;
+	}
+	.textarea textarea {
+	    display: block;
+	    width: 100%;
+	    height: 90px;
+	    padding: 0 15px;
+	    border: 0;
+	    color: #333;
+	    outline: none;
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-transition: all 0.2s ease-out;
+	    -moz-transition: all 0.2s ease-out;
+	    -o-transition: all 0.2s ease-out;
+	    transition: all 0.2s ease-out;
+	    font-size: 16px;
+	    resize: none;
+	}
 	  /* 다슬이거 추가 내용 */
 	  .plus_btn_front {
 	  	margin-bottom: 34px;
@@ -207,7 +248,7 @@
 </head>
 <body>
       <!-- .unicology로 임의로 정함 -->
-      <div class="resume_page1">
+      <div class="resume_page">
             <div class="resume_inner_page1">
                   <form action="resume_insert.unicology" method="post">
                         <div class="resume_title">
@@ -404,9 +445,9 @@
 	                       			</div>
                         		</div>
                         		<div class="row">
-	                       			<div class="input value businesswork" style="width: 898px; height: 122px;">
+	                       			<div class="textarea value businesswork" style="width: 898px; height: 122px;">
 			                       				<label for="businesswork">담당업무</label>
-			                       				<input type="text" name="businesswork" id="businesswork" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요.">
+			                       				<textarea rows="30" cols="10" name="businesswork" id="businesswork" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요."></textarea>
 	                       			</div>
                         		</div>
                         	</div>
@@ -418,7 +459,7 @@
                         	<div class="form formintern">
                         		<div class="row">
                         			<div class="selectbox intern_activity" style="width: 115px; margin: 0;">
-		                        				<label style="margin-left: -10px;">활동구분</label>
+		                        				<label style="margin-left: 0;">활동구분</label>
 		                        				<select style="letter-spacing: -1px; padding-left: 15px;">
 		                        					<option value="인턴">인턴</option>
 		                        					<option value="아르바이트">아르바이트</option>
@@ -443,9 +484,9 @@
                         		</div>
                         		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
-	                       			<div class="input value interncontent" style="width: 898px; height: 122px;">
+	                       			<div class="textarea value interncontent" style="width: 898px; height: 122px;">
 			                       				<label for="interncontent">활동내용</label>
-			                       				<input type="text" name="interncontent" id="interncontent" placeholder="직무와 관련된 경험에 대해 (상황 - 노력 - 결과)순으로 작성하는 것이 좋습니다.">
+			                       				<textarea rows="30" cols="10" name="interncontent" id="interncontent" placeholder="직무와 관련된 경험에 대해 (상황 - 노력 - 결과)순으로 작성하는 것이 좋습니다."></textarea>
 	                       			</div>
                         		</div>
                         	</div>
@@ -475,9 +516,9 @@
                         		</div>
                         		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
-                        			<div class="input value learningcontent" style="width: 898px; height: 122px;">
+                        			<div class="textarea value learningcontent" style="width: 898px; height: 122px;">
 			                       				<label for="learningcontent">교육내용</label>
-			                       				<input type="text" name="learningcontent" id="learningcontent" placeholder="이수하신 교육과정에 대해 적어주세요.">
+			                       				<textarea rows="30" cols="10" name="learningcontent" id="learningcontent" placeholder="이수하신 교육과정에 대해 적어주세요."></textarea>
 	                       			</div>
                         		</div>
                         	</div>

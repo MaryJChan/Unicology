@@ -176,7 +176,7 @@
 	    height: 450px;
 		padding: 16px;
 		background-color: #fefefe;
-		width: 460px;
+		width: 560px;
 		margin: 0 auto;
 	}
 	#dutygroup {
@@ -208,7 +208,7 @@
 	    border-radius: 20px;
 	    text-align: center;
 	    margin-left: 10px;
-	    width: 300px;
+	    width: 400px;
 	    height: 100%;
     }
     #group_title {
@@ -235,6 +235,8 @@
     }
     #group_result {
     	display:inline-block;
+    	text-align: center;
+    	width: 100%;
     	height: 30%;
     }
 	.close {
@@ -356,6 +358,7 @@
 		
 	});
 	//입학년도/졸업월/졸업년도/졸업월	
+	//var get_atten = "";
 	$(document).on("change","#ent_year",function (){
 		var eyselect = $(this).val();
 		var atten_ey = $("#atten_ey");
@@ -376,8 +379,8 @@
 		var atten_gm = $("#atten_gm");
 		atten_gm.val(gmselect);
 	});
-	
 	//var get_atten = atten_ey+atten_em+atten_gy+atten_gm;
+	
 		
 	
 	
@@ -387,57 +390,91 @@
 		//$("#frm_member").submit();
 	});
 	
-	//테스트중
+	// 직무 상위 카테고리 눌렀을때 하위 카테고리 나열
+	$(".group").css("display","none");
 	$(".group_list li").on("click", function(){
 		$(".group_list li").removeClass('on');
-		var test =$(this).attr("class","on");	
+		var test = $(this).attr("class","on");	
 		if (test.text() == "경영/사무"){
 			$("#group_title").text("경영/사무");
-			$(".group_business").css("display","block");
-			$(".group_marketing").css("display","none");
+			
+			$(".group").not(".business").css("display","none");
+			$(".group.business").css("display","block");
 		}
 		else if(test.text() == "마케팅/무역/유통") {
 			$("#group_title").text("마케팅/무역/유통");
-			$(".group_business").css("display","none");
-			$(".group_marketing").css("display","block");
+			
+			$(".group").not(".marketing").css("display","none");
+			$(".group.marketing").css("display","block");
 		}
 		else if(test.text() == "영업/고객상담") {
 			$("#group_title").text("영업/고객상담");
+			
+			$(".group").not(".GRO").css("display","none");
+			$(".group.GRO").css("display","block");
 		}
 		else if(test.text() == "IT/인터넷") {
 			$("#group_title").text("IT/인터넷");
+			
+			$(".group").not(".IT").css("display","none");
+			$(".group.IT").css("display","block");
 		}
 		else if(test.text() == "연구개발/설계") {
 			$("#group_title").text("연구개발/설계");
+			
+			$(".group").not(".develop").css("display","none");
+			$(".group.develop").css("display","block");
 		}
 		else if(test.text() == "생산/제조") {
 			$("#group_title").text("생산/제조");
+			
+			$(".group").not(".production").css("display","none");
+			$(".group.production").css("display","block");
 		}
 		else if(test.text() == "전문/특수직") {
 			$("#group_title").text("전문/특수직");
+			
+			$(".group").not(".profession").css("display","none");
+			$(".group.profession").css("display","block");
 		}
 		else if(test.text() == "디자인") {
 			$("#group_title").text("디자인");
+			
+			$(".group").not(".design").css("display","none");
+			$(".group.design").css("display","block");
 		}
 		else if(test.text() == "미디어") {
 			$("#group_title").text("미디어");
+			
+			$(".group").not(".media").css("display","none");
+			$(".group.media").css("display","block");
 		}
 		else if(test.text() == "서비스") {
 			$("#group_title").text("서비스");
+			
+			$(".group").not(".service").css("display","none");
+			$(".group.service").css("display","block");
 		}
 		else if(test.text() == "건설") {
 			$("#group_title").text("건설");
+			
+			$(".group").not(".build").css("display","none");
+			$(".group.build").css("display","block");
 		}
 		
 	});	
-	//테스트 2
-	$("input[name=group_business_result]").on("click",function(){
-		var test = $(this).text();
-		alert(test);
-	});
+	//체크 버튼을 누르면 체크박스의 값들을 
+		$("#getCheckedAll").click(function(){
 
-
-
+			var array = new Array();
+			$("input:checkbox:checked").each(function() {
+				var length = $("input:checkbox:checked").length;
+				//alert(length);
+				var test = array.push($(this).val());
+				var val = $(this).val();
+				$("#list").html(test);
+			});
+		});
 });	
 </script>
 <body>
@@ -501,7 +538,7 @@
 						    <div class="duty_modal_content">
 						      <div id="dutygroup">
 							      <ul class="group_list">
-						      		<li class="on" id="group_business" >경영/사무</li>
+						      		<li id="group_business">경영/사무</li>
 						      		<li id="group_marketing">마케팅/무역/유통</li>
 						      		<li id="group_GRO">영업/고객상담</li>
 						      		<li id="group_IT">IT/인터넷</li>
@@ -515,34 +552,148 @@
 							      </ul>
 							      <div class="group_items_area">
 								      <span class="close">&times;</span>
+								      <div id="getCheckedAll" style="cursor: pointer; border: 2px solid purple">TEST check</div>
 								      <div id="group_title">
 								      		직무를 선택해주세요.
 								      </div>
 								      <div id="group_content">
-								      	<div class="group_business">
+								      	<div class="group business">
 									      	<form>
-									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_business_result">기획/전략/경영</label>
-									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_business_result">인사/노무/교육</label>
-									      		<label for="3" class="group_content_explain"><input type="checkbox" id="3" name="group_business_result">재무/세무/IR</label>
-									      		<label for="4" class="group_content_explain"><input type="checkbox" id="4" name="group_business_result">일반사무/총무/법무</label>
-									      		<label for="5" class="group_content_explain"><input type="checkbox" id="5" name="group_business_result">경리/회계/결산</label>
-									      		<label for="6" class="group_content_explain"><input type="checkbox" id="6" name="group_business_result">비서/사무보조</label>
+									      		<label for="business1" class="group_content_explain"><input type="checkbox" id="business1" name="group_business_result" value="기획/전략/경영">기획/전략/경영</label>
+									      		<label for="business2" class="group_content_explain"><input type="checkbox" id="business2" name="group_business_result" value="인사/노무/교육">인사/노무/교육</label>
+									      		<label for="business3" class="group_content_explain"><input type="checkbox" id="business3" name="group_business_result" value="재무/세무/IR">재무/세무/IR</label>
+									      		<label for="business4" class="group_content_explain"><input type="checkbox" id="business4" name="group_business_result" value="일반사무/총무/법무">일반사무/총무/법무</label>
+									      		<label for="business5" class="group_content_explain"><input type="checkbox" id="business5" name="group_business_result" value="경리/회계/결산">경리/회계/결산</label>
+									      		<label for="business6" class="group_content_explain"><input type="checkbox" id="business6" name="group_business_result" value=">비서/사무보조">비서/사무보조</label>
 									      	</form>
 								      	</div>
-								      	<div class="group_marketing">
+								      	
+								      	<div class="group marketing">
 									      	<form>
-									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_marketing_result">마케팅/광고</label>
-									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_marketing_result">유통/물류/재고</label>
-									      		<label for="3" class="group_content_explain"><input type="checkbox" id="3" name="group_marketing_result">홍보/PR</label>
-									      		<label for="4" class="group_content_explain"><input type="checkbox" id="4" name="group_marketing_result">무역/해외영업</label>
-									      		<label for="5" class="group_content_explain"><input type="checkbox" id="5" name="group_marketing_result">구매/자재</label>
-									      		<label for="6" class="group_content_explain"><input type="checkbox" id="6" name="group_marketing_result">운전/운송</label>
-									      		<label for="7" class="group_content_explain"><input type="checkbox" id="7" name="group_marketing_result">상품기획/MD</label>
+									      		<label for="marketing1" class="group_content_explain"><input type="checkbox" id="marketing1" name="group_marketing_result" value="마케팅/광고">마케팅/광고</label>
+									      		<label for="marketing2" class="group_content_explain"><input type="checkbox" id="marketing2" name="group_marketing_result" value="유통/물류/재고">유통/물류/재고</label>
+									      		<label for="marketing3" class="group_content_explain"><input type="checkbox" id="marketing3" name="group_marketing_result" value="홍보/PR">홍보/PR</label>
+									      		<label for="marketing4" class="group_content_explain"><input type="checkbox" id="marketing4" name="group_marketing_result" value="무역/해외영업">무역/해외영업</label>
+									      		<label for="marketing5" class="group_content_explain"><input type="checkbox" id="marketing5" name="group_marketing_result" value="구매/자재">구매/자재</label>
+									      		<label for="marketing6" class="group_content_explain"><input type="checkbox" id="marketing6" name="group_marketing_result" value="운전/운송">운전/운송</label>
+									      		<label for="marketing7" class="group_content_explain"><input type="checkbox" id="marketing7" name="group_marketing_result" value="상품기획/MD">상품기획/MD</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group GRO">
+									      	<form>
+									      		<label for="GRO1" class="group_content_explain"><input type="checkbox" id="GRO1" name="group_GRO_result" value="제품/서비스영업">제품/서비스영업</label>
+									      		<label for="GRO2" class="group_content_explain"><input type="checkbox" id="GRO2" name="group_GRO_result" value="금융/보험영업">금융/보험영업</label>
+									      		<label for="GRO3" class="group_content_explain"><input type="checkbox" id="GRO3" name="group_GRO_result" value="광고영업">광고영업</label>
+									      		<label for="GRO4" class="group_content_explain"><input type="checkbox" id="GRO4" name="group_GRO_result" value="기술영업">기술영업</label>
+									      		<label for="GRO5" class="group_content_explain"><input type="checkbox" id="GRO5" name="group_GRO_result" value="영업관리/영업지원">영업관리/영업지원</label>
+									      		<label for="GRO6" class="group_content_explain"><input type="checkbox" id="GRO6" name="group_GRO_result" value="채권/심사">채권/심사</label>
+									      		<label for="GRO7" class="group_content_explain"><input type="checkbox" id="GRO7" name="group_GRO_result" value="아웃바운드/TM">아웃바운드/TM</label>
+									      		<label for="GRO8" class="group_content_explain"><input type="checkbox" id="GRO8" name="group_GRO_result" value="고객센터/인바운드/CS">고객센터/인바운드/CS</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group IT">
+									      	<form>
+									      		<label for="IT1" class="group_content_explain"><input type="checkbox" id="IT1" name="group_IT_result" value="QA/테스터/검증">QA/테스터/검증</label>
+									      		<label for="IT2" class="group_content_explain"><input type="checkbox" id="IT2" name="group_IT_result" value="네트워크/서버/보안/DBA">네트워크/서버/보안/DBA</label>
+									      		<label for="IT3" class="group_content_explain"><input type="checkbox" id="IT3" name="group_IT_result" value="서비스기획/PM">서비스기획/PM</label>
+									      		<label for="IT4" class="group_content_explain"><input type="checkbox" id="IT4" name="group_IT_result" value="웹/앱프로그래머">웹/앱프로그래머</label>
+									      		<label for="IT5" class="group_content_explain"><input type="checkbox" id="IT5" name="group_IT_result" value="응용프로그래머">응용프로그래머</label>
+									      		<label for="IT6" class="group_content_explain"><input type="checkbox" id="IT6" name="group_IT_result" value="시스템프로그래머">시스템프로그래머</label>
+									      		<label for="IT7" class="group_content_explain"><input type="checkbox" id="IT7" name="group_IT_result" value="SE/시스템분석/설계">SE/시스템분석/설계</label>
+									      		<label for="IT8" class="group_content_explain"><input type="checkbox" id="IT8" name="group_IT_result" value="IT/컴퓨터 교육">IT/컴퓨터 교육</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group develop">
+									      	<form>
+									      		<label for="develop1" class="group_content_explain"><input type="checkbox" id="develop1" name="group_develop_result" value="자동차/조선/기계">자동차/조선/기계</label>
+									      		<label for="develop2" class="group_content_explain"><input type="checkbox" id="develop2" name="group_develop_result" value="반도체/디스플레이">반도체/디스플레이</label>
+									      		<label for="develop3" class="group_content_explain"><input type="checkbox" id="develop3" name="group_develop_result" value="화학/에너지/환경">화학/에너지/환경</label>
+									      		<label for="develop4" class="group_content_explain"><input type="checkbox" id="develop4" name="group_develop_result" value="전기/전자/제어">전기/전자/제어</label>
+									      		<label for="develop5" class="group_content_explain"><input type="checkbox" id="develop5" name="group_develop_result" value="기계설계/CAD/CAM">기계설계/CAD/CAM</label>
+									      		<label for="develop6" class="group_content_explain"><input type="checkbox" id="develop6" name="group_develop_result" value="통신기술/네트워크 구축">통신기술/네트워크 구축</label>
+									      		<label for="develop7" class="group_content_explain"><input type="checkbox" id="develop7" name="group_develop_result" value="건설/설계/인테리어">건설/설계/인테리어</label>
+									      		<label for="develop8" class="group_content_explain"><input type="checkbox" id="develop8" name="group_develop_result" value="인문/사회과학">인문/사회과학</label>
+									      		<label for="develop9" class="group_content_explain"><input type="checkbox" id="develop9" name="group_develop_result" value="바이오/제약/식품">바이오/제약/식품</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group production">
+									      	<form>
+									      		<label for="production1" class="group_content_explain"><input type="checkbox" id="production1" name="group_production_result" value="생산관리/공정관리/품질관리">생산관리/공정관리/품질관리</label>
+									      		<label for="production2" class="group_content_explain"><input type="checkbox" id="production2" name="group_production_result" value="생산/제조/설비/조립">생산/제조/설비/조립</label>
+									      		<label for="production3" class="group_content_explain"><input type="checkbox" id="production3" name="group_production_result" value="설치/정비/AS/시공/공무">설치/정비/AS/시공/공무</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group profession">
+									      	<form>
+									      		<label for="profession1" class="group_content_explain"><input type="checkbox" id="profession1" name="group_profession_result" value="경영분석/컨설턴트">경영분석/컨설턴트</label>
+									      		<label for="profession2" class="group_content_explain"><input type="checkbox" id="profession2" name="group_profession_result" value="리서치/통계/사서">리서치/통계/사서</label>
+									      		<label for="profession3" class="group_content_explain"><input type="checkbox" id="profession3" name="group_profession_result" value="외국어/번역/통역">외국어/번역/통역</label>
+									      		<label for="profession4" class="group_content_explain"><input type="checkbox" id="profession4" name="group_profession_result" value="법률/특허/상표">법률/특허/상표</label>
+									      		<label for="profession5" class="group_content_explain"><input type="checkbox" id="profession5" name="group_profession_result" value="회계/세무">회계/세무</label>
+									      		<label for="profession6" class="group_content_explain"><input type="checkbox" id="profession6" name="group_profession_result" value="보안/경비/경호">보안/경비/경호</label>
+									      		<label for="profession7" class="group_content_explain"><input type="checkbox" id="profession7" name="group_profession_result" value="보건/의료">보건/의료</label>
+									      		<label for="profession8" class="group_content_explain"><input type="checkbox" id="profession8" name="group_profession_result" value="중고등교사/학원강사">중고등교사/학원강사</label>
+									      		<label for="profession9" class="group_content_explain"><input type="checkbox" id="profession9" name="group_profession_result" value="초등/유치원/보육교사">초등/유치원/보육교사</label>
+									      		<label for="profession10" class="group_content_explain"><input type="checkbox" id="profession10" name="group_profession_result" value="외국어/자격증/기술강사">외국어/자격증/기술강사</label>
+									      		<label for="profession11" class="group_content_explain"><input type="checkbox" id="profession11" name="group_profession_result" value="사회복지/요양보호/자원봉사">사회복지/요양보호/자원봉사</label>
+									      		<label for="profession12" class="group_content_explain"><input type="checkbox" id="profession12" name="group_profession_result" value="교육개발/기획">교육개발/기획</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group design">
+									      	<form>
+									      		<label for="design1" class="group_content_explain"><input type="checkbox" id="design1" name="group_design_result" value="그래픽디자인/CG">그래픽디자인/CG</label>
+									      		<label for="design2" class="group_content_explain"><input type="checkbox" id="design2" name="group_design_result" value="출판/편집디자인">출판/편집디자인</label>
+									      		<label for="design3" class="group_content_explain"><input type="checkbox" id="design3" name="group_design_result" value="제품/산업디자인">제품/산업디자인</label>
+									      		<label for="design4" class="group_content_explain"><input type="checkbox" id="design4" name="group_design_result" value="캐릭터/애니메이션">캐릭터/애니메이션</label>
+									      		<label for="design5" class="group_content_explain"><input type="checkbox" id="design5" name="group_design_result" value="광고/시각디자인">광고/시각디자인</label>
+									      		<label for="design6" class="group_content_explain"><input type="checkbox" id="design6" name="group_design_result" value="건축/인테리어디자인">건축/인테리어디자인</label>
+									      		<label for="design7" class="group_content_explain"><input type="checkbox" id="design7" name="group_design_result" value="의류/패션/잡화디자인">의류/패션/잡화디자인</label>
+									      		<label for="design8" class="group_content_explain"><input type="checkbox" id="design8" name="group_design_result" value="웹/앱디자인">웹/앱디자인</label>
+									      		<label for="design9" class="group_content_explain"><input type="checkbox" id="design9" name="group_design_result" value="문화컨텐츠/문화예술">문화컨텐츠/문화예술</label>
+									      		<label for="design10" class="group_content_explain"><input type="checkbox" id="design10" name="group_design_result" value="디자인기타">디자인기타</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group media">
+									      	<form>
+									      		<label for="media1" class="group_content_explain"><input type="checkbox" id="media1" name="group_media_result" value="연축/제작/PD">연축/제작/PD</label>
+									      		<label for="media2" class="group_content_explain"><input type="checkbox" id="media2" name="group_media_result" value="아나운서/리포터/성우">아나운서/리포터/성우</label>
+									      		<label for="media3" class="group_content_explain"><input type="checkbox" id="media3" name="group_media_result" value="영상/카메라/촬영">영상/카메라/촬영</label>
+									      		<label for="media4" class="group_content_explain"><input type="checkbox" id="media4" name="group_media_result" value="기자">기자</label>
+									      		<label for="media5" class="group_content_explain"><input type="checkbox" id="media5" name="group_media_result" value="음악/음향">음악/음향</label>
+									      		<label for="media6" class="group_content_explain"><input type="checkbox" id="media6" name="group_media_result" value="광고제작/카피">광고제작/카피</label>
+									      		<label for="media7" class="group_content_explain"><input type="checkbox" id="media7" name="group_media_result" value="무대/스탭/오퍼레이터">무대/스탭/오퍼레이터</label>
+									      		<label for="media8" class="group_content_explain"><input type="checkbox" id="media8" name="group_media_result" value="연예/엔터테인먼트">연예/엔터테인먼트</label>
+									      		<label for="media9" class="group_content_explain"><input type="checkbox" id="media9" name="group_media_result" value="인쇄/출판/편집">인쇄/출판/편집</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group service">
+									      	<form>
+									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_service_result" value="승무원/숙박/여행">승무원/숙박/여행</label>
+									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_service_result" value="음식서비스">음식서비스</label>
+									      	</form>
+								      	</div>
+								      	
+								      	<div class="group build">
+									      	<form>
+									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_build_result" value="현장/시공/감리/공무">현장/시공/감리/공무</label>
+									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_build_result" value="안전/품잘/관리">안전/품잘/관리</label>
+									      		<label for="3" class="group_content_explain"><input type="checkbox" id="3" name="group_build_result" value="토목/조경/도시">토목/조경/도시</label>
+									      		<label for="4" class="group_content_explain"><input type="checkbox" id="4" name="group_build_result" value="건축/인테리어/설계">건축/인테리어/설계</label>
+									      		<label for="5" class="group_content_explain"><input type="checkbox" id="5" name="group_build_result" value="환경/플랜트">환경/플랜트</label>
 									      	</form>
 								      	</div>
 								      </div>
 								      <div id="group_result">
 								      	선택한 직무
+								      		<span id="list" style="display: block; text-align: left;">1</span>
 								      </div>
 							      </div>
 						      </div>
