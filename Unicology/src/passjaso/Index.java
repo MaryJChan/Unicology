@@ -65,6 +65,7 @@ public class Index {
 			
 			for(Element element:href_Tag) {
 				row_count += 1;
+				total_count += 1;
 				//element(contents_Tag)에 href속성값을 main_sub_url에 저장
 				String main_sub_url = element.attr("href");
                  
