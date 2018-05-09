@@ -37,19 +37,19 @@
 		height: 694px;
 		margin: 0 auto;
 	}
-	#content {
-		width: 460px;
+	.content {
+		width: 660px;
 		height: 100%;
 		margin: 0 auto;
 	}
 	.row_group {
 		zoom: 1;
 		margin-bottom: 10px;
-		border: solid 1px #dadada;
+		border: solid 2px #dadada;
 		background: #fff;
 	}
-	.join_row:first-child {
-    border-top: none;
+	.join_row:last-child {
+    	border-bottom: 1px solid #dadada;
 	}
 	.join_row {
 	    -webkit-box-sizing: border-box;
@@ -57,7 +57,7 @@
 	    box-sizing: border-box;
 	    padding: 9px;
 	    background: #fff;
-	    border-top: 1px solid #dadada;
+	    border-bottom: 2px solid #dadada;
     }
     input {
     	border: 0;
@@ -333,140 +333,132 @@
 <script type="text/javascript">
 	$(document).ready(function (){
 		
-	// 남여 선택시 색변화
-	$(document).on("click", "#manlabel" ,function (){
-		$("#manlabel").css("color","#6495ED");
-		$("#manlabel").css("border","1px solid #6495ED");
+		// 남여 선택시 색변화
+		$(document).on("click", "#manlabel" ,function (){
+			$("#manlabel").css("color","#6495ED");
+			$("#manlabel").css("border","1px solid #6495ED");
+			
+			$("#womanlabel").css("color","#dcdcdc");
+			$("#womanlabel").css("border","1px solid #dcdcdc");
+		});
+		$(document).on("click", "#womanlabel" ,function (){
+			$("#womanlabel").css("color","#6495ED");
+			$("#womanlabel").css("border","1px solid #6495ED");
+			
+			$("#manlabel").css("color","#dcdcdc");
+			$("#manlabel").css("border","1px solid #dcdcdc");
+		});
+		//최종학력
+		$(document).on("change","#gradeselect",function (){
+			var gradeselect = $(this).val();
+			var grade = $("#get_grade");
+			
+			var val = grade.val(gradeselect);
+			alert(val);
+			
+		});
+		//입학년도/졸업월/졸업년도/졸업월	
+		//var get_atten = "";
+		$(document).on("change","#ent_year",function (){
+			var eyselect = $(this).val();
+			var atten_ey = $("#atten_ey");
+			atten_ey.val(eyselect);
+		});
+		$(document).on("change","#ent_month",function (){
+			var emselect = $(this).val();
+			var atten_em = $("#atten_em");
+			atten_em.val(emselect);
+		});
+		$(document).on("change","#gradu_year",function (){
+			var gyselect = $(this).val();
+			var atten_gy = $("#atten_gy");
+			atten_gy.val(gyselect);
+		});
+		$(document).on("change","#gradu_month",function (){
+			var gmselect = $(this).val();
+			var atten_gm = $("#atten_gm");
+			atten_gm.val(gmselect);
+		});
+		//var get_atten = atten_ey+atten_em+atten_gy+atten_gm;
 		
-		$("#womanlabel").css("color","#dcdcdc");
-		$("#womanlabel").css("border","1px solid #dcdcdc");
-	});
-	$(document).on("click", "#womanlabel" ,function (){
-		$("#womanlabel").css("color","#6495ED");
-		$("#womanlabel").css("border","1px solid #6495ED");
+			
 		
-		$("#manlabel").css("color","#dcdcdc");
-		$("#manlabel").css("border","1px solid #dcdcdc");
-	});
-	//최종학력
-	$(document).on("change","#gradeselect",function (){
-		var gradeselect = $(this).val();
-		var grade = $("#get_grade");
 		
-		var val = grade.val(gradeselect);
-		alert(val);
-		
-	});
-	//입학년도/졸업월/졸업년도/졸업월	
-	//var get_atten = "";
-	$(document).on("change","#ent_year",function (){
-		var eyselect = $(this).val();
-		var atten_ey = $("#atten_ey");
-		atten_ey.val(eyselect);
-	});
-	$(document).on("change","#ent_month",function (){
-		var emselect = $(this).val();
-		var atten_em = $("#atten_em");
-		atten_em.val(emselect);
-	});
-	$(document).on("change","#gradu_year",function (){
-		var gyselect = $(this).val();
-		var atten_gy = $("#atten_gy");
-		atten_gy.val(gyselect);
-	});
-	$(document).on("change","#gradu_month",function (){
-		var gmselect = $(this).val();
-		var atten_gm = $("#atten_gm");
-		atten_gm.val(gmselect);
-	});
-	//var get_atten = atten_ey+atten_em+atten_gy+atten_gm;
-	
-		
-	
-	
-	//가입하기
-	$(document).on("click","#agree_a",function (){
-		alert(get_atten);
-		//$("#frm_member").submit();
-	});
-	
-	// 직무 상위 카테고리 눌렀을때 하위 카테고리 나열
-	$(".group").css("display","none");
-	$(".group_list li").on("click", function(){
-		$(".group_list li").removeClass('on');
-		var test = $(this).attr("class","on");	
-		if (test.text() == "경영/사무"){
-			$("#group_title").text("경영/사무");
+		// 직무 상위 카테고리 눌렀을때 하위 카테고리 나열
+		$(".group").css("display","none");
+		$(".group_list li").on("click", function(){
+			$(".group_list li").removeClass('on');
+			var test = $(this).attr("class","on");	
+			if (test.text() == "경영/사무"){
+				$("#group_title").text("경영/사무");
+				
+				$(".group").not(".business").css("display","none");
+				$(".group.business").css("display","block");
+			}
+			else if(test.text() == "마케팅/무역/유통") {
+				$("#group_title").text("마케팅/무역/유통");
+				
+				$(".group").not(".marketing").css("display","none");
+				$(".group.marketing").css("display","block");
+			}
+			else if(test.text() == "영업/고객상담") {
+				$("#group_title").text("영업/고객상담");
+				
+				$(".group").not(".GRO").css("display","none");
+				$(".group.GRO").css("display","block");
+			}
+			else if(test.text() == "IT/인터넷") {
+				$("#group_title").text("IT/인터넷");
+				
+				$(".group").not(".IT").css("display","none");
+				$(".group.IT").css("display","block");
+			}
+			else if(test.text() == "연구개발/설계") {
+				$("#group_title").text("연구개발/설계");
+				
+				$(".group").not(".develop").css("display","none");
+				$(".group.develop").css("display","block");
+			}
+			else if(test.text() == "생산/제조") {
+				$("#group_title").text("생산/제조");
+				
+				$(".group").not(".production").css("display","none");
+				$(".group.production").css("display","block");
+			}
+			else if(test.text() == "전문/특수직") {
+				$("#group_title").text("전문/특수직");
+				
+				$(".group").not(".profession").css("display","none");
+				$(".group.profession").css("display","block");
+			}
+			else if(test.text() == "디자인") {
+				$("#group_title").text("디자인");
+				
+				$(".group").not(".design").css("display","none");
+				$(".group.design").css("display","block");
+			}
+			else if(test.text() == "미디어") {
+				$("#group_title").text("미디어");
+				
+				$(".group").not(".media").css("display","none");
+				$(".group.media").css("display","block");
+			}
+			else if(test.text() == "서비스") {
+				$("#group_title").text("서비스");
+				
+				$(".group").not(".service").css("display","none");
+				$(".group.service").css("display","block");
+			}
+			else if(test.text() == "건설") {
+				$("#group_title").text("건설");
+				
+				$(".group").not(".build").css("display","none");
+				$(".group.build").css("display","block");
+			}
 			
-			$(".group").not(".business").css("display","none");
-			$(".group.business").css("display","block");
-		}
-		else if(test.text() == "마케팅/무역/유통") {
-			$("#group_title").text("마케팅/무역/유통");
-			
-			$(".group").not(".marketing").css("display","none");
-			$(".group.marketing").css("display","block");
-		}
-		else if(test.text() == "영업/고객상담") {
-			$("#group_title").text("영업/고객상담");
-			
-			$(".group").not(".GRO").css("display","none");
-			$(".group.GRO").css("display","block");
-		}
-		else if(test.text() == "IT/인터넷") {
-			$("#group_title").text("IT/인터넷");
-			
-			$(".group").not(".IT").css("display","none");
-			$(".group.IT").css("display","block");
-		}
-		else if(test.text() == "연구개발/설계") {
-			$("#group_title").text("연구개발/설계");
-			
-			$(".group").not(".develop").css("display","none");
-			$(".group.develop").css("display","block");
-		}
-		else if(test.text() == "생산/제조") {
-			$("#group_title").text("생산/제조");
-			
-			$(".group").not(".production").css("display","none");
-			$(".group.production").css("display","block");
-		}
-		else if(test.text() == "전문/특수직") {
-			$("#group_title").text("전문/특수직");
-			
-			$(".group").not(".profession").css("display","none");
-			$(".group.profession").css("display","block");
-		}
-		else if(test.text() == "디자인") {
-			$("#group_title").text("디자인");
-			
-			$(".group").not(".design").css("display","none");
-			$(".group.design").css("display","block");
-		}
-		else if(test.text() == "미디어") {
-			$("#group_title").text("미디어");
-			
-			$(".group").not(".media").css("display","none");
-			$(".group.media").css("display","block");
-		}
-		else if(test.text() == "서비스") {
-			$("#group_title").text("서비스");
-			
-			$(".group").not(".service").css("display","none");
-			$(".group.service").css("display","block");
-		}
-		else if(test.text() == "건설") {
-			$("#group_title").text("건설");
-			
-			$(".group").not(".build").css("display","none");
-			$(".group.build").css("display","block");
-		}
-		
-	});	
-	//체크 버튼을 누르면 체크박스의 값들을 
-		$("#getCheckedAll").click(function(){
+		});	
+		//체크 버튼을 누르면 체크박스의 값들을 
 
-			var array = new Array();
 			$("input:checkbox:checked").each(function() {
 				var length = $("input:checkbox:checked").length;
 				//alert(length);
@@ -474,7 +466,7 @@
 				var val = $(this).val();
 				$("#list").html(test);
 			});
-		});
+		
 });	
 </script>
 <body>
@@ -484,7 +476,7 @@
          </div>
           
 		<div id="container">
-			<div id="content">
+			<div class="content">
 				<form id="frm_member" name="frm_member" action="plusmemberInsert.sidedish" method="POST">
 				<div class="row_group">
 					<!-- 주소 -->
@@ -559,24 +551,24 @@
 								      <div id="group_content">
 								      	<div class="group business">
 									      	<form>
-									      		<label for="business1" class="group_content_explain"><input type="checkbox" id="business1" name="group_business_result" value="기획/전략/경영">기획/전략/경영</label>
-									      		<label for="business2" class="group_content_explain"><input type="checkbox" id="business2" name="group_business_result" value="인사/노무/교육">인사/노무/교육</label>
-									      		<label for="business3" class="group_content_explain"><input type="checkbox" id="business3" name="group_business_result" value="재무/세무/IR">재무/세무/IR</label>
-									      		<label for="business4" class="group_content_explain"><input type="checkbox" id="business4" name="group_business_result" value="일반사무/총무/법무">일반사무/총무/법무</label>
-									      		<label for="business5" class="group_content_explain"><input type="checkbox" id="business5" name="group_business_result" value="경리/회계/결산">경리/회계/결산</label>
-									      		<label for="business6" class="group_content_explain"><input type="checkbox" id="business6" name="group_business_result" value=">비서/사무보조">비서/사무보조</label>
+									      		<label for="business1" class="group_content_explain"><input type="checkbox" id="business1" name="group_business_result[]" class="checkSelect" value="기획/전략/경영">기획/전략/경영</label>
+									      		<label for="business2" class="group_content_explain"><input type="checkbox" id="business2" name="group_business_result[]" class="checkSelect" value="인사/노무/교육">인사/노무/교육</label>
+									      		<label for="business3" class="group_content_explain"><input type="checkbox" id="business3" name="group_business_result[]" class="checkSelect" value="재무/세무/IR">재무/세무/IR</label>
+									      		<label for="business4" class="group_content_explain"><input type="checkbox" id="business4" name="group_business_result[]" class="checkSelect" value="일반사무/총무/법무">일반사무/총무/법무</label>
+									      		<label for="business5" class="group_content_explain"><input type="checkbox" id="business5" name="group_business_result[]" class="checkSelect" value="경리/회계/결산">경리/회계/결산</label>
+									      		<label for="business6" class="group_content_explain"><input type="checkbox" id="business6" name="group_business_result[]" class="checkSelect" value=">비서/사무보조">비서/사무보조</label>
 									      	</form>
 								      	</div>
 								      	
 								      	<div class="group marketing">
 									      	<form>
-									      		<label for="marketing1" class="group_content_explain"><input type="checkbox" id="marketing1" name="group_marketing_result" value="마케팅/광고">마케팅/광고</label>
-									      		<label for="marketing2" class="group_content_explain"><input type="checkbox" id="marketing2" name="group_marketing_result" value="유통/물류/재고">유통/물류/재고</label>
-									      		<label for="marketing3" class="group_content_explain"><input type="checkbox" id="marketing3" name="group_marketing_result" value="홍보/PR">홍보/PR</label>
-									      		<label for="marketing4" class="group_content_explain"><input type="checkbox" id="marketing4" name="group_marketing_result" value="무역/해외영업">무역/해외영업</label>
-									      		<label for="marketing5" class="group_content_explain"><input type="checkbox" id="marketing5" name="group_marketing_result" value="구매/자재">구매/자재</label>
-									      		<label for="marketing6" class="group_content_explain"><input type="checkbox" id="marketing6" name="group_marketing_result" value="운전/운송">운전/운송</label>
-									      		<label for="marketing7" class="group_content_explain"><input type="checkbox" id="marketing7" name="group_marketing_result" value="상품기획/MD">상품기획/MD</label>
+									      		<label for="marketing1" class="group_content_explain"><input type="checkbox" id="marketing1" name="group_marketing_result[]" class="checkSelect" value="마케팅/광고">마케팅/광고</label>
+									      		<label for="marketing2" class="group_content_explain"><input type="checkbox" id="marketing2" name="group_marketing_result[]" class="checkSelect" value="유통/물류/재고">유통/물류/재고</label>
+									      		<label for="marketing3" class="group_content_explain"><input type="checkbox" id="marketing3" name="group_marketing_result[]" class="checkSelect" value="홍보/PR">홍보/PR</label>
+									      		<label for="marketing4" class="group_content_explain"><input type="checkbox" id="marketing4" name="group_marketing_result[]" class="checkSelect" value="무역/해외영업">무역/해외영업</label>
+									      		<label for="marketing5" class="group_content_explain"><input type="checkbox" id="marketing5" name="group_marketing_result[]" class="checkSelect" value="구매/자재">구매/자재</label>
+									      		<label for="marketing6" class="group_content_explain"><input type="checkbox" id="marketing6" name="group_marketing_result[]" class="checkSelect" value="운전/운송">운전/운송</label>
+									      		<label for="marketing7" class="group_content_explain"><input type="checkbox" id="marketing7" name="group_marketing_result[]" class="checkSelect" value="상품기획/MD">상품기획/MD</label>
 									      	</form>
 								      	</div>
 								      	
