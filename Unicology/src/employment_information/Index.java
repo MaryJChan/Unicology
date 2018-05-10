@@ -133,8 +133,7 @@ public class Index {
 					//title_Tag의 i번째 인덱스의 텍스트만 title변수에 저장
 					title = title_Tag.get(i).text();	
 					//href_Tag의 i번째 인덱스의 href속성값을 href변수에 저장
-					href = href_Tag.get(i).attr("href");	
-					href = "http://www.saramin.co.kr" + href;	
+					href = "http://www.saramin.co.kr" + href_Tag.get(i).attr("href");	
 					//subclass_Tag의 i번째 인덱스의 텍스트만 subclass변수에 저장
 					subclass = subclass_Tag.get(i).text();	
 					//career_Tag의 i번째 인덱스의 텍스트만 career변수에 저장
