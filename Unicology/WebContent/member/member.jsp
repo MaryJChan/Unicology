@@ -500,7 +500,9 @@
 		
 	});
 	//입학년도/졸업월/졸업년도/졸업월	
-	//var get_atten = "";
+	var get_eyem = "";
+	var get_gygm = "";
+	
 	$(document).on("change","#ent_year",function (){
 		var eyselect = $(this).val();
 		var atten_ey = $("#atten_ey");

@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
+import com.unicology.action.member.LoginCkAction;
+import com.unicology.action.member.SessionAction;
 import com.unicology.action.passjaso.PassJaso;
+import com.unicology.action.unicolmain.IndexAction;
 
 @WebServlet("/UnicolFrontController")
 public class UnicolFrontController extends HttpServlet{
@@ -51,6 +54,11 @@ public class UnicolFrontController extends HttpServlet{
  		if(command.equals("/ 이곳 밑에 페이지 주석후 달수있도록 합니다.")) {
  			System.out.println("OKAY?");
  		}
+ 		// ======================= 메인 페이지 =========================== //
+ 		else if (command.equals("/index.unicol")) {
+ 			action = new IndexAction();	
+			forward = action.excute(request, response);
+ 		}
  		// ======================= 자소서 작성 페이지 ======================= //
  		else if (command.equals("/jasowrite.unicol")) {
  			action = new PassJaso();	
@@ -64,11 +72,21 @@ public class UnicolFrontController extends HttpServlet{
  		
  		 // 2018.05.08 박아영 추가
         // ======================= 채용공고 페이지 ======================= //
-        else if (command.equals("/mypage/joblist.unicol")) {
+        else if (command.equals("/joblist.unicol")) {
             action = new EmpInfoAction();   
            forward = action.excute(request, response);
         }
-
+ 		// 김성민 추가
+ 		// ====================== 세션값 저장(아이디 비밀번호) ====================== //
+        else if (command.equals("/sessionaction.unicol")) {
+        	action = new SessionAction();   
+        	forward = action.excute(request, response);
+        }
+ 		// ====================== 로그인 확인 ====================== //
+        else if (command.equals("/loginck.unicol")) {
+			action = new LoginCkAction();
+			forward = action.excute(request, response);
+		}
  		
  		// 실제로 동작하는곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
  		if(forward != null) {
