@@ -331,12 +331,12 @@
 										</div>
 								</div>
 							</div>
-	                       <a href="#" class="Header_inner" id="Header_member">회원가입</a>
+	                       <a href="/Unicology/constract.unicol" class="Header_inner" id="Header_member">회원가입</a>
                   		</c:when>
                   		<c:otherwise>
                   			<span id="Header_bar"></span>
                   			<a class="Header_inner" style="width: 150px;"><span
-										style="color: #fff; background: #88b04b; padding: 2px 4px;">${sessionScope.loginUser.mname}
+										style="color: #fff; background: #6495ED; padding: 2px 4px;">${sessionScope.loginUser.mname}
 											(${sessionScope.loginUser.mid})</span></a>
 							<span id="Header_bar"></span>
 							<a class="Header_inner"><a href="#" id="logout">로그아웃</a></a>

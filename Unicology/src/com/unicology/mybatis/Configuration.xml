@@ -20,6 +20,8 @@
 		<typeAlias type="com.unicology.dto.passjaso.PassJasoDTO"  alias="pDTO"/>
 		<!-- 합격자소서 pagenationDTO -->
 		<typeAlias type="com.unicology.dto.passjaso.PassJasoCriteriaDTO"  alias="pcDTO"/>
+		<!-- 회원정보 DTO -->
+		<typeAlias type="com.unicology.dto.member.MemberDTO" alias="mDTO"/>
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->
@@ -43,5 +45,7 @@
 		<mapper resource="com/unicology/mybatis/mapper/EmpInfoUnicolMapper.xml"/>
 		<!-- 합격 자소서 mapper -->
 		<mapper resource="com/unicology/mybatis/mapper/PassJasoUnicolMapper.xml"/>
+		<!-- 회원정보 mapper -->
+		<mapper resource="com/unicology/mybatis/mapper/MemberUnicolMapper.xml"/>
 	</mappers>
 </configuration>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+	<!-- 회원정보 mapper -->
+<mapper namespace="com/unicology/mybatis/mapper/MemberUnicolMapper.xml">
+			<!-- id 중복체크 -->
+	<select id="membercheck" resultType="mDTO" parameterType="String" >
+		SELECT mid FROM unicol_member 
+		WHERE mid = #{mid}
+	</select>
+
+		<!-- 로그인시 id pw 확인 -->
+	<select id="sessionLogin" resultType="mDTO" parameterType="String">
+		 SELECT * FROM unicol_member 
+		 WHERE mid= #{mid} 
+		 AND mpw = #{mpw}
+	</select>
+	
+		<!-- id pw 확인 -->
+	<select id="memLogin" resultType="mDTO" parameterType="mDTO">
+		 SELECT * FROM unicol_member 
+		 WHERE mid = #{mid} 
+		 AND mpw = #{mpw}
+	</select>
+	
+	<!-- 회원등록 -->
+	<insert id="memberinsert">
+		INSERT INTO unicol_member (mid,mpw,mname,mphone,memail)
+		VALUES (#{mid},
+				#{mpw},
+				#{mname},
+				#{mphone},
+				#{memail})
+	</insert>
+
+</mapper>

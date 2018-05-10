@@ -110,7 +110,7 @@ import com.unicology.dto.member.MemberDTO;
 			sqlSession = sqlSessionFactory.openSession();
 			List<MemberDTO> list = new ArrayList<>();
 			try {
-				list =sqlSession.selectList("memLogin", mDto);
+				list = sqlSession.selectList("memLogin", mDto);
 				for (MemberDTO memberDTO : list) {
 					System.out.print(memberDTO.getMid()+"\t");
 					System.out.println(memberDTO.getMpw()+"\t");

@@ -19,7 +19,7 @@ public class SessionAction implements Action {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String url = "index.jsp";
+		String url = "index.unicol";
 		
 			
 		String mid = request.getParameter("login_id");

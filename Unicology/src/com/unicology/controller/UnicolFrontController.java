@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
+import com.unicology.action.member.ConstractAction;
+import com.unicology.action.member.JoinMemberAction;
 import com.unicology.action.member.LoginCkAction;
+import com.unicology.action.member.LogoutAction;
 import com.unicology.action.member.SessionAction;
 import com.unicology.action.passjaso.PassJaso;
 import com.unicology.action.unicolmain.IndexAction;
@@ -56,6 +59,7 @@ public class UnicolFrontController extends HttpServlet{
  		}
  		// ======================= 메인 페이지 =========================== //
  		else if (command.equals("/index.unicol")) {
+ 			System.out.println("서블릿탔음");
  			action = new IndexAction();	
 			forward = action.excute(request, response);
  		}
@@ -66,6 +70,7 @@ public class UnicolFrontController extends HttpServlet{
  		}
  		// ======================= 합격 자소서 페이지 ======================= //
  		else if (command.equals("/passjaso.unicol")) {
+ 			System.out.println("서블릿탔음");
  			action = new PassJaso();	
 			forward = action.excute(request, response);
  		}
@@ -77,16 +82,32 @@ public class UnicolFrontController extends HttpServlet{
            forward = action.excute(request, response);
         }
  		// 김성민 추가
- 		// ====================== 세션값 저장(아이디 비밀번호) ====================== //
+ 		// ====================== 세션값 저장(아이디 비밀번호) =============== //
         else if (command.equals("/sessionaction.unicol")) {
         	action = new SessionAction();   
         	forward = action.excute(request, response);
         }
- 		// ====================== 로그인 확인 ====================== //
+ 		// ====================== 로그인 확인 ========================== //
         else if (command.equals("/loginck.unicol")) {
 			action = new LoginCkAction();
 			forward = action.excute(request, response);
 		}
+ 		// ====================== 로그아웃============================ //
+        else if (command.equals("/logout.unicol")) {
+        	action = new LogoutAction();
+        	forward = action.excute(request, response);
+        }
+ 		// ====================== 회원가입 동의 창============================ //
+        else if (command.equals("/constract.unicol")) {
+        	System.out.println("서블릿탔음");
+        	action = new ConstractAction();
+        	forward = action.excute(request, response);
+        }
+ 		// ====================== 회원가입 동의 창============================ //
+        else if (command.equals("/joinmember.unicol")) {
+        	action = new JoinMemberAction();
+        	forward = action.excute(request, response);
+        }
  		
  		// 실제로 동작하는곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
  		if(forward != null) {

@@ -312,7 +312,7 @@
 	</div>
 	<!-- 메인 창 -->
 	<div id="container">
-		<form>
+		<form id="join_content" action="joinmember.unicol" method="GET">
 			<div class="terms">
 				<p class="terms_p">
 					<span class="terms_span">
@@ -341,7 +341,7 @@
 							<h3 class="article_title">제 2조 (정의)</h3>
 							<p>이 약관에서 사용하는 용어의 정의는 다음과 같습니다.<br>
                                 ①"서비스"라 함은 구현되는 단말기(PC, TV, 휴대형단말기 등의 각종 유<br>
-				                                  무선 장치를 포함)와 상관없이 "회원"이 이용할 수 있는 몽촌반찬 및 네이<br>
+				                                  무선 장치를 포함)와 상관없이 "회원"이 이용할 수 있는 유니콜로지 및 네이<br>
 				                                  버 관련 제반 서비스를 의미합니다.</p>
 							</div>
 						</div>
@@ -356,14 +356,14 @@
 						</span>
 						<div class="terms_box">
 							<div class="article">
-							<p>정보통신망법 규정에 따라 몽촌반찬에 회원가입 신청하시는 분께 수집하는<br>
+							<p>정보통신망법 규정에 따라 유니콜로지에 회원가입 신청하시는 분께 수집하는<br>
 			                                      개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이<br>
 			                                      용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.</p>
 							<h3 class="article_title">1. 수집하는 개인정보</h3>
 							<p>이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네<br>
 			                                      이버 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘<br>
 			                                      린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위<br>
-			                                      해 회원가입을 할 경우, 몽촌반찬는 서비스 이용을 위해 필요한 최소한의<br>
+			                                      해 회원가입을 할 경우, 유니콜로지는 서비스 이용을 위해 필요한 최소한의<br>
 			                                       개인정보를 수집합니다. </p>
 							</div>
 						</div>
@@ -379,9 +379,9 @@
 						<div class="terms_box">
 							<div class="article">
 							<p>위치정보 이용약관에 동의하시면, 위치를 활용한 광고 정보 수신 등을<br>
-                                      	 포함하는 몽촌반찬 위치기반 서비스를 이용할 수 있습니다.</p>
+                                      	 포함하는 유니콜로지 위치기반 서비스를 이용할 수 있습니다.</p>
 							<h3 class="article_title">제 1조 (목적)</h3>
-							<p>약관은 몽촌반찬 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는<br>
+							<p>약관은 유니콜로지 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는<br>
 				                                       위치기반서비스사업과 관련하여 회사와 개인위치정보주체와의 권리, 의<br>
 				                                       무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다. </p>
 							</div>
@@ -395,9 +395,8 @@
 			</div>
 			<!-- 동의 비동의 버튼 -->
 			<div class="btn_double_area">
-				<span><a href="../index/index.jsp" class="btn_type btn_default">비동의</a></span>
-				<!-- mybatis 적용전 -->
-				<span><a href="../member/member.jsp" class="btn_type btn_agree">동의</a></span>
+				<span><a href="index.unicol" class="btn_type btn_default">비동의</a></span>
+				<span><a href="#" class="btn_type btn_agree">동의</a></span>
 			</div>
 		</form>
 	</div>
