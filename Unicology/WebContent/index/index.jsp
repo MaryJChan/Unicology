@@ -12,7 +12,7 @@
       /* Main */
       #box{}
       #Main_img_box{
-            background-image:url(../image/index_Img/Main-img.jpg);
+            background-image:url(image/index_Img/Main-img.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100%;
