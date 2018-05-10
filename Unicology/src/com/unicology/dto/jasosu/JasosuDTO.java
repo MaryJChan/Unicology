@@ -3,6 +3,7 @@ package com.unicology.dto.jasosu;
 public class JasosuDTO {
 	
 	private int jaso_no;
+	private String jaso_schPart;
 	private String jaso_field;
 	private String jaso_title;
 	private String jaso_contents;
@@ -10,14 +11,23 @@ public class JasosuDTO {
 	public JasosuDTO() {
 		
 	}
-
-	public JasosuDTO(String jaso_field, String jaso_title, String jaso_contents) {
+	
+	public JasosuDTO(String jaso_schPart, String jaso_field, String jaso_title, String jaso_contents) {
 		super();
+		this.jaso_schPart = jaso_schPart;
 		this.jaso_field = jaso_field;
 		this.jaso_title = jaso_title;
 		this.jaso_contents = jaso_contents;
 	}
 	
+	public int getJaso_no() {
+		return jaso_no;
+	}
+
+	public void setJaso_no(int jaso_no) {
+		this.jaso_no = jaso_no;
+	}
+
 	public String getJaso_field() {
 		return jaso_field;
 	}
@@ -26,12 +36,12 @@ public class JasosuDTO {
 		this.jaso_field = jaso_field;
 	}
 
-	public int getJaso_no() {
-		return jaso_no;
+	public String getJaso_schPart() {
+		return jaso_schPart;
 	}
 
-	public void setJaso_no(int jaso_no) {
-		this.jaso_no = jaso_no;
+	public void setJaso_schPart(String jaso_schPart) {
+		this.jaso_schPart = jaso_schPart;
 	}
 
 	public String getJaso_title() {

@@ -9,9 +9,8 @@
 	<!-- ======================자소서 분석 웹 크롤링 Mapper====================== -->
 	<insert id="jasosu" parameterType="jDTO">
 		INSERT INTO jaso
-    	VALUES((SELECT nvl(max(jaso_no)+1, 1) from jaso), #{jaso_field}, #{jaso_title}, #{jaso_contents})
+    	VALUES((SELECT nvl(max(jaso_no)+1, 1) from jaso), #{jaso_schPart}, #{jaso_field}, #{jaso_title}, #{jaso_contents})
 	</insert>
-	
 	
 	<!-- ======================채용 공고 웹크롤링 Mapper======================  -->
 	<insert id="EmpInfo" parameterType="eDTO">
