@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/unicology/mybatis/mapper/EmpInfoUnicolMapper.xml">
+	<!-- ======================채용 공고 웹크롤링 Mapper======================  -->
+	<insert id="EmpInfo" parameterType="eDTO">
+		INSERT INTO empinfo
+    	VALUES((SELECT nvl(max(eno)+1, 1) from empinfo), #{companyName}, #{title}, #{href}, #{clasificar}, #{subclass}, #{career}, #{education}, #{employmentType}, #{work_place}, #{deadlines})
+	</insert>
+	
+	<!-- 채용공고 리스트 출력 및 pagenation -->
+	<select id="jobListSelect" resultType="eDTO">
+		<![CDATA[
+				SELECT * FROM (
+					SELECT rownum rnum, a.*
+					FROM (
+						SELECT empinfo.* 
+	                      FROM EMPINFO empinfo
+						WHERE eno > 0
+						ORDER BY eno ASC
+					) a
+				)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+			]]>
+	</select>
+	
+</mapper>

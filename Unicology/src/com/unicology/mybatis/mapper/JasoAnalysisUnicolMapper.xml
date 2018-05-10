@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/unicology/mybatis/mapper/JasoAnalysisUnicolMapper.xml">
+
+
+	<!-- ======================자소서 분석 웹 크롤링 Mapper====================== -->
+	<insert id="jasosu" parameterType="jDTO">
+		INSERT INTO jaso
+    	VALUES((SELECT nvl(max(jaso_no)+1, 1) from jaso), #{jaso_field}, #{jaso_title}, #{jaso_contents})
+	</insert>
+	
+	
+	<!-- ======================채용 공고 웹크롤링 Mapper======================  -->
+	<insert id="EmpInfo" parameterType="eDTO">
+		INSERT INTO empinfo
+    	VALUES((SELECT nvl(max(eno)+1, 1) from empinfo), #{companyName}, #{title}, #{href}, #{clasificar}, #{subclass}, #{career}, #{education}, #{employmentType}, #{work_place}, #{deadlines})
+	</insert>
+	
+</mapper>

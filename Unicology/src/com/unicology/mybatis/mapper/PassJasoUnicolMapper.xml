@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/unicology/mybatis/mapper/EmpInfoUnicolMapper.xml">
+	<!-- ======================합격자소서 웹 크롤링 Mapper ======================  -->
+	<insert id="passJaso" parameterType="pDTO">
+		INSERT INTO passjaso
+    	VALUES((SELECT nvl(max(pno)+1, 1) from passjaso), #{company}, #{title}, #{href}, #{supportingField})
+	</insert>	
+	
+	<!-- 합격자소서 출력 및 pagenation -->
+	<select id="passJasoCriteria" resultType="pDTO">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT rownum rnum, a.*
+				FROM (
+					SELECT b.* FROM passjaso b
+					WHERE pno > 0
+					ORDER BY pno ASC
+				) a
+			)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>
+	</select>
+	
+	<!-- 합격자소서 List 총 개수 -->
+	<select id="passJasoCountPaging" resultType="int">
+		<!-- 부등호나 느낌표가 들어갈때에는 CDATA를 써줘야함(태그가 아님을 명시) -->
+		<![CDATA[
+			SELECT count(pno) FROM passjaso
+			WHERE pno > 0
+		]]>
+	</select>
+	
+</mapper>

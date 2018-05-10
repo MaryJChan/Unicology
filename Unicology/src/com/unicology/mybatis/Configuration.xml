@@ -37,6 +37,11 @@
 	
 	<!-- Mapper.xml -->
 	<mappers>
-		<mapper resource="com/unicology/mybatis/UnicolMapper.xml"/>
+		<!-- 자소서 분석 mapper -->
+		<mapper resource="com/unicology/mybatis/mapper/JasoAnalysisUnicolMapper.xml"/>
+		<!-- 채용 공고 mapper -->
+		<mapper resource="com/unicology/mybatis/mapper/EmpInfoUnicolMapper.xml"/>
+		<!-- 합격 자소서 mapper -->
+		<mapper resource="com/unicology/mybatis/mapper/PassJasoUnicolMapper.xml"/>
 	</mappers>
 </configuration>
