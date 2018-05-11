@@ -16,6 +16,8 @@ import com.unicology.action.member.ConstractAction;
 import com.unicology.action.member.JoinMemberAction;
 import com.unicology.action.member.LoginCkAction;
 import com.unicology.action.member.LogoutAction;
+import com.unicology.action.member.MemAjaxAction;
+import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.SessionAction;
 import com.unicology.action.passjaso.PassJaso;
 import com.unicology.action.unicolmain.IndexAction;
@@ -106,6 +108,16 @@ public class UnicolFrontController extends HttpServlet{
  		// ====================== 회원가입 동의 창============================ //
         else if (command.equals("/joinmember.unicol")) {
         	action = new JoinMemberAction();
+        	forward = action.excute(request, response);
+        }
+ 		// ====================== 아이디 중복 Ajax 확인 창============================ //
+        else if (command.equals("/memajax.unicol")) {
+        	action = new MemAjaxAction();
+        	forward = action.excute(request, response);
+        }
+ 		// ====================== 회원가입 입력 창============================ //
+        else if (command.equals("/memberInsert.unicol")) {
+        	action = new MemberInsertAction();
         	forward = action.excute(request, response);
         }
  		

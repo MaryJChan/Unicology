@@ -370,13 +370,13 @@
 	      <div id="Main_img_box">
 	            
 	            <div class="Main_rhom">
-	                  <a href="#" id="coverletter"><img alt="rhombus"src="../image/index_Img/rhombus1.png"></a>
-	                  <a href="#" id="write"><img alt="rhombus"src="../image/index_Img/rhombus3.png"></a>
-	                  <a href="#" id="resume"><img alt="rhombus"src="../image/index_Img/rhombus5.png"></a>
+	                  <a href="#" id="coverletter"><img alt="rhombus"src="image/index_Img/rhombus1.png"></a>
+	                  <a href="#" id="write"><img alt="rhombus"src="image/index_Img/rhombus3.png"></a>
+	                  <a href="#" id="resume"><img alt="rhombus"src="image/index_Img/rhombus5.png"></a>
 	            </div>
 	            <div class="Main_rhom" id="Main_rhom2">
-	                  <a href="#" id="keyword"><img alt="rhombus"src="../image/index_Img/rhombus2.png"></a>
-	                  <a href="../mypage/mypage.jsp" id="mypage"><img alt="rhombus"src="../image/index_Img/rhombus4.png"></a>
+	                  <a href="#" id="keyword"><img alt="rhombus"src="image/index_Img/rhombus2.png"></a>
+	                  <a href="index.unicol" id="mypage"><img alt="rhombus"src="image/index_Img/rhombus4.png"></a>
 	            </div>
 	      </div>
 	      
@@ -392,7 +392,7 @@
 	      <!-- Main_info -->
 	      <div id="Index_function_info_wrap">
 	            <div id="Index_function_info1">
-	            	<img alt="info1" src="../image/index_Img/info1.png" id="info1_img">
+	            	<img alt="info1" src="image/index_Img/info1.png" id="info1_img">
 	            	<div id="info1_content">
 	            		<div id="info1_title">
 	            			자기소개서 작성
@@ -406,7 +406,7 @@
 	      </div>
 	       <div id="Index_function_info_wrap2">
 	            <div id="Index_function_info2">
-	            	<img alt="info2" src="../image/index_Img/keyword.jpg" id="info2_img">
+	            	<img alt="info2" src="image/index_Img/keyword.jpg" id="info2_img">
 	            	<div id="info2_content">
 	            		<div id="info2_title">
 	            			직무별 합격자소서의 핵심키워드 분석
@@ -419,7 +419,7 @@
 	      </div>
 	       <div id="Index_function_info_wrap3">
 	            <div id="Index_function_info3">
-	            	<img alt="info3" src="../image/index_Img/resume.jpg" id="info3_img">
+	            	<img alt="info3" src="image/index_Img/resume.jpg" id="info3_img">
 	            	<div id="info3_content">
 	            		<div id="info3_title">
 	            			직무별 합격자소서의 핵심키워드 분석
@@ -460,7 +460,7 @@
 	      <!-- scroll_top -->
 		  <div id="scroll_top">
 			  <a href="#">
-			  	<img alt="top_button" src="../image/index_Img/side-triangle.png" id="top_btn">
+			  	<img alt="top_button" src="image/index_Img/side-triangle.png" id="top_btn">
 			  </a>
 		  </div>	
       </div>

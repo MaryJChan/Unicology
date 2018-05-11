@@ -334,6 +334,9 @@
 		cursor: pointer;
 		display: inline-block;
 	}
+	.plus.agree {
+		background-color: #dadada;
+	}
 	.dis.agree {
 		float: left;
 		background-color: #dadada;
@@ -343,6 +346,11 @@
 	}
 	.btn.agree {
 		margin-left: 45px;
+	}
+	.disagree_a {
+		display: inline-block;
+		color: #fff;
+		text-decoration: none;
 	}
 	.agree_a {
 		display: inline-block;
@@ -457,24 +465,49 @@
 				$("#get_phone").focus();
 			}
 		
-
+		//필수정보만 가입 테스트
+		$("#frm_member").submit();
 	});
+		
+			/* 입학년도/입학월/		졸업년도/졸업월 */	
+			var value = "";
+			$("#ent_year").on("change",function (){
+				var eyselect = $(this).val();
+				value = $("#atten_ey");
+				value.val(eyselect);
+			});
+			$("#ent_month").on("change",function (){
+				var emselect = $(this).val();
+				value = $("#atten_em");
+				value.val(emselect);
+			});
+				
+			$("#gradu_year").on("change",function (){
+				var gyselect = $(this).val();
+				value = $("#atten_gy");
+				value.val(gyselect);
+			});
+			$("#gradu_month").on("change",function (){
+				var gmselect = $(this).val();
+				value = $("#atten_gm");
+				value.val(gmselect);
+			});
 
 	
 		/* e mail 도메인 사이트 바뀌는 방법 */
-	$(document).on("change","#emailselect",function () {
+	$("#emailselect").on("change",function () {
 		var emailselect = $("#emailselect").val();
-		var email_adress = $("#email_adress");
-		if (emailselect =="직접입력") {
-			email_adress.attr("readonly",false);
-			email_adress.focus();
-			email_adress.val("");
+		var email_address = $("#email_address");
+		if (emailselect == "직접입력") {
+			email_address.attr("readonly",false);
+			email_address.focus();
+			email_address.val("");
 		}else {
-			email_adress.val(emailselect);
-			email_adress.attr("readonly",true);
+			email_address.val(emailselect);
+			email_address.attr("readonly",true);
 			}
-	});
 		
+	});
 	// 남여 선택시 색변화
 	$(document).on("click", "#manlabel" ,function (){
 		$("#manlabel").css("color","#6495ED");
@@ -491,41 +524,14 @@
 		$("#manlabel").css("border","1px solid #dcdcdc");
 	});
 	//최종학력
-	$(document).on("change","#gradeselect",function (){
+	$("#gradeselect").on("change",function (){
 		var gradeselect = $(this).val();
 		var grade = $("#get_grade");
 		
-		var val = grade.val(gradeselect);
-		alert(val);
+		grade.val(gradeselect);
 		
 	});
-	//입학년도/졸업월/졸업년도/졸업월	
-	var get_eyem = "";
-	var get_gygm = "";
 	
-	$(document).on("change","#ent_year",function (){
-		var eyselect = $(this).val();
-		var atten_ey = $("#atten_ey");
-		atten_ey.val(eyselect);
-	});
-	$(document).on("change","#ent_month",function (){
-		var emselect = $(this).val();
-		var atten_em = $("#atten_em");
-		atten_em.val(emselect);
-	});
-	$(document).on("change","#gradu_year",function (){
-		var gyselect = $(this).val();
-		var atten_gy = $("#atten_gy");
-		atten_gy.val(gyselect);
-	});
-	$(document).on("change","#gradu_month",function (){
-		var gmselect = $(this).val();
-		var atten_gm = $("#atten_gm");
-		atten_gm.val(gmselect);
-	});
-	//var get_atten = atten_ey+atten_em+atten_gy+atten_gm;
-	
-		
 	
 	
 	// 직무 상위 카테고리 눌렀을때 하위 카테고리 나열
@@ -624,14 +630,15 @@
 	//추가정보 입력하기 버튼 누를 시에 추가정보 입력창 아래에 뜨기
 	$(".plus.agree").click(function(){
 		
+		$(".plus.agree").css("background-color","#6495ED");
 		$("#plusmember").css("display","block");
 	});
-	//관심직무 값 get_duty
-	
+
+	//$(document).on(ready) 끝
 });
 		
 	
-	/* A-jax 활용법 */
+	/* A-jax 활용한 아이디에서 초점 된 것이 끝날때 ID 중복체크 검사 후 판단 */
 	$(document).on("blur","#get_id",function (){
 		var id = $(this).val();
 		if(id == ""){
@@ -642,7 +649,7 @@
 			$("#alert_id").css("display","none");
 			$("#idDiv").css("background-color","#fff").css("border","1px solid #dadada");
 			$.ajax({
-				url: "memajax.sidedish",
+				url: "memajax.unicol",
 				type: "POST",
 				dataType: "json",
 				data: "id="+ id,
@@ -703,7 +710,7 @@
          </div>
 		<div id="container">
 			<div class="content">
-				<form id="frm_member" name="frm_member" action="memberInsert.sidedish" method="POST">
+				<form id="frm_member" name="frm_member" action="memberInsert.unicol" method="POST">
 				<div id="member">
 				<div class="row_group">
 					<div id="idDiv" class="join_row">
@@ -731,7 +738,7 @@
 					</div>
 					<div id="emailDiv" class="join_row">
 						<input class="emailmember_bar" id="email" name="email" type="text" name="" placeholder="e-mail">@
-						<input class="emailmember_bar" id="email_adress" name="email_adress" type="text">
+						<input class="emailmember_bar" id="email_address" name="email_address" type="text">
 						<select id="emailselect">
 							<option value="직접입력" selected="selected">직접입력</option>
 							<option value="naver.com">naver.com</option>
@@ -819,7 +826,7 @@
 							      <div class="group_items_area">
 								      <span class="close">&times;</span>
 								      <div id="group_title">
-								      		직무를 선택해주세요.
+								      		직무를 선택해주세요
 								      </div>
 								      <div id="group_content">
 								      	<div class="group business">
@@ -1054,7 +1061,7 @@
 							<option value="12">12</option>
 						</select>
 						~ 
-						<select id="gradu_year" class="school_ year">
+						<select id="gradu_year" class="school_ year" >
 							<option value="졸업년도" selected="selected">졸업년도</option>
 							<option value="2028">2028</option>
 							<option value="2027">2027</option>
@@ -1136,7 +1143,7 @@
 							<option value="1951">1951</option>
 							<option value="1950">1950</option>
 						</select>
-						<select id="gradu_month" class="school_ mon">
+						<select id="gradu_month" class="school_ mon" >
 							<option value="월" selected="selected">월</option>
 							<option value="01">1</option>
 							<option value="02">2</option>
@@ -1161,7 +1168,7 @@
 				</div>
 				
 				<div id="btnDiv">
-					 <div class="dis agree"><a href="../index/index.jsp" class="disagree_a">메인화면으로 돌아가기</a></div> 
+					 <div class="dis agree"><a href="index.unicol" class="disagree_a">메인화면으로 돌아가기</a></div> 
 					 <div class="btn agree"><a href="#" class="agree_a">∨ 가입하기</a></div> 
 					 <div class="plus agree"><a href="#" class="plusagree_a">∨ 추가 정보 입력하기</a></div> 
 				</div>

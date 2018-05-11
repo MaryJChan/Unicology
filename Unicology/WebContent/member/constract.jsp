@@ -64,7 +64,7 @@
           position: relative;
      }
      .terms_span > label {
-          background: url('../image/member_img/uncheckbox.png') 100% 50% no-repeat;
+          background: url('image/member_img/uncheckbox.png') 100% 50% no-repeat;
           display: block;
           line-height: 20px;
           height: 58px;
@@ -74,7 +74,7 @@
           cursor: pointer;
      }
      .terms_span > input:checked +label {
-          background-image: url('../image/member_img/checkbox.png');
+          background-image: url('image/member_img/checkbox.png');
      }
      /* terms_li1 */
      #terms_ul {
@@ -120,11 +120,11 @@
           top: 50%;
      }
      .ul_li_span > label {
-     background: url('../image/member_img/uncheckbox.png') 100% 50% no-repeat;
+     background: url('image/member_img/uncheckbox.png') 100% 50% no-repeat;
      display: block;
      }
      .ul_li_span > input:checked +label {
-     background-image: url('../image/member_img/checkbox.png');
+     background-image: url('image/member_img/checkbox.png');
      }
      .terms_box {
           position: relative;
@@ -396,7 +396,7 @@
 			<!-- 동의 비동의 버튼 -->
 			<div class="btn_double_area">
 				<span><a href="index.unicol" class="btn_type btn_default">비동의</a></span>
-				<span><a href="#" class="btn_type btn_agree">동의</a></span>
+				<span><a href="joinmember.unicol" class="btn_type btn_agree">동의</a></span>
 			</div>
 		</form>
 	</div>
