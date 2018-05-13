@@ -104,7 +104,6 @@
       #info1_text{
       	background-color: #FEFEFE;
       	height: 370px;
-      	line-height:280px;
       	padding:0 50px;
       	word-wrap: normal;
       }
@@ -146,7 +145,6 @@
       #info2_text{
       	background-color: #FEFEFE;
       	height: 370px;
-      	line-height:280px;
       	padding:0 50px;
       	word-wrap: normal;
       }
@@ -189,7 +187,6 @@
       #info3_text{
       	background-color: #FEFEFE;
       	height: 370px;
-      	line-height:280px;
       	padding:0 50px;
       	word-wrap: normal;
       }
@@ -278,8 +275,50 @@
       	height: 18px;
       	display: inline-block;
       }
+      /* 모달 끝 */
+      #go_write{
+      	background-color: #8CAF51;
+      	color: white;
+      	width: 240px;
+      	height: 45px;
+      	display: block;
+      	font-size: 18px;
+      	font-weight: bold;
+      	line-height: 45px;
+      	border-radius: 8px;
+      	margin: 0 auto;
+      	text-align: center;
+      	margin-top: 250px;
+      }
+      #go_keyword{
+      	background-color: #4EA3AF;
+      	color: white;
+      	width: 300px;
+      	height: 45px;
+      	display: block;
+      	font-size: 18px;
+      	font-weight: bold;
+      	line-height: 45px;
+      	border-radius: 8px;
+      	margin: 0 auto;
+      	text-align: center;
+      	margin-top: 250px;
+      }
+      #go_resume{
+      	background-color: #AF4E5E;
+      	color: white;
+      	width: 210px;
+      	height: 45px;
+      	display: block;
+      	font-size: 18px;
+      	font-weight: bold;
+      	line-height: 45px;
+      	border-radius: 8px;
+      	margin: 0 auto;
+      	text-align: center;
+      	margin-top: 250px;
+      }
 </style>
-
 </head>
 <body>
       <%@include file="../include/header.jsp"%>
@@ -295,7 +334,7 @@
 	            </div>
 	            <div class="Main_rhom" id="Main_rhom2">
 	                  <a href="#" id="mypage"><img alt="rhombus"src="image/index_Img/main4_1.png"id="main4"></a>
-	                  <a href="#" id="careers"><img alt="rhombus"src="image/index_Img/main5_1.png"id="main5"></a>
+	                  <a href="joblist.unicol" id="careers"><img alt="rhombus"src="image/index_Img/main5_1.png"id="main5"></a>
 	            </div>
 	      </div>
 	      
@@ -319,6 +358,7 @@
 	            		<div id="info1_text">
 	            			원하는 기업을 선택하면 기업에 맞는 자소서 작성가능 + 
 	            			합격자소서  문구 랜덤 선택~ (설명)
+	            			<a href="jasowrite.unicol" id="go_write">자기소개서 작성페이지로 이동</a>
 	            		</div>
 	            	</div>
 	            </div>
@@ -332,6 +372,7 @@
 	            		</div>
 	            		<div id="info2_text">
 	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
+	            			<a href="#" id="go_keyword">자기소개서 핵심 키워드페이지로 이동</a>
 	            		</div>
 	            	</div>
 	            </div>
@@ -345,6 +386,7 @@
 	            		</div>
 	            		<div id="info3_text">
 	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
+	            			<a href="resumeInsert.unicol" id="go_resume">이력서관리페이지로 이동</a>
 	            		</div>
 	            	</div>
 	            </div>
@@ -390,15 +432,7 @@
 <script type="text/javascript">
       $(document).ready(function(){
             
-            
-            /* hover기능 추가하기 !! */
-            
-            // 기업자소서 이동
-            $("#coverletter").on("click",function(){
-                  alert("기업자소서페이지로 이동할예정"); 
-            });
-            
-            // 자소서핵심키워드 이동
+            // 자소서핵심키워드 위치이동
            $("#keyword").click(function(){
             	var scrollPosition = $("#Index_function_info_wrap").offset().top;
                  $('html, body').animate({
@@ -413,7 +447,7 @@
             	$("#main2").attr("src","image/index_Img/main2_1.png");
             });
             
-            // 자기소개서
+            // 자기소개서작성 위치이동
             $("#write").click(function(){
             	var scrollPosition = $("#Index_function_info_wrap").offset().top;
                  $('html, body').animate({
@@ -461,12 +495,29 @@
             },function(){
             	$("#main5").attr("src","image/index_Img/main5_1.png");
             });
+         	
+        	// top버튼 이동
+            window.onscroll = function(){scrollFunction()};
+            
+            function scrollFunction(){
+                  if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+                       document.getElementById("top_btn").style.display="block";
+                  }else{
+                       document.getElementById("top_btn").style.display="none";
+                  }
+            }
+        	
+            $("#top_btn").click(function(){
+                 $('html, body').animate({scrollTop: 0}, 300);
+      	  	});
             
             // 직업분류
             $(".group_in").click(function() {
             	$(this).remove('style');
             	  var background_css = $('div').attr('id');
-            	  $(this).css("background-color","#ff6813");
+            	  alert(background_css);
+            	  $(background_css).css("background-color","#ff6813");
+            	  $(background_css).siblings.css("background-color","white");
             }); 
             
       });

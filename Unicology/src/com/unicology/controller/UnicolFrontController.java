@@ -20,6 +20,7 @@ import com.unicology.action.member.MemAjaxAction;
 import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.SessionAction;
 import com.unicology.action.passjaso.PassJaso;
+import com.unicology.action.resume.ResumeInsertAction;
 import com.unicology.action.unicolmain.IndexAction;
 
 @WebServlet("/UnicolFrontController")
@@ -118,6 +119,11 @@ public class UnicolFrontController extends HttpServlet{
  		// ====================== 회원가입 입력 창============================ //
         else if (command.equals("/memberInsert.unicol")) {
         	action = new MemberInsertAction();
+        	forward = action.excute(request, response);
+        }
+ 		//  ============================ 이력서 작성 페이지================================= //
+        else if (command.equals("/resumeInsert.unicol")) {
+        	action = new ResumeInsertAction();
         	forward = action.excute(request, response);
         }
  		
