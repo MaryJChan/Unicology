@@ -6,111 +6,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Header</title>
+<title>Insert title here</title>
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Roboto+Slab');
-@import url(http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb);
-      body{
-            margin:0;
-            padding:0;
-            font-family: 'NanumGothic', '나눔고딕','NanumGothicWeb', '맑은 고딕', 'Malgun Gothic', Dotum;
-      }
-      #Header_box{
-            height: 160px;
-            position: relative;
-      }
-      #Header_top_wrap{
-            display: inline-block;
-            position: absolute;
-            right: 80px;
-            top:10px;
-      }
-      .Header_inner{
-            display: inline-block;
-            color:#999999;
-            text-decoration: none;
-            font-weight: 700;
-      }
-      #Header_bar{
-            font-size: 3px;
-            border: 0.5px solid #666666;
-            height:23px;
-            line-height: 23px;
-            margin: 0 10px 0 5px;
-      }
-      #Header_contact{
-            margin:5px;
-            position: relative;
-      }
-      #Header_imag{
-            width:20px;
-            position: absolute;
-            top:-13px;
-            left: -1px;
-      }
-      #Header_logo{
-            width: 100%;
-            text-align: center;
-            position: absolute;
-            top: 15px;
-      }
-      .Header_logo{
-            cursor: pointer;
-            display: inline-block;
-            width: 27%;
-      }
-      #Header_logo_img{
-            width: 350px;
-      }
-      #Header_bottom{
-            width:100%;
-            height: 50px;
-            position: absolute;
-            bottom: 0;
-            border-top: 1.2px solid #999999;
-            border-bottom: 2px solid #999999;
-            font-weight: 700;
-      }
-      #Header_bottom_inner{
-            cursor: pointer;
-            height: 50px;
-            width: 530px;
-            position: absolute;
-            right: 60px;
-      }
-      .Header_bottom_inner{
-            text-decoration: none;
-            color: #999999;
-            height: 50px;
-            line-height: 50px;
-      }
-      .Header_bottom_img{
-            text-decoration: none;
-            color: #666666;
-            padding-left: 10px;
-      }
-      #Header_bottom_img{
-            height: 22px;
-      }
-      .Header_bottom_rowbar{
-            height: 50px;
-            border-right: 1.2px solid #999999;
-            display: inline-block;
-            padding-right: 10px;
-      padding-left: 3px;
-      }
-      #Header_bottom_view{
-            border-left: 1.2px solid #999999;
-            height: 50px;
-            display: inline-block;
-            padding-right: 5px;
-      padding-left: 10px;
-      }
-      .Header_bottom_rowimg{
-            height: 50px;
-            display: inline-block;
-      }
-      /* 모달창 */
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+	body, url{
+		margin:0;
+		padding:0;
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	.header_box{
+		border-top: 5px solid #266FE0;
+		height:100px;
+		background-color: white;
+	}
+	.logo_div{
+		height: 100px;
+		line-height: 100px;
+		vertical-align: middle;
+		display: inline-block;
+		margin: 0 100px;
+	}
+	#logo{
+		height: 45px;
+		margin: 25px auto;
+		border: 1px dashed #006699;
+	}
+	.menu_box{
+		display: inline-block;
+		width: 500px;
+		height: 100px;
+		line-height: 100px;
+		float: right;
+	}
+	.header_menu_btn{
+		color: black;
+		text-decoration: none;
+		font-size: 16px;
+		margin: 0 15px;
+	}
+	#hamberger_btn{
+		height: 17px;
+	}
+	.header_menu{
+		display: inline-block;
+		height: 90px;
+	}
+	.header_menu:hover {
+		border-bottom: 2px solid #266FE0;
+	}
+	/* 모달창 */
 		.modal {
 			display: none; /* Hidden by default */
 			position: fixed; /* Stay in place */
@@ -152,7 +96,7 @@
 			cursor: pointer;
 		}
 		#header_div {
-			width: 176px;
+			width: 300px;
 			margin: 62px auto;
 		}
 		
@@ -286,37 +230,29 @@
 			}
 		});
 	});
-	
 </script>
+
 </head>
 <body>
-      <!-- Header -->
-      <div id="Header_box">
-            
-            <!-- Header_top  -->
-            <div id="Header_top">
-                  <div id="Header_top_wrap">
-                  	<c:choose>
-                  		<c:when test="${empty sessionScope.loginUser}">
-                        <a href="#" class="Header_inner" id="Header_login">로그인</a>
-                        <span id="Header_bar"></span>
-                       		<div class="modal" id="myModal">
+	<div class="header_box">
+		<div class="logo_div"><a href="index.unicol"><img alt="logo" src="image/index_Img/logo.png" id="logo"></a></div>
+		<div class="menu_box"> 
+			<c:choose>
+           		<c:when test="${empty sessionScope.loginUser}">
+				<div class="header_menu" id="header_login"><a href="#" class="header_menu_btn"id="header_menu_login">로그인</a></div>
+				<div class="modal" id="myModal">
 								<div class="modal-content">
 									<span class="close">&times;</span>
 										<div id="header_div">
-											<a href="index.unicol"> <img alt="유니콜로지 로고"
-												src="image/logo1.png">
+											<a href="index.unicol"> <img alt="유니콜로지 로고"src="image/index_Img/logo.png">
 											</a>
 										</div>
-										<form action="sessionaction.unicol" name="frm_login"
-											id="frm_login" method="POST">
+										<form action="sessionaction.unicol" name="frm_login"id="frm_login" method="POST">
 											<div class="div_input" id="naver_id">
-												<input type="text" placeholder="아이디" class="input_login"
-													id="login_id" name="login_id">
+												<input type="text" placeholder="아이디" class="input_login"id="login_id" name="login_id">
 											</div>
 											<div class="div_input" id="naver_pw">
-												<input type="password" placeholder="비밀번호"
-													class="input_login" id="login_pw" name="login_pw">
+												<input type="password" placeholder="비밀번호"class="input_login" id="login_pw" name="login_pw">
 											</div>
 											<div id="err_chk">아이디 또는 비밀번호가 맞지 않습니다.</div>
 											<!-- 버튼은 여러가지 있지만 그중에서 앵커태그가 가장 편하다.-->
@@ -327,54 +263,30 @@
 										<div id="member">
 											<a href="#">아이디 찾기</a>&nbsp <span class="si"> | </span>&nbsp
 											<a href="#">비밀번호 찾기</a>&nbsp <span class="si"> | </span>&nbsp
-											<a href="constract.sidedish">회원가입</a>&nbsp
+											<a href="/Unicology/constract.unicol">회원가입</a>&nbsp
 										</div>
 								</div>
 							</div>
-	                       <a href="/Unicology/constract.unicol" class="Header_inner" id="Header_member">회원가입</a>
-                  		</c:when>
-                  		<c:otherwise>
-                  			<span id="Header_bar"></span>
-                  			<a class="Header_inner" style="width: 150px;"><span
-										style="color: #fff; background: #6495ED; padding: 2px 4px;">${sessionScope.loginUser.mname}
-											(${sessionScope.loginUser.mid})</span></a>
-							<span id="Header_bar"></span>
-							<a class="Header_inner"><a href="#" id="logout">로그아웃</a></a>
-                  		</c:otherwise>
-                  	</c:choose>
-	                       <span id="Header_bar"></span>
-	                       <a href="#" class="Header_inner" id="Header_mypage">마이페이지</a>
-	                       <span id="Header_bar"></span>
-	                       <a href="#" class="Header_inner" id="Header_contact"><img alt="letter_img" src="image/index_Img/header-letter.png" id="Header_imag"></a>
-                  </div>
-            </div>      
-            
-            <!-- Header_logo -->
-            <div id="Header_logo">
-                  <a href="#" class="Header_logo"><img alt="logo" src="image/index_Img/LOGO1.png" id="Header_logo_img"></a>
-            </div>
-            
-            <!-- Header_bottom -->
-            <div id="Header_bottom">
-                  <div id="Header_bottom_inner">
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_view">기업자소서</a></div>
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_keyword">자소서핵심키워드분석</a></div>
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_writing">자소서작성</a></div>
-                        <div class="Header_bottom_rowbar"><a href="#" class="Header_bottom_inner" id="Header_bottom_admin">이력서관리</a></div>
-                        <div class="Header_bottom_rowimg"><a href="#" class="Header_bottom_img"><img alt="Header_hamberger" src="image/index_Img/hemberger.png" id="Header_bottom_img"></a></div>
-                  </div>
-            </div>
-      </div>
+				<div class="header_menu" id="header_member"><a href="/Unicology/constract.unicol" class="header_menu_btn"id="header_menu_member">회원가입</a></div>
+				</c:when>
+               		<c:otherwise>
+                  		<a class="Header_inner" style="width: 150px;">
+                  			<span style="color: #fff; background: #6495ED; padding: 2px 4px;">${sessionScope.loginUser.mname}(${sessionScope.loginUser.mid})</span>
+                  		</a>
+						<a class="Header_inner"><a href="#" id="logout">로그아웃</a></a>
+					</c:otherwise>
+               	</c:choose>
+				<div class="header_menu" id="header_mypage"><a href="#" class="header_menu_btn"id="header_menu_mypage">마이페이지</a></div>
+				<a href="#" class="header_menu_btn"id="header_menu_btn"><img alt="hamberger_btn" src="image/index_Img/hemberger.png" id="hamberger_btn"></a>
+		</div>
+	</div>
 </body>
-</html>
-<script type="text/javascript">
-	
-	
+<script type="text/javascript">		
 	// Get the modal
 	var modal = document.getElementById('myModal');
 
 	// Get the button that opens the modal
-	var btn = document.getElementById("Header_login");
+	var btn = document.getElementById("header_menu_login");
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
@@ -396,3 +308,4 @@
 	    }
 	}
 </script>
+</html>

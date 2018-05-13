@@ -54,7 +54,7 @@
       }
       .Main_rhom > a > img{
             width: 310px;
-            margin: 0 30px;
+            margin: -7px 30px;
       }
       a{
             cursor: pointer;
@@ -279,88 +279,7 @@
       	display: inline-block;
       }
 </style>
-<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-      $(document).ready(function(){
-            
-            
-            /* hover기능 추가하기 !! */
-            
-            // 기업자소서 이동
-            $("#coverletter").on("click",function(){
-                  alert("기업자소서페이지로 이동할예정"); 
-            });
-            
-            // 자소서핵심키워드 이동
-           $("#keyword").click(function(){
-            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
-                 $('html, body').animate({
-                 	scrollTop: 1400
-                 }, 500);
-      	  	});
-            
-            // 자기소개서
-            $("#write").click(function(){
-            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
-                 $('html, body').animate({
-                 	scrollTop: 800
-                 }, 500);
-      	  	});
-           
-            
-            // 마이페이지 이동
-            $("#mypage").on("click",function(){
-                  alert("마이페이지로 이동할예정");
-            });
-            
-            // 이력서관리 이동
-            $("#resume").click(function(){
-            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
-                 $('html, body').animate({
-                 	scrollTop: 2000
-                 }, 500);
-      	  	});
-            
-           /*  $("#group_total2").on("click",function(){
-            	$(this).css("color","#ff6813");
-            	$(".keyword_box_tag#keyword_box_tag1").css("background-color","#ff6813");
-            	$("#keyword_box_tag2").css("background-color","white");
-            	$("#keyword_box_tag3").css("background-color","white");
-            	$("#keyword_box_tag4").css("background-color","white");
-            	$("#keyword_box_tag5").css("background-color","white");
-            	$("#keyword_box_tag6").css("background-color","white");
-            	$("#keyword_box_tag7").css("background-color","white");
-            	$("#keyword_box_tag8").css("background-color","white");
-            	$("#keyword_box_tag9").css("background-color","white");
-            	$("#keyword_box_tag10").css("background-color","white");
-            	$("#keyword_box_tag11").css("background-color","white");
-            	$("#keyword_box_tag12").css("background-color","white");
-            });
-            
-            $("#group_manage_office").on("click",function(){
-            	$(this).css("color","#ff6813");
-            	$("#keyword_box_tag2").css("background-color","#ff6813");
-            	$("#keyword_box_tag1").css("background-color","white");$("#group_total").css("color","white");
-            	$("#keyword_box_tag3").css("background-color","white");$(".keyword_box_tag#keyword_box_tag3").css("color","white");
-            	$("#keyword_box_tag4").css("background-color","white");$(".keyword_box_tag#keyword_box_tag4").css("color","white");
-            	$("#keyword_box_tag5").css("background-color","white");$(".keyword_box_tag#keyword_box_tag5").css("color","white");
-            	$("#keyword_box_tag6").css("background-color","white");$(".keyword_box_tag#keyword_box_tag6").css("color","white");
-            	$("#keyword_box_tag7").css("background-color","white");$(".keyword_box_tag#keyword_box_tag7").css("color","white");
-            	$("#keyword_box_tag8").css("background-color","white");$(".keyword_box_tag#keyword_box_tag8").css("color","white");
-            	$("#keyword_box_tag9").css("background-color","white");$(".keyword_box_tag#keyword_box_tag9").css("color","white");
-            	$("#keyword_box_tag10").css("background-color","white");$(".keyword_box_tag#keyword_box_tag10").css("color","white");
-            	$("#keyword_box_tag11").css("background-color","white");$(".keyword_box_tag#keyword_box_tag11").css("color","white");
-            	$("#keyword_box_tag12").css("background-color","white");$(".keyword_box_tag#keyword_box_tag12").css("color","white");
-            }); */
-            
-            // 직업분류
-            $(".group_in").click(function() {
-            	$(this).remove('style');
-            	  var background_css = $('div').attr('id');
-            	  $(this).css("background-color","#ff6813");
-            }); 
-      });
-</script>
+
 </head>
 <body>
       <%@include file="../include/header.jsp"%>
@@ -370,13 +289,13 @@
 	      <div id="Main_img_box">
 	            
 	            <div class="Main_rhom">
-	                  <a href="#" id="coverletter"><img alt="rhombus"src="image/index_Img/rhombus1.png"></a>
-	                  <a href="#" id="write"><img alt="rhombus"src="image/index_Img/rhombus3.png"></a>
-	                  <a href="#" id="resume"><img alt="rhombus"src="image/index_Img/rhombus5.png"></a>
+	                  <a href="#" id="write"><img alt="rhombus"src="image/index_Img/main1_1.png"id="main1"></a>
+	                  <a href="#" id="keyword"><img alt="rhombus"src="image/index_Img/main2_1.png"id="main2"></a>
+	                  <a href="#" id="resume"><img alt="rhombus"src="image/index_Img/main3_1.png"id="main3"></a>
 	            </div>
 	            <div class="Main_rhom" id="Main_rhom2">
-	                  <a href="#" id="keyword"><img alt="rhombus"src="image/index_Img/rhombus2.png"></a>
-	                  <a href="index.unicol" id="mypage"><img alt="rhombus"src="image/index_Img/rhombus4.png"></a>
+	                  <a href="#" id="mypage"><img alt="rhombus"src="image/index_Img/main4_1.png"id="main4"></a>
+	                  <a href="#" id="careers"><img alt="rhombus"src="image/index_Img/main5_1.png"id="main5"></a>
 	            </div>
 	      </div>
 	      
@@ -422,7 +341,7 @@
 	            	<img alt="info3" src="image/index_Img/resume.jpg" id="info3_img">
 	            	<div id="info3_content">
 	            		<div id="info3_title">
-	            			직무별 합격자소서의 핵심키워드 분석
+	            			이력서관리
 	            		</div>
 	            		<div id="info3_text">
 	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
@@ -467,4 +386,89 @@
       
       <%@include file="../include/footer.jsp"%>
 </body>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+      $(document).ready(function(){
+            
+            
+            /* hover기능 추가하기 !! */
+            
+            // 기업자소서 이동
+            $("#coverletter").on("click",function(){
+                  alert("기업자소서페이지로 이동할예정"); 
+            });
+            
+            // 자소서핵심키워드 이동
+           $("#keyword").click(function(){
+            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
+                 $('html, body').animate({
+                 	scrollTop: 1400
+                 }, 500);
+      	  	});
+            
+            // 자소서핵심키워드 hover
+            $("#keyword").hover(function(){
+            	$("#main2").attr("src","image/index_Img/main2_2.png");
+            },function(){
+            	$("#main2").attr("src","image/index_Img/main2_1.png");
+            });
+            
+            // 자기소개서
+            $("#write").click(function(){
+            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
+                 $('html, body').animate({
+                 	scrollTop: 800
+                 }, 500);
+      	  	});
+            
+            // 자기소개서 hover
+            $("#write").hover(function(){
+            	$("#main1").attr("src","image/index_Img/main1_2.png");
+            },function(){
+            	$("#main1").attr("src","image/index_Img/main1_1.png");
+            });
+            
+            // 마이페이지 이동
+            $("#mypage").on("click",function(){
+                  alert("마이페이지로 이동할예정");
+            });
+            
+         	// 마이페이지 hover
+            $("#mypage").hover(function(){
+            	$("#main4").attr("src","image/index_Img/main4_2.png");
+            },function(){
+            	$("#main4").attr("src","image/index_Img/main4_1.png");
+            });
+            
+            // 이력서관리 이동
+            $("#resume").click(function(){
+            	var scrollPosition = $("#Index_function_info_wrap").offset().top;
+                 $('html, body').animate({
+                 	scrollTop: 2000
+                 }, 500);
+      	  	});
+            
+         	// 이력서관리 hover
+            $("#resume").hover(function(){
+            	$("#main3").attr("src","image/index_Img/main3_2.png");
+            },function(){
+            	$("#main3").attr("src","image/index_Img/main3_1.png");
+            });
+         	
+         	// 채용공고 hover
+            $("#careers").hover(function(){
+            	$("#main5").attr("src","image/index_Img/main5_2.png");
+            },function(){
+            	$("#main5").attr("src","image/index_Img/main5_1.png");
+            });
+            
+            // 직업분류
+            $(".group_in").click(function() {
+            	$(this).remove('style');
+            	  var background_css = $('div').attr('id');
+            	  $(this).css("background-color","#ff6813");
+            }); 
+            
+      });
+</script>
 </html>

@@ -68,48 +68,21 @@
       #last_width2{
             width: 450px;
       }
-     /*  #top_btn{
-            width: 40px;
-            height: 40px;
-            background-color: #e7e7e7;
-            position: absolute;
-            top: 20px;
-            right: 50px;
-            border-radius:2px;
-            text-align: center;
+      #logo-footer{
+      		height: 150px;
+      		margin-left: 35px;
       }
-      .top_btn{
-            width: 40px;
-            color: black;
-            text-align: center;
-      } */
+      #footer_logo{
+      		width: 200px;
+      		margin-bottom: 45px;
+      }
 </style>
-<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-   $(document).ready(function(){
-	  $(window).scroll(function(){
-		  if($(this).scrollTop()>200){
-			  $("#top_btn").fadeIn();
-		  }else{
-			  $("#top_btn").fadeOut();
-		  }
-	  });
-	  $("#top_btn").click(function(){
-		  $('html, body').animate({scrollTop : 0},400);
-		  return false;
-	  });
-	 
-	  
-	
-	  
-   });
-</script>
 </head>
 <body>
       <!-- Footer -->
       <div id="footer_box">
             <div id="logo_name">
-                  <a href="#">LOGO자리</a>
+                  <a href="index.unicol"><img alt="logo" src="image/index_Img/logo-footer.png" id="logo-footer"><img alt="FOOTER-LOGO" src="image/index_Img/footer-logo.png" id="footer_logo"></a>
             </div>
             <div id="footer_info_wrap">
                   <div class="footer_info_top_wrap">
@@ -131,10 +104,6 @@
                         <span id="footer_info_top_bar2"></span>
                         <div class="footer_info_bottom" id="last_width2">대표:유니콘</div>          
                         <div class="footer_info_bottom">COPYRIGHTⓒunicology.co.kr　　ALL LIGHT RESERVED DESIGNED BY UNIQOLOGY</div>      
-                        <!-- <div id="top_btn">
-                              <a class="top_btn" href="#">▲</a>
-                              <a class="top_btn" href="#">TOP</a>
-                        </div>       -->
                   </div>
             </div>
       </div>
