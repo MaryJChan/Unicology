@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.unicology.dto.empinfo.EmpInfoCriteriaDTO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.mybatis.SqlMapConfig;
+
+import sun.misc.FpUtils;
 public class EmpInfoDAO {
       // MyBatis 세팅값 호출
       SqlSessionFactory sqlSessionFactory = SqlMapConfig.getSqlSession();
@@ -51,6 +53,10 @@ public class EmpInfoDAO {
                   if (list.size() != 0) {
                         System.out.println("jobList 조회 성공");
                   }
+                  
+                  for (EmpInfoDTO empInfoDTO : list) {
+                	  System.out.println(empInfoDTO.getCareer());
+				}
             } catch (Exception e) {
                   e.printStackTrace();
             } finally {
@@ -59,4 +65,20 @@ public class EmpInfoDAO {
             }
             return list;
       }
+      
+   // 전체 게시글 수 totalCount
+  	public int totalCount(EmpInfoCriteriaDTO eDto) {
+  		sqlSession = sqlSessionFactory.openSession();
+
+  		try {
+  			result = sqlSession.selectOne("searchCountPaging", eDto);
+  			System.out.println("totalCount=========" + result);
+  		} catch (Exception e) {
+  			e.printStackTrace();
+  		} finally {
+  			sqlSession.close();
+  		}
+
+  		return result;
+  	}
 }

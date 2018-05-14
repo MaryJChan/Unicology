@@ -18,7 +18,7 @@ public class EmpInfoAction implements Action {
             
             System.out.println("===========================EmpInfoAction==================================");
             
-            String url = "../empinfo/jobList.jsp";
+            String url = "empinfo/empinfoList.jsp";
             
             // 객체 생성과 동시에 page = 1, perPageNum = 10이됨
             EmpInfoCriteriaDTO empInfoCriDto = new EmpInfoCriteriaDTO();
@@ -45,9 +45,10 @@ public class EmpInfoAction implements Action {
             // 페이지 메이커DTO에 criDto를 매게변수로 보냄 [criDto값을 모두사용]
             empInfoPageMaker.setEmpInfoCriDto(empInfoCriDto);
             // 전체 개수를 구함 (아직 구현 X)
-            //int totalcount = empInfoDao.totalCount();
+            int totalcount = empInfoDao.totalCount(empInfoCriDto);
             // 페이지 메이커DTO의 setTotalCount메서드에 totalcount를 매게변수로 보냄(아직 구현 X)
-            //empInfoPageMaker.setTotalCount(totalcount);
+            empInfoPageMaker.setTotalCount(totalcount);
+            System.out.println("next_boolean" + empInfoPageMaker.isNext());
             request.setAttribute("EmpInfoPageMaker", empInfoPageMaker);
             ActionForward forward = new ActionForward();
             forward.setPath(url);

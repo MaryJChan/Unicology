@@ -26,4 +26,10 @@
 			]]>
 	</select>
 	
+	<!-- 총게시글 수  -->
+	<select id="searchCountPaging" resultType="int">
+			SELECT count(ENO)
+			FROM EMPINFO
+	</select>
+	
 </mapper>
