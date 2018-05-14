@@ -34,4 +34,28 @@
 		]]>
 	</select>
 	
+	<!-- 합격자소서 카테고리별 출력 코딩 -->
+	<select id="passJasoOptionCriteria" resultType="pDTO" parameterType="pcDTO">
+		SELECT * FROM (
+			SELECT rownum rnum, a.*
+			FROM (
+				SELECT b.* FROM passjaso b
+				<![CDATA[WHERE pno > 0]]>
+				<if test="!selectOption.equals('지원분야')">AND supportingField LIKE '%'||#{selectOption}||'%'</if>
+				<if test="searchKeyword!=null">AND company LIKE '%'||#{searchKeyword}||'%'</if>
+				ORDER BY pno ASC
+			) a
+		)
+		WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+	</select>
+	
+	<!-- 합격자소서 카테고리별 List총 개수 -->
+	<select id="passJasoOptionCountPaging" resultType="int" parameterType="pcDTO">
+		<!-- 부등호나 느낌표가 들어갈때에는 CDATA를 써줘야함(태그가 아님을 명시) -->
+			SELECT count(pno) FROM passjaso
+			<![CDATA[WHERE pno > 0 ]]>
+			<if test="!selectOption.equals('지원분야')">AND supportingField LIKE '%'||#{selectOption}||'%'</if>
+			<if test="searchKeyword!=null">AND company LIKE '%'||#{searchKeyword}||'%'</if>
+	</select>
+	
 </mapper>

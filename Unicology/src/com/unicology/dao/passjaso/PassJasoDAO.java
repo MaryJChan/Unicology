@@ -74,5 +74,31 @@ public class PassJasoDAO {
 		return result;
 	}
 
+	//합격 자소서 카테고리 출력 코딩
+	public List<PassJasoDTO> passJasoOptionList(PassJasoCriteriaDTO criDto) {
+		sqlSession = sqlSessionFactory.openSession();
+		List<PassJasoDTO> list = new ArrayList<>();
+		try {
+			list = sqlSession.selectList("passJasoOptionCriteria", criDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+
+	public int OptionCount(PassJasoCriteriaDTO criDto) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			result = sqlSession.selectOne("passJasoOptionCountPaging", criDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
+
 
 }

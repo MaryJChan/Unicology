@@ -2,6 +2,8 @@ package com.unicology.dto.passjaso;
 
 //검색기준 또는 분류기준
 public class PassJasoCriteriaDTO {
+	String selectOption;
+	String searchKeyword;
 	private int page;					// 페이지번호(하단의 번호들 클릭)
 	private int perPageNum;		// 한 페이지에 보여줄 게시글 수
 	
@@ -10,6 +12,22 @@ public class PassJasoCriteriaDTO {
 		this.page = 1;
 		this.perPageNum = 20;
 	}	
+
+	public String getSelectOption() {
+		return selectOption;
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
+	public void setSelectOption(String selectOption) {
+		this.selectOption = selectOption;
+	}
 
 	public int getPage() {
 		return page;
@@ -41,4 +59,3 @@ public class PassJasoCriteriaDTO {
 	}
 
 }
-

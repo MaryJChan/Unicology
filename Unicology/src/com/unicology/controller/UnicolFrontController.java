@@ -19,7 +19,8 @@ import com.unicology.action.member.LogoutAction;
 import com.unicology.action.member.MemAjaxAction;
 import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.SessionAction;
-import com.unicology.action.passjaso.PassJaso;
+import com.unicology.action.passjaso.PassJasoAction;
+import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeInsertAction;
 import com.unicology.action.unicolmain.IndexAction;
 
@@ -68,13 +69,15 @@ public class UnicolFrontController extends HttpServlet{
  		}
  		// ======================= 자소서 작성 페이지 ======================= //
  		else if (command.equals("/jasowrite.unicol")) {
- 			action = new PassJaso();	
+ 			action = new PassJasoAction();	
 			forward = action.excute(request, response);
  		}
  		// ======================= 합격 자소서 페이지 ======================= //
  		else if (command.equals("/passjaso.unicol")) {
- 			System.out.println("서블릿탔음");
- 			action = new PassJaso();	
+ 			action = new PassJasoAction();	
+			forward = action.excute(request, response);
+ 		} else if (command.equals("/passjasooption.unicol")) {
+ 			action = new PassJasoOptionAction();	
 			forward = action.excute(request, response);
  		}
  		

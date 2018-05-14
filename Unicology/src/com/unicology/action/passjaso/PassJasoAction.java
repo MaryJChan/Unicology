@@ -15,7 +15,7 @@ import com.unicology.dto.passjaso.PassJasoCriteriaDTO;
 import com.unicology.dto.passjaso.PassJasoDTO;
 import com.unicology.dto.passjaso.PassJasoPageMakerDTO;
 
-public class PassJaso implements Action{
+public class PassJasoAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
@@ -39,10 +39,10 @@ public class PassJaso implements Action{
 		criDto.setPage(page);
 		
 		// bDao객체 생성
-		PassJasoDAO eDao = PassJasoDAO.getInstance();
+		PassJasoDAO pDao = PassJasoDAO.getInstance();
 		
 		// bDao에 listAll메서드에 criDto를 매게변수로 주고 Mapper를 통해 조건에 맞는 행을 담아 list변수에 저장
-		List<PassJasoDTO>list = eDao.passJasoListAll(criDto);
+		List<PassJasoDTO>list = pDao.passJasoListAll(criDto);
 		
 		// list를 view딴으로 보냄
 		request.setAttribute("passJasoList", list);
@@ -55,10 +55,10 @@ public class PassJaso implements Action{
 		pageMaker.setCriDto(criDto);
 		
 		// 전체 개수를 구함
-		int totalcount = eDao.totalCount();
+		int totalCount = pDao.totalCount();
 		
 		// 페이지 메이커DTO의 setTotalCount메서드에 totalcount를 매게변수로 보냄
-		pageMaker.setTotalCount(totalcount);
+		pageMaker.setTotalCount(totalCount);
 		
 		request.setAttribute("passJasoPageMaker", pageMaker);
 		
