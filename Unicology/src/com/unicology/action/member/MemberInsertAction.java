@@ -16,7 +16,8 @@ public class MemberInsertAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String url = null;
-		//필수 요소들 1차 테스트
+		//필수 요소들 1차 테스트 
+		// 아이디 , 비밀번호 , 이름 , 휴대폰번호, e-메일
 		String mid = request.getParameter("get_id");
 		String mpw = request.getParameter("get_pw");
 		String mname = request.getParameter("get_name");
@@ -26,16 +27,43 @@ public class MemberInsertAction implements Action{
 		String email = request.getParameter("email");
 		String email_address = request.getParameter("email_address");
 		String memail = email+"@"+email_address;
-
+		System.out.println("이메일 : "+memail );
+		
+//------------------------- 선택 사항 ---------------------------------
+		
+		// 주소 
+		String mpost = request.getParameter("sample6_postcode");
+		String sample6_address = request.getParameter("sample6_address");
+		String sample6_address2 = request.getParameter("sample6_address2");
+		String maddr = sample6_address+sample6_address2;
+		
+		// 성별
+		String msex = request.getParameter("get_sex");
+		
+		// 관심직무
+		String mduty = request.getParameter("get_duty");
+		
+		// 생년월일
 		String birthyear = request.getParameter("birthyear");
 		String birthmonth = request.getParameter("birthmonth");
 		String birthday = request.getParameter("birthday");
 		String mbirth = birthyear+birthmonth+birthday;
+		System.out.print("생일 : "+mbirth );
 		
-		// 선택사항 입학~졸업기간
+		// 최종학력
+		String mgrade = request.getParameter("get_grade");
+		
+		// 입학년도 ~ 졸업년도
+		String atten_ey = request.getParameter("atten_ey");
+		String atten_em = request.getParameter("atten_em");
+		String matten_eyem = atten_ey+atten_em;
+		String atten_gy = request.getParameter("atten_gy");
+		String atten_gm = request.getParameter("atten_gm");
+		String matten_gygm = atten_gy+atten_gm;
 		
 		
-		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail);
+		
+		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade, matten_eyem, matten_gygm);
 		MemberDAO mDao = MemberDAO.getInstance();
 		int result = mDao.memInsert(mDto);
 		

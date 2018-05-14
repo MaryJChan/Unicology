@@ -62,7 +62,7 @@
     	border: 0;
     }
 	.member_bar {
-		width: 440px;
+		width: 630px;
 		height: 20px;
 		outline: none;
 		background-color: inherit;
@@ -81,13 +81,11 @@
 	.emailmember_bar,#emailselect {
 		outline: none;
 	}
-	#get_pw,#get_repw,#get_name {
-		margin-right: 100px;
-	}
 	.essential{
 		color: red;
 		font-size: small;
 		display: none;
+		float: left;
 	}
 	.info {
 		height: 20px;
@@ -763,10 +761,10 @@
 				<div class="row_group">
 					<!-- 주소 -->
 					<div id="addrDiv" class="join_row">
-						<input type="text" id="sample6_postcode" class="addr_bar" placeholder="우편번호">
+						<input type="text" id="sample6_postcode" name="sample6_postcode" class="addr_bar" placeholder="우편번호">
 						<input type="button" onclick="sample6_execDaumPostcode()" id="jusobutton" value="우편번호 찾기"><br>
-						<input type="text" id="sample6_address" class="addr_bar" placeholder="주소">
-						<input type="text" id="sample6_address2" class="addr_bar" placeholder="상세주소">
+						<input type="text" id="sample6_address" name="sample6_address" class="addr_bar" placeholder="주소">
+						<input type="text" id="sample6_address2" name="sample6_address2" class="addr_bar" placeholder="상세주소">
                     </div>
                     <!-- 성별  -->
 					<div id="sexDiv" class="join_row">
