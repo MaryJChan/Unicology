@@ -21,6 +21,7 @@ import com.unicology.action.member.LogoutAction;
 import com.unicology.action.member.MemAjaxAction;
 import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.SessionAction;
+import com.unicology.action.mypage.MyPageAction;
 import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeInsertAction;
@@ -89,7 +90,7 @@ public class UnicolFrontController extends HttpServlet{
             action = new EmpInfoAction();   
            forward = action.excute(request, response);
         }
- 		
+ 	    // ====================== 채용공고 검색 페이지 ====================== //
         else if (command.equals("/empinfoSearch.unicol")) {
         	action = new EmpinfoSearchAction();
         	forward = action.excute(request, response);
@@ -137,6 +138,13 @@ public class UnicolFrontController extends HttpServlet{
         	action = new ResumeInsertAction();
         	forward = action.excute(request, response);
         }
+ 		//  ============================  MyPage  ================================= //
+        else if (command.equals("/mypage.unicol")) {
+        	action = new MyPageAction();
+        	forward = action.excute(request, response);
+        }
+ 		
+ 		
  		
  		// 실제로 동작하는곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
  		if(forward != null) {

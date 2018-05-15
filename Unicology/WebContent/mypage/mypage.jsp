@@ -266,7 +266,7 @@
       }
       
       .rightmenu li a {
-            display: block;
+          display: block;
           height: 22px;
           padding: 12px 0 0 16px;
           font-size: 12px;
@@ -277,16 +277,103 @@
       .rightmenu span {
             padding-right: 3px;
       }
+      
+      /* 이력서 관리   */
+      #resume_management_wrap {
+	      display: none;
+	      background-color: white;
+	  	  margin-left: 211px;
+	  	  padding: 12px 40px 80px;
+      }
+      
+      
+      .resume_management_title > h3 {
+	      font-size: 28px;
+		  line-height: 36px;
+		  color: #444;
+		  font-family: "맑은 고딕",gulim,"돋움","dotum";
+      }    
+      
+      .resume_guide > li {
+	      color: #888;
+	      font-size: 13px;
+	      line-height: 22px;
+      }
+      
+      .resume_guide {
+      	padding: 32px 0 44px;
+      }
+      
+      /* 이력서 테이블 */
+      .resume_list_table {
+	      width: 100%;
+		  border-top: 1px solid #444;
+		  border-spacing: 0;
+	      border-collapse: collapse;
+	      table-layout: fixed;
+      } 
+      
+      .resume_list_table th {
+	      height: 43px;
+	      border-left: 1px solid #eaeaea;
+	      background: #f8f8f8;
+	      color: #666;
+	      font-size: 13px;
+	      text-align: center;
+	      box-sizing: border-box;
+      }
+      
+      #resumelist_none {
+	      display: table-cell;
+	      width: 1000px;
+	      height: 233px;
+	      text-align: center;
+	      vertical-align: middle;
+      }
+      
+      #resumelist_none strong {
+	      display: block;
+	      margin-bottom: 10px;
+	      color: #444;
+	      font-size: 18px;
+	      font-weight: bold;
+      }
+      
+      #resumelist_none p {
+	      margin-bottom: 23px;
+	      color: #888;
+	      font-size: 14px;
+      }
+      
+      #resumelist_none_btn {
+          display: inline-block;
+	      height: 32px;
+	      padding: 5px 13px 9px;
+	      border: 1px solid #5f75eb;
+	      box-sizing: border-box;
+	      background-color: #6b80f1;
+	      color: #fff;
+	      font-size: 13px;
+	      letter-spacing: -1px;
+	      line-height: normal;
+	      vertical-align: top;
+      }
 </style>
 </head>
-<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
-            
-            $(".recruit_list_navigation li").on("click", function(){
-                  $(".recruit_list_navigation li").removeClass('on');
-                  $(this).attr("class","on");   
-            });   
+    	  
+	      $(".recruit_list_navigation li").on("click", function(){
+	            $(".recruit_list_navigation li").removeClass('on');
+	            $(this).attr("class","on");   
+	      });
+	      
+	      $("#resume_management").on("click", function() {
+	    	  $("#summary_wrap").css("display","none");
+	    	  $("#section_rightmenu").css("display","none");
+	      	  $("#resume_management_wrap").css("display","block");			  
+	      });
       });
 </script>
 <body>
@@ -295,11 +382,11 @@
             
                   <!-- 사이드 영역(left)  -->
                   <aside class="aside_wrap">
-                  <a href="#"><img id="preference_img" alt="" src="../image/mypage/preference.png"></a>
+                  <a href="#"><img id="preference_img" alt="" src="image/mypage/preference.png"></a>
                         <div class="profile_wrap">
-                              <img alt="" src="../image/mypage/user.png">
+                              <img alt="" src="image/mypage/user.png">
                               <h2 id="h_name">박아영 님</h2>
-                              <a id="resume_register" href="#">내 이력서 등록</a>
+                              <a id="resume_register" href="resumeInsert.unicol">내 이력서 등록</a>
                         </div>
                   </aside>
                   
@@ -307,8 +394,8 @@
                         <div class="leftmenu">
                               <h2 class="leftmenu_title">이력서 관리</h2>
                                     <ul>
-                                          <li><a href="#">이력서 등록</a></li>
-                                          <li><a href="#">이력서 관리</a></li>
+                                          <li><a href="resumeInsert.unicol">이력서 등록</a></li>
+                                          <li><a href="#" id="resume_management">이력서 관리</a></li>
                                     </ul>
                         </div>
                         <div class="leftmenu">
@@ -324,29 +411,29 @@
                               <ul>
                                     <li>
                                           <a href="#">
-                                          <span><img alt="" src="../image/mypage/write.png">자소서 작성</span>
+                                          <span><img alt="" src="image/mypage/write.png">자소서 작성</span>
                                           </a>
                                     </li>
                                     <li>
                                           <a href="#">
-                                          <span><img alt="" src="../image/mypage/spell.png">맞춤법 검사</span>
+                                          <span><img alt="" src="image/mypage/spell.png">맞춤법 검사</span>
                                           </a>
                                     </li>
                                     <li>
                                           <a href="#">
-                                          <span><img alt="" src="../image/mypage/count.png">글자수 세기</span>
+                                          <span><img alt="" src="image/mypage/count.png">글자수 세기</span>
                                           </a>
                                     </li>
                                     <li>
                                           <a href="#">
-                                          <span><img alt="" src="../image/mypage/calculator.png">학점 변환</span>
+                                          <span><img alt="" src="image/mypage/calculator.png">학점 변환</span>
                                           </a>
                                     </li>
                               </ul>                   
                         </div>
                   </div>
                   
-                  <!--  -->
+                  <!--Mypage Main 영역  -->
                   <div id="summary_wrap"> 
                         <div class="dashboard">
                               <ul class="active_list">
@@ -398,7 +485,7 @@
                         <!-- 반복할 부분  -->
                         <div id="recruit_summary">
                               <div id="desc">
-                                    한국디자인진흥원    
+                                    	한국디자인진흥원    
                               </div>
                               <div id="summary_inner">
                                     <ul id="info_list">
@@ -591,16 +678,86 @@
                                     </div>
                               </div>
                         </div>
-                        
-                        
-                        <!-- 삭제할 것 (채용공고 테스트 임시 <a>  -->
-                        <div>
-                              <a href="joblist.unicol">채용공고 테스트</a>
-                        </div>
-                        
-                        <div id="gitTest">
-                        
-                        </div>
+                  </div>
+                  
+                  <!-- 이력서 관리  -->
+                  <div id="resume_management_wrap">
+                  	<div class="resume_management_title">
+                  		<h3>이력서 관리</h3>
+                  		<ul class="resume_guide">
+                  			<li>- 이력서는 <strong>최대5개</strong>까지 작성하여 등록 가능합니다.</li>
+                  			<li>- 지원하고자 하는 회사마다 이력서 내용을 다르게 하여 지원 가능합니다.<br>
+                  			&nbsp;&nbsp;&nbsp;(입사지원을 한 후 이력서의 내용을 수정해도 이전에 지원한 이력서의 내용은 변경되지 않습니다.)</li>
+                  			<li>- 인재정보는 1개의 이력서만 공개 가능합니다.</li>
+                  			<li></li>
+                  		</ul>
+                  	</div>
+                  	
+                  	<!-- 이력서 리스트  -->
+                  	<div id="resumelistTitle_wrap">
+                  		<h3 id="resume_list_title">이력서 리스트</h3>
+                  		<form action="">
+                  			<table class="resume_list_table">
+                  				<colgroup>
+                  					<col style="width:50px;">
+                  					<col style="width:*;">
+                  					<col style="width:200px">
+                  					<col style="width:125px;">
+                  					<col style="width:125px;"> 
+                  				</colgroup>
+                  				<tr>
+                  					<th><input type="checkbox"></th>
+                  					<th>이력서 제목</th>
+                  					<th>관리</th>
+                  					<th>최근 등록일</th>
+                  					<th>최근 수정일</th>
+                  				</tr>
+                  				
+                  				<tr>
+                  					<td colspan="5">
+                  						<div id="resumelist_none">
+                  						<strong>저장된 <span id="resumeStrong">자소서</span> 가 없습니다.</strong>
+                  						<p>지금 바로 나만의 자소서를 작성해보세요</p>
+                  						<a id="resumelist_none_btn" href="resumeInsert.unicol">자소서 작성</a>
+                  						</div>
+                  					</td>
+                  				
+                  			</table>
+                  		</form>
+                  	</div>
+                  	
+                  	<!-- 첨부파일 리스트  -->
+                  	<div>
+                  		<h3 id="Attachments_list_title">첨부파일 리스트</h3>
+                  		<form action="">
+                  			<table class="resume_list_table">
+                  				<colgroup>
+                  					<col style="width:50px;">
+                  					<col style="width:*;">
+                  					<col style="width:200px">
+                  					<col style="width:125px;">
+                  					<col style="width:125px;"> 
+                  				</colgroup>
+                  				<tr>
+                  					<th><input type="checkbox"></th>
+                  					<th>이력서 제목</th>
+                  					<th>관리</th>
+                  					<th>최근 등록일</th>
+                  					<th>최근 수정일</th>
+                  				</tr>
+                  				
+                  				<tr>
+                  					<td colspan="5">
+                  						<div id="resumelist_none">
+                  						<strong>저장된 <span id="resumeStrong">자소서</span> 가 없습니다.</strong>
+                  						<p>지금 바로 나만의 자소서를 작성해보세요</p>
+                  						<a id="resumelist_none_btn" href="resumeInsert.unicol">자소서 작성</a>
+                  						</div>
+                  					</td>
+                  				
+                  			</table>
+                  		</form>
+                  	</div>
                   </div>      
             </div>
       </div>

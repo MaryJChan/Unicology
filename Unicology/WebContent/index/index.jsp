@@ -333,7 +333,7 @@
 <body>
       <%@include file="../include/header.jsp"%>
       <div id="box">
-	      
+	  <input type="hidden" id="loginsession" value="${sessionScope.loginUser.mid}">    
 	      <!-- Main_img -->
 	      <div id="Main_img_box">
 	            
@@ -472,11 +472,6 @@
             	$("#main1").attr("src","image/index_Img/main1_1.png");
             });
             
-            // 마이페이지 이동
-            $("#mypage").on("click",function(){
-                  alert("마이페이지로 이동할예정");
-            });
-            
          	// 마이페이지 hover
             $("#mypage").hover(function(){
             	$("#main4").attr("src","image/index_Img/main4_2.png");
@@ -527,7 +522,31 @@
             	  $(".group_in").siblings().css("background-color","white");
             	  $(this).css("color","#ff6813");
             	  $(this).siblings().css("background-color","#ff6813");
-            }); 
+            });
+            
+            // 2018.05.15 박아영 추가
+            // 마이페이지 클릭시 로그인 유무 판단하여 페이지 이동
+            $("#Main_rhom2").click(function() {
+            	var loginYn = $("#loginsession").val();
+            	
+            	if(loginYn == "") {
+            		$(".loginMsg").css("display","block");
+            		$("#myModal").css("display","block");
+            	} else {
+            		location.href = "mypage.unicol";
+            	}
+            });
+            
+            $("#header_menu_mypage").click(function() {
+				var loginYn = $("#loginsession").val();
+            	
+            	if(loginYn == "") {
+            		$(".loginMsg").css("display","block");
+            		$("#myModal").css("display","block");
+            	} else {
+            		location.href = "mypage.unicol";
+            	}	
+            });
       });
 </script>
 </html>

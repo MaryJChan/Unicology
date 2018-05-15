@@ -148,7 +148,26 @@
 		
 		.si {
 			color: #D5D5D5;
-		}      
+		}
+		
+		.loginMsg {
+			display: none;
+		}
+		
+		.loginMsg p, h3 {
+			margin: 0;
+			padding: 0;
+			height: 28px;
+		}
+		
+		.loginMsg p {
+			color: #777;
+		}
+		
+		#loginMsgStrong a {
+			color: #586cdc;
+		}
+		      
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -243,6 +262,11 @@
 				<div class="modal" id="myModal">
 								<div class="modal-content">
 									<span class="close">&times;</span>
+									<!-- 2018.05.16 박아영 추가 : 로그인이 되어있지 않을 경우 message -->
+									<div class="loginMsg">
+										<h3>로그인이 필요한 서비스 입니다.</h3>
+										<p>유니콜로지 회원이 아니면, 지금 <span id="loginMsgStrong"><a href="memberInsert.unicol">회원가입</a></span>을 해주세요
+									</div>
 										<div id="header_div">
 											<a href="index.unicol"> <img alt="유니콜로지 로고"src="image/index_Img/logo.png">
 											</a>

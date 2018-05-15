@@ -1,30 +1,28 @@
-package com.unicology.action.unicolmain;
+package com.unicology.action.mypage;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.unicology.action.ActionForward;
 import com.unicology.action.Action;
+import com.unicology.action.ActionForward;
 
-public class IndexAction implements Action{
+public class MyPageAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "index/index.jsp";
 		
-		HttpSession session = request.getSession(false);
-		
+		System.out.println("=======================MyPageAction========================");
+		String url = "mypage/mypage.jsp";
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath(url);
-		forward.setRedirect(false);
+        forward.setPath(url);
+        forward.setRedirect(false);
 		
 		return forward;
 	}
-	
+
 }
