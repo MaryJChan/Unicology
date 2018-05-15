@@ -44,27 +44,27 @@ public class Index {
 			} else if (schPartNum == 10013) {
 				schPart = "마케팅·광고·홍보";
 			} else if (schPartNum == 10014) {
-				schPart = "IT·인터넷";
-			} else if (schPartNum == 10015) {
-				schPart = "디자인";
-			} else if (schPartNum == 10016) {
 				schPart = "무역·유통";
-			} else if (schPartNum == 10017) {
+			} else if (schPartNum == 10015) {
 				schPart = "영업·고객상담";
-			} else if (schPartNum == 10018) {
-				schPart = "서비스";
-			} else if (schPartNum == 10019) {
-				schPart = "연구개발·설계";
-			} else if (schPartNum == 10020) {
+			} else if (schPartNum == 10016) {
+				schPart = "IT·인터넷";
+			} else if (schPartNum == 10017) {
 				schPart = "생산·제조";
-			} else if (schPartNum == 10021) {
-				schPart = "교육";
-			} else if (schPartNum == 10022) {
-				schPart = "건설";
-			} else if (schPartNum == 10023) {
-				schPart = "의료";
-			} else if (schPartNum == 10024) {
+			} else if (schPartNum == 10018) {
+				schPart = "연구개발·설계";
+			} else if (schPartNum == 10019) {
+				schPart = "디자인";
+			} else if (schPartNum == 10020) {
 				schPart = "미디어";
+			} else if (schPartNum == 10021) {
+				schPart = "건설";
+			} else if (schPartNum == 10022) {
+				schPart = "서비스";
+			} else if (schPartNum == 10023) {
+				schPart = "교육";
+			} else if (schPartNum == 10024) {
+				schPart = "의료";
 			} else if (schPartNum == 10025) {
 				schPart = "전문·특수직";
 			}
@@ -168,6 +168,7 @@ public class Index {
 					page ++;                    
 					url = front_url + schPartNum + last_url + page;      
 				} else {
+					page = 1;
 					schPartNum +=1;
 					url = front_url + schPartNum + last_url + page;      
 					break;
