@@ -318,6 +318,16 @@
       	text-align: center;
       	margin-top: 250px;
       }
+      #example_keyword{
+      	height: 480px;
+      	margin-top: 5px;
+      }
+      #group_total2{
+      	color: #ff6813;
+      }
+      #keyword_box_tag1{
+      	background-color: #ff6813;
+      }
 </style>
 </head>
 <body>
@@ -414,7 +424,7 @@
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag11"></div><a href="#keyword_box_title" class="group_in" id="group_service">서비스</a></div>
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag12"></div><a href="#keyword_box_title" class="group_in" id="group_build">건설</a></div>
 		      	</div>
-		      	<div class="keyword_view">!키워드 시각화해서 보여줄 공간!</div>
+		      	<div class="keyword_view"><img alt="example_keyword" src="image/index_Img/main_ex.png" id="example_keyword"></div>
 	      	</div>
 	      </div>
 	      
@@ -513,13 +523,11 @@
             
             // 직업분류
             $(".group_in").click(function() {
-            	$(this).remove('style');
-            	  var background_css = $('div').attr('id');
-            	  alert(background_css);
-            	  $(background_css).css("background-color","#ff6813");
-            	  $(background_css).siblings.css("background-color","white");
+            	  $(".group_in").css("color","#999");
+            	  $(".group_in").siblings().css("background-color","white");
+            	  $(this).css("color","#ff6813");
+            	  $(this).siblings().css("background-color","#ff6813");
             }); 
-            
       });
 </script>
 </html>

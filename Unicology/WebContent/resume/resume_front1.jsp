@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".businesswork").focus(function(){
 			$(".businesswork").css("height","244px");
 		});
-		
-	});
+});
+	
 </script>
 <style type="text/css">
       body,ul{
@@ -247,6 +247,7 @@
 </style>
 </head>
 <body>
+	  <%@include file="../include/header.jsp" %>
       <!-- .unicology로 임의로 정함 -->
       <div class="resume_page">
             <div class="resume_inner_page1">
@@ -405,7 +406,7 @@
 	                       			</div>
 	                        	</div>
                         	</div>
-                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">추가</button>
+                        	<button class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">추가</button>
                         </div>
                         <!-- 경력 -->
                          <div class="formWrap career">
@@ -451,7 +452,7 @@
 	                       			</div>
                         		</div>
                         	</div>
-                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">추가</button>
+                        	<button class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">추가</button>
                         </div>
                         <!-- 인턴 대외활동 -->
                         <div class="formWrap intern">
@@ -490,7 +491,7 @@
 	                       			</div>
                         		</div>
                         	</div>
-                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">인턴·대외활동 추가</button>
+                        	<button class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">인턴·대외활동 추가</button>
                         </div>
                         <!-- 교육 -->
                         <div class="formWrap learning">
@@ -522,7 +523,7 @@
 	                       			</div>
                         		</div>
                         	</div>
-                    	    <button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">교육 추가</button>
+                    	    <button class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">교육 추가</button>
                         </div>
                         <!-- 자격증 -->
                         <div class="formWrap license">
@@ -544,14 +545,15 @@
                         		</div>
                         		<button class="x_btn" id="award_x">&times;</button>
                         	</div>
-                        	<button class="plus_btn_front"><img alt="plus" src="../image/resume_img/plus_btn.png" id="award_btn">자격증 추가</button>
+                        	<button class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">자격증 추가</button>
                         </div>
                   </form>
             </div>
       </div>
+      <%@include file="resume.jsp" %>
 </body>
 </html>
-<%@include file="resume.jsp" %>
+
 
                         		
                         		

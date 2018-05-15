@@ -14,7 +14,7 @@ public class ResumeInsertAction implements  Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "resume/resume_front1.jsp";
+		String url = "resume/resume.jsp";
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
