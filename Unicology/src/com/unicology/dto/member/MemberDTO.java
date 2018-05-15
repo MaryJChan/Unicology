@@ -16,7 +16,17 @@ public class MemberDTO {
 	private String mgrade;
 	private String matten_eyem;
 	private String matten_gygm;
+	private String useyn;
+	
+	public String getUseyn() {
+		return useyn;
+	}
+
+	public void setUseyn(String useyn) {
+		this.useyn = useyn;
+	}
 	private Date regdate;
+	
 	
 	
 	public MemberDTO() {
@@ -28,7 +38,6 @@ public class MemberDTO {
 		this.mid = mid;
 		this.mpw = mpw;
 	}
-
 
 	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
 			String msex, String mbirth, String mduty, String mgrade, String matten_eyem, String matten_gygm) {

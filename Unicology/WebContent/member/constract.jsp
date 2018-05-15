@@ -396,7 +396,7 @@
 			<!-- 동의 비동의 버튼 -->
 			<div class="btn_double_area">
 				<span><a href="index.unicol" class="btn_type btn_default">비동의</a></span>
-				<span><a href="joinmember.unicol" class="btn_type btn_agree">동의</a></span>
+				<span><a href="#" class="btn_type btn_agree">동의</a></span>
 			</div>
 		</form>
 	</div>

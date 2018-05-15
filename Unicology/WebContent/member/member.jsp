@@ -208,6 +208,7 @@
 		background-color: #fefefe;
 		width: 560px;
 		margin: 0 auto;
+		border-radius: 5px;
 	}
 	#dutygroup {
 		width: 100%;
@@ -270,7 +271,7 @@
     	width: 100%;
     	height: 30%;
     }
-	.close {
+	.close,.close1,.close2 {
 	    float: right;
 		font-weight: bold;
 		font-size: 15px;
@@ -282,7 +283,7 @@
 		text-align: center;
 		line-height: 30px;
 	}
-	.close:hover,.close:focus {
+	.close:hover,.close:focus,.close1:hover,.close1:focus,.close2:hover,.close2:focus {
 	    color: #000;
 	    text-decoration: none;
 	    cursor: pointer;
@@ -296,7 +297,7 @@
 		margin: 0 5px 5px;
 	}
 	/* 학교 */
-	.search_btn {
+	#school_search_btn,#major_search_btn {
 		border: 1px solid #6495ED;
 		color: #6495ED;
 		cursor: pointer;
@@ -304,6 +305,29 @@
 		padding: 2px 5px;
 		border-radius: 5px;
 	}
+	.school_modal {
+	   	display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 10; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	.school_modal_content {
+	    width: 75%;
+	    height: 350px;
+		padding: 16px;
+		background-color: #f0f0f0;
+		width: 250px;
+		margin: 0 auto;
+		border-radius: 5px;
+	}
+	
 	/* 입학~졸업년도 */
 	.school_ {
 		font-weight: bold;
@@ -631,7 +655,7 @@
 		$(".plus.agree").css("background-color","#6495ED");
 		$("#plusmember").css("display","block");
 	});
-
+	
 	//$(document).on(ready) 끝
 });
 		
@@ -822,7 +846,7 @@
 						      		<li id="group_build">건설</li>	
 							      </ul>
 							      <div class="group_items_area">
-								      <span class="close">&times;</span>
+								      <span class="close1">&times;</span>
 								      <div id="group_title">
 								      		직무를 선택해주세요
 								      </div>
@@ -951,7 +975,7 @@
 					</div>
 					<!-- 학력 -->
 					<div id="gradeDiv" class="join_row">
-						<input type="text" id="get_grade" name ="get_grade" readonly="readonly" placeholder="최종학력(졸업예정포함)">
+						<input type="text" id="get_grade" name ="get_grade" readonly="readonly" placeholder="최종학력(졸업예정포함)" value="">
 						<select id="gradeselect">
 							<option value="" selected="selected">학력선택</option>
 							<option value="고등학교" >고등학교</option>
@@ -963,7 +987,20 @@
 					<!-- 학교 오픈api -->
 					<div id="schoolDiv" class="join_row">
 						<input type="text" id="get_school" name="get_school" readonly="readonly" placeholder="학교명을 검색해주세요.">
-						<a href="#"><div class="school search_btn">검색</div></a>
+						<div id="school_search_btn">검색</div>
+						<div id="schoolModal" class="school_modal">
+							<div class="school_modal_content">
+									<h2 style="color:#6495ED; font-weight: bold; display: inline-block;">대학 검색 </h2>
+									<span class="close2">&times;</span>
+									<div id="schoolSearch">								
+										<input type="text" id="schoolSearch" name="schoolSearch" style=" height: 35px; width: 155px; margin-right: 10px; font-size: 18px; border-radius: 5px;">
+										<a href="#" id="schoolSearch_btn"><div style="border-radius: 5px; background-color: #6495ED; color: #fff; padding: 6px 15px 10px; display: inline-block;">검색</div></a> 
+									</div>
+									<div id="schoolResult">								
+										
+									</div>
+							</div>
+						</div>
 					</div>
 					<!-- 재학기간 -->
 					<div id="attenDiv" class="join_row">
@@ -1160,7 +1197,7 @@
 					<!-- 학과 오픈api -->
 					<div id="majorlDiv" class="join_row">
 						<input type="text" id="get_major" name="get_major" readonly="readonly" placeholder="학과명을 검색해주세요.">
-						<a href="#"><div class="major search_btn">검색</div></a>
+						<div id="major_search_btn">검색</div>
 					</div>
 				</div>
 				</div>
@@ -1179,28 +1216,41 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 //Get the modal
-var modal = document.getElementById('dutyModal');
+var Dmodal = document.getElementById('dutyModal');
+var Smodal = document.getElementById('schoolModal');
+
 
 // Get the button that opens the modal
-var btn = document.getElementById("duty_select");
+var Dbtn = document.getElementById("duty_select");
+var Sbtn = document.getElementById("school_search_btn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var Dspan = document.getElementsByClassName("close1")[0];
+var Sspan = document.getElementsByClassName("close2")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
+Dbtn.onclick = function() {
+    Dmodal.style.display = "block";
+}
+Sbtn.onclick = function() {
+    Smodal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+Dspan.onclick = function() {
+    Dmodal.style.display = "none";
+}
+Sspan.onclick = function() {
+    Smodal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == Dmodal) {
+        Dmodal.style.display = "none";
+    }
+    if (event.target == Smodal) {
+        Smodal.style.display = "none";
     }
 }
     function sample6_execDaumPostcode() {
