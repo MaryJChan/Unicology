@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
+import com.unicology.action.empinfo.EmpinfoSearchAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
 import com.unicology.action.member.ConstractAction;
 import com.unicology.action.member.JoinMemberAction;
@@ -88,6 +89,12 @@ public class UnicolFrontController extends HttpServlet{
             action = new EmpInfoAction();   
            forward = action.excute(request, response);
         }
+ 		
+        else if (command.equals("/empinfoSearch.unicol")) {
+        	action = new EmpinfoSearchAction();
+        	forward = action.excute(request, response);
+        }
+ 		
  		// 김성민 추가
  		// ====================== 세션값 저장(아이디 비밀번호) =============== //
         else if (command.equals("/sessionaction.unicol")) {

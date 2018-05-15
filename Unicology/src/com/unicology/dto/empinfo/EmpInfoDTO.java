@@ -12,6 +12,7 @@ public class EmpInfoDTO {
 	private String employmentType = null;
 	private String work_place = null;
 	private String deadlines = null;
+	private String searchkey;
 	
 	public EmpInfoDTO() {
 		
@@ -118,6 +119,14 @@ public class EmpInfoDTO {
 
 	public void setDeadlines(String deadlines) {
 		this.deadlines = deadlines;
+	}
+	
+	public String getSearchkey() {
+		return searchkey;
+	}
+
+	public void setSearchkey(String searchkey) {
+		this.searchkey = searchkey;
 	}	
 
 }

@@ -56,6 +56,7 @@
 	
 	.jogList_content {
 		width: 960px;
+		margin: 0 auto;
 	}
 	
 	/* 직종별  카테고리 분류 ul, li  */
@@ -185,8 +186,6 @@
 	
 	/* 선택 검색 영역  */
 	#search_preview {
-		overflow: hidden;
-		bottom: 0;
 		height: 92px;
 		border: 1px solid #888;
 		box-sizing: border-box;
@@ -254,14 +253,12 @@
 	}
 	
 	#result_btn {
-		overflow: hidden;
-		bottom: 0;
-		right: 0;
-		width: 104px;
-		height: 92px;
+		width: 95px;
+		height: 90px;
 		text-align: center;
 		background: #888;
-		display: inline;
+		display: inline-block;
+		vertical-align: top;
 	}
 	
 	#searchBtn {
@@ -295,7 +292,6 @@
 	
 	.tabArea>li>a {
 		display: block;
-		margin-left: -1px;
 		padding: 12px 0 14px;
 		border: 1px solid #eaeaea;
 		border-bottom: none;
@@ -553,6 +549,11 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
+		/* 페이지 로드시 먼저 들어가는 css (추후에는 클릭에의한 스크립트 제어)  */
+		$(".sub_depth_box").css("display","none");
+		$("#planning_Strategy_Management").css("display","block");
+		$("#first_subcat").css("background", "#f3f5ff").css("color","#2683e2").css("font-weight", "bold");
+		
 		/* 직업별 클릭 시 */
 		$(".subBox_category > li").on("click",function() {
 			$(".subBox_category > li").removeAttr('style');
@@ -570,9 +571,9 @@
             $(".subBox_wrap").css("display","none");
             $("#"+cctegory).css("display","block");
             
-       	});  
-		
-		/* 직업별 세분류 클릭시  */
+       	});  	
+       	
+       	/* 직업별 세분류 클릭시  */
 		$(".subBox_category > li > a").on("click", function() {
 			var category_detail = $(this).attr("id");
 			alert("category_detail : " +category_detail);
@@ -582,31 +583,20 @@
 			$("#"+catDetail).css("display","block"); 
 			 
 		});
+       	
 		
 		/* 세분류 카테고리 체크박스 클릭시 검색창에 값 전달  */
 		$(".depth_category_chk").on("click", function() {
 			$(".result_guide").css("display", "none");
 			$(".select_result").css("display", "block");
-			/* $("input[name=depth_category_chk]:checked").each(function() {
-				var chkVal = $(this).val();
-				$('.select_result').append('<span>' + chkVal + '</span>');
-
-			}); */
 			
-			$('input[name="depth_category_chk"]').change(function () {
-			    var val = $(this).val();
-
-			    if ($(this).prop('checked')) { //which checkbox was checked
-			        //var txtArea = 'TxtArea' + val;
-			    	var chkVal = $(this).val();
-			        $(".select_result").append('<span>' + chkVal + '</span>');
-
-			    } else {
-			        $(".select_result > span").parent().remove();
-			    }
-
-			});
+			var chkID = $(this).attr("value");
+			 var chkParent = $(this).parents("div");
+			 alert("chkParent" + chkParent);
+			
+			$('.select_result').append('<span>' + chkID + '</span>');
 		});
+		
 		
 		/* 검색하기 버튼 클릭 시  */
 		$("#searchBtn").on("click", function() {
@@ -620,12 +610,41 @@
 		    $("#checkboxResult").val(checkboxValues);
 		    frm.submit();
 		});
+		
+		$(".tabOn > a").append("<span>(1,508건)</span>");
+		          
+		$(".tabArea > li").removeClass('tabOn');
+		var keyCode = $("#keyCode").val();
+		if(keyCode == 1 || keyCode == "") {
+			$("#allTab").attr("class","tabOn");		
+		} else if(keyCode == 2) {
+			$("#fulltimeTab").attr("class","tabOn");
+		} else if(keyCode == 3) {
+			$("#contractWorkerTab").attr("class","tabOn");
+		} else if(keyCode == 4) {
+			$("#internshipTab").attr("class","tabOn");
+		} else if(keyCode == 5) {
+			$("#studentTab").attr("class","tabOn");
+		} 
+		
+		/* 채용공고 리스트 탭 클릭 시  */
+		$(".tabArea > li").on("click", function() {
+			$(".tabOn > a > span").remove();
+			$(".tabArea > li").removeClass('tabOn');
+			$(this).attr("class","tabOn"); 
+            var flag = $(this).text();
+            $(".tabOn > a").append("<span>(1,508건)</span>");
+            alert(flag);
+            location.href = "empinfoSearch.unicol?flag=" + flag;
+            
+		});
 	});
 </script>
 
 <body>
 	<div id="jobListContainer">
 	<input type="hidden" id="checkboxValues" name="checkboxValues">
+	<input type="hidden" id="keyCode" value="${keyCode}">
 		<div id="inner_jogList">
 			<div class="jogList_content">
 				<div id="wrap_title">
@@ -653,7 +672,7 @@
                    		 <div class="subBox_wrap" id="mg_Office">
 	                         <div class="sub_box">
 	                             <ul class="subBox_category">
-	                                   <li><a id="planning_Strategy_Management_btn" href="#">기획·전략·경영<em class="txt_count">(1,899)</em></a></li>
+	                                   <li id="first_subcat"><a id="planning_Strategy_Management_btn" href="#">기획·전략·경영<em class="txt_count">(1,899)</em></a></li>
 	                                   <li><a id="marketing_Advertising_Analysis_btn" href="#">마케팅·광고분석<em class="txt_count">(4,277)</em></a></li>
 	                                   <li><a href="#">홍보·PR·사보<em class="txt_count">(1,899)</em></a></li>
 	                                   <li><a href="#">경리·출납·결산<em class="txt_count">(1,899)</em></a></li>
@@ -804,11 +823,11 @@
                 <!-- 채용공고 리스트  -->  
                 <div id="recruit_list">
                       <ul class="tabArea">
-                            <li class="tabOn"><a href="#" >전체(${empInfoDto.size()}건)</a></li>
-                            <li><a href="#">1000대기업</a></li>
-                            <li><a href="#">정규직</a></li>
-                            <li><a href="#">계약직</a></li>
-                            <li><a href="#">인턴직</a></li>
+                            <li class="tabOn" id="allTab"><a>전체</a></li>
+                            <li id="fulltimeTab"><a>정규직</a></li>
+                            <li id="contractWorkerTab"><a>계약직</a></li>
+                            <li id="internshipTab"><a>인턴직</a></li>
+                            <li id="studentTab"><a>교육생</a></li>
                       </ul>
                       <div class="listArea">
                             <div id="list_info">
@@ -852,7 +871,8 @@
                                   <th>마감일·등록일</th>
                             </tr>
                             
-                            <c:forEach items="${jobList}" var="empInfoDto"> 
+                            
+                            <c:forEach items="${searchList}" var="empInfoDto"> 
                                   <tr>
                                         <td>
                                               <label class="chk_recruit">

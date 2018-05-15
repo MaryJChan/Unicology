@@ -28,8 +28,39 @@
 	
 	<!-- 총게시글 수  -->
 	<select id="searchCountPaging" resultType="int">
+		<![CDATA[
 			SELECT count(ENO)
-			FROM EMPINFO
+			FROM EMPINFO]]>
+			<choose>
+				<when test='searchkey == "전체"'></when>
+				<when test='searchkey == "emptyKey"'></when>
+				<otherwise>
+					WHERE EMPLOYMENTTYPE LIKE '%'||#{searchkey}||'%'
+				</otherwise>
+			</choose>
+	</select>
+	
+	<!-- 채용공고 근무조건에 따른 검색  -->
+	<select id="empinfoSearchSelect" resultType="eDTO">
+		<![CDATA[
+				SELECT * FROM (
+					SELECT rownum rnum, a.*
+					FROM (
+						SELECT empinfo.* 
+	                      FROM EMPINFO empinfo
+						WHERE eno > 0
+						ORDER BY eno ASC
+					) a]]>
+					<choose>
+				<when test='keyword == "전체"'></when>
+				<otherwise>
+					WHERE EMPLOYMENTTYPE LIKE '%'||#{keyword}||'%'
+				</otherwise>
+			</choose>
+				<![CDATA[)
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+			]]>
+			
 	</select>
 	
 </mapper>
