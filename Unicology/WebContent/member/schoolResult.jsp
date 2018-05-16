@@ -19,7 +19,7 @@
 <body>
 	<div>
 	<c:forEach items="${list}" var="ulist">
-		<a class="univ_name" id="univ_name" href="#" data_num = "${ulist.schoolName}">${ulist.schoolName}</a>
+		<a class="univ_name"  href="#" data_num = "${ulist.schoolName}">${ulist.schoolName}</a>
 	</c:forEach>
 	</div>
 </body>
