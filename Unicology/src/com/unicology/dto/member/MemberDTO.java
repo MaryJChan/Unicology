@@ -14,6 +14,7 @@ public class MemberDTO {
 	private String mbirth;
 	private String mduty;
 	private String mgrade;
+	private String mschool;
 	private String matten_eyem;
 	private String matten_gygm;
 	private String useyn;
@@ -40,7 +41,8 @@ public class MemberDTO {
 	}
 
 	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
-			String msex, String mbirth, String mduty, String mgrade, String matten_eyem, String matten_gygm) {
+			String msex, String mbirth, String mduty, String mgrade, String mschool, String matten_eyem,
+			String matten_gygm) {
 		super();
 		this.mid = mid;
 		this.mpw = mpw;
@@ -53,8 +55,17 @@ public class MemberDTO {
 		this.mbirth = mbirth;
 		this.mduty = mduty;
 		this.mgrade = mgrade;
+		this.mschool = mschool;
 		this.matten_eyem = matten_eyem;
 		this.matten_gygm = matten_gygm;
+	}
+
+	public String getMschool() {
+		return mschool;
+	}
+
+	public void setMschool(String mschool) {
+		this.mschool = mschool;
 	}
 
 	public String getMpost() {

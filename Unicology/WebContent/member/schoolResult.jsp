@@ -6,11 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.univ_name {
+		font-size: 13px; 
+		display: block;
+	}
+	.univ_name:hover {
+		color: #6495ED;
+	}
+</style>
 </head>
 <body>
 	<div>
 	<c:forEach items="${list}" var="ulist">
-		<a href="#" style="font-size: 13px; display: block;">${ulist.schoolName}</a>
+		<a class="univ_name" id="univ_name" href="#" data_num = "${ulist.schoolName}">${ulist.schoolName}</a>
 	</c:forEach>
 	</div>
 </body>

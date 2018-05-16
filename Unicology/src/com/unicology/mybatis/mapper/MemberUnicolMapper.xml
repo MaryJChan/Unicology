@@ -27,7 +27,7 @@
 	
 	<!-- 회원등록 -->
 	<insert id="memberinsert">
-		INSERT INTO unicol_member (mid,mpw,mname,mphone,memail,mpost,maddr,msex,mbirth,mduty,mgrade,matten_eyem,matten_gygm)
+		INSERT INTO unicol_member (mid,mpw,mname,mphone,memail,mpost,maddr,msex,mbirth,mduty,mgrade,mschool,matten_eyem,matten_gygm)
 		VALUES (#{mid},
 				#{mpw},
 				#{mname},
@@ -39,6 +39,7 @@
 				#{mbirth},
 				#{mduty},
 				#{mgrade},
+				#{mschool},
 				#{matten_eyem},
 				#{matten_gygm})
 	</insert>

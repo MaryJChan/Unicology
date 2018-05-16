@@ -52,7 +52,9 @@ public class MemberInsertAction implements Action{
 		
 		// 최종학력
 		String mgrade = request.getParameter("get_grade");
-		
+		// 학교이름
+		String mschool = request.getParameter("get_school");
+				
 		// 입학년도 ~ 졸업년도
 		String atten_ey = request.getParameter("atten_ey");
 		String atten_em = request.getParameter("atten_em");
@@ -62,8 +64,7 @@ public class MemberInsertAction implements Action{
 		String matten_gygm = atten_gy+atten_gm;
 		
 		
-		
-		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade, matten_eyem, matten_gygm);
+		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm);
 		MemberDAO mDao = MemberDAO.getInstance();
 		int result = mDao.memInsert(mDto);
 		

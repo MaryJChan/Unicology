@@ -720,6 +720,7 @@
 		}
 	});
 	
+	//학교 이름 검색기능
 	$(document).on("click","#schoolSearch_btn",function(){
 		var schoolName = $("#schoolName").val();
 		$.ajax({
@@ -733,6 +734,14 @@
 				alert("System Error!!!");
 			}
 	});
+	//선택한 학교 인풋창에 담기
+	$(document).on("click",".univ_name",function(){
+		var val = $(this).attr("data_num");
+		$("#get_school").val(val);
+		$(".school_modal").css("display","none");
+	});
+	
+	
 });
 </script>
 
