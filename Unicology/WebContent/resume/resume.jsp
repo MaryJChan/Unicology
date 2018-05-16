@@ -105,6 +105,10 @@
 		      	$("#hand-shake").attr("src","image/resume_img/hand-shake2.png");
 		      	$("#protect_plus").attr("src","image/resume_img/minus2.png");
 		      	});
+		      
+		      $("#urlplus_btn").on("click",function(){
+		    	 $("#plusfile").click();
+		      });
 		    
 		 });
       
@@ -902,14 +906,16 @@
       		top: 155px;
       		width: 16%;
       }
+      #plusfile{
+      		display: none;
+      }
 /* //==========================================================다슬resume(css끝)=========================================== */
 </style>
 </head>
 <body>
 <%@include file="../include/header.jsp" %>
 <!-- //==========================================================성민resume(body시작)=========================================== -->
- <!-- .unicology로 임의로 정함 -->
-<form action="resume_insert.unicology" method="post">
+<form action="resumeInsert.unicol" method="post" name="frm_resume" enctype="multipart/form-data">
       <div class="resume_page">
             <div class="resume_inner_page1">
                  
@@ -1452,10 +1458,11 @@
 	                        <div class="container" id="portfolio_container">
 	                              <button type="button" class="file_btn" id="urlplus_btn">URL 추가<img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn"></button>
 	                              <button type="button" class="file_btn" id="urlplus_btn">파일 추가<img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn"></button>
+	                              <input type="file" name="plusfile" id="plusfile">
 	                        </div>
                         </div>
                         
-                        <!-- 취업우대 -->
+                        <!-- 취업우대 ----------------------------------------------------------------------------------------------------------------------->
                         <div class="protect_box">
 	                        <div class="abroad_title">취업우대</div>
 	                        <div class="container" id="protect_container">
