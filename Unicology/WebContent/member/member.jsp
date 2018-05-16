@@ -380,7 +380,6 @@
 		text-decoration: none;
 	}
 </style>
-<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		
@@ -721,7 +720,20 @@
 		}
 	});
 	
-
+	$(document).on("click","#schoolSearch_btn",function(){
+		var schoolName = $("#schoolName").val();
+		$.ajax({
+			url: "univajax.unicol",
+			type: "POST",
+			data: "schoolName="+ schoolName,
+			success: function(result){
+					$("#schoolResult").html(result);
+			},
+			error: function () {
+				alert("System Error!!!");
+			}
+	});
+});
 </script>
 
 </head>
@@ -951,16 +963,16 @@
 								      	</div>
 								      	
 								      	<div class="group service">
-									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_service_result" value="승무원/숙박/여행">승무원/숙박/여행</label>
-									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_service_result" value="음식서비스">음식서비스</label>
+									      		<label for="serivce1" class="group_content_explain"><input type="checkbox" id="service1" name="group_service_result" value="승무원/숙박/여행">승무원/숙박/여행</label>
+									      		<label for="service2" class="group_content_explain"><input type="checkbox" id="service2" name="group_service_result" value="음식서비스">음식서비스</label>
 								      	</div>
 								      	
 								      	<div class="group build">
-									      		<label for="1" class="group_content_explain"><input type="checkbox" id="1" name="group_build_result" value="현장/시공/감리/공무">현장/시공/감리/공무</label>
-									      		<label for="2" class="group_content_explain"><input type="checkbox" id="2" name="group_build_result" value="안전/품잘/관리">안전/품잘/관리</label>
-									      		<label for="3" class="group_content_explain"><input type="checkbox" id="3" name="group_build_result" value="토목/조경/도시">토목/조경/도시</label>
-									      		<label for="4" class="group_content_explain"><input type="checkbox" id="4" name="group_build_result" value="건축/인테리어/설계">건축/인테리어/설계</label>
-									      		<label for="5" class="group_content_explain"><input type="checkbox" id="5" name="group_build_result" value="환경/플랜트">환경/플랜트</label>
+									      		<label for="build1" class="group_content_explain"><input type="checkbox" id="build1" name="group_build_result" value="현장/시공/감리/공무">현장/시공/감리/공무</label>
+									      		<label for="build2" class="group_content_explain"><input type="checkbox" id="build2" name="group_build_result" value="안전/품잘/관리">안전/품잘/관리</label>
+									      		<label for="build3" class="group_content_explain"><input type="checkbox" id="build3" name="group_build_result" value="토목/조경/도시">토목/조경/도시</label>
+									      		<label for="build4" class="group_content_explain"><input type="checkbox" id="build4" name="group_build_result" value="건축/인테리어/설계">건축/인테리어/설계</label>
+									      		<label for="build5" class="group_content_explain"><input type="checkbox" id="build5" name="group_build_result" value="환경/플랜트">환경/플랜트</label>
 								      	</div>
 								      </div>
 								      <div id="group_result">
@@ -992,12 +1004,12 @@
 							<div class="school_modal_content">
 									<h2 style="color:#6495ED; font-weight: bold; display: inline-block;">대학 검색 </h2>
 									<span class="close2">&times;</span>
-									<div id="schoolSearch">								
-										<input type="text" id="schoolSearch" name="schoolSearch" style=" height: 35px; width: 155px; margin-right: 10px; font-size: 18px; border-radius: 5px;">
-										<a href="#" id="schoolSearch_btn"><div style="border-radius: 5px; background-color: #6495ED; color: #fff; padding: 6px 15px 10px; display: inline-block;">검색</div></a> 
+									<div id="schoolSearch">		
+											<input type="text" id="schoolName" name="schoolName" style=" height: 35px; width: 155px; margin-right: 10px; font-size: 18px; border-radius: 5px;">
+											<a href="#" id="schoolSearch_btn"><div style="border-radius: 5px; background-color: #6495ED; color: #fff; padding: 6px 15px 10px; display: inline-block;">검색</div></a> 
+											<span style="font-size: 10px; display: block; margin-top: 5px;">학교의 이름만 검색해주세요. (한국대학교X 한국O)</span>
 									</div>
-									<div id="schoolResult">								
-										
+									<div id="schoolResult" style=" margin-top: 10px; background-color: #fff; height: 220px; border-radius: 5px;">	
 									</div>
 							</div>
 						</div>

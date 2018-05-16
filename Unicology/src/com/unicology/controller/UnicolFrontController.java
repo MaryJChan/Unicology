@@ -26,6 +26,7 @@ import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeInsertAction;
 import com.unicology.action.unicolmain.IndexAction;
+import com.unicology.action.univ.UnivAjaxAction;
 
 @WebServlet("/UnicolFrontController")
 public class UnicolFrontController extends HttpServlet{
@@ -133,6 +134,11 @@ public class UnicolFrontController extends HttpServlet{
         	action = new MemberInsertAction();
         	forward = action.excute(request, response);
         }
+        else if (command.equals("/univajax.unicol")) {
+        	action = new UnivAjaxAction();
+        	forward = action.excute(request, response);
+        }
+ 		// 손다슬 추가
  		//  ============================ 이력서 작성 페이지================================= //
         else if (command.equals("/resumeInsert.unicol")) {
         	action = new ResumeInsertAction();

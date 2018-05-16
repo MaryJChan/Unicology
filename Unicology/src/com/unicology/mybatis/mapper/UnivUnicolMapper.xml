@@ -12,4 +12,9 @@
     	VALUES( #{schoolName}, #{schoolGubun}, #{schoolType}, #{region})
 	</insert>
 	
+	<select id="univSearch" resultType="uDTO" parameterType="String">
+		SELECT schoolName FROM unicol_univ 
+		WHERE schoolName LIKE '%'||#{schoolName}||'%'
+	</select>
+	
 </mapper>

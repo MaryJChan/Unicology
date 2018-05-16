@@ -2,6 +2,7 @@ package com.unicology.dao.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -46,5 +47,26 @@ public class UnivDAO {
 			} finally {
 				sqlSession.close();
 			}
+	    }
+	    public List<UnivDTO> UnivDAO_search(String schoolName) {
+	    	List<UnivDTO> list = null;
+	    	sqlSession = sqlSessionFactory.openSession();
+			try {
+				list = sqlSession.selectList("univSearch", schoolName);
+				if(list.size() > 0) {
+					System.out.println("univ 성공");
+					for (UnivDTO univDTO : list) {
+						System.out.println(univDTO.getSchoolName());
+					}
+				} else {
+					System.out.println("univ 실패");
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+			return list;
 	    }
 }
