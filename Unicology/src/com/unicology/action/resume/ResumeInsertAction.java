@@ -21,7 +21,7 @@ public class ResumeInsertAction implements  Action{
 			throws ServletException, IOException {
 		String url = "resume/resume.jsp";
 		
-		 // 파일 업로드 처리
+		/* // 파일 업로드 처리
         File uploadDir = new File(Constants.UPLOAD_PATH);
         
         // 파일을 저장할 디렉토리가 존재하지 않다면 디렉토리 생성
@@ -62,10 +62,10 @@ public class ResumeInsertAction implements  Action{
         //filename이 null또는 "" 일 때 처리
         if(filename == null || filename.trim().equals("")) {
              filename = "-";
-        }
+        }*/
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		
 		return forward;
 	}

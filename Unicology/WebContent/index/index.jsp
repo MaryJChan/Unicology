@@ -320,13 +320,59 @@
       }
       #example_keyword{
       	height: 480px;
-      	margin-top: 5px;
+      	width: 910px;
       }
       #group_total2{
       	color: #ff6813;
       }
       #keyword_box_tag1{
       	background-color: #ff6813;
+      }
+      #keyword_view1 img, #keyword_view1{
+      	height: 491px;
+      	width: 972px;
+      	border-radius: 20px;
+      	display: none;
+      }
+      #keyword_view2 img, #keyword_view2{
+      	width: 973px;
+      	height: 490px;
+      	border-radius: 20px;
+      	display: none;
+      }
+       #keyword_view3 img, #keyword_view3{
+      	width: 972px;
+      	height: 491px;
+      	border-radius: 20px;
+      	display: none;
+      }
+      #keyword_view4, #keyword_view6,#keyword_view7,#keyword_view8,#keyword_view9
+      ,#keyword_view12,#keyword_view13{
+      	display: none;
+      }
+       #keyword_view5 img, #keyword_view5{
+      	width: 972px;
+      	height: 491px;
+      	border-radius: 20px;
+      	display: none;
+      }
+       #keyword_view10 img, #keyword_view10{
+      	width: 972px;
+      	height: 491px;
+      	border-radius: 20px;
+      	display: none;
+      }
+       #keyword_view11 img, #keyword_view11{
+      	width: 972px;
+      	height: 491px;
+      	border-radius: 20px;
+      	display: none;
+      }
+       #keyword_view14 img, #keyword_view14{
+      	width: 972px;
+      	height: 491px;
+      	border-radius: 20px;
+      	display: none;
       }
 </style>
 </head>
@@ -424,7 +470,22 @@
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag11"></div><a href="#keyword_box_title" class="group_in" id="group_service">서비스</a></div>
 		      		<div class="group"><div class="keyword_box_tag" id="keyword_box_tag12"></div><a href="#keyword_box_title" class="group_in" id="group_build">건설</a></div>
 		      	</div>
-		      	<div class="keyword_view"><img alt="example_keyword" src="image/index_Img/main_ex.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view"><img alt="example_keyword" src="image/index_Img/main_keyword_all.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view1"><img alt="example_keyword" src="image/index_Img/main_keyword1.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view2"><img alt="example_keyword" src="image/index_Img/main_keyword2.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view3"><img alt="example_keyword" src="image/index_Img/main_keyword3.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view4"><img alt="example_keyword" src="image/index_Img/main_keyword4.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view5"><img alt="example_keyword" src="image/index_Img/main_keyword5.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view6"><img alt="example_keyword" src="image/index_Img/main_keyword6.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view7"><img alt="example_keyword" src="image/index_Img/main_keyword7.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view8"><img alt="example_keyword" src="image/index_Img/main_keyword8.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view9"><img alt="example_keyword" src="image/index_Img/main_keyword9.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view10"><img alt="example_keyword" src="image/index_Img/main_keyword10.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view11"><img alt="example_keyword" src="image/index_Img/main_keyword11.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view12"><img alt="example_keyword" src="image/index_Img/main_keyword12.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view13"><img alt="example_keyword" src="image/index_Img/main_keyword13.png" id="example_keyword"></div>
+		      	<div class="keyword_view" id="keyword_view14"><img alt="example_keyword" src="image/index_Img/main_keyword14.png" id="example_keyword"></div>
+		      	
 	      	</div>
 	      </div>
 	      
@@ -520,13 +581,68 @@
             $(".group_in").click(function() {
             	  $(".group_in").css("color","#999");
             	  $(".group_in").siblings().css("background-color","white");
+            	  var id= $(this).attr("id");
             	  $(this).css("color","#ff6813");
             	  $(this).siblings().css("background-color","#ff6813");
+            	  
+            	  if(id=="group_total2"){
+  					$("#keyword_view").css("display","block");  
+  					$("#keyword_view img").css("display","block");  
+  					$(".keyword_view").not("#keyword_view").css("display","none");
+              	  }else if(id=="group_manage_office"){
+					$("#keyword_view1").css("display","block");  
+					$("#keyword_view1 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view1").css("display","none");
+            	  }else if(id=="group_market_trade_circulation"){
+					$("#keyword_view2").css("display","block");  
+					$("#keyword_view2 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view2").css("display","none");
+            	  }else if(id=="group_sales_consulation"){
+					$("#keyword_view3").css("display","block");  
+					$("#keyword_view3 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view3").css("display","none");
+            	  }else if(id=="group_it_internet"){
+					$("#keyword_view4").css("display","block");  
+					$("#keyword_view4 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view4").css("display","none");
+            	  }else if(id=="group_research_design"){
+					$("#keyword_view5").css("display","block");  
+					$("#keyword_view5 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view5").css("display","none");
+            	  }else if(id=="group_production_manufacturing"){
+					$("#keyword_view6").css("display","block");  
+					$("#keyword_view6 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view6").css("display","none");
+            	  }else if(id=="group_specialty_special"){
+					$("#keyword_view7").css("display","block");  
+					$("#keyword_view7 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view7").css("display","none");
+            	  }else if(id=="group_research_design"){
+					$("#keyword_view8").css("display","block");  
+					$("#keyword_view8 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view8").css("display","none");
+            	  }else if(id=="group_design"){
+					$("#keyword_view9").css("display","block");  
+					$("#keyword_view9 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view9").css("display","none");
+            	  }else if(id=="group_media"){
+					$("#keyword_view10").css("display","block");  
+					$("#keyword_view10 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view10").css("display","none");
+            	  }else if(id=="group_service"){
+					$("#keyword_view11").css("display","block");  
+					$("#keyword_view11 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view11").css("display","none");
+            	  }else if(id=="group_build"){
+					$("#keyword_view12").css("display","block");  
+					$("#keyword_view12 img").css("display","block");  
+					$(".keyword_view").not("#keyword_view12").css("display","none");
+            	  }
             });
             
             // 2018.05.15 박아영 추가
             // 마이페이지 클릭시 로그인 유무 판단하여 페이지 이동
-            $("#Main_rhom2").click(function() {
+            $("#mypage").click(function() {
             	var loginYn = $("#loginsession").val();
             	
             	if(loginYn == "") {
@@ -535,6 +651,10 @@
             	} else {
             		location.href = "mypage.unicol";
             	}
+            });
+            
+            $(".close").click(function(){
+            	$(".loginMsg").css("display","none");	
             });
             
             $("#header_menu_mypage").click(function() {
