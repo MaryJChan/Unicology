@@ -60,5 +60,7 @@
 		<mapper resource="com/unicology/mybatis/mapper/JasoWriteUnicolMapper.xml"/>
 		<!-- 이력서 작성 mapper -->
 		<mapper resource="com/unicology/mybatis/mapper/ResumeUnicolMapper.xml"/>
+		<!-- 마이페이지 mapper  -->
+		<mapper resource="com/unicology/mybatis/mapper/MyPageUnicolMapper.xml"/>
 	</mappers>
 </configuration>
