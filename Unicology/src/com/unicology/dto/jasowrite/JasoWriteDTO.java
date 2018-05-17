@@ -70,5 +70,12 @@ public class JasoWriteDTO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 }

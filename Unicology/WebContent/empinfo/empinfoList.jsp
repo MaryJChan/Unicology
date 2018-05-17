@@ -578,10 +578,10 @@
        	
        	/* 직업별 세분류 클릭시  */
 		$(".subBox_category > li > a").on("click", function() {
+			
 			var category_detail = $(this).attr("id");
-			alert("category_detail : " +category_detail);
 			var catDetail = category_detail.slice(0,-4);
-			alert("catDetail : " +catDetail);
+			
 			$(".sub_depth_box").css("display","none");
 			$("#"+catDetail).css("display","block"); 
 			 
@@ -590,27 +590,45 @@
 		
 		/* 세분류 카테고리 체크박스 클릭시 검색창에 값 전달  */
 		$(".depth_category_chk").on("click", function() {
+			
 			$(".result_guide").css("display", "none");
 			$(".select_result").css("display", "block");
 			
 			var chkID = $(this).attr("value");
-			 var chkParent = $(this).parent('div');
-			 alert("chkParent" + chkParent);
+			var chkParent = $(this).parents('div').attr('id');
+			var chkParent_name = $("#"+chkParent+"_btn").text();
 			
-			$('.select_result').append('<span>' + chkID + '</span>');
+			$('.select_result').append('<span>' + chkParent_name + ' > ' + chkID + '</span>');
 		});
 		
+		/* 세분류 카테고리 검색창 선택 초기화  */
+		$("#select_reset").on("click", function() {
+			$(".result_guide").css("display", "block");
+			$(".select_result").css("display","none");
+			
+			$("input:checkbox[name='depth_category_chk']").prop("checked", false);
+			$(".select_result > span").remove();
+			
+		});
 		
 		/* 검색하기 버튼 클릭 시  */
 		$("#searchBtn").on("click", function() {
 			alert("!!!");
 			var checkboxValues = [];
+			var checkboxParentValues = [];
 			var frm = $("#search_panel_form");
 		    $("input[name=depth_category_chk]:checked").each(function(i) {
+		    	var chkParent = $(this).parents('div').attr('id');
+				var chkParent_name = $("#"+chkParent+"_btn").text();
+				
+				alert(chkParent_name);
+				
 		        checkboxValues.push($(this).val());
+		        checkboxParentValues.push(chkParent_name);
 		    });
 		    alert(checkboxValues);
 		    $("#checkboxResult").val(checkboxValues);
+		    $("#checkboxParentResult").val(checkboxParentValues);
 		    frm.submit();
 		});
 		
@@ -659,7 +677,8 @@
 	
 				<!-- 검색 카테고리(직종별 분류)  -->
 				<form action="empinfoSearch.unicol" id="search_panel_form" name="search_panel_form" method="get">
-				<input type="hidden" value="" id="checkboxResult">
+				<input type="hidden" value="" id="checkboxResult" name="checkboxResult">
+				<input type="hidden" value="" id="checkboxParentResult" name="checkboxParentResult">
 					<div id="searchMain_wrap">
 						 <ul class="searchCategory searchMain_category">
 	                         <li><a href="#" class="selected" id="mg_Office_btn">경영·사무</a></li>
@@ -675,16 +694,16 @@
                    		 <div class="subBox_wrap" id="mg_Office">
 	                         <div class="sub_box">
 	                             <ul class="subBox_category">
-	                                   <li id="first_subcat"><a id="planning_Strategy_Management_btn" href="#">기획·전략·경영<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a id="marketing_Advertising_Analysis_btn" href="#">마케팅·광고분석<em class="txt_count">(4,277)</em></a></li>
-	                                   <li><a href="#">홍보·PR·사보<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">경리·출납·결산<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">회계·재무·세무·IR<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">총무·법무·사무<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">비서·안내·수행원<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">인사·교육·노무<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">사무보조·문서작성<em class="txt_count">(1,899)</em></a></li>
-	                                   <li><a href="#">전시·컨벤션·세미나<em class="txt_count">(1,899)</em></a></li>
+	                                   <li id="first_subcat"><a id="planning_Strategy_Management_btn" href="#">기획·전략·경영</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a id="marketing_Advertising_Analysis_btn" href="#">마케팅·광고분석</a><em class="txt_count">(4,277)</em></li>
+	                                   <li><a href="#">홍보·PR·사보</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">경리·출납·결산</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">회계·재무·세무·IR</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">총무·법무·사무</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">비서·안내·수행원</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">인사·교육·노무</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">사무보조·문서작성</a><em class="txt_count">(1,899)</em></li>
+	                                   <li><a href="#">전시·컨벤션·세미나</a><em class="txt_count">(1,899)</em></li>
 	                             </ul>
 	                         </div>
 	                         
@@ -814,7 +833,7 @@
 						<div class="select_result">
 						</div>
 						<div id="init_wrap">
-							<a href="#">선택 초기화</a>
+							<a id="select_reset" href="#">선택 초기화</a>
 						</div>
 					</div>
 					<div id="result_btn">

@@ -151,6 +151,7 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         }
  		
+ 	//  ============================  MyPage 이력서관리  ================================= //
         else if (command.equals("/resume_management.unicol")) {
         	action = new ResumeManagementAction();
         	forward = action.excute(request, response);

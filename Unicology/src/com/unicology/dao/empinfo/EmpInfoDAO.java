@@ -104,10 +104,6 @@ public class EmpInfoDAO {
 		try {
 			searchList = sqlSession.selectList("empinfoSearchSelect", empInfoCriDto);
 
-			// int empinfoSearchCnt = searchList.;
-
-			// System.out.println("근무조건에 따른 검색 총 갯수 : " + empinfoSearchCnt);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- MyPage mapper  -->    
+<mapper namespace="com/unicology/mybatis/mapper/MyPageUnicolMapper.xml">
+	
+	<!-- 이력서 관리 mapper  -->
+	<select id="resumeSelect">
+		SELECT * 
+		  FROM JASOWRITE
+	</select>
+	
+</mapper>

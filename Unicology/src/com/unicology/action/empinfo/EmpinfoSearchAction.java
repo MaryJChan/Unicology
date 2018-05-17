@@ -41,12 +41,29 @@ public class EmpinfoSearchAction implements Action {
         // EmpInfoCriteriaDTO에 page를 1로 변경
         empInfoCriDto.setPage(page);
         
-        // 검색 키워드
+        //검색 키워드(카테고리, 세분류)
+        String[] checkboxResult = request.getParameterValues("checkboxResult");
+        empInfoCriDto.setCategory_check_keyword(checkboxResult);
+        String[] checkboxParentResult = request.getParameterValues("checkboxParentResult");
+        empInfoCriDto.setCategory_keyword(checkboxParentResult);
+        
+        for (String chkBoxResult : checkboxResult) {
+        	System.out.println(chkBoxResult);
+		}
+        for (String chkParentresult : checkboxParentResult) {
+        	System.out.println(chkParentresult);
+		}
+        
+        
+        empInfoDao.empinfoSearchSelect(empInfoCriDto);
+        
+        
+        // 검색 키워드(Tab)
 		String searchKey = request.getParameter("flag");
 		System.out.println("searchKey : " + searchKey);
 		empInfoCriDto.setKeyword(searchKey);
 		
-		if(searchKey == null) {
+		if(searchKey == null || checkboxResult == null) {
         	List<EmpInfoDTO> list = empInfoDao.jobListAll(empInfoCriDto);
         	// list를 view딴으로 보냄
             request.setAttribute("searchList", list);
@@ -94,7 +111,7 @@ public class EmpinfoSearchAction implements Action {
         ActionForward forward = new ActionForward();
         forward.setPath(url);
         forward.setRedirect(false);
-        return forward;
+        return null;
 		
 	}
 

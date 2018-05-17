@@ -78,6 +78,7 @@
             min-height: 500px;
             margin-left: 30px;
             float: left;
+            display: none;
             
       }
       
@@ -255,13 +256,14 @@
       /*right side 메뉴  */
       
       #section_rightmenu {
-            position: relative;
-            float: right;
-            background-color: white;
-      box-shadow: 0 1px 1px 1px rgba(0,0,0,0.1);
-      width: 120px;
-      margin-top: 10px;
-      margin-right: 50px;
+          position: relative;
+          float: right;
+          background-color: white;
+	      box-shadow: 0 1px 1px 1px rgba(0,0,0,0.1);
+	      width: 120px;
+	      margin-top: 10px;
+	      margin-right: 50px;
+	      display: none;
       }
       
       .rightmenu li a {
@@ -279,7 +281,7 @@
       
       /* 이력서 관리   */
       #resume_management_wrap {
-	      display: none;
+	      display: block;
 	      background-color: white;
 	  	  margin-left: 211px;
 	  	  padding: 12px 40px 80px;

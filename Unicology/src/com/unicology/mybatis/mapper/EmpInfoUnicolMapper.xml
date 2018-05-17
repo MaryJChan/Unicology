@@ -52,11 +52,14 @@
 						ORDER BY eno ASC
 					) a]]>
 					<choose>
-				<when test='keyword == "전체"'></when>
-				<otherwise>
-					WHERE EMPLOYMENTTYPE LIKE '%'||#{keyword}||'%'
-				</otherwise>
-			</choose>
+						<when test='keyword == "전체"'></when>
+						<otherwise>
+							WHERE EMPLOYMENTTYPE LIKE '%'||#{keyword}||'%'
+						</otherwise>
+					</choose>
+					<choose>
+						<when test=""></when>
+					</choose>
 				<![CDATA[)
 			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
 			]]>
