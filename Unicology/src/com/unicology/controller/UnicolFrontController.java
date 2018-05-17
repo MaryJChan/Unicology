@@ -13,7 +13,9 @@ import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
+import com.unicology.action.jasowrite.JasoModifyAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
+import com.unicology.action.jasowrite.JasoWriteRegisterAction;
 import com.unicology.action.member.ConstractAction;
 import com.unicology.action.member.JoinMemberAction;
 import com.unicology.action.member.LoginCkAction;
@@ -77,6 +79,18 @@ public class UnicolFrontController extends HttpServlet{
  			action = new JasoWriteAction();	
 			forward = action.excute(request, response);
  		}
+ 		
+ 		else if (command.equals("/jasowriteregister.unicol")) {
+ 			action = new JasoWriteRegisterAction();	
+			forward = action.excute(request, response);
+ 		}
+ 		
+ 	    // ======================= 자소서 수정 페이지 ======================= //
+ 		else if (command.equals("/jasoModify.unicol")) {
+ 			action = new JasoModifyAction();	
+			forward = action.excute(request, response);
+ 		}
+ 		
  		// ======================= 합격 자소서 페이지 ======================= //
  		else if (command.equals("/passjaso.unicol")) {
  			action = new PassJasoAction();	
@@ -151,7 +165,7 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         }
  		
- 	//  ============================  MyPage 이력서관리  ================================= //
+ 	    //  ============================  MyPage 이력서관리  ================================= //
         else if (command.equals("/resume_management.unicol")) {
         	action = new ResumeManagementAction();
         	forward = action.excute(request, response);

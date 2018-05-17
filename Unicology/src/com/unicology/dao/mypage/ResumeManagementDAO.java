@@ -32,35 +32,32 @@ public class ResumeManagementDAO {
 		
 		// 이력서 리스트 조회
 		public List<JasoWriteDTO> resumeListSelect() {
+			System.out.println("이력서 리스트 조회 메서드 ====");
+			
 			sqlSession = sqlSessionFactory.openSession();
 			List<JasoWriteDTO> resumelist = new ArrayList<>();
 			
 			try {
+				
 				resumelist = sqlSession.selectList("resumeSelect");
+				
 				for (JasoWriteDTO jasoWriteDTO : resumelist) {
-					int jno = jasoWriteDTO.getJno();
 					int jnum = jasoWriteDTO.getNum();
 					String jtitle = jasoWriteDTO.getTitle();
-					String jquestion = jasoWriteDTO.getQuestion();
-					String janswer = jasoWriteDTO.getAnswer();
 					Date regdate = jasoWriteDTO.getRegdate();
 					
-					System.out.println("jno : " + jno);
 					System.out.println("jnum : " + jnum);
 					System.out.println("jtitle : " + jtitle);
-					System.out.println("jtitle : " + jquestion);
-					System.out.println("janswer : " + janswer);
 					System.out.println("regdate : " + regdate);
-					System.out.println("jno : " + jno);
+					
 				}
 				
 			} catch (Exception e) {
-				
+				e.printStackTrace();
 			} finally {
 				if(sqlSession != null) sqlSession.close();
 			}
 		
 			return resumelist;
 		}
-
 }

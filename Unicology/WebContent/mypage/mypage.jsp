@@ -772,6 +772,16 @@
                   					<th>최근 수정일</th>
                   				</tr>
                   				
+                  				<c:forEach items="${resumeList}" var="resumeList">
+                  				<tr>
+                  					<td></td>
+                  					<td>${resumeList.title}</td>
+                  					<td></td>
+                  					<td>${resumeList.regdate}</td>
+                  					<td></td>
+                  				</tr>
+                  				</c:forEach>
+                  				
                   				<tr>
                   					<td colspan="5">
                   						<div id="resumelist_none">
