@@ -12,72 +12,7 @@
 //==========================================================성민resume(script끝)===========================================	
 //==========================================================다슬resume(script시작)===========================================
       $(document).ready(function(){
-//     	  /* ----------------------------------------학력추가(3)---------------------------------------- */
-//             $("#resume_plus_btn_top").on("click",function(){
-//             		$("#award_plus_btn2").css("display","block");
-//  				$("#award_plus_btn1").css("display","none");
-//           	  	$("#award_container").appendChild($("#award_container2").css("display","block"));
- 				
-//             });
-//             $("#award_plus_btn2").on("click",function(){
-//  			  	$("#award_plus_btn2").css("display","none");
-//  			  	$("#award_plus_btn3").css("display","block");
-//  			  	$("#award_container2").appendChild($("#award_container3").css("display","block"));
-//     		  });
-
-//			/* ----------------------------------------경력추가(3)---------------------------------------- */
-//             $("#resume_plus_btn_top").on("click",function(){
-//             		$("#award_plus_btn2").css("display","block");
-//  				$("#award_plus_btn1").css("display","none");
-//           	  	$("#award_container").appendChild($("#award_container2").css("display","block"));
- 				
-//             });
-//             $("#award_plus_btn2").on("click",function(){
-//  			  	$("#award_plus_btn2").css("display","none");
-//  			  	$("#award_plus_btn3").css("display","block");
-//  			  	$("#award_container2").appendChild($("#award_container3").css("display","block"));
-//     		  });
-    	  
-//			/* ----------------------------------------인턴/대외활동 추가(2)---------------------------------------- */
-//             $("#resume_plus_btn_top").on("click",function(){
-//             		$("#award_plus_btn2").css("display","block");
-//  				$("#award_plus_btn1").css("display","none");
-//           	  	$("#award_container").appendChild($("#award_container2").css("display","block"));
- 				
-//             });
-//             $("#award_plus_btn2").on("click",function(){
-//  			  	$("#award_plus_btn2").css("display","none");
-//  			  	$("#award_plus_btn3").css("display","block");
-//  			  	$("#award_container2").appendChild($("#award_container3").css("display","block"));
-//     		  });
-    	  
-//			/* ----------------------------------------경력추가(1)---------------------------------------- */
-//             $("#resume_plus_btn_top").on("click",function(){
-//             		$("#award_plus_btn2").css("display","block");
-//  				$("#award_plus_btn1").css("display","none");
-//           	  	$("#award_container").appendChild($("#award_container2").css("display","block"));
- 				
-//             });
-//             $("#award_plus_btn2").on("click",function(){
-//  			  	$("#award_plus_btn2").css("display","none");
-//  			  	$("#award_plus_btn3").css("display","block");
-//  			  	$("#award_container2").appendChild($("#award_container3").css("display","block"));
-//     		  });
-    	  
-//			/* ----------------------------------------자격증추가(5)---------------------------------------- */
-//             $("#resume_plus_btn_top").on("click",function(){
-//             		$("#award_plus_btn2").css("display","block");
-//  				$("#award_plus_btn1").css("display","none");
-//           	  	$("#award_container").appendChild($("#award_container2").css("display","block"));
- 				
-//             });
-//             $("#award_plus_btn2").on("click",function(){
-//  			  	$("#award_plus_btn2").css("display","none");
-//  			  	$("#award_plus_btn3").css("display","block");
-//  			  	$("#award_container2").appendChild($("#award_container3").css("display","block"));
-//     		  });
-    	  
-    	 	 /* ----------------------------------------수상추가---------------------------------------- */
+    	   /* ----------------------------------------수상추가---------------------------------------- */
             $("#award_plus_btn1").on("click",function(){
             	$("#award_plus_btn2").css("display","block");
    				$("#award_plus_btn1").css("display","none");
@@ -87,7 +22,7 @@
             $("#award_plus_btn2").on("click",function(){
    				$("#award_plus_btn2").css("display","none");
    				$("#award_plus_btn3").css("display","block");
-   				//$("#award_container2").appendChild($("#award_container3").css("display","block"));
+   				$("#award_container2").appendChild($("#award_container3").css("display","block"));
        		});
             
             /* !!!!!!!!!------------------------------수상제거--------------------------------!!!!!!!!! */
@@ -131,70 +66,181 @@
             	
             });
             
-            /* =======================================학력 추가/제거 =======================================*/
-            $("#resume_plus_btn_award").on("click",function(){
-            	$(".award_box").css("display","block");
-            	$("#resume_plus_btn_award").css("color","#3599FD");
-            	$("#trophy").attr("src","image/resume_img/trophy2.png");
-            	$("#award_plus").attr("src","image/resume_img/minus2.png");
-	            });
+            /* ======================================= 학력 추가/제거 =======================================*/
+            $("#resume_plus_btn_top").on("click",function(){
+            	var src=$("#graduatioin_plus").attr("src");
+            	
+            	if(src=="image/resume_img/minus2.png"){
+            			//$("#school_box").css("display","none");
+            			//$("#resume_plus_btn_top").css("color","#999");
+	                	//$("#graduatioin_cap").attr("src","image/resume_img/info_card.png");
+	                	//$("#graduatioin_plus").attr("src","image/resume_img/plus.png");
+            	}else{
+            			$("#school_box").css("display","block");
+		            	$("#resume_plus_btn_top").css("color","#3599FD");
+		            	$("#graduatioin_cap").attr("src","image/resume_img/info_card2.png");
+		            	$("#graduatioin_plus").attr("src","image/resume_img/minus2.png");
+	            }
+            });
             
-            /* =======================================경력 추가/제거 =======================================*/
-            $("#resume_plus_btn_award").on("click",function(){
-            	$(".award_box").css("display","block");
-            	$("#resume_plus_btn_award").css("color","#3599FD");
-            	$("#trophy").attr("src","image/resume_img/trophy2.png");
-            	$("#award_plus").attr("src","image/resume_img/minus2.png");
-	            });
+            /* ======================================= 경력 추가/제거 =======================================*/
+            $("#resume_plus_btn_career").on("click",function(){
+            	var src=$("#career_plus").attr("src");
+            	
+            	if(src=="image/resume_img/minus2.png"){
+            			$("#career_box").css("display","none");
+            			$("#resume_plus_btn_career").css("color","#999");
+	                	$("#info_card").attr("src","image/resume_img/info_card.png");
+	                	$("#career_plus").attr("src","image/resume_img/plus.png");
+            	}else{
+            			$("#career_box").css("display","block");
+		            	$("#resume_plus_btn_career").css("color","#3599FD");
+		            	$("#info_card").attr("src","image/resume_img/info_card2.png");
+		            	$("#career_plus").attr("src","image/resume_img/minus2.png");
+	            }
+            });
+      
+            /* ======================================= 인턴/대외활동 추가/제거 =======================================*/
+            $("#resume_plus_btn_business").on("click",function(){
+            	var src=$("#business_plus").attr("src");
+            	
+            	if(src=="image/resume_img/minus2.png"){
+            		$("#intern_box").css("display","none");
+                	$("#resume_plus_btn_business").css("color","#999");
+                	$("#business_bag").attr("src","image/resume_img/business_bag.png");
+                	$("#business_plus").attr("src","image/resume_img/plus.png");
+            	}else{
+            		$("#intern_box").css("display","block");
+                	$("#resume_plus_btn_business").css("color","#3599FD");
+                	$("#business_bag").attr("src","image/resume_img/business_bag2.png");
+                	$("#business_plus").attr("src","image/resume_img/minus2.png");
+	            }
+	         });
+            
+            /* ======================================= 교육 추가/제거 =======================================*/
+            $("#resume_plus_btn_education").on("click",function(){
+            	var src=$("#education_plus").attr("src");
+            	
+            	if(src=="image/resume_img/minus2.png"){
+            		$("#education_box").css("display","none");
+                	$("#resume_plus_btn_education").css("color","#999");
+                	$("#book").attr("src","image/resume_img/book.png");
+                	$("#education_plus").attr("src","image/resume_img/plus.png");
+            	}else{
+            		$("#education_box").css("display","block");
+                	$("#resume_plus_btn_education").css("color","#3599FD");
+                	$("#book").attr("src","image/resume_img/book2.png");
+                	$("#education_plus").attr("src","image/resume_img/minus2.png");
+	            }
+	          });
+            
+            /* ======================================= 자격증 추가/제거 =======================================*/
+            $("#resume_plus_btn_license").on("click",function(){
+            	var src=$("#license_plus").attr("src");
+            	
+            	if(src=="image/resume_img/minus2.png"){
+            		$("#license_box").css("display","none");
+                	$("#resume_plus_btn_license").css("color","#999");
+                	$("#license").attr("src","image/resume_img/license.png");
+                	$("#license_plus").attr("src","image/resume_img/plus.png");
+            	}else{
+            		$("#license_box").css("display","block");
+                	$("#resume_plus_btn_license").css("color","#3599FD");
+                	$("#license").attr("src","image/resume_img/license2.png");
+                	$("#license_plus").attr("src","image/resume_img/minus2.png");
+	            }
+	        });
             
             /* =======================================수상메뉴 추가/제거 =======================================*/
             $("#resume_plus_btn_award").on("click",function(){
-            	$(".award_box").css("display","block");
-            	$("#resume_plus_btn_award").css("color","#3599FD");
-            	$("#trophy").attr("src","image/resume_img/trophy2.png");
-            	$("#award_plus").attr("src","image/resume_img/minus2.png");
+            	var src=$("#award_plus").attr("src");
+            	
+            	if(src=="image/resume_img/minus2.png"){
+            		$(".award_box").css("display","none");
+                	$("#resume_plus_btn_award").css("color","#999");
+                	$("#trophy").attr("src","image/resume_img/trophy.png");
+                	$("#award_plus").attr("src","image/resume_img/plus.png");
+            	}else{
+            		$(".award_box").css("display","block");
+                	$("#resume_plus_btn_award").css("color","#3599FD");
+                	$("#trophy").attr("src","image/resume_img/trophy2.png");
+                	$("#award_plus").attr("src","image/resume_img/minus2.png");
+	            }
+            	
 	            });
       
 		      /* =======================================해외경험 추가/제거 =======================================*/
 		      $("#resume_plus_btn_abroad").on("click",function(){
-		      	$(".abroad_box").css("display","block");
-		      	$("#resume_plus_btn_abroad").css("color","#3599FD");
-		      	$("#air-transport").attr("src","image/resume_img/air-transport2.png");
-		      	$("#abroad_plus").attr("src","image/resume_img/minus2.png");
+		    	  var src=$("#abroad_plus").attr("src");
+	            	
+	            	if(src=="image/resume_img/minus2.png"){
+            		 	$(".abroad_box").css("display","none");
+	     		      	$("#resume_plus_btn_abroad").css("color","#999");
+	     		      	$("#air-transport").attr("src","image/resume_img/air-transport.png");
+	     		      	$("#abroad_plus").attr("src","image/resume_img/plus.png");
+	            	}else{
+	            		$(".abroad_box").css("display","block");
+	     		      	$("#resume_plus_btn_abroad").css("color","#3599FD");
+	     		      	$("#air-transport").attr("src","image/resume_img/air-transport2.png");
+	     		      	$("#abroad_plus").attr("src","image/resume_img/minus2.png");
+		            }
 		      	});
 		      
 		      /* =======================================어학 추가/제거 =======================================*/
 		      $("#resume_plus_btn_language").on("click",function(){
-		      	$(".language_box").css("display","block");
-		      	$("#resume_plus_btn_language").css("color","#3599FD");
-		      	$("#earth").attr("src","image/resume_img/earth2.png");
-		      	$("#language_plus").attr("src","image/resume_img/minus2.png");
+		    	  var src=$("#language_plus").attr("src");
+	            	
+	            	if(src=="image/resume_img/minus2.png"){
+	            		$(".language_box").css("display","none");
+	     		      	$("#resume_plus_btn_language").css("color","#999");
+	     		      	$("#earth").attr("src","image/resume_img/earth.png");
+	     		      	$("#language_plus").attr("src","image/resume_img/plus.png");
+	            	}else{
+	            		$(".language_box").css("display","block");
+	     		      	$("#resume_plus_btn_language").css("color","#3599FD");
+	     		      	$("#earth").attr("src","image/resume_img/earth2.png");
+	     		      	$("#language_plus").attr("src","image/resume_img/minus2.png");
+		            }
 		      	});
 		      
 		      /* =======================================포트폴리오 추가/제거 =======================================*/
 		      $("#resume_plus_btn_portfolio").on("click",function(){
-		      	$(".portfolio_box").css("display","block");
-		      	$("#resume_plus_btn_portfolio").css("color","#3599FD");
-		      	$("#portfolio").attr("src","image/resume_img/portfolio2.png");
-		      	$("#portfolio_plus").attr("src","image/resume_img/minus2.png");
+		    	  var src=$("#portfolio_plus").attr("src");
+	            	
+	            	if(src=="image/resume_img/minus2.png"){
+	            		$(".portfolio_box").css("display","none");
+	     		      	$("#resume_plus_btn_portfolio").css("color","#999");
+	     		      	$("#portfolio").attr("src","image/resume_img/portfolio.png");
+	     		      	$("#portfolio_plus").attr("src","image/resume_img/plus.png");
+	            	}else{
+	            		$(".portfolio_box").css("display","block");
+	     		      	$("#resume_plus_btn_portfolio").css("color","#3599FD");
+	     		      	$("#portfolio").attr("src","image/resume_img/portfolio2.png");
+	     		      	$("#portfolio_plus").attr("src","image/resume_img/minus2.png");
+		            }
 		      	});
 		      
 		      /* =======================================취업우대 추가/제거 =======================================*/
 		      $("#resume_plus_btn_bottom").on("click",function(){
-		      	$(".protect_box").css("display","block");
-		      	$("#resume_plus_btn_bottom").css("color","#3599FD");
-		      	$("#hand-shake").attr("src","image/resume_img/hand-shake2.png");
-		      	$("#protect_plus").attr("src","image/resume_img/minus2.png");
+		    	  var src=$("#portfolio_plus").attr("src");
+	            	
+	            	if(src=="image/resume_img/minus2.png"){
+	            		$(".protect_box").css("display","none");
+	    		      	$("#resume_plus_btn_bottom").css("color","#999");
+	    		      	$("#hand-shake").attr("src","image/resume_img/hand-shake.png");
+	    		      	$("#protect_plus").attr("src","image/resume_img/plus.png");
+	            	}else{
+	            		$(".protect_box").css("display","block");
+	    		      	$("#resume_plus_btn_bottom").css("color","#3599FD");
+	    		      	$("#hand-shake").attr("src","image/resume_img/hand-shake2.png");
+	    		      	$("#protect_plus").attr("src","image/resume_img/minus2.png");
+		            }
+		    	  
+		    	  
 		      	});
 		      
 		      $("#urlplus_btn").on("click",function(){
 		    	 $("#plusfile").click();
-		      });
-		      
-		      $(".menu_middle_bar").on("click",function(){
-		    	  alert("임시저장클릭");
-		    	  alert($("#resume_title").val());
-		    	 $("#frm_resume").submit(); 
 		      });
 		    
 		 });
@@ -210,13 +256,6 @@
 	    		  $(".menu_wrap").css("top","155px");
 	    	  }
 	     });
-	      	
-	    // 엔터눌러도 자동으로 submit하지 않도록 방지하는 코드
-      	$('input[type="text"]').keydown(function() {
-      	    if (event.keyCode === 13) {
-      	        event.preventDefault();
-      	    }
-      	});
 //==========================================================다슬resume(script끝)===========================================      
 </script>
 <style type="text/css">
@@ -246,7 +285,6 @@
       /* 추가한 부분 */
       /* info_title */
       .profile,.school{
-            margin-bottom: 14px;
             color: #333;
             font-weight: bold;
             font-size: 20px;
@@ -269,7 +307,7 @@
       }
       .form {
 		    position: relative;
-		    width: 78%;
+		    width: 950px;
 		    padding: 20px 20px 10px;
 		    background-color: #fff;
 		    border: 1px solid #dbe0e9;
@@ -412,7 +450,7 @@
 	  /* 다슬이거 추가 내용 */
 	  .plus_btn_front {
 	  	margin-bottom: 34px;
-	    width: 78%;
+	    width: 78.15%;
 	    height: 50px;
 	    text-align: center;
 	    line-height: 50px;
@@ -448,6 +486,17 @@
 		}
 /* //==========================================================성민resume(css끝)============================================ */
 
+		#career_box{
+			display: none;
+		}
+		#intern_box{
+			display: none;
+		}#education_box{
+			display: none;
+		}#license_box{
+			display: none;
+		}
+
 /* //==========================================================다슬resume(css시작)=========================================== */
       body,ul{
             margin: 0;
@@ -462,13 +511,10 @@
       select{
       		outline: none;
       }
-      a{
-      	cursor: pointer;
-      }
       .resume_page{
             background-color: #ececec;
             width: 100%;
-            padding-bottom: 50px;
+            padding-bottom: 5px;
       }
       .resume_inner_page{
             width: 80%;
@@ -498,10 +544,6 @@
             font-weight: bold;
             font-size: 20px;
             width: 75%;
-      }
-      #award_title{
-            width: 380px;
-            margin-bottom: 10px;
       }
       #award_container{
             width: 78%;
@@ -543,17 +585,22 @@
       .award_div{
             display: inline-block;
       }
-      
-      #award_inst, #award_inst2,#award_inst3{
+      #award_title{
+            width: 380px;
+            margin-bottom: 10px;
+      }
+      #award_inst{
             width: 254px;
       }
-      #award_year,#award_year2,#award_year3{
+      #award_year{
             width: 115px;
       }
       .test_div, #test{
             width: 80%;
             height: 100px;
             border:1px solid red;
+      }
+      .test_div{
             position: relative;
       }
       #test_label{
@@ -916,6 +963,7 @@
       }
       #resume_plus_btn_top{
             border-top: 1px solid #eee;
+            color:#3599FD;
       }
       .plus{
             width: 20px;
@@ -932,7 +980,6 @@
             line-height: 50px;
             font-size: 16px;
             font-weight: bold;
-            text-decoration: none;
       }
       .menu_bottom_bar{
             width: 100%;
@@ -945,7 +992,6 @@
             color: #fff;
             font-size: 16px;
             font-weight: bold;
-            text-decoration: none;
       }
       #graduatioin_cap{
       		width: 18px;
@@ -1013,12 +1059,12 @@
 <body>
 <%@include file="../include/header.jsp" %>
 <!-- //==========================================================성민resume(body시작)=========================================== -->
-<form action="resumeInsert.unicol" method="post" name="frm_resume" id="frm_resume" enctype="multipart/form-data">
+<form action="resumeInsert.unicol" method="post" name="frm_resume" enctype="multipart/form-data">
       <div class="resume_page">
             <div class="resume_inner_page1">
                  
                         <div class="resume_title">
-                              <input id="resume_title" name="resume_title2" type="text" placeholder="기업에게 나에대해 알려보세요. 강점,목표,관심분야도 좋아요" maxlength="100">
+                              <input id="resume_title" name="resume_title" type="text" placeholder="기업에게 나에대해 알려보세요. 강점,목표,관심분야도 좋아요" maxlength="100">
                         </div>
                         <!-- 추가및 수정한 부분  -->
                         <!-- 인적사항 -->
@@ -1036,16 +1082,17 @@
                         			</div>
                         			<div class="selectbox profile_sex">
                         				<label>성별</label>
-                        				<select name="profile_sex">
+                        				<select>
                         					<option value="man">남자</option>
                         					<option value="woman">여자</option>
                         				</select>
                         			</div>
                         			<div class="input value profile_email">
-                        				<label for="UserEmail">Email</label>
+                        				<label for="UserEmail">생년월일</label>
                         				<input type="text" id="UserEmail" name="UserEmail" value="세션email">
                         			</div>
                         		</div>
+                        		<button type="button" class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value profile_tel">
                         				<label for="UserTel">전화번호</label>
@@ -1062,14 +1109,14 @@
                         		</div>
                         	</div>
                         </div>
-                        <!-- 학력----------------------------------------------------------------------------------------------->
-                        <div class="formWrap school">
+                        <!-- 학력 -->
+                        <div class="formWrap school" id="school_box">
                         <h2 class="formheader">학력</h2> 
                         	<div class="form formschool">
                         		<div class="row">
 	                        		<div class="selectbox school_grade" >
 	                        				<label>학교구분</label>
-	                        				<select name="school_grade" style="letter-spacing: -1px; padding-left: 15px;">
+	                        				<select style="letter-spacing: -1px; padding-left: 15px;">
 	                        					<option value="고등학교" >고등학교</option>
 												<option value="대학(2,3년)">대학(2,3년)</option>
 												<option value="대학교">대학교</option>
@@ -1106,7 +1153,7 @@
 		                       			</div>
 		                       			<div class="selectbox graduation_status univ" style="margin: 0;">
 		                        				<label style="margin-left: -10px;">졸업상태</label>
-		                        				<select name="graduation_status" style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="졸업">졸업</option>
 													<option value="졸업예정">졸업예정</option>
 		                        				</select>
@@ -1161,7 +1208,7 @@
 	                       			</div>
 	                       			<div class="selectbox major_totalgrade">
 		                        				<label style="margin-left: -10px; ">총점</label>
-		                        				<select name="major_totalgrade" style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
+		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="4.5">4.5</option>
 		                        					<option value="4.3">4.3</option>
 		                        					<option value="4.0">4.0</option>
@@ -1172,8 +1219,8 @@
                         	</div>
                         	<button type="button" class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">추가</button>
                         </div>
-                        <!-- 경력 ---------------------------------------------------------------------------------------------------------->
-                         <div class="formWrap career">
+                        <!-- 경력 -->
+                         <div class="formWrap career" id="career_box">
                         	<h2 class="formheader">경력</h2> 
                         	<div class="form formcareer">
                         		<div class="row">
@@ -1219,7 +1266,7 @@
                         	<button type="button" class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">추가</button>
                         </div>
                         <!-- 인턴 대외활동 -->
-                        <div class="formWrap intern">
+                        <div class="formWrap intern" id="intern_box">
                         	<h2 class="formheader">인턴·대외활동</h2> 
                         	<div class="form formintern">
                         		<div class="row">
@@ -1258,7 +1305,7 @@
                         	<button type="button" type="button" class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">인턴·대외활동 추가</button>
                         </div>
                         <!-- 교육 -->
-                        <div class="formWrap learning">
+                        <div class="formWrap learning" id="education_box">
                         	<h2 class="formheader">교육</h2> 
                         	<div class="form formlearning">
                         		<div class="row">
@@ -1290,7 +1337,7 @@
                     	    <button type="button" class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">교육 추가</button>
                         </div>
                         <!-- 자격증 -->
-                        <div class="formWrap license">
+                        <div class="formWrap license" id="license_box">
                         	<h2 class="formheader">자격증</h2> 
                         	<div class="form formlicense">
                         		<div class="row">
@@ -1454,12 +1501,12 @@
                         <div class="language_box">
 	                        <div class="abroad_title">어학</div>
 	                        <div class="container" id="language_container">
-	                              <select id="kind" name="kind"class="select">
+	                              <select name="kind" id="kind" class="select">
 	                                    <option value="">구분</option>
 	                                    <option value="회화능력">회화능력</option>
 	                                    <option value="공인시험">공인시험</option>
 	                              </select>
-	                              <select id="language_kind" name="language_kind" class="select" class="select">
+	                              <select name="language_kind" id="language_kind" class="select" class="select">
 	                                    <option value="">외국어명</option>
 	                                    <option value="영어">영어</option>
 	                                    <option value="일본어">일본어</option>
@@ -1490,7 +1537,7 @@
 	                                    <option value="슬로바키아어">슬로바키아어</option>
 	                                    <option value="세르비아어">세르비아어</option>
 	                              </select>
-	                              <select id="language_level" name="language_level" class="select">
+	                              <select name="language_level" id="language_level" class="select">
 	                                    <option value="">회화능력</option>
 	                                    <option value="일상회화 가능">일상회화 가능</option>
 	                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
@@ -1501,12 +1548,12 @@
 	                        <button type="button" class="plus_btn" id="language_plus_btn"><img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn">어학 추가</button>
 	                        <!-- 어학2 -->
 	                        <div class="container" id="language_container2">
-	                              <select id="kind2" name="kind2" class="select">
+	                              <select name="kind" id="kind" class="select">
 	                                    <option value="">구분</option>
 	                                    <option value="회화능력">회화능력</option>
 	                                    <option value="공인시험">공인시험</option>
 	                              </select>
-	                              <select id="language_kind2" name="language_kind2" class="select" class="select">
+	                              <select name="language_kind" id="language_kind" class="select" class="select">
 	                                    <option value="">외국어명</option>
 	                                    <option value="영어">영어</option>
 	                                    <option value="일본어">일본어</option>
@@ -1537,7 +1584,7 @@
 	                                    <option value="슬로바키아어">슬로바키아어</option>
 	                                    <option value="세르비아어">세르비아어</option>
 	                              </select>
-	                              <select name="language_level2" id="language_level2" class="select">
+	                              <select name="language_level" id="language_level" class="select">
 	                                    <option value="">회화능력</option>
 	                                    <option value="일상회화 가능">일상회화 가능</option>
 	                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
@@ -1598,11 +1645,11 @@
 	                        <div class="menu_bar">
 	                              <div class="resume_header">이력서 항목</div>
 	                              <div>
-	                                    <button type="button" class="resume_plus_btn" id=""><img alt="graduation" src="image/resume_img/graduation_cap2.png" id="graduatioin_cap">학력<img alt="plus" src="image/resume_img/minus2.png" class="plus"></button>
-	                                    <button type="button" class="resume_plus_btn"><img alt="graduation" src="image/resume_img/info_card.png" id="info_card">경력<img alt="plus" src="image/resume_img/plus.png" class="plus"></button>
-	                                    <button type="button" class="resume_plus_btn"><img alt="graduation" src="image/resume_img/business_bag.png" id="business_bag">인턴/대외활동<img alt="plus" src="image/resume_img/plus.png" class="plus"></button>
-	                                    <button type="button" class="resume_plus_btn"><img alt="graduation" src="image/resume_img/book.png" id="book">교육<img alt="plus" src="image/resume_img/plus.png" class="plus"></button>
-	                                    <button type="button" class="resume_plus_btn"><img alt="graduation" src="image/resume_img/license.png" id="license">자격증<img alt="plus" src="image/resume_img/plus.png" class="plus"></button>
+	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_top"><img alt="graduation" src="image/resume_img/graduation_cap2.png" id="graduatioin_cap">학력<img id="graduatioin_plus" alt="plus" src="image/resume_img/minus2.png" class="plus"></button>
+	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_career"><img alt="graduation" src="image/resume_img/info_card.png" id="info_card">경력<img id="career_plus" alt="plus" src="image/resume_img/plus.png" class="plus"></button>
+	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_business"><img alt="graduation" src="image/resume_img/business_bag.png" id="business_bag">인턴/대외활동<img id="business_plus" alt="plus" src="image/resume_img/plus.png" class="plus"></button>
+	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_education"><img alt="graduation" src="image/resume_img/book.png" id="book">교육<img id="education_plus" alt="plus" src="image/resume_img/plus.png" class="plus"></button>
+	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_license"><img alt="graduation" src="image/resume_img/license.png" id="license">자격증<img id="license_plus" alt="plus" src="image/resume_img/plus.png" class="plus"></button>
 	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_award"><img alt="graduation" src="image/resume_img/trophy.png" id="trophy">수상<img alt="plus" src="image/resume_img/plus.png" class="plus" id="award_plus"></button>
 	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_abroad"><img alt="graduation" src="image/resume_img/air-transport.png" id="air-transport">해외경험<img alt="plus" src="image/resume_img/plus.png" class="plus" id="abroad_plus"></button>
 	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_language"><img alt="graduation" src="image/resume_img/earth.png" id="earth">어학<img alt="plus" src="image/resume_img/plus.png" class="plus" id="language_plus"></button>
@@ -1610,8 +1657,8 @@
 	                                    <button type="button" class="resume_plus_btn" id="resume_plus_btn_bottom"><img alt="graduation" src="image/resume_img/hand-shake.png" id="hand-shake">취업우대<img alt="plus" src="image/resume_img/plus.png" class="plus" id="protect_plus"></button>
 	                              </div>
 	                        </div>
-	                        <a href="#" class="menu_middle_bar">임시저장</a>
-	                        <a href="" class="menu_bottom_bar">작성완료</a>
+	                        <div class="menu_middle_bar">임시저장</div>
+	                        <div class="menu_bottom_bar">작성완료</div>
                         </div>
                  
             </div>
