@@ -45,7 +45,7 @@
       }
       .Main_rhom{
             width: 100%;
-            height:180px;
+            height:179px;
             text-align: center;
             padding-top: 17px;
       }
@@ -442,7 +442,7 @@
 	            		</div>
 	            		<div id="info3_text">
 	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
-	            			<a href="resumeInsert.unicol" id="go_resume">이력서관리페이지로 이동</a>
+	            			<a href="resume.unicol" id="go_resume">이력서관리페이지로 이동</a>
 	            		</div>
 	            	</div>
 	            </div>

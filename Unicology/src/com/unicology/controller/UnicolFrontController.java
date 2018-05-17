@@ -14,7 +14,6 @@ import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
-import com.unicology.action.jasowrite.JasoWriteRegisterAction;
 import com.unicology.action.member.ConstractAction;
 import com.unicology.action.member.JoinMemberAction;
 import com.unicology.action.member.LoginCkAction;
@@ -25,6 +24,7 @@ import com.unicology.action.member.SessionAction;
 import com.unicology.action.mypage.MyPageAction;
 import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
+import com.unicology.action.resume.ResumeAction;
 import com.unicology.action.resume.ResumeInsertAction;
 import com.unicology.action.unicolmain.IndexAction;
 
@@ -74,9 +74,6 @@ public class UnicolFrontController extends HttpServlet{
  		// ======================= 자소서 작성 페이지 ======================= //
  		else if (command.equals("/jasowrite.unicol")) {
  			action = new JasoWriteAction();	
-			forward = action.excute(request, response);
- 		} else if (command.equals("/jasowriteregister.unicol")) {
- 			action = new JasoWriteRegisterAction();	
 			forward = action.excute(request, response);
  		}
  		// ======================= 합격 자소서 페이지 ======================= //
@@ -142,6 +139,11 @@ public class UnicolFrontController extends HttpServlet{
         	action = new ResumeInsertAction();
         	forward = action.excute(request, response);
         }
+		//  ============================ 이력서 작성 페이지================================= //
+        else if (command.equals("/resume.unicol")) {
+            action = new ResumeAction();
+            forward = action.excute(request, response);
+        }
  		//  ============================  MyPage  ================================= //
         else if (command.equals("/mypage.unicol")) {
         	action = new MyPageAction();
@@ -161,5 +163,3 @@ public class UnicolFrontController extends HttpServlet{
 		}		
  	}
 }
-
-

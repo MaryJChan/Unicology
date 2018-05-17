@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+	<!-- 회원정보 mapper -->
+<mapper namespace="com/unicology/mybatis/mapper/ResumeUnicolMapper.xml">
+
+<!-- 회원등록 -->
+<insert id="resumeinsert" parameterType="rDTO">
+	INSERT INTO unicol_resume (RESUME_NO,resume_title,UserName,UserBirth,UserEmail,UserTel,UserPhone, UserAdress)
+		VALUES (resume_seq.nextval,
+				#{resume_title},
+				#{UserName},
+				#{UserBirth},
+				#{UserEmail},
+				#{UserTel},
+				#{UserPhone},
+				#{UserAdress}
+				)
+</insert>
+
+
+
+
+
+
+</mapper>
