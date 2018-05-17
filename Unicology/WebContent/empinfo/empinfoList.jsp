@@ -142,7 +142,6 @@
 	.subBox_depth_category {
 		padding: 12px 22px 14px;
 		border-top: 1px solid #dfdfdf;
-		height: 122px;
 	}
 	
 	.subBox_depth_category>li {
@@ -191,6 +190,7 @@
 		box-sizing: border-box;
 		background: #fff;
 		width: 960px;
+		position: relative;
 	}
 	
 	#searchTotal_result {
@@ -254,11 +254,14 @@
 	
 	#result_btn {
 		width: 95px;
-		height: 90px;
+		height: 91px;
 		text-align: center;
 		background: #888;
 		display: inline-block;
 		vertical-align: top;
+		position: absolute;
+	    top: -1px;
+	    right: -1px;
 	}
 	
 	#searchBtn {
@@ -591,7 +594,7 @@
 			$(".select_result").css("display", "block");
 			
 			var chkID = $(this).attr("value");
-			 var chkParent = $(this).parents("div");
+			 var chkParent = $(this).parent('div');
 			 alert("chkParent" + chkParent);
 			
 			$('.select_result').append('<span>' + chkID + '</span>');

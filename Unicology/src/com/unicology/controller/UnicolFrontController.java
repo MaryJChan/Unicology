@@ -22,6 +22,7 @@ import com.unicology.action.member.MemAjaxAction;
 import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.SessionAction;
 import com.unicology.action.mypage.MyPageAction;
+import com.unicology.action.mypage.ResumeManagementAction;
 import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeAction;
@@ -150,7 +151,11 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         }
  		
- 		
+        else if (command.equals("/resume_management.unicol")) {
+        	action = new ResumeManagementAction();
+        	forward = action.excute(request, response);
+        	
+        }
  		
  		// 실제로 동작하는곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
  		if(forward != null) {
