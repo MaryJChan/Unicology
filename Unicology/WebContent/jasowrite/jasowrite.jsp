@@ -300,6 +300,11 @@
 				$(this).children("div").css("color", "black");
 			}		
 		);
+		var sessionUser = "${sessionScope.loginUser.mid}";
+		// 세션 아이디값 인풋태그에 담기
+		if(sessionUser==""){
+			$("#jaso_writer").val(sessionUser);
+		}
 	
 		// 자소서작성 페이지 접속시
 		$(".jasowrite_title_write").val($("#jasowrite_title").text());
@@ -317,17 +322,27 @@
 	// 리모컨 클릭시 옵션별 모달창 css변경 코드
 	$(document).on("click", ".jasowirte_rimot_option", function(){
 		var rimot_option = $(this).children("div").text();
-		if(rimot_option == "새자소서"){
-			$(".new_jasowrite").text("새 자소서 작성");
-			$("#jasowritejasowritemodal").css("display", "block");
-			
-		} else if (rimot_option == "맞춤법 검사") {
-			$(".new_jasowrite").text("맞춤법 검사");
-			$("#jasowritejasowritemodal").css("display", "block");
-		} else if (rimot_option == "저장하기") {
-			$(".new_jasowrite").text("자소서 저장");
-			$("#jasowritejasowritemodal").css("display", "block");
+		var sessionUser = "${sessionScope.loginUser.mid}";
+		
+		if(sessionUser !="") {
+			if(rimot_option == "새자소서"){
+				$(".new_jasowrite").text("새 자소서 작성");
+				$("#jasowritejasowritemodal").css("display", "block");
+				
+			} else if (rimot_option == "맞춤법 검사") {
+				$(".new_jasowrite").text("맞춤법 검사");
+				$("#jasowritejasowritemodal").css("display", "block");
+			} else if (rimot_option == "저장하기") {
+				$("#jaso_writer").val(sessionUser);
+				$(".new_jasowrite").text("자소서 저장");
+				$("#jasowritejasowritemodal").css("display", "block");
+			} else if (rimot_option == "불러오기") {
+				$("#myModal").css("display", "block");
+			}
+		} else {
+			$("#myModal").css("display", "block");
 		}
+		
 	});
 	
 	//리모컨 모달창 닫는 코드
@@ -361,13 +376,13 @@
 			var data_num = $("#jasowrite_question").attr("data_num");
 			var jaso_title = $("#jasowrite_title").text();
 			var jaso_question = $("#jasowrite_question").val();
-			var jaso_answer = $("#jaso_answer").val();
+			var jaso_answer = $("#jasowrite_answer").val();
 			
 			$("#jaso_title").val(jaso_title);
 			$("#jaso_question" + data_num).val(jaso_question);
 			$("#jaso_answer" + data_num).val(jaso_answer);
 			
-			$("#jaso_cnt").val((cnt-2)/2);
+			$("#jaso_cnt").val((cnt-3)/2);
 			$("#jaso_form").submit();
 		}
 	});
@@ -375,16 +390,21 @@
 	// 자소서 작성 페이지 추가 제거 클릭시 코드
 	$(document).on("click", ".select_jaso_pm", function (){
 		var data_num = parseInt($(".select_jaso_num:last").text()) + 1;
+		var sessionUser = "${sessionScope.loginUser.mid}";
 		
-		// 자소서 작성 페이지 추가 클릭시 코드
-		if($(this).text() == "+"){
-			$("#select_append").append("<a href='#' class='select_jaso_num' data_num='" + data_num + "'>" + data_num + "</a>");
-			$("#jaso_form").append("<input type='hidden' value='' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
-			$("#jaso_form").append("<input type='hidden' value='' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
-		} 
-		// 자소서 작성 페이지 제거 클릭시 코드
-		else if ($(this).text() == "-") {
-			
+		if(sessionUser !="") {
+			// 자소서 작성 페이지 추가 클릭시 코드
+			if($(this).text() == "+"){
+				$("#select_append").append("<a href='#' class='select_jaso_num' data_num='" + data_num + "'>" + data_num + "</a>");
+				$("#jaso_form").append("<input type='hidden' value='' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
+				$("#jaso_form").append("<input type='hidden' value='' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
+			} 
+			// 자소서 작성 페이지 제거 클릭시 코드
+			else if ($(this).text() == "-") {
+				
+			}
+		} else {
+			$("#myModal").css("display", "block");
 		}
 	})
 	
@@ -434,7 +454,7 @@
 			});
 		$("#jasowrite_answer").keyup();
 	});
-	
+
 </script>
 </head>
 <body>
@@ -443,6 +463,7 @@
 		<input type="hidden" value="" name="jaso_title" id="jaso_title">
 		<input type="hidden" value="" name="jaso_question1" id="jaso_question1" data_num ="1" class="jaso_question">
 		<input type="hidden" value="" name="jaso_answer1" id="jaso_answer1" data_num ="1" class="jaso_answer">
+		<input type="hidden" value="" name="jaso_writer" id="jaso_writer">
 	</form>
 	<div id="jasowrite_wrap">
 		<div id="select_jaso">

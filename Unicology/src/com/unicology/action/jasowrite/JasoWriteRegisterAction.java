@@ -22,6 +22,7 @@ public class JasoWriteRegisterAction implements Action{
 		
 		int jaso_cnt = Integer.parseInt(request.getParameter("jaso_cnt"));
 		String title = request.getParameter("jaso_title");
+		String writer = request.getParameter("jaso_writer");
 		
 		JasoWriteDTO jwDto = null;
 		JasoWriteDAO  jwDao = JasoWriteDAO.getInstance();
@@ -31,7 +32,7 @@ public class JasoWriteRegisterAction implements Action{
 			String question = request.getParameter("jaso_question" + i);
 			String answer = request.getParameter("jaso_answer" + i);
 			if(question != null) {
-				jwDto = new JasoWriteDTO(num ,title, question, answer);
+				jwDto = new JasoWriteDTO(num ,title, question, answer, writer);
 				jwDao.jasoWriteRegister(jwDto);
 			}
 		}

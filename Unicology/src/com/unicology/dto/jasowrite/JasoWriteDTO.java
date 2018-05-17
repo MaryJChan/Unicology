@@ -9,16 +9,18 @@ public class JasoWriteDTO {
 	private String title;
 	private String question;
 	private String answer;
+	private String writer;
 	private Date regdate;
 	
 	public JasoWriteDTO() {}
 	
-	public JasoWriteDTO(int num, String title, String question, String answer) {
+	public JasoWriteDTO(int num, String title, String question, String answer, String writer) {
 		super();
 		this.num = num;
 		this.title = title;
 		this.question = question;
 		this.answer = answer;
+		this.writer = writer;
 	}
 
 	public int getJno() {

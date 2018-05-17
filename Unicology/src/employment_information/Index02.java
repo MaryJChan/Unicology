@@ -9,7 +9,7 @@ import org.jsoup.select.Elements;
 import com.unicology.dao.empinfo.EmpInfoDAO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 
-public class Index {
+public class Index02 {
       
 	// 크롤링할 메인페이지 sub_url변수에 저장
 	//http://www.saramin.co.kr/zf_user/jobs/list/job-category?page=2&cat_key=10105&search_optional_item=n

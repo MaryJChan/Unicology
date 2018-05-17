@@ -6,12 +6,12 @@
 
 <mapper namespace="com/unicology/mybatis/mapper/JasoWriteUnicolMapper.xml">
 	<select id="jasoWriteSelectNum" resultType="int">
-		SELECT nvl(max(jno)+1, 1) from jasowrite
+		SELECT nvl(max(num)+1, 1) from jasowrite
 	</select>
 
 	<insert id="jasoWriteRegister" parameterType="jwDto">
-		INSERT INTO jasowrite(jno, num, title, question, answer)
-		VALUES((SELECT nvl(max(jno)+1, 1) from jasowrite), #{num}, #{title}, #{question}, #{answer})
+		INSERT INTO jasowrite(jno, num, title, question, answer, writer)
+		VALUES((SELECT nvl(max(jno)+1, 1) from jasowrite), #{num}, #{title}, #{question}, #{answer}, #{writer})
 	</insert>
 
 </mapper>
