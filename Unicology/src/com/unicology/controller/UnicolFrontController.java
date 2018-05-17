@@ -14,6 +14,7 @@ import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
+import com.unicology.action.jasowrite.JasoWriteRegisterAction;
 import com.unicology.action.member.ConstractAction;
 import com.unicology.action.member.JoinMemberAction;
 import com.unicology.action.member.LoginCkAction;
@@ -26,7 +27,6 @@ import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeInsertAction;
 import com.unicology.action.unicolmain.IndexAction;
-import com.unicology.action.univ.UnivAjaxAction;
 
 @WebServlet("/UnicolFrontController")
 public class UnicolFrontController extends HttpServlet{
@@ -74,6 +74,9 @@ public class UnicolFrontController extends HttpServlet{
  		// ======================= 자소서 작성 페이지 ======================= //
  		else if (command.equals("/jasowrite.unicol")) {
  			action = new JasoWriteAction();	
+			forward = action.excute(request, response);
+ 		} else if (command.equals("/jasowriteregister.unicol")) {
+ 			action = new JasoWriteRegisterAction();	
 			forward = action.excute(request, response);
  		}
  		// ======================= 합격 자소서 페이지 ======================= //
@@ -134,11 +137,6 @@ public class UnicolFrontController extends HttpServlet{
         	action = new MemberInsertAction();
         	forward = action.excute(request, response);
         }
-        else if (command.equals("/univajax.unicol")) {
-        	action = new UnivAjaxAction();
-        	forward = action.excute(request, response);
-        }
- 		// 손다슬 추가
  		//  ============================ 이력서 작성 페이지================================= //
         else if (command.equals("/resumeInsert.unicol")) {
         	action = new ResumeInsertAction();

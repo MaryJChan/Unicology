@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/unicology/mybatis/mapper/JasoWriteUnicolMapper.xml">
+	<select id="jasoWriteSelectNum" resultType="int">
+		SELECT nvl(max(jno)+1, 1) from jasowrite
+	</select>
+
+	<insert id="jasoWriteRegister" parameterType="jwDto">
+		INSERT INTO jasowrite(jno, num, title, question, answer)
+		VALUES((SELECT nvl(max(jno)+1, 1) from jasowrite), #{num}, #{title}, #{question}, #{answer})
+	</insert>
+
+</mapper>

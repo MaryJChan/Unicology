@@ -24,6 +24,8 @@
 		<typeAlias type="com.unicology.dto.member.MemberDTO" alias="mDTO"/>
 		<!-- 대학교 DTO -->
 		<typeAlias type="com.unicology.dto.member.UnivDTO" alias="uDTO"/>
+		<!-- 자소서작성 DTO -->
+		<typeAlias type="com.unicology.dto.jasowrite.JasoWriteDTO" alias="jwDTO"/>
 		
 	</typeAliases>
 	
@@ -52,5 +54,7 @@
 		<mapper resource="com/unicology/mybatis/mapper/MemberUnicolMapper.xml"/>
 		<!-- 대학교 정보 mapper -->
 		<mapper resource="com/unicology/mybatis/mapper/UnivUnicolMapper.xml"/>
+		<!-- 자소서 작성 mapper -->
+		<mapper resource="com/unicology/mybatis/mapper/JasoWriteUnicolMapper.xml"/>
 	</mappers>
 </configuration>
