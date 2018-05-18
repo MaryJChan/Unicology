@@ -30,7 +30,7 @@ public class ResumeManagementDAO {
 			return instance;
 		}
 		
-		// 이력서 리스트 조회
+		// 이력서 리스트 조회 (mypage 화면에서)
 		public List<JasoWriteDTO> resumeListSelect() {
 			System.out.println("이력서 리스트 조회 메서드 ====");
 			
@@ -59,5 +59,40 @@ public class ResumeManagementDAO {
 			}
 		
 			return resumelist;
+		}
+		
+		// 수정할 이력서 조회
+		public List<JasoWriteDTO> resumeModifySelect(int rnum) {
+			
+			sqlSession = sqlSessionFactory.openSession();
+			List<JasoWriteDTO> resumeModList = new ArrayList<>();
+			
+			try {
+				resumeModList = sqlSession.selectList("resumeModifyList", rnum);
+				
+				for (JasoWriteDTO jasoWriteDTO : resumeModList) {
+					int jno = jasoWriteDTO.getJno();
+					int num = jasoWriteDTO.getNum();
+					String title = jasoWriteDTO.getTitle();
+					String question = jasoWriteDTO.getQuestion();
+					String answer = jasoWriteDTO.getAnswer();
+					String writer =jasoWriteDTO.getWriter();
+					
+					System.out.println("jno : " + jno);
+					System.out.println("num : " + num);
+					System.out.println("title : " + title);
+					System.out.println("question : " + question);
+					System.out.println("answer : " + answer);
+					System.out.println("writer : " + writer);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace(); 
+			} finally {
+				if(sqlSession != null) sqlSession.close();
+			}
+			
+			
+			return resumeModList;
 		}
 }

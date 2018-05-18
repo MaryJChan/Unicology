@@ -18,4 +18,10 @@
 		SELECT count(DISTINCT NUM) as NUMCNT 
 		  FROM JASOWRITE
 	</select>
+	
+	<!-- 이력서 관리 : 수정 자소서 리스트 조회 -->
+	<select id="resumeModifyList" resultType="jwDTO">
+		SELECT * FROM JASOWRITE
+		WHERE num = #{num}
+	</select>
 </mapper>

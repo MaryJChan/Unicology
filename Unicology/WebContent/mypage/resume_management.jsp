@@ -430,10 +430,10 @@
 	      
 	      // 수정버튼 클릭시
 	      $(".rmodify_btn").on("click", function() {
-	    	  alert("!!!!!");
-	    	  var rnum = $("#rnum").val();
-	    	  alert(rnum);
-	    	  location.href = "jasoModify.unicol";
+	    	  var rnum = $(this).attr("data_num");
+	    	  alert("rnum : " + rnum);
+	    	  
+	    	  location.href = "jasoModify.unicol?rnum=" + rnum;
 	      		  
 	      });
 	 
@@ -811,12 +811,12 @@
                   				</tr>
                   				
                   				<c:forEach items="${resumeList}" var="resumeList">
-                  				<input type="hidden" id="rnum" name="rnum" value="${resumeList.num}">
+                  				
                   				<tr>
                   					<td><input type="checkbox"></td>
                   					<td><a href="#">${resumeList.title}</a></td>
                   					<td>
-                  						<a class="resumeBtn rmodify_btn" id="resumeModify_btn" href="#">수정</a>
+                  						<a class="resumeBtn rmodify_btn" id="resumeModify_btn" data_num="${resumeList.num}" href="#">수정</a>
                   						<a class="resumeBtn rdelete_btn" id="resumeDelete_btn" href="#">삭제</a>
                   					</td>
                   					<td><fmt:formatDate pattern="yyyy-MM-dd " value="${resumeList.regdate}"/></td>
