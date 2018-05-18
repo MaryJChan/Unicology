@@ -317,6 +317,12 @@
 			$("#jasowrite_title").text(val);
 		});
 		
+		var question = $("#jaso_question1").val();
+		var answer = $("#jaso_answer1").val();
+		
+		$("#jasowrite_question").val(question);
+		$("#jasowrite_answer").val(answer);
+		
 	});
 	
 	// 리모컨 클릭시 옵션별 모달창 css변경 코드
@@ -355,7 +361,7 @@
 	
 	
 	$(document).on("click", ".jasomodalY", function(){
-		var text = $(".new_jasowrite").text()
+		var text = $(".new_jasowrite").text();
 		var data_num = $("#jasowrite_question").attr("data_num");
 		// 새자소서 작성 모달창 확인버튼 클릭시 value값들 초기화 코드
 		if(text == "새 자소서 작성") {
@@ -372,7 +378,7 @@
 		} 
 		// 저장하기 모달창 확인버튼 클릭시 코드
 		else if (text == "자소서 저장") {
-			var cnt = parseInt($("input[type=hidden]").length);
+			var cnt = parseInt($(".select_jaso_num").length);
 			var data_num = $("#jasowrite_question").attr("data_num");
 			var jaso_title = $("#jasowrite_title").text();
 			var jaso_question = $("#jasowrite_question").val();
@@ -382,7 +388,7 @@
 			$("#jaso_question" + data_num).val(jaso_question);
 			$("#jaso_answer" + data_num).val(jaso_answer);
 			
-			$("#jaso_cnt").val((cnt-3)/2);
+			$("#jaso_cnt").val(cnt);
 			$("#jaso_form").submit();
 		}
 	});
@@ -396,8 +402,9 @@
 			// 자소서 작성 페이지 추가 클릭시 코드
 			if($(this).text() == "+"){
 				$("#select_append").append("<a href='#' class='select_jaso_num' data_num='" + data_num + "'>" + data_num + "</a>");
-				$("#jaso_form").append("<input type='hidden' value='' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
-				$("#jaso_form").append("<input type='hidden' value='' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
+				$("#jaso_form").append("<input type='hidden' name='jaso_index" + data_num + "' id='jaso_index" + data_num + "' data_num ='" + data_num + " class='jaso_index' value='" + data_num + "'>");
+				$("#jaso_form").append("<input type='hidden' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
+				$("#jaso_form").append("<input type='hidden' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
 			} 
 			// 자소서 작성 페이지 제거 클릭시 코드
 			else if ($(this).text() == "-") {
@@ -458,17 +465,22 @@
 </script>
 </head>
 <body>
-	<form action="jasowriteregister.unicol" method="get" id="jaso_form">
-		<input type="hidden" value="" name="jaso_cnt" id="jaso_cnt">
-		<input type="hidden" value="" name="jaso_title" id="jaso_title">
-		<input type="hidden" value="" name="jaso_question1" id="jaso_question1" data_num ="1" class="jaso_question">
-		<input type="hidden" value="" name="jaso_answer1" id="jaso_answer1" data_num ="1" class="jaso_answer">
-		<input type="hidden" value="" name="jaso_writer" id="jaso_writer">
+	<form action="jasowriteupdate.unicol" method="get" id="jaso_form">
+		<input type="hidden" name="jaso_cnt" id="jaso_cnt">
+		<input type="hidden" name="jaso_title" id="jaso_title">
+		<input type="hidden" name="jaso_writer" id="jaso_writer">
+		<c:forEach items="${jasoModifyList}" var="list">
+			<input type="hidden" name="jaso_index${list.jindex}" id="index${list.jindex}" data_num ="${list.jindex}" class="jaso_index" value="${list.jindex}">
+			<input type="hidden" name="jaso_question${list.jindex}" id="jaso_question${list.jindex}" data_num ="${list.jindex}" class="jaso_question" value="${list.question}">
+			<input type="hidden" name="jaso_answer${list.jindex}" id="jaso_answer${list.jindex}" data_num ="${list.jindex}" class="jaso_answer" value="${list.answer}">
+		</c:forEach>
 	</form>
 	<div id="jasowrite_wrap">
 		<div id="select_jaso">
 			<div id="select_append">
-				<a href="#" class="select_jaso_num"  data_num="1">1</a>
+				<c:forEach items="${jasoModifyList}" var="list">
+					<a href="#" class="select_jaso_num"  data_num="${list.jindex}">${list.jindex}</a>
+				</c:forEach>
 			</div>
 			<a href="#" class="select_jaso_pm"  id="">+</a>
 			<a href="#" class="select_jaso_pm"  id="">-</a>

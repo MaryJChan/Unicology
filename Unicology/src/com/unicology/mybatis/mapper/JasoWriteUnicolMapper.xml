@@ -10,8 +10,8 @@
 	</select>
 
 	<insert id="jasoWriteRegister" parameterType="jwDto">
-		INSERT INTO jasowrite(jno, num, title, question, answer, writer)
-		VALUES((SELECT nvl(max(jno)+1, 1) from jasowrite), #{num}, #{title}, #{question}, #{answer}, #{writer})
+		INSERT INTO jasowrite(jno, num, title, jindex, question, answer, writer)
+		VALUES((SELECT nvl(max(jno)+1, 1) from jasowrite), #{num}, #{title}, #{jindex}, #{question}, #{answer}, #{writer})
 	</insert>
 
 </mapper>

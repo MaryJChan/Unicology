@@ -355,7 +355,7 @@
 	
 	
 	$(document).on("click", ".jasomodalY", function(){
-		var text = $(".new_jasowrite").text()
+		var text = $(".new_jasowrite").text();
 		var data_num = $("#jasowrite_question").attr("data_num");
 		// 새자소서 작성 모달창 확인버튼 클릭시 value값들 초기화 코드
 		if(text == "새 자소서 작성") {
@@ -372,7 +372,7 @@
 		} 
 		// 저장하기 모달창 확인버튼 클릭시 코드
 		else if (text == "자소서 저장") {
-			var cnt = parseInt($("input[type=hidden]").length);
+			var cnt = parseInt($(".select_jaso_num").length);
 			var data_num = $("#jasowrite_question").attr("data_num");
 			var jaso_title = $("#jasowrite_title").text();
 			var jaso_question = $("#jasowrite_question").val();
@@ -381,8 +381,7 @@
 			$("#jaso_title").val(jaso_title);
 			$("#jaso_question" + data_num).val(jaso_question);
 			$("#jaso_answer" + data_num).val(jaso_answer);
-			
-			$("#jaso_cnt").val((cnt-3)/2);
+			$("#jaso_cnt").val(cnt);
 			$("#jaso_form").submit();
 		}
 	});
@@ -396,8 +395,9 @@
 			// 자소서 작성 페이지 추가 클릭시 코드
 			if($(this).text() == "+"){
 				$("#select_append").append("<a href='#' class='select_jaso_num' data_num='" + data_num + "'>" + data_num + "</a>");
-				$("#jaso_form").append("<input type='hidden' value='' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
-				$("#jaso_form").append("<input type='hidden' value='' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
+				$("#jaso_form").append("<input type='hidden' name='jaso_index" + data_num + "' id='jaso_index" + data_num + "' data_num ='" + data_num + " class='jaso_index' value='" + data_num + "'>");
+				$("#jaso_form").append("<input type='hidden' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
+				$("#jaso_form").append("<input type='hidden' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
 			} 
 			// 자소서 작성 페이지 제거 클릭시 코드
 			else if ($(this).text() == "-") {
@@ -459,11 +459,12 @@
 </head>
 <body>
 	<form action="jasowriteregister.unicol" method="get" id="jaso_form">
-		<input type="hidden" value="" name="jaso_cnt" id="jaso_cnt">
-		<input type="hidden" value="" name="jaso_title" id="jaso_title">
-		<input type="hidden" value="" name="jaso_question1" id="jaso_question1" data_num ="1" class="jaso_question">
-		<input type="hidden" value="" name="jaso_answer1" id="jaso_answer1" data_num ="1" class="jaso_answer">
-		<input type="hidden" value="" name="jaso_writer" id="jaso_writer">
+		<input type="hidden" name="jaso_cnt" id="jaso_cnt">
+		<input type="hidden" name="jaso_title" id="jaso_title">
+		<input type="hidden" name="jaso_writer" id="jaso_writer">
+		<input type="hidden" name="jaso_index1" id="index1" data_num ="1" class="jaso_index" value="1">
+		<input type="hidden" name="jaso_question1" id="jaso_question1" data_num ="1" class="jaso_question">
+		<input type="hidden" name="jaso_answer1" id="jaso_answer1" data_num ="1" class="jaso_answer">
 	</form>
 	<div id="jasowrite_wrap">
 		<div id="select_jaso">

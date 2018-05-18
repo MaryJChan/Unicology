@@ -7,6 +7,7 @@ public class JasoWriteDTO {
 	private int jno;
 	private int num;
 	private String title;
+	private int jindex;
 	private String question;
 	private String answer;
 	private String writer;
@@ -14,10 +15,11 @@ public class JasoWriteDTO {
 	
 	public JasoWriteDTO() {}
 	
-	public JasoWriteDTO(int num, String title, String question, String answer, String writer) {
+	public JasoWriteDTO(int num, String title, int jindex, String question, String answer, String writer) {
 		super();
 		this.num = num;
 		this.title = title;
+		this.jindex = jindex;
 		this.question = question;
 		this.answer = answer;
 		this.writer = writer;
@@ -45,6 +47,14 @@ public class JasoWriteDTO {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public int getJindex() {
+		return jindex;
+	}
+
+	public void setJindex(int jindex) {
+		this.jindex = jindex;
 	}
 
 	public String getQuestion() {

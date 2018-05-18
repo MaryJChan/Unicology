@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.dao.jasowrite.JasoWriteDAO;
@@ -29,10 +30,11 @@ public class JasoWriteRegisterAction implements Action{
 		int num = jwDao.jasoWriteSelectNum();
 		
 		for (int i = 1; i < jaso_cnt+1; i++) {
+			int jindex = Integer.parseInt(request.getParameter("jaso_index" + i));
 			String question = request.getParameter("jaso_question" + i);
 			String answer = request.getParameter("jaso_answer" + i);
 			if(question != null) {
-				jwDto = new JasoWriteDTO(num ,title, question, answer, writer);
+				jwDto = new JasoWriteDTO(num ,title, jindex, question, answer, writer);
 				jwDao.jasoWriteRegister(jwDto);
 			}
 		}

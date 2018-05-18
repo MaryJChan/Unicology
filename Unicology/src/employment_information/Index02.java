@@ -12,9 +12,9 @@ import com.unicology.dto.empinfo.EmpInfoDTO;
 public class Index02 {
       
 	// 크롤링할 메인페이지 sub_url변수에 저장
-	//http://www.saramin.co.kr/zf_user/jobs/list/job-category?page=2&cat_key=10105&search_optional_item=n
+	// http://www.saramin.co.kr/zf_user/jobs/list/job-category?page=2&cat_key=10105
 	static String front_url = "http://www.saramin.co.kr/zf_user/jobs/list/job-category?page=";
-	static String last_url = "&cat_bcd=";
+	static String last_url = "&cat_key=";
 	static int page = 1;
 	static int clasificar_page = 1;
 	static String url = front_url + page + last_url + clasificar_page;
