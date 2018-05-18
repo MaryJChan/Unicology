@@ -9,18 +9,20 @@
 
 <!-- 회원등록 -->
 <insert id="resumeinsert" parameterType="rDTO">
-	INSERT INTO unicol_resume (RESUME_NO,resume_title,UserName,UserBirth,UserEmail,UserTel,UserPhone, UserAdress)
+	INSERT INTO unicol_resume (RESUME_NO,resume_title,UserName,UserBirth,UserSex,UserEmail,UserTel,UserPhone, UserAdress, filename, filesize)
 		VALUES (resume_seq.nextval,
 				#{resume_title},
 				#{UserName},
 				#{UserBirth},
+				#{UserSex},
 				#{UserEmail},
 				#{UserTel},
 				#{UserPhone},
-				#{UserAdress}
+				#{UserAdress},
+				#{filename},
+				#{filesize}
 				)
 </insert>
-
 
 
 

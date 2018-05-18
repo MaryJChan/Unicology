@@ -222,7 +222,7 @@
 		      
 		      /* =======================================취업우대 추가/제거 =======================================*/
 		      $("#resume_plus_btn_bottom").on("click",function(){
-		    	  var src=$("#portfolio_plus").attr("src");
+		    	  var src=$("#protect_plus").attr("src");
 	            	
 	            	if(src=="image/resume_img/minus2.png"){
 	            		$(".protect_box").css("display","none");
@@ -235,12 +235,44 @@
 	    		      	$("#hand-shake").attr("src","image/resume_img/hand-shake2.png");
 	    		      	$("#protect_plus").attr("src","image/resume_img/minus2.png");
 		            }
-		    	  
-		    	  
 		      	});
 		      
-		      $("#urlplus_btn").on("click",function(){
+		      $("#fileplus_btn").on("click",function(){
 		    	 $("#plusfile").click();
+		      });
+		      
+		      $("#plus_img_btn").click(function(){
+		    	  $("#plusimg").click(); 
+		    	 
+		    	  var file_img = form.plusimg.value;
+		    	
+		    	 if(file != "" ){
+		    		 
+		    		 var fileExt = file.substring(file.lastIndexOf(".")+1);
+		    		 
+		    		 var reg = /gif|jpg|jpeg|png/i; //업로드 가능 확장자
+		    		 
+		    		 if(reg.test(fileExt) == false){
+		    			 
+		    			 alert("첨부파일은 gif, jpg, jpeg, png로 된 이미지만 가능합니다.");
+		    			 
+		    			 return;
+		    		 }
+		    	 }
+		      });
+		      
+		      $(".menu_middle_bar").click(function(){
+		    	 $("#frm_resume").submit(); 
+		      });
+		      
+		      $("#urlplus_btn").click(function(){
+		    	 $("#url_addr").css("display","block");
+		    	 $("#url_remove").css("display","block");
+		      });
+		      
+		      $("#url_remove").click(function(){
+		    	 $("#url_addr").remove();
+		    	 $("#url_remove").remove();
 		      });
 		    
 		 });
@@ -491,11 +523,36 @@
 		}
 		#intern_box{
 			display: none;
-		}#education_box{
-			display: none;
-		}#license_box{
+		}
+		#education_box{
 			display: none;
 		}
+		#license_box{
+			display: none;
+		}
+		#plusimg{
+		    position: absolute;
+		    right: 42px;
+		    top: 21px;
+		    width: 82px;
+		    height: 133px;
+		    display: none;
+		}
+		#plus_img_btn{
+			position: absolute;
+		    right: 42px;
+		    top: 21px;
+		    width: 82px;
+		    height: 133px;
+		    background: white;
+		    border: 1px solid #ddd;
+		    background-color: white;
+		    outline: none;
+		}
+		#imgplus_img{
+			height: 21px;
+		}
+		
 
 /* //==========================================================다슬resume(css시작)=========================================== */
       body,ul{
@@ -907,6 +964,20 @@
             color: #999;
             text-align: center;
       }
+      #url_addr{
+      	    height: 60px;
+  	 		 width: 95%;
+    		border: 1px solid #ddd;
+   	 		padding: 0 20px;
+    		outline: none;
+    		display: none;
+      }
+      #url_remove{
+      		top: 95px;
+    		height: 62px;
+    		right: 23px;
+    		display: none;
+      }
       
       /* 취업우대 */
       .protect_box{
@@ -980,6 +1051,7 @@
             line-height: 50px;
             font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
       }
       .menu_bottom_bar{
             width: 100%;
@@ -992,6 +1064,7 @@
             color: #fff;
             font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
       }
       #graduatioin_cap{
       		width: 18px;
@@ -1059,7 +1132,7 @@
 <body>
 <%@include file="../include/header.jsp" %>
 <!-- //==========================================================성민resume(body시작)=========================================== -->
-<form action="resumeInsert.unicol" method="post" name="frm_resume" enctype="multipart/form-data">
+<form action="resumeInsert.unicol" method="post" name="frm_resume" id="frm_resume" enctype="multipart/form-data">
       <div class="resume_page">
             <div class="resume_inner_page1">
                  
@@ -1082,7 +1155,7 @@
                         			</div>
                         			<div class="selectbox profile_sex">
                         				<label>성별</label>
-                        				<select>
+                        				<select name="UserSex">
                         					<option value="man">남자</option>
                         					<option value="woman">여자</option>
                         				</select>
@@ -1107,6 +1180,8 @@
                         				<input type="text" name="UserAdress" id="UserAdress" value="세션주소" >
                         			</div>
                         		</div>
+                        		<button type="button" id="plus_img_btn">증명사진 <img alt="" id="imgplus_img" src="image/resume_img/plus.png"></button>
+                        		<input type="file" name="plusimg" id="plusimg">
                         	</div>
                         </div>
                         <!-- 학력 -->
@@ -1601,8 +1676,10 @@
 	                        <button id="my_file">내 파일함</button>
 	                        <div class="container" id="portfolio_container">
 	                              <button type="button" class="file_btn" id="urlplus_btn">URL 추가<img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn"></button>
-	                              <button type="button" class="file_btn" id="urlplus_btn">파일 추가<img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn"></button>
+	                              <button type="button" class="file_btn" id="fileplus_btn">파일 추가<img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn"></button>
 	                              <input type="file" name="plusfile" id="plusfile">
+	                              <input type="text" name="url_addr" id="url_addr">
+	                              <button type="button" class="x_btn" id="url_remove">&times;</button>
 	                        </div>
                         </div>
                         

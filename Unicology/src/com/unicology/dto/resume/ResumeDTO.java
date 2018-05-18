@@ -5,25 +5,31 @@ public class ResumeDTO {
 	private String resume_title;
 	private String UserName;
 	private String UserBirth;
+	private String UserSex;
 	private String UserEmail;
 	private String UserTel;
 	private String UserPhone;
 	private String UserAdress;
+	private String filename;
+	private int filesize;
 	
 	public ResumeDTO() {
 		
 	}
 
-	public ResumeDTO(String resume_title, String userName, String userBirth, String userEmail, String userTel,
-			String userPhone, String userAdress) {
+	public ResumeDTO(String resume_title, String userName, String userBirth, String userSex, String userEmail,
+			String userTel, String userPhone, String userAdress, String filename, int filesize) {
 		super();
 		this.resume_title = resume_title;
 		UserName = userName;
 		UserBirth = userBirth;
+		UserSex = userSex;
 		UserEmail = userEmail;
 		UserTel = userTel;
 		UserPhone = userPhone;
 		UserAdress = userAdress;
+		this.filename = filename;
+		this.filesize = filesize;
 	}
 
 	public String getResume_title() {
@@ -48,6 +54,14 @@ public class ResumeDTO {
 
 	public void setUserBirth(String userBirth) {
 		UserBirth = userBirth;
+	}
+
+	public String getUserSex() {
+		return UserSex;
+	}
+
+	public void setUserSex(String userSex) {
+		UserSex = userSex;
 	}
 
 	public String getUserEmail() {
@@ -80,6 +94,22 @@ public class ResumeDTO {
 
 	public void setUserAdress(String userAdress) {
 		UserAdress = userAdress;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public int getFilesize() {
+		return filesize;
+	}
+
+	public void setFilesize(int filesize) {
+		this.filesize = filesize;
 	}
 	
 }

@@ -4,11 +4,18 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
+
 <configuration>
 	<!-- DB 접속정보 값을 가지고 있는 파일 설정 -->
 	<!-- 경로의 패키지명까지 풀네임 적어야 함 -->
 
+	
 	<properties resource="com/unicology/mybatis/db.properties"/>
+	
+	<settings>
+ 	 <setting name="jdbcTypeForNull" value="NULL"/>
+ 	 <!-- 위의 대소문자는 반드시 구별한다. -->
+ 	</settings>
 	
 	<!-- 별명 부여 -->
 	<typeAliases>
@@ -63,4 +70,6 @@
 		<!-- 마이페이지 mapper  -->
 		<mapper resource="com/unicology/mybatis/mapper/MyPageUnicolMapper.xml"/>
 	</mappers>
+	
+	
 </configuration>
