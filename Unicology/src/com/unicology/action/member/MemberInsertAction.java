@@ -2,6 +2,7 @@ package com.unicology.action.member;
 
 import java.io.IOException;
 
+import javax.print.attribute.standard.RequestingUserName;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,8 +39,8 @@ public class MemberInsertAction implements Action{
 		String maddr = sample6_address+sample6_address2;
 		
 		// 성별
-		String msex = request.getParameter("get_sex");
-		
+		String msex = request.getParameter("sexval");
+		System.out.println("성별"+msex);
 		// 관심직무
 		String mduty = request.getParameter("get_duty");
 		
@@ -63,8 +64,11 @@ public class MemberInsertAction implements Action{
 		String atten_gm = request.getParameter("atten_gm");
 		String matten_gygm = atten_gy+atten_gm;
 		
+		//학과 이름
+		String mmajor = request.getParameter("get_major");
 		
-		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm);
+		
+		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
 		MemberDAO mDao = MemberDAO.getInstance();
 		int result = mDao.memInsert(mDto);
 		

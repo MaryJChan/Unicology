@@ -17,7 +17,17 @@ public class MemberDTO {
 	private String mschool;
 	private String matten_eyem;
 	private String matten_gygm;
+	private String mmajor;
+	
+	public String getMmajor() {
+		return mmajor;
+	}
+
+	public void setMmajor(String mmajor) {
+		this.mmajor = mmajor;
+	}
 	private String useyn;
+	
 	
 	public String getUseyn() {
 		return useyn;
@@ -42,7 +52,7 @@ public class MemberDTO {
 
 	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
 			String msex, String mbirth, String mduty, String mgrade, String mschool, String matten_eyem,
-			String matten_gygm) {
+			String matten_gygm, String mmajor) {
 		super();
 		this.mid = mid;
 		this.mpw = mpw;
@@ -58,6 +68,7 @@ public class MemberDTO {
 		this.mschool = mschool;
 		this.matten_eyem = matten_eyem;
 		this.matten_gygm = matten_gygm;
+		this.mmajor = mmajor;
 	}
 
 	public String getMschool() {

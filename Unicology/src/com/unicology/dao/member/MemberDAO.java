@@ -100,9 +100,10 @@ import com.unicology.dto.member.MemberDTO;
 					String mschool = memberDTO.getMschool();
 					String matten_eyem = memberDTO.getMatten_eyem();
 					String matten_gygm = memberDTO.getMatten_gygm();
+					String mmajor = memberDTO.getMmajor();
 					
 					
-					mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm);
+					mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
 				}
 				
 				
