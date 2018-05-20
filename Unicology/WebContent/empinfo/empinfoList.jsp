@@ -659,6 +659,18 @@
             location.href = "empinfoSearch.unicol?flag=" + flag;
             
 		});
+		
+		/* 스크랩 클릭 시 */
+		$("#scrap_btn").on("click", function() {
+			var loginSession = $("#loginsession").val();
+			alert("loginSession : " + loginSession);
+			if(loginSession == "") {
+				$(".loginMsg").css("display","block");
+        		$("#myModal").css("display","block");	
+			} else {
+				
+			}
+		});
 	});
 </script>
 
@@ -666,6 +678,7 @@
 	<div id="jobListContainer">
 	<input type="hidden" id="checkboxValues" name="checkboxValues">
 	<input type="hidden" id="keyCode" value="${keyCode}">
+	<input type="hidden" id="loginsession" value="${sessionScope.loginUser.mid}">    
 		<div id="inner_jogList">
 			<div class="jogList_content">
 				<div id="wrap_title">

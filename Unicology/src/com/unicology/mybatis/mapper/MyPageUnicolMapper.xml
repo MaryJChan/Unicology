@@ -24,4 +24,24 @@
 		SELECT * FROM JASOWRITE
 		WHERE num = #{num}
 	</select>
+	
+	<!-- 회원정보 관리 : 회원정보 수정(뿌려줄 데이터) -->
+	<select id="memUpdateList" resultType="mDTO">
+		SELECT * FROM UNICOL_MEMBER
+		WHERE mid = #{mid}
+	</select>
+	
+	<!-- 회원정보 관리 : 회원정보 수정 (update) -->
+	<update id="memberUpdate">
+		UPDATE UNICOL_MEMBER
+		   SET mname = #{mname},
+		       mphone = #{mphone},
+		       memail = #{memail},
+		       mpost = #{mpost},
+		       maddr = #{maddr},
+		       maddr_detail = #{maddr_detail},
+		       msex = #{msex},
+		       mbirth = #{mbirth}
+		 WHERE mid = #{mid}       
+	</update>
 </mapper>

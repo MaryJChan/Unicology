@@ -66,6 +66,21 @@ public class MemberDTO {
 		this.mmajor = mmajor;
 		this.mimage = mimage;
 	}
+	
+
+	public MemberDTO(String mid, String mname, String mphone, String memail, String mpost, String maddr,
+			String maddr_detail, String msex, String mbirth) {
+		super();
+		this.mid = mid;
+		this.mname = mname;
+		this.mphone = mphone;
+		this.memail = memail;
+		this.mpost = mpost;
+		this.maddr = maddr;
+		this.maddr_detail = maddr_detail;
+		this.msex = msex;
+		this.mbirth = mbirth;
+	}
 
 
 	public String getMaddr_detail() {

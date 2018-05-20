@@ -23,6 +23,7 @@ import com.unicology.action.member.LoginCkAction;
 import com.unicology.action.member.LogoutAction;
 import com.unicology.action.member.MemAjaxAction;
 import com.unicology.action.member.MemberInsertAction;
+import com.unicology.action.member.MemberUpdateAction;
 import com.unicology.action.member.SessionAction;
 import com.unicology.action.mypage.MyPageAction;
 import com.unicology.action.mypage.ResumeManagementAction;
@@ -170,13 +171,17 @@ public class UnicolFrontController extends HttpServlet{
         else if (command.equals("/resume_management.unicol")) {
         	action = new ResumeManagementAction();
         	forward = action.excute(request, response);
-        	
         }
  		
         else if (command.equals("/jasoanalysis.unicol")) {
         	action = new JasoAnalysisAction();
         	forward = action.excute(request, response);
-        	
+        }
+ 		
+ 	//  ============================  MyPage 회원정보 수정 ================================= //
+        else if (command.equals("/memberUpdate.unicol")) {
+        	action = new MemberUpdateAction();
+        	forward = action.excute(request, response);
         }
  		
  		
