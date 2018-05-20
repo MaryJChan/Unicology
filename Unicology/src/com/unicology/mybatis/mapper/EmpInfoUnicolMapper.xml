@@ -66,4 +66,8 @@
 			
 	</select>
 	
+	<select id="dutySelect" resultType="eDTO">
+		SELECT DISTINCT(CLASIFICAR) FROM empinfo
+	</select>
+	
 </mapper>

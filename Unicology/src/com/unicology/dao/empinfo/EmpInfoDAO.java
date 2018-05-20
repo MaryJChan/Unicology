@@ -113,4 +113,20 @@ public class EmpInfoDAO {
 
 		return searchList;
 	}
+	
+	// 직무 조회
+	public List<EmpInfoDTO> dutySelect() {
+		sqlSession = sqlSessionFactory.openSession();
+		List<EmpInfoDTO> dutyList = new ArrayList<>();
+		
+		try {
+			dutyList = sqlSession.selectList("dutySelect");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return dutyList;
+	}
 }

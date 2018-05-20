@@ -13,6 +13,7 @@ import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
+import com.unicology.action.jasoanalysis.JasoAnalysisAction;
 import com.unicology.action.jasowrite.JasoModifyAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
 import com.unicology.action.jasowrite.JasoWriteRegisterAction;
@@ -171,6 +172,14 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         	
         }
+ 		
+        else if (command.equals("/jasoanalysis.unicol")) {
+        	action = new JasoAnalysisAction();
+        	forward = action.excute(request, response);
+        	
+        }
+ 		
+ 		
  		
  		// 실제로 동작하는곳, 하나의 Servlet에서 URL을 읽어 해당 기능을 구현
  		if(forward != null) {

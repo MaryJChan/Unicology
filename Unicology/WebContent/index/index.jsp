@@ -428,7 +428,7 @@
 	            		</div>
 	            		<div id="info2_text">
 	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
-	            			<a href="#" id="go_keyword">자기소개서 핵심 키워드페이지로 이동</a>
+	            			<a href="jasoanalysis.unicol" id="go_keyword">자기소개서 핵심 키워드페이지로 이동</a>
 	            		</div>
 	            	</div>
 	            </div>
