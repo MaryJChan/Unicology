@@ -10,6 +10,7 @@ public class MemberDTO {
 	private String memail;
 	private String mpost;
 	private String maddr;
+	private String maddr_detail;
 	private String msex;
 	private String mbirth;
 	private String mduty;
@@ -18,7 +19,71 @@ public class MemberDTO {
 	private String matten_eyem;
 	private String matten_gygm;
 	private String mmajor;
+	private String mimage;
 	
+	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
+			String maddr_detail, String msex, String mbirth, String mduty, String mgrade, String mschool,
+			String matten_eyem, String matten_gygm, String mmajor) {
+		super();
+		this.mid = mid;
+		this.mpw = mpw;
+		this.mname = mname;
+		this.mphone = mphone;
+		this.memail = memail;
+		this.mpost = mpost;
+		this.maddr = maddr;
+		this.maddr_detail = maddr_detail;
+		this.msex = msex;
+		this.mbirth = mbirth;
+		this.mduty = mduty;
+		this.mgrade = mgrade;
+		this.mschool = mschool;
+		this.matten_eyem = matten_eyem;
+		this.matten_gygm = matten_gygm;
+		this.mmajor = mmajor;
+	}
+	
+
+	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
+			String maddr_detail, String msex, String mbirth, String mduty, String mgrade, String mschool,
+			String matten_eyem, String matten_gygm, String mmajor, String mimage) {
+		super();
+		this.mid = mid;
+		this.mpw = mpw;
+		this.mname = mname;
+		this.mphone = mphone;
+		this.memail = memail;
+		this.mpost = mpost;
+		this.maddr = maddr;
+		this.maddr_detail = maddr_detail;
+		this.msex = msex;
+		this.mbirth = mbirth;
+		this.mduty = mduty;
+		this.mgrade = mgrade;
+		this.mschool = mschool;
+		this.matten_eyem = matten_eyem;
+		this.matten_gygm = matten_gygm;
+		this.mmajor = mmajor;
+		this.mimage = mimage;
+	}
+
+
+	public String getMaddr_detail() {
+		return maddr_detail;
+	}
+
+	public void setMaddr_detail(String maddr_detail) {
+		this.maddr_detail = maddr_detail;
+	}
+
+	public String getMimage() {
+		return mimage;
+	}
+
+	public void setMimage(String mimage) {
+		this.mimage = mimage;
+	}
+
 	public String getMmajor() {
 		return mmajor;
 	}
@@ -50,26 +115,7 @@ public class MemberDTO {
 		this.mpw = mpw;
 	}
 
-	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
-			String msex, String mbirth, String mduty, String mgrade, String mschool, String matten_eyem,
-			String matten_gygm, String mmajor) {
-		super();
-		this.mid = mid;
-		this.mpw = mpw;
-		this.mname = mname;
-		this.mphone = mphone;
-		this.memail = memail;
-		this.mpost = mpost;
-		this.maddr = maddr;
-		this.msex = msex;
-		this.mbirth = mbirth;
-		this.mduty = mduty;
-		this.mgrade = mgrade;
-		this.mschool = mschool;
-		this.matten_eyem = matten_eyem;
-		this.matten_gygm = matten_gygm;
-		this.mmajor = mmajor;
-	}
+	
 
 	public String getMschool() {
 		return mschool;

@@ -94,6 +94,7 @@ import com.unicology.dto.member.MemberDTO;
 					String mpost = memberDTO.getMpost();
 					String msex = memberDTO.getMsex();
 					String maddr = memberDTO.getMaddr();
+					String maddr_detail = memberDTO.getMaddr_detail();
 					String mbirth = memberDTO.getMbirth();
 					String mduty = memberDTO.getMduty();
 					String mgrade = memberDTO.getMgrade();
@@ -103,7 +104,8 @@ import com.unicology.dto.member.MemberDTO;
 					String mmajor = memberDTO.getMmajor();
 					
 					
-					mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
+					
+					mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr,maddr_detail, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
 				}
 				
 				

@@ -34,9 +34,8 @@ public class MemberInsertAction implements Action{
 		
 		// 주소 
 		String mpost = request.getParameter("sample6_postcode");
-		String sample6_address = request.getParameter("sample6_address");
-		String sample6_address2 = request.getParameter("sample6_address2");
-		String maddr = sample6_address+sample6_address2;
+		String maddr = request.getParameter("sample6_address");
+		String maddr_detail = request.getParameter("sample6_address2");
 		
 		// 성별
 		String msex = request.getParameter("sexval");
@@ -68,7 +67,7 @@ public class MemberInsertAction implements Action{
 		String mmajor = request.getParameter("get_major");
 		
 		
-		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
+		MemberDTO mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr,maddr_detail, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
 		MemberDAO mDao = MemberDAO.getInstance();
 		int result = mDao.memInsert(mDto);
 		
