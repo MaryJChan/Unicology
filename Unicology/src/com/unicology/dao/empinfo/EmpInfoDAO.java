@@ -129,4 +129,36 @@ public class EmpInfoDAO {
 		
 		return dutyList;
 	}
+	
+	public EmpInfoDTO titleCheck(String title) {
+		sqlSession = sqlSessionFactory.openSession();
+		String titleCheck = null;
+		EmpInfoDTO eDto = null;
+		try {
+			eDto = sqlSession.selectOne("empinfoTitleCheck", title);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null)
+				sqlSession.close();
+		}
+		return eDto;
+	}
+
+	public void EmpInfo_Update(EmpInfoDTO eDto) {
+		sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			sqlSession.update("empinfoUpdate", eDto);
+			sqlSession.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null)
+				sqlSession.close();
+		}
+	}
+	
 }

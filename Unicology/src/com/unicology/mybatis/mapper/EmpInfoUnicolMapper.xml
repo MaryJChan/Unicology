@@ -7,7 +7,7 @@
 	<!-- ======================채용 공고 웹크롤링 Mapper======================  -->
 	<insert id="EmpInfo" parameterType="eDTO">
 		INSERT INTO empinfo
-    	VALUES((SELECT nvl(max(eno)+1, 1) from empinfo), #{companyName}, #{title}, #{href}, #{clasificar}, #{subclass}, #{career}, #{education}, #{employmentType}, #{work_place}, #{deadlines})
+    	VALUES((SELECT nvl(max(eno)+1, 1) from empinfo), #{companyName}, #{title}, #{href}, #{clasificar}, #{middleClassification}, #{subclass}, #{career}, #{education}, #{employmentType}, #{work_place}, #{deadlines})
 	</insert>
 	
 	<!-- 채용공고 리스트 출력 및 pagenation -->
@@ -69,5 +69,18 @@
 	<select id="dutySelect" resultType="eDTO">
 		SELECT DISTINCT(CLASIFICAR) FROM empinfo
 	</select>
+	
+	<!-- 크롤링시 중복된 제목이 있는지 파악 -->
+	<select id="empinfoTitleCheck" resultType="eDTO">
+		SELECT * FROM empinfo
+		WHERE title = #{title}
+	</select>
+	
+	<!-- 크롤링시 중복이 있으면 UPDATE -->
+	<update id="empinfoUpdate">
+		UPDATE empinfo SET 
+		subclass = #{subclass}
+		WHERE title = #{title}
+	</update>
 	
 </mapper>

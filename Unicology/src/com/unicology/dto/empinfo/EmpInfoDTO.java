@@ -6,6 +6,7 @@ public class EmpInfoDTO {
 	private String title = null;
 	private String href = null;
 	private String clasificar = null;
+	private String middleClassification = null;
 	private String subclass = null;
 	private String career = null;
 	private String education = null;
@@ -18,6 +19,12 @@ public class EmpInfoDTO {
 		
 	}	
 
+	public EmpInfoDTO(String title, String subclass) {
+		super();
+		this.title = title;
+		this.subclass = subclass;
+	}
+	
 	public EmpInfoDTO(String companyName, String title, String href, String clasificar, String subclass, String career,
 			String education, String employmentType, String work_place, String deadlines) {
 		super();
@@ -25,6 +32,22 @@ public class EmpInfoDTO {
 		this.title = title;
 		this.href = href;
 		this.clasificar = clasificar;
+		this.subclass = subclass;
+		this.career = career;
+		this.education = education;
+		this.employmentType = employmentType;
+		this.work_place = work_place;
+		this.deadlines = deadlines;
+	}
+
+	public EmpInfoDTO(String companyName, String title, String href, String clasificar, String middleClassification, String subclass, String career,
+			String education, String employmentType, String work_place, String deadlines) {
+		super();
+		this.companyName = companyName;
+		this.title = title;
+		this.href = href;
+		this.clasificar = clasificar;
+		this.middleClassification = middleClassification;
 		this.subclass = subclass;
 		this.career = career;
 		this.education = education;
@@ -72,6 +95,16 @@ public class EmpInfoDTO {
 	public void setClasificar(String clasificar) {
 		this.clasificar = clasificar;
 	}
+
+	public String getMiddleClassification() {
+		return middleClassification;
+	}
+
+	public void setMiddleClassification(String middleClassification) {
+		this.middleClassification = middleClassification;
+	}
+
+
 
 	public String getSubclass() {
 		return subclass;
