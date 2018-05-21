@@ -34,6 +34,8 @@ import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeAction;
 import com.unicology.action.resume.ResumeInsertAction;
+import com.unicology.action.resume.ResumeModifyAction;
+import com.unicology.action.resume.ResumeViewAction;
 import com.unicology.action.unicolmain.IndexAction;
 import com.unicology.action.univ.UnivAjaxAction;
 
@@ -172,10 +174,16 @@ public class UnicolFrontController extends HttpServlet{
         	action = new ResumeInsertAction();
         	forward = action.excute(request, response);
         }
- 		
-		//  ============================ 이력서 작성 페이지================================= //
         else if (command.equals("/resume.unicol")) {
             action = new ResumeAction();
+            forward = action.excute(request, response);
+        }
+        else if (command.equals("/resumeModify.unicol")) {
+            action = new ResumeModifyAction();
+            forward = action.excute(request, response);
+        }
+        else if (command.equals("/resumeView.unicol")) {
+            action = new ResumeViewAction();
             forward = action.excute(request, response);
         }
  		//  ============================  MyPage  ================================= //
