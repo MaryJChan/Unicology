@@ -660,7 +660,18 @@
             
 		});
 		
-		/* 스크랩 클릭 시 */
+		// 채용공고 리스트 체크박스 클릭 시
+		var enochk = [];
+		$(".enochk").on("click", function() {
+			/* $("input[name=enochk]:checked").each(function(i) {
+		    	enochk.push($(this).val());
+			});			 */
+			enochk.push($(this).val());
+			alert(enochk);
+		});
+		
+		
+		//스크랩 버튼 클릭 시
 		$("#scrap_btn").on("click", function() {
 			var loginSession = $("#loginsession").val();
 			alert("loginSession : " + loginSession);
@@ -668,6 +679,25 @@
 				$(".loginMsg").css("display","block");
         		$("#myModal").css("display","block");	
 			} else {
+				alert("enochk :" + enochk);
+				
+				$.ajax({
+					//서블릿이 어디로 갈건지 
+					url: "mypage.unicol",
+					type: "POST",
+					dataType: "json",
+					data: "ehochk=" + enochk,
+					success: function(data) {
+						if(data.flag == "0") {
+							
+						} else {
+							
+						}
+					},
+					error: function() {
+						alert("System Error!!!");
+					}
+				});
 				
 			}
 		});
@@ -911,7 +941,7 @@
                                   <tr>
                                         <td>
                                               <label class="chk_recruit">
-                                                    <input type="checkbox">
+                                                    <input class="enochk" name="enochk" type="checkbox" value="${empInfoDto.eno}">
                                               </label>
                                         </td>
                                         <td class="company_name">

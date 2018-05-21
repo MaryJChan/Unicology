@@ -54,7 +54,6 @@ public class EmpinfoSearchAction implements Action {
         	System.out.println(chkParentresult);
 		}
         
-        
         empInfoDao.empinfoSearchSelect(empInfoCriDto);
         
         
