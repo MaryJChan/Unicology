@@ -85,7 +85,6 @@
 		color: red;
 		font-size: small;
 		display: none;
-		float: left;
 	}
 	.info {
 		height: 20px;
