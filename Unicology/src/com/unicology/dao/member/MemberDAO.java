@@ -135,4 +135,48 @@ import com.unicology.dto.member.MemberDTO;
 			}
 			return list;
 		}
+		
+		// 회원 삭제 시 조회
+		public MemberDTO sessionDelete(MemberDTO mDto) {
+			sqlSession = sqlSessionFactory.openSession();
+			List<MemberDTO> list = new ArrayList<>();
+			
+			try {	
+				list = sqlSession.selectList("sessionDelete", mDto);
+				for (MemberDTO memberDTO : list) {
+					System.out.print(memberDTO.getMpw()+"\t");
+					System.out.print(memberDTO.getMname()+"\t");
+					System.out.println();
+					
+					String mid = memberDTO.getMid();
+					String mpw = memberDTO.getMpw();
+					String mname = memberDTO.getMname();
+					String mphone = memberDTO.getMphone();
+					String memail = memberDTO.getMemail();
+					String mpost = memberDTO.getMpost();
+					String msex = memberDTO.getMsex();
+					String maddr = memberDTO.getMaddr();
+					String maddr_detail = memberDTO.getMaddr_detail();
+					String mbirth = memberDTO.getMbirth();
+					String mduty = memberDTO.getMduty();
+					String mgrade = memberDTO.getMgrade();
+					String mschool = memberDTO.getMschool();
+					String matten_eyem = memberDTO.getMatten_eyem();
+					String matten_gygm = memberDTO.getMatten_gygm();
+					String mmajor = memberDTO.getMmajor();
+					
+					
+					
+					mDto = new MemberDTO(mid, mpw, mname, mphone, memail, mpost, maddr,maddr_detail, msex, mbirth, mduty, mgrade,mschool, matten_eyem, matten_gygm,mmajor);
+				}
+				
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(sqlSession != null)	sqlSession.close();
+			}
+			return mDto;
+		}
 }

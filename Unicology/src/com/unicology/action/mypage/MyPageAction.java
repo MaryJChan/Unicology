@@ -41,23 +41,13 @@ public class MyPageAction implements Action {
 			
 		}
 		
-		String[] enochk = request.getParameterValues("ehochk");
-	/*	for (String eno : enochk) {
-			String enoSplit[] = eno.split(",");
-			System.out.println(enoSplit.toString());
-			System.out.println(eno);
-		}*/
-		
-		for (int i = 0; i < enochk.length; i++) {
-			System.out.println(enochk[i]);
-		}
+	
 		
 
 
 		
 		// 스크랩 구현
 		//muDao.scrapInsert(writer, enochk);
-		
 		
 		ActionForward forward = new ActionForward();
         forward.setPath(url);

@@ -479,6 +479,74 @@
 	    border: 1px solid #5f75eb;
 	    background-color: #6b80f1;
 	}
+	/* 
+	 * 김성민 회원탈퇴 모달창
+	 */
+	 /* 모달창 */
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 10; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0, 0, 0); /* Fallback color */
+			background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+		}
+		
+		.Dmodal-content {
+			width: 75%;
+			padding: 16px;
+			background-color: #fefefe;
+			width: 460px;
+			margin: 0 auto;
+		}
+		
+		.close {
+			float: right;
+			font-weight: bold;
+			font-size: 15px;
+			background-color: #999;
+			color: white;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+		}
+
+		.close:hover, .close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		.input_delete {
+			width: 408px;
+			height: 16px;
+			border-width: 0;
+			padding: 7px 0px 6px 0px;
+		}
+		
+		#btn_delete {
+			width: 460px;
+			height: 59px;
+			text-align: center;
+			font-size: 22px;
+			background-color: #6495ED;
+			display: block;
+			color: white;
+			line-height: 61px;
+			padding-top: 2px;
+		}
+		
+		#err_chk1 {
+			display: none;
+			font-size: 11px;
+			color: red;
+		}
 </style>
 </head>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -563,7 +631,89 @@
 			}
 			$("#memberupdatefrm").submit();		
 		});
+		
+	
+		/* 김성민 추가
+		 * 회원 탈퇴 모달 창 
+		*/
+		$("#memberInfo_delete_btn").on("click",function(){
+			$("#myDModal").css("display","block");
+		});
+		$(".close").on("click",function (){
+			$("#myDModal").css("display","none");
+		});
+		
+		
+		//입력창 누르면 색 변화
+		$("#delete_name").focus(function() {
+			$("#del_name").css("border", "1px solid #6495ED");
 
+		});
+		$("#delete_pw").focus(function() {
+			$("#del_pw").css("border", "1px solid #6495ED");
+
+		});
+		$("#delete_text").focus(function() {
+			$("#del_txt").css("border", "1px solid #6495ED");
+
+		});
+		
+		$("#delete_name").blur(function() {
+			$("#del_name").css("border", "1px solid #dadada");
+
+		});
+		$("#delete_pw").blur(function() {
+			$("#del_pw").css("border", "1px solid #dadada");
+
+		});
+		$("#delete_text").blur(function() {
+			$("#del_txt").css("border", "1px solid #dadada");
+
+		});
+
+		$("#btn_delete").on("click",function() {
+
+			var name = $("#delete_name");
+			var pw = $("#delete_pw");
+
+			var lname = name.val();
+			var lpw = pw.val();
+			if (lname == "") {
+				name.focus();
+				$("#err_chk1").text("이름을 입력해주세요.").css("display", "block")
+						.css("color", "red");
+				return false;
+			} else if (lpw == "") {
+				pw.focus();
+				$("#err_chk1").text("비밀번호를 입력해주세요.").css("display", "block")
+						.css("color", "red");
+				return false;
+			}
+
+			$.ajax({
+				url : "deleteck.unicol",
+				type : "POST",
+				dataType : "json",
+				data : "name=" + lname + "&pw=" + lpw,
+				success : function(data) {
+					if (data.flag == "0") {
+						$("#err_chk1").text("올바르게 입력해주시기 바랍니다.").css(
+								"display", "block").css("color", "red");
+						id.select();
+						return false;
+					} else if (data.flag == "1") {
+						location.href="index.unicol";
+						alert("정상적으로 회원 탈퇴가 되셨습니다."+<br>+" 이용해주셔서 감사합니다."+<br>+"메인 페이지로 이동합니다.");
+					}
+				},
+				error : function() {
+					alert("System Error!!!");
+					return false;
+				}
+			});
+			$("#frm_delete").submit();
+		});
+		
 	});
 	
 	/* 우편번호 검색 */
@@ -608,7 +758,7 @@
           }
       }).open();
   }
-</script>
+	</script>
 <body>
       <div id="mypageContainer">
             <div id="inner_mypage">
@@ -636,8 +786,38 @@
                                     <ul>
                                           <li><a id="memberInfo_modify_btn" href="#">회원정보 수정</a></li>
                                           <li><a href="#">비밀번호 변경</a></li>
+                        				  <!-- 김성민 추가 -->
+                                          <li><a id="memberInfo_delete_btn" href="#">회원 탈퇴</a></li>
                                     </ul>
+                             <div class="modal" id="myDModal">
+								<div class="Dmodal-content">
+									<span class="close">&times;</span>
+										<div id="header_div">
+											<a href="index.unicol"> <img alt="유니콜로지 로고"src="image/index_Img/logo.png">
+											</a>
+											<h5>이름 과 비밀번호를 올바르게 입력 후 <br>아래와 같이 텍스트를 입력해주셔야 탈퇴가 됩니다.</h5>
+										</div>
+										<form action="memberDelete.unicol" name="frm_delete"id="frm_delete" method="POST">
+											<div class="div_input" id="del_name">
+												<input type="text" placeholder="이름"class="input_delete" id="delete_name" name="delete_name">
+											</div>
+											<div class="div_input" id="del_pw">
+												<input type="password" placeholder="비밀번호"class="input_delete" id="delete_pw" name="delete_pw">
+											</div>
+											<div class="div_input" id="del_txt">
+												<input type="text" placeholder="정말 회원 탈퇴 하겠습니다."class="input_delete" id="delete_text" name="delete_text">
+											</div>
+											
+											<div id="err_chk1">올바르게 입력해주시기 바랍니다.</div>
+											<!-- 버튼은 여러가지 있지만 그중에서 앵커태그가 가장 편하다.-->
+											<div>
+												<a href="#" id="btn_delete">회원탈퇴</a>
+											</div>
+										</form>
+								</div>
+							</div>
                         </div>
+                        
                   </div>
                   <div id="section_rightmenu">
                         <div class="rightmenu">
