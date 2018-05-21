@@ -240,27 +240,7 @@
 		      $("#fileplus_btn").on("click",function(){
 		    	 $("#plusfile").click();
 		      });
-		      
-		      $("#plus_img_btn").click(function(){
-		    	  $("#plusimg").click(); 
-		    	 
-		    	  var file_img = form.plusimg.value;
-		    	
-		    	 if(file != "" ){
-		    		 
-		    		 var fileExt = file.substring(file.lastIndexOf(".")+1);
-		    		 
-		    		 var reg = /gif|jpg|jpeg|png/i; //업로드 가능 확장자
-		    		 
-		    		 if(reg.test(fileExt) == false){
-		    			 
-		    			 alert("첨부파일은 gif, jpg, jpeg, png로 된 이미지만 가능합니다.");
-		    			 
-		    			 return;
-		    		 }
-		    	 }
-		      });
-		      
+
 		      $(".menu_middle_bar").click(function(){
 		    	 $("#frm_resume").submit(); 
 		      });
@@ -1180,8 +1160,8 @@
                         				<input type="text" name="UserAdress" id="UserAdress" value="세션주소" >
                         			</div>
                         		</div>
-                        		<button type="button" id="plus_img_btn">증명사진 <img alt="" id="imgplus_img" src="image/resume_img/plus.png"></button>
-                        		<input type="file" name="plusimg" id="plusimg">
+<!--                         		<button type="button" id="plus_img_btn">증명사진 <img alt="" id="imgplus_img" src="image/resume_img/plus.png"></button> -->
+<!--                         		<input type="file" name="plusimg" id="plusimg"> -->
                         	</div>
                         </div>
                         <!-- 학력 -->
@@ -1191,7 +1171,7 @@
                         		<div class="row">
 	                        		<div class="selectbox school_grade" >
 	                        				<label>학교구분</label>
-	                        				<select style="letter-spacing: -1px; padding-left: 15px;">
+	                        				<select name="SchoolGrade" style="letter-spacing: -1px; padding-left: 15px;">
 	                        					<option value="고등학교" >고등학교</option>
 												<option value="대학(2,3년)">대학(2,3년)</option>
 												<option value="대학교">대학교</option>
@@ -1202,21 +1182,6 @@
 	                        				<label for="SchoolName">학교명</label>
 	                        				<input type="text" name="SchoolName" id="SchoolName" value="학교명" >
 	                       			</div>
-	                       			<!-- 고졸 -->
-	                       			<div class="graduation_high" style="display: none;">
-		                       			<div class="input value graduation_year">
-		                       				<label for="graduationYear">졸업년도</label>
-		                       				<input type="text" name="graduationYear" id="graduationYear">
-		                       			</div>
-		                       			<div class="selectbox graduation_status high" style="margin: 0;">
-		                        				<label style="margin-left: -20px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: -10px; border-left: 0;">
-		                        					<option value="졸업">졸업</option>
-													<option value="졸업예정">졸업예정</option>
-		                        				</select>
-		                       			</div>
-	                       			</div>
-	                       			<!-- 초대졸 -->
 	                       			<div class="graduation_college" style="display: inline-block;">
 		                       			<div class="input value entrance_year">
 		                       				<label for="entranceYear">입학년도</label>
@@ -1228,43 +1193,7 @@
 		                       			</div>
 		                       			<div class="selectbox graduation_status univ" style="margin: 0;">
 		                        				<label style="margin-left: -10px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
-		                        					<option value="졸업">졸업</option>
-													<option value="졸업예정">졸업예정</option>
-		                        				</select>
-		                       			</div>
-	                       			</div>
-	                       			<!-- 대졸 -->
-	                       			<div class="graduation_univ" style="display: none;">
-	                       				<div class="input value entrance_year">
-		                       				<label for="entranceYear">입학년도</label>
-		                       				<input type="text" name="entranceYear" id="entranceYear">
-		                       			</div>
-		                       			<div class="input value graduation_year" style="margin-left: -10px;">
-		                       				<label for="graduationYear">졸업년도</label>
-		                       				<input type="text" name="graduationYear" id="graduationYear">
-		                       			</div>
-		                       			<div class="selectbox graduation_status highschool" style="margin: 0;">
-		                        				<label style="margin-left: -10px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
-		                        					<option value="졸업">졸업</option>
-													<option value="졸업예정">졸업예정</option>
-		                        				</select>
-		                       			</div>
-	                       			</div>
-	                       			<!-- 대학원졸 -->
-	                       			<div class="graduation_gradu" style="display: none;">
-	                       				<div class="input value entrance_year">
-		                       				<label for="entranceYear">입학년도</label>
-		                       				<input type="text" name="entranceYear" id="entranceYear">
-		                       			</div>
-		                       			<div class="input value graduation_year" style="margin-left: -10px;">
-		                       				<label for="graduationYear">졸업년도</label>
-		                       				<input type="text" name="graduationYear" id="graduationYear">
-		                       			</div>
-		                       			<div class="selectbox graduation_status highschool" style="margin: 0;">
-		                        				<label style="margin-left: -10px;">졸업상태</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
+		                        				<select name="GraduationStatus" style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="졸업">졸업</option>
 													<option value="졸업예정">졸업예정</option>
 		                        				</select>
@@ -1283,7 +1212,7 @@
 	                       			</div>
 	                       			<div class="selectbox major_totalgrade">
 		                        				<label style="margin-left: -10px; ">총점</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
+		                        				<select name="MajorTotalgrade" style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
 		                        					<option value="4.5">4.5</option>
 		                        					<option value="4.3">4.3</option>
 		                        					<option value="4.0">4.0</option>
@@ -1347,7 +1276,7 @@
                         		<div class="row">
                         			<div class="selectbox intern_activity" style="width: 115px; margin: 0;">
 		                        				<label style="margin-left: 0;">활동구분</label>
-		                        				<select style="letter-spacing: -1px; padding-left: 15px;">
+		                        				<select name="InternActivity" style="letter-spacing: -1px; padding-left: 15px;">
 		                        					<option value="인턴">인턴</option>
 		                        					<option value="아르바이트">아르바이트</option>
 		                        					<option value="동아리">동아리</option>
@@ -1418,7 +1347,7 @@
                         		<div class="row">
                         			<div class="input value licensename" style="width: 450px;">
 			                       				<label for="licensename">자격증명</label>
-			                       				<input type="text" name="licensegname" id="licensename">
+			                       				<input type="text" name="licensename" id="licensename">
 	                       			</div>
                         			<div class="input value licensepublish" style="width: 284px;">
 			                       				<label for="licensepublish">발행처</label>
@@ -1426,7 +1355,7 @@
 	                       			</div>
 	                       			<div class="input value startlearning" style="width: 115px;">
 			                       				<label for="startlearning">시작년월</label>
-			                       				<input type="text" name="startlearning" id="startlearning" placeholder="2016.03">
+			                       				<input type="text" name="startlicense" id="startlearning" placeholder="2016.03">
 	                       			</div>
                         		</div>
                         		<button type="button" class="x_btn" id="award_x">&times;</button>
@@ -1623,12 +1552,12 @@
 	                        <button type="button" class="plus_btn" id="language_plus_btn"><img alt="plus" src="image/resume_img/plus_btn.png" id="abroad_btn">어학 추가</button>
 	                        <!-- 어학2 -->
 	                        <div class="container" id="language_container2">
-	                              <select name="kind" id="kind" class="select">
+	                              <select name="kind1" id="kind" class="select">
 	                                    <option value="">구분</option>
 	                                    <option value="회화능력">회화능력</option>
 	                                    <option value="공인시험">공인시험</option>
 	                              </select>
-	                              <select name="language_kind" id="language_kind" class="select" class="select">
+	                              <select name="language_kind1" id="language_kind" class="select" class="select">
 	                                    <option value="">외국어명</option>
 	                                    <option value="영어">영어</option>
 	                                    <option value="일본어">일본어</option>
@@ -1659,7 +1588,7 @@
 	                                    <option value="슬로바키아어">슬로바키아어</option>
 	                                    <option value="세르비아어">세르비아어</option>
 	                              </select>
-	                              <select name="language_level" id="language_level" class="select">
+	                              <select name="language_level1" id="language_level" class="select">
 	                                    <option value="">회화능력</option>
 	                                    <option value="일상회화 가능">일상회화 가능</option>
 	                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
@@ -1707,7 +1636,7 @@
 	                                    <option value="대상">대상</option>
 	                                    <option value="비대상">비대상</option>
 	                              </select>
-	                              <select name="obstacle" id="obstacle" class="select2">
+	                              <select name="MilitaryService" id="obstacle" class="select2">
 	                                    <option value="">병역</option>
 	                                    <option value="군필">군필</option>
 	                                    <option value="미필">미필</option>

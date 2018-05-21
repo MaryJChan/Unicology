@@ -5,5 +5,5 @@ public class Constants {
      public final static String UPLOAD_PATH = "d:\\upload\\";
      
      // 파일 업로드 제한 용량(2G)
-     public final static int MAX_UPLOAD = 2048 * 1024 * 1024;
+     public final static int MAX_UPLOAD = 1024 * 1024 * 1024;
 }
