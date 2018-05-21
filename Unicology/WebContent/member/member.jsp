@@ -291,7 +291,7 @@
 	#gradeselect {
 		font-weight: bold;
 		height: 30px;
-		width: 100px;
+		width: 120px;
 		border: 1px solid #dadada;
 		margin: 0 5px 5px;
 	}
@@ -665,7 +665,16 @@
 	        }
 	    });
 
-
+	$("#gradeselect").on("change",function(){
+		var val = $("#get_grade").val();
+		if (val == "고등학교" || val =="") {
+			$("#majorlDiv").css("display","none");
+			$("#get_major").val("");
+		}else {
+			$("#majorlDiv").css("display","block");
+		}
+		
+	});
 
 
 	
@@ -1017,7 +1026,7 @@
 							<option value="고등학교" >고등학교</option>
 							<option value="대학(2,3년)">대학(2,3년)</option>
 							<option value="대학교">대학교</option>
-							<option value="대학원">대학원</option>
+							<option value="대학원(석/박사)">대학원(석/박사)</option>
 						</select>
 					</div>
 					<!-- 학교 오픈api -->
@@ -1231,8 +1240,8 @@
 						</select>
 					</div>
 					<!-- 학과 오픈api -->
-					<div id="majorlDiv" class="join_row">
-						<input type="text" id="get_major" name="get_major" placeholder="학과명을 입력해주세요." style="height: 30px;">
+					<div id="majorlDiv" class="join_row" style="display: none;">
+						<input type="text" id="get_major" name="get_major" placeholder="학과/전공명을 입력해주세요." style="height: 30px; width: 200px;">
 					</div>
 				</div>
 				</div>

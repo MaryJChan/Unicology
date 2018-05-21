@@ -35,6 +35,7 @@ import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeAction;
 import com.unicology.action.resume.ResumeInsertAction;
 import com.unicology.action.unicolmain.IndexAction;
+import com.unicology.action.univ.UnivAjaxAction;
 
 @WebServlet("/UnicolFrontController")
 public class UnicolFrontController extends HttpServlet{
@@ -154,12 +155,11 @@ public class UnicolFrontController extends HttpServlet{
         	action = new MemberInsertAction();
         	forward = action.excute(request, response);
         }
- 		//  ============================ 이력서 작성 페이지================================= //
-        else if (command.equals("/resumeInsert.unicol")) {
-        	action = new ResumeInsertAction();
+ 		// ====================== 고등/대학교 검색 창============================ //
+        else if (command.equals("/univajax.unicol")) {
+        	action = new UnivAjaxAction();
         	forward = action.excute(request, response);
         }
- 		
  		// ====================== 회원 탈퇴  ========================== //
         else if (command.equals("/memberDelete.unicol")) {
         	action = new MemberDeleteAction();
@@ -167,6 +167,12 @@ public class UnicolFrontController extends HttpServlet{
         }
  		
  		// 손다슬 추가
+ 		//  ============================ 이력서 작성 페이지================================= //
+        else if (command.equals("/resumeInsert.unicol")) {
+        	action = new ResumeInsertAction();
+        	forward = action.excute(request, response);
+        }
+ 		
 		//  ============================ 이력서 작성 페이지================================= //
         else if (command.equals("/resume.unicol")) {
             action = new ResumeAction();

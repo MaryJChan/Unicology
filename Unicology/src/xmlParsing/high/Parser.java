@@ -1,4 +1,4 @@
-package xmlParsing.major;
+package xmlParsing.high;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -26,13 +26,13 @@ public class Parser {
 			
 			//서비스 인코딩
 			servicekey = URLEncoder.encode(servicekey,"UTF-8");
-			//20건식 23 460개
+			//2380곳의 학교
 			//parameter setting 
 						parameter = parameter + "&" + "svcType=api";
 						parameter = parameter + "&" + "svcCode=SCHOOL";
 						parameter = parameter + "&" + "contentType=xml";
-						parameter = parameter + "&" + "gubun=univ_list";
-						parameter = parameter + "&" + "perPage=440";
+						parameter = parameter + "&" + "gubun=high_list";
+						parameter = parameter + "&" + "perPage=2380";
 			
 			addr = addr + servicekey + parameter;
 			
