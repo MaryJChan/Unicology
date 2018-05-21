@@ -21,6 +21,9 @@ public class MemberDTO {
 	private String mmajor;
 	private String mimage;
 	
+	
+	
+
 	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
 			String maddr_detail, String msex, String mbirth, String mduty, String mgrade, String mschool,
 			String matten_eyem, String matten_gygm, String mmajor) {
@@ -43,7 +46,7 @@ public class MemberDTO {
 		this.mmajor = mmajor;
 	}
 	
-
+	
 	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
 			String maddr_detail, String msex, String mbirth, String mduty, String mgrade, String mschool,
 			String matten_eyem, String matten_gygm, String mmajor, String mimage) {
@@ -80,6 +83,13 @@ public class MemberDTO {
 		this.maddr_detail = maddr_detail;
 		this.msex = msex;
 		this.mbirth = mbirth;
+	}
+
+	public MemberDTO(String mid, String mpw, String mname) {
+		super();
+		this.mid = mid;
+		this.mpw = mpw;
+		this.mname = mname;
 	}
 
 

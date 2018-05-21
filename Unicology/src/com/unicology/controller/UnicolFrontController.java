@@ -26,7 +26,6 @@ import com.unicology.action.member.MemberDeleteAction;
 import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.MemberUpdateAction;
 import com.unicology.action.member.SessionAction;
-import com.unicology.action.mypage.DeleteCkAction;
 import com.unicology.action.mypage.MyPageAction;
 import com.unicology.action.mypage.ResumeManagementAction;
 import com.unicology.action.passjaso.PassJasoAction;
@@ -158,12 +157,8 @@ public class UnicolFrontController extends HttpServlet{
         	action = new ResumeInsertAction();
         	forward = action.excute(request, response);
         }
- 		// ====================== 회원탈퇴 시 이름 및 비밀번호 확인 ========================== //
-        else if (command.equals("/deleteck.unicol")) {
-			action = new DeleteCkAction();
-			forward = action.excute(request, response);
-		}
- 	// ====================== 회원 탈퇴  ========================== //
+ 		
+ 		// ====================== 회원 탈퇴  ========================== //
         else if (command.equals("/memberDelete.unicol")) {
         	action = new MemberDeleteAction();
         	forward = action.excute(request, response);

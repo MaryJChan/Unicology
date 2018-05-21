@@ -45,11 +45,11 @@
 				#{matten_gygm},
 				#{mmajor})
 	</insert>
-		<!-- 회원탈퇴시 이름  /비밀번호 확인 -->
-	<select id="sessionDelete" resultType="mDTO" parameterType="String">
-		 SELECT * FROM unicol_member 
-		 WHERE mname= #{mname} 
-		 AND mpw = #{mpw}
-	</select>
+	
+	<update id="memDelete">
+		UPDATE unicol_member SET
+		useyn = 'N' 
+		WHERE mid = #{mid}
+	</update>
 	
 </mapper>

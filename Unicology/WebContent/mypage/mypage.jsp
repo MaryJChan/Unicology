@@ -675,42 +675,29 @@
 
 			var name = $("#delete_name");
 			var pw = $("#delete_pw");
+			var txt = $("#del_txt");
 
 			var lname = name.val();
 			var lpw = pw.val();
-			if (lname == "") {
-				name.focus();
-				$("#err_chk1").text("이름을 입력해주세요.").css("display", "block")
-						.css("color", "red");
-				return false;
-			} else if (lpw == "") {
+			var ltxt = txt.val();
+			
+			//유효성 검사
+			if (lpw == "") {
 				pw.focus();
 				$("#err_chk1").text("비밀번호를 입력해주세요.").css("display", "block")
 						.css("color", "red");
 				return false;
+			} else if (ltxt == ""){
+				txt.focus();
+				$("#err_chk1").text("동일하게 입력해주세요.").css("display", "block")
+						.css("color", "red");
+				return false;
+			} else if (ltxt != "회원 탈퇴 하겠습니다."){
+				txt.focus();
+				$("#err_chk1").text("동일하게 입력해주세요.").css("display", "block")
+						.css("color", "red");
+				return false;
 			}
-
-			$.ajax({
-				url : "deleteck.unicol",
-				type : "POST",
-				dataType : "json",
-				data : "name=" + lname + "&pw=" + lpw,
-				success : function(data) {
-					if (data.flag == "0") {
-						$("#err_chk1").text("올바르게 입력해주시기 바랍니다.").css(
-								"display", "block").css("color", "red");
-						id.select();
-						return false;
-					} else if (data.flag == "1") {
-						location.href="index.unicol";
-						alert("정상적으로 회원 탈퇴가 되셨습니다."+<br>+" 이용해주셔서 감사합니다."+<br>+"메인 페이지로 이동합니다.");
-					}
-				},
-				error : function() {
-					alert("System Error!!!");
-					return false;
-				}
-			});
 			$("#frm_delete").submit();
 		});
 		
@@ -795,19 +782,19 @@
 										<div id="header_div">
 											<a href="index.unicol"> <img alt="유니콜로지 로고"src="image/index_Img/logo.png">
 											</a>
-											<h5>이름 과 비밀번호를 올바르게 입력 후 <br>아래와 같이 텍스트를 입력해주셔야 탈퇴가 됩니다.</h5>
+											<h5>비밀번호를 올바르게 입력 후 <br>아래와 같이 텍스트를 입력해주셔야 탈퇴가 됩니다.</h5>
 										</div>
 										<form action="memberDelete.unicol" name="frm_delete"id="frm_delete" method="POST">
 											<div class="div_input" id="del_name">
-												<input type="text" placeholder="이름"class="input_delete" id="delete_name" name="delete_name">
+												<input type="text" placeholder="이름"class="input_delete" id="delete_name" name="delete_name" value="${sessionScope.loginUser.mname}" readonly="readonly">
 											</div>
 											<div class="div_input" id="del_pw">
 												<input type="password" placeholder="비밀번호"class="input_delete" id="delete_pw" name="delete_pw">
 											</div>
 											<div class="div_input" id="del_txt">
-												<input type="text" placeholder="정말 회원 탈퇴 하겠습니다."class="input_delete" id="delete_text" name="delete_text">
+												<input type="text" placeholder="회원 탈퇴 하겠습니다."class="input_delete" id="delete_text" name="delete_text">
 											</div>
-											
+												<input type="hidden" name="delete_id" id="delete_id" value="${sessionScope.loginUser.mid}">											
 											<div id="err_chk1">올바르게 입력해주시기 바랍니다.</div>
 											<!-- 버튼은 여러가지 있지만 그중에서 앵커태그가 가장 편하다.-->
 											<div>
