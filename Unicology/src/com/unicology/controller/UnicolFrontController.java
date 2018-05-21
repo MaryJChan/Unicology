@@ -26,7 +26,9 @@ import com.unicology.action.member.MemberDeleteAction;
 import com.unicology.action.member.MemberInsertAction;
 import com.unicology.action.member.MemberUpdateAction;
 import com.unicology.action.member.SessionAction;
+import com.unicology.action.mypage.MemberUpdateViewAction;
 import com.unicology.action.mypage.MyPageAction;
+import com.unicology.action.mypage.MyPageMainAction;
 import com.unicology.action.mypage.ResumeManagementAction;
 import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
@@ -175,6 +177,19 @@ public class UnicolFrontController extends HttpServlet{
         	action = new MyPageAction();
         	forward = action.excute(request, response);
         }
+ 		
+        else if (command.equals("/mypageMain.unicol")) {
+        	action = new MyPageMainAction();
+        	forward = action.excute(request, response);
+        }
+ 		
+        else if (command.equals("/memberUpdateView.unicol")) {
+        	action = new MemberUpdateViewAction();
+        	forward = action.excute(request, response);
+        }
+ 		
+ 		
+ 		
  		
  	    //  ============================  MyPage 이력서관리  ================================= //
         else if (command.equals("/resume_management.unicol")) {

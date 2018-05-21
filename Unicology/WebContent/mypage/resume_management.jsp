@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -513,15 +514,15 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+/*	$(document).ready(function() {
 
-		$(".recruit_list_navigation li").on("click", function() {
+ 		$(".recruit_list_navigation li").on("click", function() {
 			$(".recruit_list_navigation li").removeClass('on');
 			$(this).attr("class", "on");
 		});
-
+*/
 		// 이력서 관리 클릭 시 
-		$("#resume_management").on("click", function() {
+		/* $("#resume_management").on("click", function() {
 			$("#summary_wrap").css("display", "none");
 			$("#section_rightmenu").css("display", "none");
 			$("#resume_management_wrap").css("display", "block");
@@ -560,10 +561,10 @@
 			// 이메일 값 
 			$("#email").val(emailStr[0]);
 			$("#email01").val(emailStr[1])
-			$("#selemail").val(emailStr[1]).prop("selected", true); //값이 1인 option 선택
+			$("#selemail").val(emailStr[1]).prop("selected", true); //값이 1인 option 선택 */
 			
 			/* email selectBox 클릭했을 때 <input>창에 값 받기 */
-			$("#selemail").on("change", function() {
+	/* 		$("#selemail").on("change", function() {
 				var selemail = $("#selemail").val();
 				if(selemail == "directval") {
 					$("#email01").val("");
@@ -584,7 +585,7 @@
 		$("#update_complete").on("click", function() {
 			
 			/* email 정규식 및 null 체크  */
-			var email = $("#email");
+		/*	var email = $("#email");
 			var email01 = $("#email01");
 			var memail = email.val() + "@" + email01.val();
 			alert("memail : " + memail);
@@ -604,10 +605,10 @@
 			$("#memberupdatefrm").submit();		
 		});
 
-	});
-	
+	}); 
+	 */
 	/* 우편번호 검색 */
-	  function sample6_execDaumPostcode() {
+/* 	  function sample6_execDaumPostcode() {
       new daum.Postcode({
           oncomplete: function(data) {
               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -647,13 +648,13 @@
               document.getElementById('sample6_address2').focus();
           }
       }).open();
-  }
+  } */
 </script>
 <body>
-      <div id="mypageContainer">
+ <!--      <div id="mypageContainer">
             <div id="inner_mypage">
             
-                  <!-- 사이드 영역(left)  -->
+                  사이드 영역(left) 
                   <aside class="aside_wrap">
                   <a href="#"><img id="preference_img" alt="" src="image/mypage/preference.png"></a>
                         <div class="profile_wrap">
@@ -705,254 +706,7 @@
                               </ul>                   
                         </div>
                   </div>
-                  
-                  <!--Mypage Main 영역  -->
-                  <div id="summary_wrap"> 
-                        <div class="dashboard">
-                              <ul class="active_list">
-                                    <li>
-                                          <a>
-                                                <span class="doing">
-                                                      <em>0</em>
-                                                      /5
-                                                </span>     
-                                                <span>이력서</span>
-                                          </a>
-                                    </li>
-                                    <li>
-                                          <a>
-                                                <span class="doing">
-                                                      <em>1</em>
-                                                </span>
-                                                <span>스크랩</span>
-                                          </a>
-                                    </li>
-                                    <li>
-                                          <a>
-                                                <span class="doing">
-                                                      <em>3</em>
-                                                </span>
-                                                <span>관심 기업</span>
-                                          </a>
-                                    </li>
-                                    
-                                    <li>
-                                          <span class="doing">
-                                                      <em>17</em>
-                                                      /200
-                                                </span>     
-                                                <span>최근 본 공고</span>
-                                    </li>
-                              </ul>
-                        </div>
-                        
-                        <div id="recruit_Tab">
-                              <ul class="recruit_list_navigation">
-                                    <li class="on"><a>지원 할 만한 공고</a></li>
-                                    <li><a>최근 본 공고</a></li>
-                                    <li><a>스크랩 공고</a></li>
-                                    <li><a>맞춤채용정보</a></li>
-                              </ul>
-                        </div>
-                        
-                        <!-- 반복할 부분  -->
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    	한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                        
-                        <div id="recruit_summary">
-                              <div id="desc">
-                                    한국디자인진흥원    
-                              </div>
-                              <div id="summary_inner">
-                                    <ul id="info_list">
-                                          <li class="company_name"></li>
-                                          <li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-                                          <li class="recurit_sector">
-                                                <span>신입 · 경력 </span>
-                                                <span class="bar">|</span>
-                                                <span >학력무관</span>
-                                                <span class="bar">|</span>
-                                                <span>서울전체</span>
-                                                <span class="bar">|</span>
-                                                <span>정규직, 계약직</span>
-                                          </li>
-                                    </ul>
-                                    
-                                    <div class="info_date">
-                                          <span>~05/04(금)</span><br>
-                                          <button class="btn_immediately">      
-                                                <span class="span_immediately">즉시지원</span>
-                                          </button>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  
+         -->
                   <!-- 이력서 관리  --> 
                   <div id="resume_management_wrap">
                   	<div class="resume_management_title">
@@ -1083,246 +837,8 @@
                   	</div>
                   </div>
                   
-                  <!-- 개인 정보 수정  -->
-                  <form action="memberUpdate.unicol" name="memberupdatefrm" id="memberupdatefrm">
-				  <div id="memberUpdate_wrap">
-				  	<div id="memberUpdate_content">
-					  	<h3>개인정보 수정</h3>
-					  	<c:forEach items="${memUpdateList}" var="memUpdateList">
-					  	<input type="hidden" id="mbirth" value="${memUpdateList.mbirth}">
-					  	<input type="hidden" id="mgender" value="${memUpdateList.msex}">
-					  	<input type="hidden" id="memail" value="${memUpdateList.memail}">
-					  	<div id="member_update_info">
-					  		<ul id="member_update_profile">
-					  			<li class="photo">
-					  				<span><img alt="" src="image/mypage/user.png"></span>
-					  			</li>
-					  			<li><input class="update_input" name="memname" id="memname" type="text" value="${memUpdateList.mname}"></li>
-					  			<li id="memid">${memUpdateList.mid}</li>
-					  		</ul>
-					  		<table id="tbl_info">
-					  			<colgroup>
-					  				<col style="width:130px">
-					  				<col>
-					  			</colgroup>
-					  			
-					  			<tr>
-					  				<th>전화번호</th>
-					  				<td><input class="update_input" id="memphone" name="memphone" type="text" value="${memUpdateList.mphone}"></td>
-					  			</tr>
-					  			<tr>
-					  				<th>이메일 주소</th>
-					  				<td>
-					  					<input type="text" class="update_input" id="email" name="email" value="">
-										@
-										<input type="text" class="update_input" id="email01" name="email01" value="">
-										<select class="update_input" id="selemail" name="selemail">
-											<option value="이메일선택">이메일 선택</option>
-											<option value="naver.com">naver.com</option>
-											<option value="daum.net">daum.net</option>
-											<option value="nate.com">nate.com</option>
-											<option value="hotmail.com">hotmail.com</option>
-											<option value="yahoo.com">yahoo.com</option>
-											<option value="empas.com">empas.com</option>
-											<option value="korea.com">korea.com</option>
-											<option value="dreamwiz.com">dreamwiz.com</option>
-											<option value="gmail.com">gmail.com</option>
-											<option value="directval">직접입력</option>
-										</select>
-					  				</td>
-					  			</tr>
-					  			<tr>
-					  				<th>생년월일</th>
-					  				<td>
-					  					<select class="update_input year" id="year" name="year">
-					  						<option value="04">2004</option>
-					  						<option value="03">2003</option>
-					  						<option value="02">2002</option>
-					  						<option value="01">2001</option>
-					  						<option value="00">2000</option>
-					  						<option value="99">1999</option>
-					  						<option value="98">1998</option>
-					  						<option value="97">1997</option>
-					  						<option value="96">1996</option>
-					  						<option value="95">1995</option>
-					  						<option value="94">1994</option>
-					  						<option value="93">1993</option>
-					  						<option value="92">1992</option>
-					  						<option value="91">1991</option>
-					  						<option value="90">1990</option>
-					  						<option value="89">1989</option>
-					  						<option value="88">1988</option>
-					  						<option value="87">1987</option>
-					  						<option value="86">1986</option>
-					  						<option value="85">1985</option>
-					  						<option value="84">1984</option>
-					  						<option value="83">1983</option>
-					  						<option value="82">1982</option>
-					  						<option value="81">1981</option>
-					  						<option value="80">1980</option>
-					  						<option value="79">1979</option>
-					  						<option value="78">1978</option>
-					  						<option value="77">1977</option>
-					  						<option value="76">1976</option>
-					  						<option value="75">1975</option>
-					  						<option value="74">1974</option>
-					  						<option value="73">1973</option>
-					  						<option value="72">1972</option>
-					  						<option value="71">1971</option>
-					  						<option value="70">1970</option>
-					  						<option value="69">1969</option>
-					  						<option value="68">1968</option>
-					  						<option value="67">1967</option>
-					  						<option value="66">1966</option>
-					  						<option value="65">1965</option>
-					  						<option value="64">1964</option>
-					  						<option value="63">1963</option>
-					  						<option value="62">1962</option>
-					  						<option value="61">1961</option>
-					  						<option value="60">1960</option>
-					  						<option value="59">1959</option>
-					  						<option value="58">1958</option>
-					  						<option value="57">1957</option>
-					  						<option value="56">1956</option>
-					  						<option value="55">1955</option>
-					  						<option value="54">1954</option>
-					  						<option value="53">1953</option>
-					  						<option value="52">1952</option>
-					  						<option value="51">1951</option>
-					  						<option value="50">1950</option>
-					  						<option value="49">1949</option>
-					  						<option value="48">1948</option>
-					  						<option value="47">1947</option>
-					  						<option value="46">1946</option>
-					  						<option value="45">1945</option>
-					  						<option value="44">1944</option>
-					  						<option value="43">1943</option>
-					  						<option value="42">1942</option>
-					  						<option value="41">1941</option>
-					  						<option value="40">1940</option>
-					  						<option value="39">1939</option>
-					  						<option value="38">1938</option>
-					  						<option value="37">1937</option>
-					  						<option value="36">1936</option>
-					  						<option value="35">1935</option>
-					  						<option value="34">1934</option>
-					  						<option value="33">1933</option>
-					  						<option value="32">1932</option>
-					  						<option value="31">1931</option>
-					  						<option value="30">1930</option>
-					  						<option value="29">1929</option>
-					  						<option value="28">1928</option>
-					  						<option value="27">1927</option>
-					  						<option value="26">1926</option>
-					  						<option value="25">1925</option>
-					  						<option value="24">1924</option>
-					  						<option value="23">1923</option>
-					  						<option value="22">1922</option>
-					  						<option value="21">1921</option>
-					  						<option value="20">1920</option>
-					  						<option value="19">1919</option>
-					  						<option value="18">1918</option>
-					  						<option value="17">1917</option>
-					  						<option value="16">1916</option>
-					  						<option value="15">1915</option>
-					  						<option value="14">1914</option>
-					  						<option value="13">1913</option>
-					  						<option value="12">1912</option>
-					  						<option value="11">1911</option>
-					  						<option value="10">1910</option>
-					  						<option value="09">1909</option>
-					  						<option value="08">1908</option>
-					  						<option value="07">1907</option>
-					  						<option value="06">1906</option>
-					  						<option value="05">1905</option>
-					  						<option value="04">1904</option>
-					  						<option value="03">1903</option>
-					  						<option value="02">1902</option>
-					  						<option value="01">1901</option>
-					  						<option value="00">1900</option>
-					  					</select>
-					  					<select class="update_input month" id="month" name="month">
-					  						<option value="01">1</option>
-					  						<option value="02">2</option>
-					  						<option value="03">3</option>
-					  						<option value="04">4</option>
-					  						<option value="05">5</option>
-					  						<option value="06">6</option>
-					  						<option value="07">7</option>
-					  						<option value="08">8</option>
-					  						<option value="09">9</option>
-					  						<option value="10">10</option>
-					  						<option value="11">11</option>
-					  						<option value="12">12</option>
-					  					</select>
-					  					<select class="update_input day" id="day" name="day">
-					  						<option value="01">1</option>
-					  						<option value="02">2</option>
-					  						<option value="03">3</option>
-					  						<option value="04">4</option>
-					  						<option value="05">5</option>
-					  						<option value="06">6</option>
-					  						<option value="07">7</option>
-					  						<option value="08">8</option>
-					  						<option value="09">9</option>
-					  						<option value="10">10</option>
-					  						<option value="11">11</option>
-					  						<option value="12">12</option>
-					  						<option value="13">13</option>
-					  						<option value="14">14</option>
-					  						<option value="15">15</option>
-					  						<option value="16">16</option>
-					  						<option value="17">17</option>
-					  						<option value="18">18</option>
-					  						<option value="19">19</option>
-					  						<option value="20">20</option>
-					  						<option value="21">21</option>
-					  						<option value="22">22</option>
-					  						<option value="23">23</option>
-					  						<option value="24">24</option>
-					  						<option value="25">25</option>
-					  						<option value="26">26</option>
-					  						<option value="27">27</option>
-					  						<option value="28">28</option>
-					  						<option value="29">29</option>
-					  						<option value="30">30</option>
-					  						<option value="31">31</option>
-					  					</select>
-					  					
-					  				</td>
-					  			</tr>
-					  			<tr>
-					  				<th>성별</th>
-					  				<td>
-					  					<label for="person_gender1"><input id="person_gender1" name="person_gender" type="radio" value="M"><span class="txt_chk">남</span></label>
-					  					<label for="person_gender2"><input id="person_gender2" name="person_gender" type="radio" value="W"><span class="txt_chk">여</span></label>
-					  				</td>
-					  			</tr>
-					  			<tr>
-					  				<th>주소</th>
-					  				<td>
-					  					<input type="hidden" id="sample6_postcode" name="sample6_postcode" value="">
-					  					<input class="update_input" id="sample6_address" name="sample6_address" type="text" value="${memUpdateList.maddr}">
-					  					<a href="#" id="addr_btn" onclick="sample6_execDaumPostcode()">우편번호 찾기</a>
-					  				</td>
-					  			</tr>
-					  			<tr>
-					  				<th>상세 주소</th>
-					  				<td><input class="update_input" id="sample6_address2" name="sample6_address2" type="text" value="${memUpdateList.maddr_detail}"></td>
-					  			</tr>
-					  			
-					  		</table>
-					  	</div>	
-					  	</c:forEach>
-					  	
-					  	<div id="update_btn">
-					  		<a href="#" id="update_complete">수정완료</a>
-					  	</div>	
-				  	</div>
-				  </div>	
-				  </form>
+             
             </div>
       </div>
 </body>
-<%@include file="../include/footer.jsp"%>
 </html>

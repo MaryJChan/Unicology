@@ -15,14 +15,14 @@ import com.unicology.dao.mypage.ScrapDAO;
 import com.unicology.dto.member.MemberDTO;
 import com.unicology.dto.mypage.ScrapDTO;
 
-public class MyPageAction implements Action {
+public class MemberUpdateViewAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
-		System.out.println("=======================MyPageAction========================");
-		String url = "mypage/mypage_include.jsp";
+		String url = "mypage/memberUpdate.jsp";
 		
 		//회원정보 수정
 		HttpSession session = request.getSession();
@@ -44,13 +44,6 @@ public class MyPageAction implements Action {
 			
 		}
 		
-		// 스크랩 기능 구현
-		String[] enochk = request.getParameterValues("ehochk");
-		
-		if(enochk != null) {
-			sDao.scrapInsert(writer, enochk);
-		}
-
 		ActionForward forward = new ActionForward();
         forward.setPath(url);
         forward.setRedirect(false);

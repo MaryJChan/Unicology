@@ -666,9 +666,12 @@
 			/* $("input[name=enochk]:checked").each(function(i) {
 		    	enochk.push($(this).val());
 			});			 */
+			if($("input[name=enochk]:checked"))
 			enochk.push($(this).val());
 			alert(enochk);
 		});
+		
+		/* $('#form1 input[name=check1]'').prop('checked', true) */
 		
 		
 		//스크랩 버튼 클릭 시

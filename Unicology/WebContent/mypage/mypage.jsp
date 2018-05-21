@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -559,17 +558,17 @@
 			$(this).attr("class", "on");
 		});
 
-		// 이력서 관리 클릭 시 
+/* 		// 이력서 관리 클릭 시 
 		$("#resume_management").on("click", function() {
 			$("#summary_wrap").css("display", "none");
 			$("#section_rightmenu").css("display", "none");
 			$("#resume_management_wrap").css("display", "block");
 			location.href = "resume_management.unicol";
 		});
-		
+		 */
 		
 		//회원정보 수정 클릭 시
-		$("#memberInfo_modify_btn").on("click", function() {
+	/* 	$("#memberInfo_modify_btn").on("click", function() {
 			
 			var birth = $("#mbirth").val();
 			var year = birth.substring(0,2);
@@ -744,10 +743,10 @@
               document.getElementById('sample6_address2').focus();
           }
       }).open();
-  }
+  } */
 	</script>
 <body>
-      <div id="mypageContainer">
+    <%--   <div id="mypageContainer">
             <div id="inner_mypage">
             
                   <!-- 사이드 영역(left)  -->
@@ -765,7 +764,7 @@
                               <h2 class="leftmenu_title">이력서 관리</h2>
                                     <ul>
                                           <li><a href="resumeInsert.unicol">이력서 등록</a></li>
-                                          <li><a href="#" id="resume_management">이력서 관리</a></li>
+                                          <li><a href="resume_management.unicol" id="resume_management">이력서 관리</a></li>
                                     </ul>
                         </div>
                         <div class="leftmenu">
@@ -832,7 +831,7 @@
                               </ul>                   
                         </div>
                   </div>
-                  
+                   --%>
                   <!--Mypage Main 영역  -->
                   <div id="summary_wrap"> 
                         <div class="dashboard">
@@ -1093,7 +1092,7 @@
                   		</ul>
                   	</div>
                   	
-                  	<!-- 이력서 리스트 --> 
+         <%--          	<!-- 이력서 리스트 --> 
                   	<div id="resumelistTitle_wrap">
                   		<h3 id="resume_list_title">이력서 리스트</h3>
                   		<form action="">
@@ -1440,9 +1439,8 @@
 					  	</div>	
 				  	</div>
 				  </div>	
-				  </form>
+				  </form> --%>
             </div>
       </div>
 </body>
-<%@include file="../include/footer.jsp"%>
 </html>

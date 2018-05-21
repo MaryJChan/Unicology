@@ -44,4 +44,10 @@
 		       mbirth = #{mbirth}
 		 WHERE mid = #{mid}       
 	</update>
+	
+	<!-- 스크랩  -->
+	<insert id="scrapInsert">
+		INSERT INTO UNICOL_SCRAP
+		VALUES(#{mid}, #{scrap_eno}) 
+	</insert>
 </mapper>

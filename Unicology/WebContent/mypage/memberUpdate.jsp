@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -358,7 +359,7 @@
 	#memberUpdate_wrap {
 		padding-left: 220px;
 		width: 795px;
-		display: none;
+		display: block;
 		position: relative;
 	}
 	
@@ -610,7 +611,7 @@
   }
 </script>
 <body>
-      <div id="mypageContainer">
+  <%--     <div id="mypageContainer">
             <div id="inner_mypage">
             
                   <!-- 사이드 영역(left)  -->
@@ -1035,7 +1036,7 @@
                   		</form>
                   	</div>
                   </div>
-                  
+                   --%>
                   <!-- 개인 정보 수정  -->
                   <form action="memberUpdate.unicol" name="memberupdatefrm" id="memberupdatefrm">
 				  <div id="memberUpdate_wrap">
@@ -1274,8 +1275,7 @@
 				  	</div>
 				  </div>	
 				  </form>
-            </div>
-      </div>
+<!--             </div>
+      </div> -->
 </body>
-<%@include file="../include/footer.jsp"%>
 </html>
