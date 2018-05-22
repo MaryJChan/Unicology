@@ -199,8 +199,40 @@
 	.top2040_img > img {
 		width: 1170px;
 	}
-
+	/* 김성민 추가 */
+	#WC_btn:hover {
+		color:  #6495ED;
+	}
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		/* 자세히 버튼 누를시 팝업과 함께 인터렉티브 가능한 워드클라우드 띄우기 */
+		$("#WC_btn").on("click",function(){
+			// 새창의 크기
+            cw = 800;
+            ch = 600;
+            // 스크린의 크기
+            sw = screen.availWidth;
+            sh = screen.availHeight;
+            // 팝업 창의 포지션(가운데 위치)
+            px = (sw - cw) / 2;
+            py = (sh - ch) / 2;
+			
+            // 직무를 쿼리스트링으로 동적으로 값을 변경
+            // "MO.html"; <- ex)duty.val();
+            var duty = "MO.html";
+            
+            var url = "mypage/view_html/"+duty;
+            window.open(url, "_blank_1",
+                  "toolbar=no,menubar=mo,status=no,scrollbars=no,resizable=no,left="
+                        + px + ",top=" + py + ",width=" + cw
+                        + ",height=" + ch)
+		});
+		
+	
+	});
+</script>
 </head>
 <body>
 	<div id="jasoanalysis_wrap">
@@ -252,7 +284,9 @@
 					</div>
 					<div class="wordcloud">
 						<div class="keypointWrap wordcloud_title_wrap">
-							<h3 class="keypointTitle wordcloud_title">WORDCLOUD</h3>
+							<!-- 김성민 수정  -->
+							<h3 class="keypointTitle wordcloud_title" style="display: inline-block; width: 250px;">WORD CLOUD</h3>
+							<a id="WC_btn" href="#" style="display: inline-block; float: right; height: 0;"><h5>자세히 >>  </h5></a>
 							<div class="wordcloud_img">
 								<img alt="" src="image/view_img/MO.png">
 							</div>
