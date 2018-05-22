@@ -75,8 +75,12 @@
 				)
 </insert>
 
+<select id="selectView" resultType="rDTO">
+	SELECT * FROM unicol_resume;
+</select>
 
-
-
+<select id="selectSearch" resultType="rDTO">
+	SELECT * FROM unicol_resume WHERE RESUME_NO = #{RESUME_NO}
+</select>
 
 </mapper>

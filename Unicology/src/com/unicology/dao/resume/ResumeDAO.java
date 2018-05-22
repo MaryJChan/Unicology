@@ -24,9 +24,9 @@ public class ResumeDAO {
 			return instance;
 		}
 		
-	int result;	
+		int result;	
 	
-	// ID 중복체크
+		// 이력서 등록
 		public int resumeInsert(ResumeDTO rDto) {
 			System.out.println("=====resumeInsert탐=====");
 			sqlSession = sqlSessionFactory.openSession();
@@ -35,9 +35,9 @@ public class ResumeDAO {
 				result = sqlSession.insert("resumeinsert",rDto);
 				sqlSession.commit();
 				if (result > 0) {
-					System.out.println("회원 등록 성공");
+					System.out.println("이력서 등록 성공");
 				}else {
-					System.out.println("회원 등록 실패");
+					System.out.println("이력서 등록 실패");
 				}
 				
 			} catch (Exception e) {
@@ -49,4 +49,48 @@ public class ResumeDAO {
 			return result;
 		}
 		
+		// 이력서 열람
+		public void resumeView() {
+			System.out.println("=====resumeView탐=====");
+			sqlSession = sqlSessionFactory.openSession();
+			
+//			try {
+//				
+//				result = sqlSession.insert("resumeinsert",rDto);
+//				sqlSession.commit();
+//				if (result > 0) {
+//					System.out.println("이력서 등록 성공");
+//				}else {
+//					System.out.println("이력서 등록 실패");
+//				}
+//				
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}finally {
+//				if(sqlSession != null)	sqlSession.close();
+//			}
+			
+		}
+		
+		// 이력서 수정
+//		public void resumeModify() {
+//			System.out.println("=====resumeModify탐=====");
+//			sqlSession = sqlSessionFactory.openSession();
+//			
+//			try {
+//				result = sqlSession.insert("resumeinsert",rDto);
+//				sqlSession.commit();
+//				if (result > 0) {
+//					System.out.println("이력서 등록 성공");
+//				}else {
+//					System.out.println("이력서 등록 실패");
+//				}
+//				
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}finally {
+//				if(sqlSession != null)	sqlSession.close();
+//			}
+//			
+//		}
 }
