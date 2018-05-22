@@ -78,6 +78,67 @@
 		
 	}
 	
+	/* 핵심키워드 10개의 단어의 위치  */
+	.managementOffice01 {
+		position: absolute;
+		top: 20px;
+    	left: 203px;
+	}
+	
+	.managementOffice02 {
+		position: absolute;
+		top: 20px;
+		left: 365px;
+	}
+	
+	.managementOffice03 {
+		position: absolute;
+		top: 64px;
+		left: 203px;
+	}
+	
+	.managementOffice04 {
+		position: absolute;
+		top: 64px;
+		left: 365px;
+	}
+	
+	.managementOffice05 {
+		position: absolute;
+		top: 108px;
+		left: 203px;
+	}
+	
+	.managementOffice06 {
+		position: absolute;
+		top: 108px;
+		left: 365px;
+	}
+	
+	.managementOffice07 {
+		position: absolute;
+		top: 152px;
+		left: 203px;
+	}
+	
+	.managementOffice08 {
+		position: absolute;
+		top: 152px;
+		left: 365px;
+	}
+	
+	.managementOffice09 {
+		position: absolute;
+		top: 196px;
+		left: 203px;
+	}
+	
+	.managementOffice10 {
+		position: absolute;
+		top: 196px;
+		left: 365px;
+	}
+	
 	.keypointWrap {
 		width: 546px;
 		margin: 0 auto;
@@ -119,6 +180,10 @@
 		height: 400px;
 		width: 1187px;
 		
+	}
+	
+	.top10_img {
+		position: relative;
 	}
 	
 	.top10_img > img {
@@ -170,7 +235,18 @@
 						<div class="keypointWrap top10_title_wrap">
 							<h3 class="keypointTitle top10_title">KEYPOINT TOP10</h3>
 							<div class="top10_img">
-								<img alt="" src="image/index_Img/main_keyword11.png">
+								<img alt="" src="image/keyword_img/Management_Office_top10.png">
+								<a class="managementOffice01" href="#">대학교</a>
+								<a class="managementOffice02" href="#">책임감</a>
+								<a class="managementOffice03" href="#">대학</a>
+								<a class="managementOffice04" href="#">고등학교</a>
+								<a class="managementOffice05" href="#">고등학교</a>
+								<a class="managementOffice06" href="#">고등학교</a>
+								<a class="managementOffice07" href="#">고등학교</a>
+								<a class="managementOffice08" href="#">고등학교</a>
+								<a class="managementOffice09" href="#">고등학교</a>
+								<a class="managementOffice10" href="#">고등학교</a>
+								
 							</div>
 						</div>
 					</div>
@@ -178,7 +254,7 @@
 						<div class="keypointWrap wordcloud_title_wrap">
 							<h3 class="keypointTitle wordcloud_title">WORDCLOUD</h3>
 							<div class="wordcloud_img">
-								<img alt="" src="image/index_Img/main_keyword11.png">
+								<img alt="" src="image/view_img/MO.png">
 							</div>
 						</div>
 					</div>
