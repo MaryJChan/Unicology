@@ -7,6 +7,7 @@ import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -14,6 +15,7 @@ import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.common.Constants;
 import com.unicology.dao.resume.ResumeDAO;
+import com.unicology.dto.member.MemberDTO;
 import com.unicology.dto.resume.ResumeDTO;
 
 public class ResumeInsertAction implements  Action{
@@ -23,7 +25,14 @@ public class ResumeInsertAction implements  Action{
 			throws ServletException, IOException {
 		System.out.println("========== ResumeInsertAction ==========");
 		System.out.println("위치0");
-        
+		HttpSession session = request.getSession();
+		
+		// 현재 로그인 한 계정 가져오기 
+		MemberDTO mDto = (MemberDTO)session.getAttribute("loginUser");
+		String UserId = mDto.getMid();
+		System.out.println("MyPageAction_writer : " + UserId);
+		
+		
         //form태그 안에 있는 input값의 Name 속성으로 가져옴.
         // request를 확장시킨 MultipartRequest생성
         // new MultipartRequest(request, 파일업로드 디렉토리, 업로드 용량, 인코딩, 파일이름중복정책)
@@ -264,7 +273,7 @@ public class ResumeInsertAction implements  Action{
         
         
         
-		ResumeDTO rDto = new ResumeDTO(resume_title, UserName,UserBirth, UserSex, UserEmail,
+		ResumeDTO rDto = new ResumeDTO(resume_title, UserId, UserName,UserBirth, UserSex, UserEmail,
 				UserTel, UserPhone, UserAdress, SchoolGrade, SchoolName,
 				entranceYear, graduationYear, GraduationStatus, major, majorGrade,
 				MajorTotalgrade, company, division, joincom, resigncom,position,

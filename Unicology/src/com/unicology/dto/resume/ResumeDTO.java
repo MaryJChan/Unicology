@@ -3,6 +3,7 @@ package com.unicology.dto.resume;
 public class ResumeDTO {
 
 	private String resume_title;
+	private String UserId;
 	private String UserName;
 	private String UserBirth;
 	private String UserSex;
@@ -63,19 +64,20 @@ public class ResumeDTO {
 		
 	}
 
-	public ResumeDTO(String resume_title, String userName, String userBirth, String userSex, String userEmail,
-			String userTel, String userPhone, String userAdress, String schoolGrade, String schoolName,
-			String entranceYear, String graduationYear, String graduationStatus, String major, String majorGrade,
-			String majorTotalgrade, String company, String division, String joincom, String resigncom, String position,
-			String duty, String sal, String businesswork, String internActivity, String interncompany,
-			String startintern, String endintern, String interncontent, String learningname, String learningorgan,
-			String startlearning, String endlearning, String learningcontent, String licensename, String licensepublish,
-			String startlicense, String award_title, String award_inst, String award_year, String award_content,
-			String country_name, String country_start, String country_end, String abroad_content, String kind,
-			String language_kind, String language_level, String url_addr, String filename, int filesize, String bohun,
-			String job_protection, String subsidy, String obstacle, String militaryService) {
+	public ResumeDTO(String resume_title, String userId, String userName, String userBirth, String userSex,
+			String userEmail, String userTel, String userPhone, String userAdress, String schoolGrade,
+			String schoolName, String entranceYear, String graduationYear, String graduationStatus, String major,
+			String majorGrade, String majorTotalgrade, String company, String division, String joincom,
+			String resigncom, String position, String duty, String sal, String businesswork, String internActivity,
+			String interncompany, String startintern, String endintern, String interncontent, String learningname,
+			String learningorgan, String startlearning, String endlearning, String learningcontent, String licensename,
+			String licensepublish, String startlicense, String award_title, String award_inst, String award_year,
+			String award_content, String country_name, String country_start, String country_end, String abroad_content,
+			String kind, String language_kind, String language_level, String url_addr, String filename, int filesize,
+			String bohun, String job_protection, String subsidy, String obstacle, String militaryService) {
 		super();
 		this.resume_title = resume_title;
+		UserId = userId;
 		UserName = userName;
 		UserBirth = userBirth;
 		UserSex = userSex;
@@ -139,6 +141,14 @@ public class ResumeDTO {
 
 	public void setResume_title(String resume_title) {
 		this.resume_title = resume_title;
+	}
+
+	public String getUserId() {
+		return UserId;
+	}
+
+	public void setUserId(String userId) {
+		UserId = userId;
 	}
 
 	public String getUserName() {

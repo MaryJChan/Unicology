@@ -442,7 +442,7 @@
 	            		</div>
 	            		<div id="info3_text">
 	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
-	            			<a href="resume.unicol" id="go_resume">이력서관리페이지로 이동</a>
+	            			<a href="#" id="go_resume">이력서등록페이지로 이동</a>
 	            		</div>
 	            	</div>
 	            </div>
@@ -666,6 +666,16 @@
             	} else {
             		location.href = "mypage.unicol";
             	}	
+            });
+            
+            $("#go_resume").click(function(){
+				var loginYn = $("#loginsession").val();
+            	if(loginYn == "") {
+            		$(".loginMsg").css("display","block");
+            		$("#myModal").css("display","block");
+            	} else {
+            		location.href = "resume.unicol";
+            	}
             });
       });
 </script>

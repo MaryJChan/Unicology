@@ -5,9 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
+import com.unicology.dto.member.MemberDTO;
 
 public class ResumeAction implements Action{
 
@@ -17,6 +19,9 @@ public class ResumeAction implements Action{
 		System.out.println("=============== resumeAction ==============");
 			
 		String url = "resume/resume.jsp";
+		
+		
+		
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
