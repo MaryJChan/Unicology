@@ -617,8 +617,8 @@
             display: inline-block;
             outline: none;
             font-size: 16px;
-            padding: 0 15px;
-      }
+            padding:15px 15px 0 15px;
+	  }
       .award_div{
             display: inline-block;
       }
@@ -818,10 +818,10 @@
       }
       #country_end_label{
             position: absolute;
-            top: 40px;
+            top: 28px;
             left: 710px;
             color: gray;
-            font-size: 14px;
+            font-size: 11px;
       }
       #country_end{
             width:20%;
@@ -1127,11 +1127,11 @@
                         		<div class="row">
                         			<div class="input value profile_name">
                         				<label for="UserName">이름</label>
-                        				<input type="text" name="UserName" id="UserName" value="세션이름" >
+                        				<input type="text" name="UserName" id="UserName">
                         			</div>
                         			<div class="input value profile_birth">
                         				<label for="UserBirth">생년월일</label>
-                        				<input type="text" id="UserBirth" name="UserBirth" value="세션생년월일">
+                        				<input type="text" id="UserBirth" name="UserBirth">
                         			</div>
                         			<div class="selectbox profile_sex">
                         				<label>성별</label>
@@ -1142,22 +1142,22 @@
                         			</div>
                         			<div class="input value profile_email">
                         				<label for="UserEmail">생년월일</label>
-                        				<input type="text" id="UserEmail" name="UserEmail" value="세션email">
+                        				<input type="text" id="UserEmail" name="UserEmail">
                         			</div>
                         		</div>
                         		<button type="button" class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value profile_tel">
                         				<label for="UserTel">전화번호</label>
-                        				<input type="text" name="UserTel" id="UserTel" value="" >
+                        				<input type="text" name="UserTel" id="UserTel"  >
                         			</div>
                         			<div class="input value profile_phone">
                         				<label for="UserPhone">휴대폰번호</label>
-                        				<input type="text" name="UserPhone" id="UserPhone" value="세션휴대폰" >
+                        				<input type="text" name="UserPhone" id="UserPhone"  >
                         			</div>
                         			<div class="input value profile_adress">
                         				<label for="UserAdress">주소</label>
-                        				<input type="text" name="UserAdress" id="UserAdress" value="세션주소" >
+                        				<input type="text" name="UserAdress" id="UserAdress"  >
                         			</div>
                         		</div>
 <!--                         		<button type="button" id="plus_img_btn">증명사진 <img alt="" id="imgplus_img" src="image/resume_img/plus.png"></button> -->
@@ -1180,7 +1180,7 @@
 	                       			</div>
 	                       			<div class="input value school_name" style="margin: 0;  border-left: 0;">
 	                        				<label for="SchoolName">학교명</label>
-	                        				<input type="text" name="SchoolName" id="SchoolName" value="학교명" >
+	                        				<input type="text" name="SchoolName" id="SchoolName" >
 	                       			</div>
 	                       			<div class="graduation_college" style="display: inline-block;">
 		                       			<div class="input value entrance_year">
@@ -1386,7 +1386,7 @@
 	                              </div>
 	                              <div class="award_div">
 	                                    <label for="award_year" id="award_year_label">연도</label>
-	                                    <input type="text" name="award_year" id="award_year" class="award">
+	                                    <input type="text" name="award_year" id="award_year" class="award" placeholder="2016.03">
 	                              </div>
 	                              <button class="x_btn" type="button" id="award_x">&times;</button>
 	                              <div class="award_div" id="award_content_div">
@@ -1453,9 +1453,9 @@
 	                              <label for="country_name" id="country_name_label">국가명</label>
 	                              <input type="text" id="country_name" name="country_name">
 	                              <label for="country_start" id="country_start_label">시작년월</label>
-	                              <input type="text" id="country_start" name="country_start">
+	                              <input type="text" id="country_start" name="country_start" placeholder="2016.03">
 	                              <label for="country_end" id="country_end_label">종료년월</label>
-	                              <input type="text" id="country_end" name="country_end">
+	                              <input type="text" id="country_end" name="country_end"placeholder="2016.03">
 	                              <button class="x_btn" type="button" id="abroad_x">&times;</button>
 	                              <div class="abroad_div" id="abroad_content_div">
 	                                    <label id="abroad_content_label" for="abroad_content">

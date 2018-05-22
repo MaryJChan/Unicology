@@ -1,5 +1,7 @@
 package com.unicology.dto.resume;
 
+import java.util.Date;
+
 public class ResumeDTO {
 
 	private String resume_title;
@@ -59,9 +61,83 @@ public class ResumeDTO {
 	private String subsidy;
 	private String obstacle;
 	private String MilitaryService;
+	private Date regdate;
 	
 	public ResumeDTO() {
 		
+	}
+
+	public ResumeDTO(String resume_title, String userId, String userName, String userBirth, String userSex,
+			String userEmail, String userTel, String userPhone, String userAdress, String schoolGrade,
+			String schoolName, String entranceYear, String graduationYear, String graduationStatus, String major,
+			String majorGrade, String majorTotalgrade, String company, String division, String joincom,
+			String resigncom, String position, String duty, String sal, String businesswork, String internActivity,
+			String interncompany, String startintern, String endintern, String interncontent, String learningname,
+			String learningorgan, String startlearning, String endlearning, String learningcontent, String licensename,
+			String licensepublish, String startlicense, String award_title, String award_inst, String award_year,
+			String award_content, String country_name, String country_start, String country_end, String abroad_content,
+			String kind, String language_kind, String language_level, String url_addr, String filename, int filesize,
+			String bohun, String job_protection, String subsidy, String obstacle, String militaryService,
+			Date regdate) {
+		super();
+		this.resume_title = resume_title;
+		UserId = userId;
+		UserName = userName;
+		UserBirth = userBirth;
+		UserSex = userSex;
+		UserEmail = userEmail;
+		UserTel = userTel;
+		UserPhone = userPhone;
+		UserAdress = userAdress;
+		SchoolGrade = schoolGrade;
+		SchoolName = schoolName;
+		this.entranceYear = entranceYear;
+		this.graduationYear = graduationYear;
+		GraduationStatus = graduationStatus;
+		this.major = major;
+		this.majorGrade = majorGrade;
+		MajorTotalgrade = majorTotalgrade;
+		this.company = company;
+		this.division = division;
+		this.joincom = joincom;
+		this.resigncom = resigncom;
+		this.position = position;
+		this.duty = duty;
+		this.sal = sal;
+		this.businesswork = businesswork;
+		InternActivity = internActivity;
+		this.interncompany = interncompany;
+		this.startintern = startintern;
+		this.endintern = endintern;
+		this.interncontent = interncontent;
+		this.learningname = learningname;
+		this.learningorgan = learningorgan;
+		this.startlearning = startlearning;
+		this.endlearning = endlearning;
+		this.learningcontent = learningcontent;
+		this.licensename = licensename;
+		this.licensepublish = licensepublish;
+		this.startlicense = startlicense;
+		this.award_title = award_title;
+		this.award_inst = award_inst;
+		this.award_year = award_year;
+		this.award_content = award_content;
+		this.country_name = country_name;
+		this.country_start = country_start;
+		this.country_end = country_end;
+		this.abroad_content = abroad_content;
+		this.kind = kind;
+		this.language_kind = language_kind;
+		this.language_level = language_level;
+		this.url_addr = url_addr;
+		this.filename = filename;
+		this.filesize = filesize;
+		this.bohun = bohun;
+		this.job_protection = job_protection;
+		this.subsidy = subsidy;
+		this.obstacle = obstacle;
+		MilitaryService = militaryService;
+		this.regdate = regdate;
 	}
 
 	public ResumeDTO(String resume_title, String userId, String userName, String userBirth, String userSex,
@@ -589,6 +665,14 @@ public class ResumeDTO {
 
 	public void setMilitaryService(String militaryService) {
 		MilitaryService = militaryService;
+	}
+
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 
 }
