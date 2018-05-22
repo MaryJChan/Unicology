@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
-	body, url{
+	body, ul{
 		margin:0;
 		padding:0;
 		font-family: 'Nanum Gothic', sans-serif;
@@ -167,7 +167,6 @@
 		#loginMsgStrong a {
 			color: #586cdc;
 		}
-		      
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
@@ -298,13 +297,12 @@
 				</c:when>
                		<c:otherwise>
                   		<a class="Header_inner" style="width: 150px;">
-                  			<span style="color: #fff; background: #6495ED; padding: 2px 4px;">${sessionScope.loginUser.mname}(${sessionScope.loginUser.mid})</span>
+                  			<span style="color: #fff; background: #6495ED; padding: 2px 4px; border-radius:5px; font-size:14px; margin-right:10px;">${sessionScope.loginUser.mname}(${sessionScope.loginUser.mid})</span>
                   		</a>
 						<a class="Header_inner"><a href="#" id="logout">로그아웃</a></a>
 					</c:otherwise>
                	</c:choose>
 				<div class="header_menu" id="header_mypage"><a href="#" class="header_menu_btn"id="header_menu_mypage">마이페이지</a></div>
-				<a href="#" class="header_menu_btn"id="header_menu_btn"><img alt="hamberger_btn" src="image/index_Img/hemberger.png" id="hamberger_btn"></a>
 		</div>
 	</div>
 </body>

@@ -366,7 +366,7 @@
       	margin: 0 auto;
       	text-align: center;
       	position: absolute;
-      	right: 180px;
+      	right: 155px;
       	bottom: 50px;
       }
       #go_resume{
@@ -382,7 +382,7 @@
       	margin: 0 auto;
       	text-align: center;
       	position: absolute;
-      	right: 180px;
+      	right: 195px;
       	bottom: 50px;
       }
       #example_keyword{
