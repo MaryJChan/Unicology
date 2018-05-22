@@ -24,6 +24,17 @@ public class JasoWriteDTO {
 		this.answer = answer;
 		this.writer = writer;
 	}
+	
+	public JasoWriteDTO(int jno, int num, String title, int jindex, String question, String answer, String writer) {
+		super();
+		this.jno = jno;
+		this.num = num;
+		this.title = title;
+		this.jindex = jindex;
+		this.question = question;
+		this.answer = answer;
+		this.writer = writer;
+	}
 
 	public int getJno() {
 		return jno;

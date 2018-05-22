@@ -23,6 +23,7 @@
 	<select id="resumeModifyList" resultType="jwDTO">
 		SELECT * FROM JASOWRITE
 		WHERE num = #{num}
+		ORDER BY jindex
 	</select>
 	
 	<!-- 회원정보 관리 : 회원정보 수정(뿌려줄 데이터) -->

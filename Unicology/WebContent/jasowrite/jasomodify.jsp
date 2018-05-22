@@ -469,7 +469,9 @@
 		<input type="hidden" name="jaso_cnt" id="jaso_cnt">
 		<input type="hidden" name="jaso_title" id="jaso_title">
 		<input type="hidden" name="jaso_writer" id="jaso_writer">
+		<input type="hidden" name="jaso_num" id="jaso_num" value="${jasoModifyList.get(0).num}">
 		<c:forEach items="${jasoModifyList}" var="list">
+			<input type="hidden" name="jaso_jno${list.jindex}" id="jaso_jno${list.jindex}" value="${list.jno}">
 			<input type="hidden" name="jaso_index${list.jindex}" id="index${list.jindex}" data_num ="${list.jindex}" class="jaso_index" value="${list.jindex}">
 			<input type="hidden" name="jaso_question${list.jindex}" id="jaso_question${list.jindex}" data_num ="${list.jindex}" class="jaso_question" value="${list.question}">
 			<input type="hidden" name="jaso_answer${list.jindex}" id="jaso_answer${list.jindex}" data_num ="${list.jindex}" class="jaso_answer" value="${list.answer}">

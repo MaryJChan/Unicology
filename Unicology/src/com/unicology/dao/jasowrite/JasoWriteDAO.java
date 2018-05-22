@@ -57,4 +57,28 @@ public class JasoWriteDAO {
 		}
 	}
 
+	public void jasoWriteUpdate(JasoWriteDTO jwDto) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			result = sqlSession.update("jasoWriteUpdate", jwDto);
+			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}		
+	}
+
+	public void jasoWriteDelete(Integer num) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			result = sqlSession.update("jasoWriteDelete", num);
+			
+			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}				
+	}
 }

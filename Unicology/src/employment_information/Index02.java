@@ -1174,8 +1174,393 @@ public class Index02 {
 				subclass = "그래픽디자인";	
 				clasificar_page = 120101;
 				clasificar = "디자인";
+			} else if(clasificar_page == 120102) {
+				subclass = "3D";	
+			} else if(clasificar_page == 120103) {
+				subclass = "3DMax";	
+			} else if(clasificar_page == 120104) {
+				subclass = "Maya";	
+			} else if(clasificar_page == 120105) {
+				subclass = "일러스트레이터";	
+			} else if(clasificar_page == 120106) {
+				subclass = "포토샵";	
+			} else if(clasificar_page == 120107) {
+				subclass = "디렉터";	
+			} else if(clasificar_page == 120108) {
+				subclass = "CG";	
+			} else if(clasificar_page == 120109) {
+				subclass = "코렐드로우";	
+			} else if(clasificar_page == 120110) {
+				subclass = "도트디자인";	
+			} else if(clasificar_page == 120112) {
+				subclass = "CI·BI";	
+			} else if(clasificar_page == 120115) {
+				subclass = "기업이미지";	
+			} else if(clasificar_page == 120116) {
+				subclass = "GUI";	
+			} else if(clasificar_page == 120117) {
+				clasificar_page = 120201;
+				subclass = "편집디자인";	
+			} else if(clasificar_page == 120202) {
+				subclass = "Mac디자인";	
+			} else if(clasificar_page == 120203) {
+				subclass = "QuarkXpress";	
+			} else if(clasificar_page == 120204) {
+				subclass = "잡지·사보디자인";	
+			} else if(clasificar_page == 120205) {
+				subclass = "카탈로그편집";	
+			} else if(clasificar_page == 120206) {
+				subclass = "북디자인";	
+			} else if(clasificar_page == 120207) {
+				subclass = "레이아웃·구성";	
+			} else if(clasificar_page == 120208) {
+				subclass = "표지디자인";	
+			} else if(clasificar_page == 120209) {
+				subclass = "삽화·일러스트";	
+			} else if(clasificar_page == 120210) {
+				subclass = "서체·폰트";	
+			} else if(clasificar_page == 120211) {
+				subclass = "IBM디자인";	
+			} else if(clasificar_page == 120212) {
+				clasificar_page = 120301;
+				subclass = "제품디자인";	
+			} else if(clasificar_page == 120302) {
+				subclass = "산업디자인";	
+			} else if(clasificar_page == 120303) {
+				subclass = "팬시·문구";	
+			} else if(clasificar_page == 120304) {
+				subclass = "공업디자인";	
+			} else if(clasificar_page == 120305) {
+				subclass = "포장디자인";	
+			} else if(clasificar_page == 120306) {
+				subclass = "공공디자인";	
+			} else if(clasificar_page == 120307) {
+				subclass = "금속디자인";	
+			} else if(clasificar_page == 120308) {
+				subclass = "공예디자인";	
+			} else if(clasificar_page == 120309) {
+				subclass = "가구디자인";	
+			} else if(clasificar_page == 120310) {
+				subclass = "조명디자인";	
+			} else if(clasificar_page == 120311) {
+				subclass = "패키지디자인";	
+			} else if(clasificar_page == 120312) {
+				subclass = "귀금속디자인";	
+			} else if(clasificar_page == 120313) {
+				subclass = "벽지디자인";	
+			} else if(clasificar_page == 120314) {
+				subclass = "시계디자인";	
+			} else if(clasificar_page == 120315) {
+				subclass = "완구디자인";	
+			} else if(clasificar_page == 120316) {
+				subclass = "섬유디자인";	
+			} else if(clasificar_page == 120317) {
+				clasificar_page = 120401;
+				subclass = "플래시";	
+			} else if(clasificar_page == 120402) {
+				subclass = "캐릭터";	
+			} else if(clasificar_page == 120403) {
+				subclass = "애니메이션";	
+			} else if(clasificar_page == 120404) {
+				subclass = "프리미어";	
+			} else if(clasificar_page == 120405) {
+				subclass = "2D";	
+			} else if(clasificar_page == 120406) {
+				subclass = "3D";	
+			} else if(clasificar_page == 120407) {
+				subclass = "원화·만화";	
+			} else if(clasificar_page == 120408) {
+				subclass = "아바타";	
+			} else if(clasificar_page == 120409) {
+				subclass = "모션그래픽";	
+			} else if(clasificar_page == 120410) {
+				subclass = "셀애니메이션";	
+			} else if(clasificar_page == 120412) {
+				subclass = "동화디자인";	
+			} else if(clasificar_page == 120413) {
+				subclass = "채색디자인";	
+			} else if(clasificar_page == 120414) {
+				subclass = "애니메이터";	
+			} else if(clasificar_page == 120415) {
+				clasificar_page = 120501;
+				subclass = "패션디자이너";	
+			} else if(clasificar_page == 120502) {
+				subclass = "잡화디자인";	
+			} else if(clasificar_page == 120503) {
+				subclass = "패턴·컬러리스트";	
+			} else if(clasificar_page == 120504) {
+				subclass = "의상디자이너";	
+			} else if(clasificar_page == 120505) {
+				subclass = "매장디스플레이";	
+			} else if(clasificar_page == 120506) {
+				subclass = "패션코디네이터";	
+			} else if(clasificar_page == 120507) {
+				subclass = "피팅모델";	
+			} else if(clasificar_page == 120508) {
+				subclass = "섬유디자인";	
+			} else if(clasificar_page == 120509) {
+				subclass = "남성캐주얼·정장";	
+			} else if(clasificar_page == 120510) {
+				subclass = "여성캐주얼·정장";	
+			} else if(clasificar_page == 120511) {
+				subclass = "이너웨어·속옷";	
+			} else if(clasificar_page == 120512) {
+				subclass = "아동복·유아복";	
+			} else if(clasificar_page == 120513) {
+				subclass = "VMD";	
+			} else if(clasificar_page == 120514) {
+				subclass = "주얼리·액세서리";	
+			} else if(clasificar_page == 120515) {
+				subclass = "침구·홈패션";	
+			} else if(clasificar_page == 120516) {
+				subclass = "가방·핸드백";	
+			} else if(clasificar_page == 120517) {
+				subclass = "구두·신발";	
+			} else if(clasificar_page == 120518) {
+				subclass = "넥타이디자인";	
+			} else if(clasificar_page == 120519) {
+				subclass = "니트디자인";	
+			} else if(clasificar_page == 120520) {
+				subclass = "골프웨어디자인";	
+			} else if(clasificar_page == 120521) {
+				subclass = "데님디자인";	
+			} else if(clasificar_page == 120522) {
+				subclass = "드레스디자인";	
+			} else if(clasificar_page == 120523) {
+				subclass = "영캐주얼디자인";	
+			} else if(clasificar_page == 120524) {
+				subclass = "유니폼디자인";	
+			} else if(clasificar_page == 120525) {
+				subclass = "지갑·벨트·가죽";	
+			} else if(clasificar_page == 120526) {
+				clasificar_page = 120801;
+				subclass = "인테리어";	
+			} else if(clasificar_page == 120802) {
+				subclass = "공간디자인";	
+			} else if(clasificar_page == 120803) {
+				subclass = "실내디자인";	
+			} else if(clasificar_page == 120804) {
+				subclass = "리노베이션";	
+			} else if(clasificar_page == 120805) {
+				subclass = "환경디자인";	
+			} else if(clasificar_page == 120806) {
+				subclass = "전시디자인";	
+			} else if(clasificar_page == 120807) {
+				subclass = "조경디자인";	
+			} else if(clasificar_page == 120808) {
+				subclass = "무대디자인";	
+			} else if(clasificar_page == 120809) {
+				clasificar_page = 120901;
+				subclass = "아트디렉터";	
+			} else if(clasificar_page == 120902) {
+				subclass = "크리에이티브디렉터";	
+			} else if(clasificar_page == 120903) {
+				subclass = "광고디자인";	
+			} else if(clasificar_page == 120904) {
+				subclass = "신문·잡지광고";	
+			} else if(clasificar_page == 120905) {
+				subclass = "TV·동영상광고";	
+			} else if(clasificar_page == 120906) {
+				subclass = "배너·인터넷광고";	
+			} else if(clasificar_page == 120907) {
+				subclass = "옥외·전시광고";	
+			} else if(clasificar_page == 120908) {
+				subclass = "POP·SIGN";	
+			} else if(clasificar_page == 120909) {
+				subclass = "포스터디자인";	
+			} else if(clasificar_page == 120910) {
+				subclass = "현수막·간판";	
+			} else if(clasificar_page == 120911) {
+				subclass = "시각디자인";	
+			} else if(clasificar_page == 120912) {
+				subclass = "영상디자인";	
+			} else if(clasificar_page == 120913) {
+				subclass = "폰트·타이포";	
+			} else if(clasificar_page == 120914) {
+				subclass = "정보디자인";	
+			} else if(clasificar_page == 120915) {
+				subclass = "디지털디자인";	
+			} else if(clasificar_page == 120916) {
+				subclass = "전단지·쿠폰";	
+			} else if(clasificar_page == 120918) {
+				subclass = "DM광고";	
+			} else if(clasificar_page == 120919) {
+				clasificar_page = 120701;
+				subclass = "기타디자인";	
+			} else if(clasificar_page == 120702) {
+				subclass = "이벤트플래너";	
+				clasificar = "서비스";
+				clasificar_page = 110101;
+			} else if(clasificar_page == 110102) {
+				subclass = "웨딩플래너";	
+			} else if(clasificar_page == 110103) {
+				subclass = "프로모터";	
+			} else if(clasificar_page == 110104) {
+				subclass = "캐스팅디렉터";	
+			} else if(clasificar_page == 110105) {
+				subclass = "파티플래너";	
+			} else if(clasificar_page == 110106) {
+				subclass = "커플매니저";	
+			} else if(clasificar_page == 110107) {
+				subclass = "행사진행";	
+			} else if(clasificar_page == 110108) {
+				subclass = "장례·상조서비스";	
+			} else if(clasificar_page == 110109) {
+				subclass = "파티용품판매";	
+			} else if(clasificar_page == 110110) {
+				subclass = "플로리스트";	
+			} else if(clasificar_page == 110111) {
+				clasificar_page = 110201;
+				subclass = "안내데스크";	
+			} else if(clasificar_page == 110202) {
+				subclass = "도우미";	
+			} else if(clasificar_page == 110203) {
+				subclass = "전화안내원";	
+			} else if(clasificar_page == 110204) {
+				subclass = "나레이터";	
+			} else if(clasificar_page == 110205) {
+				subclass = "컴패니언";	
+			} else if(clasificar_page == 110206) {
+				subclass = "모델";	
+			} else if(clasificar_page == 110207) {
+				subclass = "방송안내원";	
+			} else if(clasificar_page == 110208) {
+				subclass = "승강기안내원";	
+			} else if(clasificar_page == 110209) {
+				clasificar_page = 110301;
+				subclass = "안전";	
+			} else if(clasificar_page == 110302) {
+				subclass = "청원경찰";	
+			} else if(clasificar_page == 110303) {
+				subclass = "소방";	
+			} else if(clasificar_page == 110304) {
+				subclass = "보안";	
+			} else if(clasificar_page == 110305) {
+				subclass = "경호·경비";	
+			} else if(clasificar_page == 110310) {
+				subclass = "시큐리티";	
+			} else if(clasificar_page == 110311) {
+				subclass = "경비지도사";	
+			} else if(clasificar_page == 110312) {
+				subclass = "산업안전기사";	
+			} else if(clasificar_page == 110313) {
+				subclass = "현금호송";	
+			} else if(clasificar_page == 110314) {
+				subclass = "보안검색";	
+			} else if(clasificar_page == 110315) {
+				subclass = "순찰";	
+			} else if(clasificar_page == 110316) {
+				clasificar_page = 110402;
+				subclass = "주차관리";
+			} else if(clasificar_page == 110403) {
+				subclass = "주차안내";	
+			} else if(clasificar_page == 110412) {
+				subclass = "발렛파킹";	
+			} else if(clasificar_page == 110413) {
+				subclass = "주차·발권도우미";	
+			} else if(clasificar_page == 110414) {
+				subclass = "주차정산원";	
+			} else if(clasificar_page == 110415) {
+				subclass = "세차장";	
+			} else if(clasificar_page == 110416) {
+				subclass = "주유원";	
+			} else if(clasificar_page == 110417) {
+				clasificar_page = 110501;
+				subclass = "AS기사";	
+			} else if(clasificar_page == 110502) {
+				subclass = "서비스";	
+			} else if(clasificar_page == 110503) {
+				subclass = "설치·수리";	
+			} else if(clasificar_page == 110504) {
+				subclass = "자동차정비";	
+			} else if(clasificar_page == 110505) {
+				subclass = "정기·정밀검사";	
+			} else if(clasificar_page == 110506) {
+				subclass = "판금·도장·도색";	
+			} else if(clasificar_page == 110507) {
+				subclass = "썬팅·광택·튜닝";	
+			} else if(clasificar_page == 110508) {
+				subclass = "유지·보수·교체";	
+			} else if(clasificar_page == 110509) {
+				clasificar_page = 110702;
+				subclass = "지배인";	
+			} else if(clasificar_page == 110703) {
+				subclass = "서비스";	
+			} else if(clasificar_page == 110704) {
+				subclass = "매니져";	
+			} else if(clasificar_page == 110705) {
+				subclass = "캡틴";	
+			} else if(clasificar_page == 110713) {
+				subclass = "캐셔";	
+			} else if(clasificar_page == 110714) {
+				subclass = "웨이터";	
+			} else if(clasificar_page == 110715) {
+				subclass = "웨이트리스";	
+			} else if(clasificar_page == 110716) {
+				subclass = "홀서빙";	
+			} else if(clasificar_page == 110730) {
+				subclass = "바리스타·커피";	
+			} else if(clasificar_page == 110733) {
+				subclass = "소믈리에·와인";	
+			} else if(clasificar_page == 110735) {
+				subclass = "숯불관리";	
+			} else if(clasificar_page == 110736) {
+				subclass = "카운터";	
+			} else if(clasificar_page == 110737) {
+				subclass = "음식배달";	
+			} else if(clasificar_page == 110738) {
+				clasificar_page = 110801;
+				subclass = "호텔";	
+			} else if(clasificar_page == 110802) {
+				subclass = "카지노";	
+			} else if(clasificar_page == 110804) {
+				subclass = "콘도·리조트";	
+			} else if(clasificar_page == 110805) {
+				subclass = "카운터·캐셔";	
+			} else if(clasificar_page == 110806) {
+				subclass = "벨맨·도어맨";	
+			} else if(clasificar_page == 110807) {
+				subclass = "하우스키핑";	
+			} else if(clasificar_page == 110808) {
+				subclass = "프론트";	
+			} else if(clasificar_page == 110810) {
+				subclass = "리셉션·예약접수";	
+			} else if(clasificar_page == 110811) {
+				subclass = "카지노딜러";	
+			} else if(clasificar_page == 110812) {
+				subclass = "GRO";	
+			} else if(clasificar_page == 110813) {
+				subclass = "컨시어지";	
+			} else if(clasificar_page == 110802) {
+				clasificar_page = 110901;
+				subclass = "여행사";	
+			} else if(clasificar_page == 110904) {
+				subclass = "항공사";	
+			} else if(clasificar_page == 110905) {
+				subclass = "관광통역가이드";	
+			} else if(clasificar_page == 110906) {
+				subclass = "조종사·승무원";	
+			} else if(clasificar_page == 110907) {
+				subclass = "현지가이드";	
+			} else if(clasificar_page == 110910) {
+				subclass = "면세점";	
+			} else if(clasificar_page == 110911) {
+				subclass = "비자수속";	
+			} else if(clasificar_page == 110912) {
+				subclass = "여권발급";	
+			} else if(clasificar_page == 110913) {
+				subclass = "OP";	
+			} else if(clasificar_page == 110915) {
+				subclass = "여행상품개발";	
+			} else if(clasificar_page == 110916) {
+				subclass = "예약·발권";	
+			} else if(clasificar_page == 110917) {
+				subclass = "공항지상직";	
+			} else if(clasificar_page == 110918) {
+				clasificar_page = 111001;
+				subclass = "레저";	
 			} 
-			
+			// 서비스 레저스포츠
 			url = front_url + page + last_url + clasificar_page;
 			System.out.println(url);
 		}
