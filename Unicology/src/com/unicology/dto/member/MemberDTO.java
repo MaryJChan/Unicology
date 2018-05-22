@@ -24,6 +24,15 @@ public class MemberDTO {
 	
 	
 
+	public MemberDTO(String mid, String mpw, String mname, String useyn) {
+		super();
+		this.mid = mid;
+		this.mpw = mpw;
+		this.mname = mname;
+		this.useyn = useyn;
+	}
+
+
 	public MemberDTO(String mid, String mpw, String mname, String mphone, String memail, String mpost, String maddr,
 			String maddr_detail, String msex, String mbirth, String mduty, String mgrade, String mschool,
 			String matten_eyem, String matten_gygm, String mmajor) {

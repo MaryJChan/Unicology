@@ -33,6 +33,7 @@ public class SessionAction implements Action {
 		System.out.println(mDto.getMid()+"&"+mDto.getMname());
 		
 		if(mDto != null) {
+			
 			session.removeAttribute("loginUser"); // 세션 초기화 (혹시 남아있을 값 제거)
 			session.setAttribute("loginUser", mDto);//세션에 값 담기
 			

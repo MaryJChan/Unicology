@@ -681,7 +681,7 @@
 
 			var name = $("#delete_name");
 			var pw = $("#delete_pw");
-			var txt = $("#del_txt");
+			var txt = $("#delete_text");
 
 			var lname = name.val();
 			var lpw = pw.val();

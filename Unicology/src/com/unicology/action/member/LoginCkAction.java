@@ -52,24 +52,32 @@ public class LoginCkAction implements Action {
 						
 
 					}else if (flag == 1) {
-						
+						String use = null;
 						mDto = mDao.sessionLogin(mDto);
 						for (MemberDTO memberDTO : list) {
 							System.out.println("-------------------");
-							System.out.println(list.get(0).getMname());
-							System.out.println(list.get(0).getMid());
-							System.out.println(list.get(0).getMpw());
+							System.out.print(list.get(0).getMname()+"\t");
+							System.out.print(list.get(0).getMid()+"\t");
+							System.out.print(list.get(0).getMpw()+"\t");
+							System.out.println(list.get(0).getUseyn());
+							use = list.get(0).getUseyn();
 						}
 						System.out.println("로그인 성공했습니다.");
 						if (mDto != null) {
-							session.removeAttribute("loginUser");
-							session.setAttribute("loginUser", mDto);
+							if (use.equals("Y")) {
+								session.removeAttribute("loginUser");
+								session.setAttribute("loginUser", mDto);
+							}else {
+								session.removeAttribute("loginUser");
+							}
 						}
 						// 여러건도 보낼수 있음	
 						JSONObject jObj = new JSONObject();
 						jObj.put("flag", flag);
 						jObj.put("id", mid);
 						jObj.put("pw", mpw);
+						System.out.println("이거시 유즈다"+use);
+						jObj.put("use", use);
 
 						response.setContentType("application/x-json; charset=UTF-8");
 						response.getWriter().println(jObj);

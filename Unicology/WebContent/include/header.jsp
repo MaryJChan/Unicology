@@ -222,6 +222,9 @@
 							id.select();
 							return false;
 						} else if (data.flag == "1") {
+							if (data.use == "N") {
+								alert("휴면 계정입니다."+"\n"+"휴면계정 해지를 원하시면 담당자 분에게 문의해주세요");
+							} 
 							location.reload();
 						}
 					},

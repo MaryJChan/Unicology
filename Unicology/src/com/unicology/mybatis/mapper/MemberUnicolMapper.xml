@@ -46,9 +46,9 @@
 				#{mmajor})
 	</insert>
 	
-	<update id="memDelete">
+	<update id="memdelete" >
 		UPDATE unicol_member SET
-		useyn = 'N' 
+		useyn = 'N'
 		WHERE mid = #{mid}
 	</update>
 	

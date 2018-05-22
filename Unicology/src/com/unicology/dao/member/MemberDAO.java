@@ -140,8 +140,7 @@ import com.unicology.dto.member.MemberDTO;
 		public int memDelete(MemberDTO mDto) {
 			sqlSession = sqlSessionFactory.openSession();
 			try {
-				
-				result = sqlSession.insert("memdelete",mDto);
+				result = sqlSession.update("memdelete",mDto);
 				sqlSession.commit();
 				if (result > 0) {
 					System.out.println("회원 등록 성공");
