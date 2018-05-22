@@ -355,13 +355,13 @@
 	}
 	
 	/* 개인정보 수정  */
-	#memberUpdate_wrap {
+/* 	#memberUpdate_wrap {
 		padding-left: 220px;
 		width: 795px;
 		display: none;
 		position: relative;
 	}
-	
+	 */
 	#memberUpdate_content {
 		padding: 35px 30px 80px;
 		background-color: white;
@@ -561,8 +561,26 @@
 			$(this).attr("class", "on");
 		});
 		
+		/* 회원정보 수정 클릭 시 */
+		$("#memberInfo_modify_btn").on("click", function() {
+			$("#summary_wrap").css("display", "none");
+			$("#memberUpdate_wrap").css("display", "block");
+			
+			$.ajax({
+				//서블릿이 어디로 갈건지 
+				url: "memberUpdateView.unicol",
+				type: "POST",
+				/* data: "bno=" + bno, */
+				success: function(result) {
+					$("#memberUpdate_wrap").html(result);
+				}
+			});	
+		});
+		
 		/* 이력서 관리 클릭 시  */
 		$("#resume_management").on("click", function() {
+			$("#summary_wrap").css("display", "none");
+			$("#resumelistTitle_wrap").css("display", "block");
 			
 			$.ajax({
 				
@@ -571,64 +589,17 @@
 				type: "POST",
 				/* data: "bno=" + bno, */
 				success: function(result) {
-					alert(result);
+					
 					$("#resumelistTitle_wrap").html(result);
 				}
 			});
 			
+			
+			
 		});
 		
-		/* 회원정보 수정 클릭 시 */
-		$("#memberInfo_modify_btn").on("click", function() {
-			
-			$.ajax({
-				//서블릿이 어디로 갈건지 
-				url: "memberUpdateView.unicol",
-				type: "POST",
-				/* data: "bno=" + bno, */
-				success: function(result) {
-					alert(result);
-					$("#memberUpdate_wrap").html(result);
-				}
-			});
-			
-			var birth = $("#mbirth").val();
-			var year = birth.substring(0,2);
-			var month = birth.substring(2,4);
-			var day = birth.substring(4,6);
-			var gender = $("#mgender").val();
-			var email = $("#memail").val();
-			var emailStr = email.split('@');
-			
-			$("#summary_wrap").css("display", "none");
-			$("#memberUpdate_wrap").css("display", "block");
 		
-			// 성별 값
-			$('input:radio[name="person_gender"][value=' + gender + ']').prop('checked', true);
 
-			// 이메일 값 
-			$("#email").val(emailStr[0]);
-			$("#email01").val(emailStr[1])
-			$("#selemail").val(emailStr[1]).prop("selected", true); //값이 1인 option 선택
-			
-			/* email selectBox 클릭했을 때 <input>창에 값 받기 */
-			$("#selemail").on("change", function() {
-				var selemail = $("#selemail").val();
-				if(selemail == "directval") {
-					$("#email01").val("");
-					$("#email01").focus();
-				} else {
-					$("#email01").val(selemail);	
-				}
-			});
-			
-			//생년월일 값
-			$("#year").val(year).prop("selected", true); 
-			$("#month").val(month).prop("selected", true); 
-			$("#day").val(day).prop("selected", true); 
-			
-		});
-		
 	});
 
 	function mypage() {
@@ -722,7 +693,16 @@
 			<div id="resumelistTitle_wrap"></div>
 			
 			<!-- 회원정보 수정  -->
-			<div id="memberUpdate_wrap"></div>
+			<div id="memberUpdate_wrap">
+			<c:forEach items="${memUpdateList}" var="memUpdateList">
+						<input type="hidden" id="mbirth" value="${memUpdateList.mbirth}">
+					  	<input type="hidden" id="mgender" value="${memUpdateList.msex}">
+					  	<input type="hidden" id="memail" value="${memUpdateList.memail}">
+			</c:forEach>			  	
+			</div>
+			
+			<!--스크랩  -->
+			<div id="scrap_wrap"></div>
 
 			<div id="section_rightmenu">
 				<div class="rightmenu">

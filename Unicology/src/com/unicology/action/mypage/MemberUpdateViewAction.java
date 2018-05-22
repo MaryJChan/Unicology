@@ -22,6 +22,7 @@ public class MemberUpdateViewAction implements Action {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		System.out.println("===================MemberUpdateViewAction==========================");
 		String url = "mypage/memberUpdate.jsp";
 		
 		//회원정보 수정

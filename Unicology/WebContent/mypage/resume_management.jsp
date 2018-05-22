@@ -385,13 +385,13 @@
 	}
 	
 	/* 개인정보 수정  */
-	#memberUpdate_wrap {
+/* 	#memberUpdate_wrap {
 		padding-left: 220px;
 		width: 795px;
 		display: none;
 		position: relative;
 	}
-	
+	 */
 	#memberUpdate_content {
 		padding: 35px 30px 80px;
 		background-color: white;
@@ -406,10 +406,10 @@
 		padding-bottom: 49px;
 	}
 	
-	#member_update_info {
+/* 	#member_update_info {
 		border-top: #686868 1px solid;
 		border-bottom: #eaeaea 1px solid;
-	}
+	} */
 	
 	#member_update_profile {
 		width: 177px;
@@ -514,21 +514,9 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-/*	$(document).ready(function() {
+	$(document).ready(function() {
 
- 		$(".recruit_list_navigation li").on("click", function() {
-			$(".recruit_list_navigation li").removeClass('on');
-			$(this).attr("class", "on");
-		});
-*/
-		// 이력서 관리 클릭 시 
-		/* $("#resume_management").on("click", function() {
-			$("#summary_wrap").css("display", "none");
-			$("#section_rightmenu").css("display", "none");
-			$("#resume_management_wrap").css("display", "block");
-			location.href = "resume_management.unicol";
-		});
-		
+
 		// 수정버튼 클릭시
 	    $(".rmodify_btn").on("click", function() {
 	    	var rnum = $(this).attr("data_num");
@@ -537,55 +525,13 @@
 	    	location.href = "jasoModify.unicol?rnum=" + rnum;
 	      		  
 	     });
-		
-		
-		//회원정보 수정 클릭 시
-		$("#memberInfo_modify_btn").on("click", function() {
-			
-			alert("!!!!??");
-			$("#summary_wrap").css("display", "none");
-			$("#memberUpdate_wrap").css("display", "block");
-			
-			var birth = $("#mbirth").val();
-			var year = birth.substring(0,2);
-			var month = birth.substring(2,4);
-			
-			var day = birth.substring(4,6);
-			var gender = $("#mgender").val();
-			var email = $("#memail").val();
-			var emailStr = email.split('@');
-		
-			// 성별 값
-			$('input:radio[name="person_gender"][value=' + gender + ']').prop('checked', true);
 
-			// 이메일 값 
-			$("#email").val(emailStr[0]);
-			$("#email01").val(emailStr[1])
-			$("#selemail").val(emailStr[1]).prop("selected", true); //값이 1인 option 선택 */
-			
-			/* email selectBox 클릭했을 때 <input>창에 값 받기 */
-	/* 		$("#selemail").on("change", function() {
-				var selemail = $("#selemail").val();
-				if(selemail == "directval") {
-					$("#email01").val("");
-					$("#email01").focus();
-				} else {
-					$("#email01").val(selemail);	
-				}
-			});
-			
-			//생년월일 값
-			$("#year").val(year).prop("selected", true); 
-			$("#month").val(month).prop("selected", true); 
-			$("#day").val(day).prop("selected", true); 
-
-		});
 		
 		// 수정완료 클릭시 
 		$("#update_complete").on("click", function() {
 			
 			/* email 정규식 및 null 체크  */
-		/*	var email = $("#email");
+			var email = $("#email");
 			var email01 = $("#email01");
 			var memail = email.val() + "@" + email01.val();
 			alert("memail : " + memail);
@@ -606,107 +552,10 @@
 		});
 
 	}); 
-	 */
-	/* 우편번호 검색 */
-/* 	  function sample6_execDaumPostcode() {
-      new daum.Postcode({
-          oncomplete: function(data) {
-              // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-              // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-              // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-              var fullAddr = ''; // 최종 주소 변수
-              var extraAddr = ''; // 조합형 주소 변수
-
-              // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-              if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                  fullAddr = data.roadAddress;
-
-              } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                  fullAddr = data.jibunAddress;
-              }
-
-              // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-              if(data.userSelectedType === 'R'){
-                  //법정동명이 있을 경우 추가한다.
-                  if(data.bname !== ''){
-                      extraAddr += data.bname;
-                  }
-                  // 건물명이 있을 경우 추가한다.
-                  if(data.buildingName !== ''){
-                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                  }
-                  // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-                  fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-              }
-
-              // 우편번호와 주소 정보를 해당 필드에 넣는다.
-              document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새 우편번호 사용
-              document.getElementById('sample6_address').value = fullAddr;
-
-              // 커서를 상세주소 필드로 이동한다.
-              document.getElementById('sample6_address2').focus();
-          }
-      }).open();
-  } */
 </script>
 <body>
- <!--      <div id="mypageContainer">
-            <div id="inner_mypage">
-            
-                  사이드 영역(left) 
-                  <aside class="aside_wrap">
-                  <a href="#"><img id="preference_img" alt="" src="image/mypage/preference.png"></a>
-                        <div class="profile_wrap">
-                              <img alt="" src="image/mypage/user.png">
-                              <h2 id="h_name">박아영 님</h2>
-                              <a id="resume_register" href="resumeInsert.unicol">내 이력서 등록</a>
-                        </div>
-                  </aside>
-                  
-                  <div id="section_leftmenu">
-                        <div class="leftmenu">
-                              <h2 class="leftmenu_title">이력서 관리</h2>
-                                    <ul>
-                                          <li><a href="resumeInsert.unicol">이력서 등록</a></li>
-                                          <li><a href="#" id="resume_management">이력서 관리</a></li>
-                                    </ul>
-                        </div>
-                        <div class="leftmenu">
-                              <h2 class="leftmenu_title">회원정보 관리</h2>
-                                    <ul>
-                                          <li><a id="memberInfo_modify_btn" href="#">회원정보 수정</a></li>
-                                          <li><a href="#">비밀번호 변경</a></li>
-                                    </ul>
-                        </div>
-                  </div>
-                  <div id="section_rightmenu">
-                        <div class="rightmenu">
-                              <ul>
-                                    <li>
-                                          <a href="#">
-                                          <span><img alt="" src="image/mypage/write.png">자소서 작성</span>
-                                          </a>
-                                    </li>
-                                    <li>
-                                          <a href="#">
-                                          <span><img alt="" src="image/mypage/spell.png">맞춤법 검사</span>
-                                          </a>
-                                    </li>
-                                    <li>
-                                          <a href="#">
-                                          <span><img alt="" src="image/mypage/count.png">글자수 세기</span>
-                                          </a>
-                                    </li>
-                                    <li>
-                                          <a href="#">
-                                          <span><img alt="" src="image/mypage/calculator.png">학점 변환</span>
-                                          </a>
-                                    </li>
-                              </ul>                   
-                        </div>
-                  </div>
-         -->
+ 
                   <!-- 이력서 관리  --> 
                   <div id="resume_management_wrap">
                   	<div class="resume_management_title">
@@ -836,9 +685,5 @@
                   		</form>
                   	</div>
                   </div>
-                  
-             
-            </div>
-      </div>
 </body>
 </html>

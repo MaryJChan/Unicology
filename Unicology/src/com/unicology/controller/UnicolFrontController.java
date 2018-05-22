@@ -30,6 +30,7 @@ import com.unicology.action.mypage.MemberUpdateViewAction;
 import com.unicology.action.mypage.MyPageAction;
 import com.unicology.action.mypage.MyPageMainAction;
 import com.unicology.action.mypage.ResumeManagementAction;
+import com.unicology.action.mypage.ScrapAction;
 import com.unicology.action.passjaso.PassJasoAction;
 import com.unicology.action.passjaso.PassJasoOptionAction;
 import com.unicology.action.resume.ResumeAction;
@@ -202,8 +203,11 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         }
  		
- 		
- 		
+        else if (command.equals("/scrap.unicol")) {
+        	action = new ScrapAction();
+        	forward = action.excute(request, response);
+        }
+
  		
  	    //  ============================  MyPage 이력서관리  ================================= //
         else if (command.equals("/resume_management.unicol")) {
