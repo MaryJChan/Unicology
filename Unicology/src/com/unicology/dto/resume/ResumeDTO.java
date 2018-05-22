@@ -68,6 +68,12 @@ public class ResumeDTO {
 		
 	}
 
+	public ResumeDTO(String resume_no, String userId) {
+		super();
+		this.resume_no = resume_no;
+		UserId = userId;
+	}
+
 	public ResumeDTO(String resume_title, String userId, String userName, String userBirth, String userSex,
 			String userEmail, String userTel, String userPhone, String userAdress, String schoolGrade,
 			String schoolName, String entranceYear, String graduationYear, String graduationStatus, String major,

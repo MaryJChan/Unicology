@@ -787,7 +787,7 @@
             height: 60px;
             color: #333;
             outline: none;
-            padding: 0 30px 0 15px;
+            padding: 15px 30px 0 15px;
             box-sizing: border-box;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -808,7 +808,7 @@
             height: 60px;
             color: #333;
             outline: none;
-            padding: 0 30px 0 15px;
+            padding: 15px 30px 0 15px;
             box-sizing: border-box;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -828,7 +828,7 @@
             height: 60px;
             color: #333;
             outline: none;
-            padding: 0 30px 0 15px;
+            padding: 15px 30px 0 15px;
             box-sizing: border-box;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -1136,8 +1136,8 @@
                         			<div class="selectbox profile_sex">
                         				<label>성별</label>
                         				<select name="UserSex">
-                        					<option value="man">남자</option>
-                        					<option value="woman">여자</option>
+                        					<option value="남자">남자</option>
+                        					<option value="여자">여자</option>
                         				</select>
                         			</div>
                         			<div class="input value profile_email">
