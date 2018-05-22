@@ -77,7 +77,9 @@
 </insert>
 
 <select id="selectView" resultType="rDTO">
-	SELECT * FROM unicol_resume;
+	SELECT * 
+	  FROM unicol_resume
+	 WHERE UserId = #{UserId} 
 </select>
 
 <select id="selectSearch" resultType="rDTO">

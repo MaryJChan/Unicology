@@ -517,14 +517,22 @@
 	$(document).ready(function() {
 
 
-		// 수정버튼 클릭시
-	    $(".rmodify_btn").on("click", function() {
+		// 자기소개서 수정버튼 클릭시
+	    $(".cmodify_btn").on("click", function() {
 	    	var rnum = $(this).attr("data_num");
 	    	alert("rnum : " + rnum);
 	    	  
 	    	location.href = "jasoModify.unicol?rnum=" + rnum;
 	      		  
 	     });
+		
+		// 이력서 수정버튼 클릭시 
+		$(".rmodify_btn").on("click", function() {
+			var resume_no = $(this).attr("data_num");
+			alert("resume_no : " + resume_no);
+			
+			location.href = "resumeModify.unicol?resume_no=" + resume_no;
+		});
 
 		
 		// 수정완료 클릭시 
@@ -589,14 +597,30 @@
                   					<th>최근 수정일</th>
                   				</tr>
                   				
-                  				<tr>
-                  					<td colspan="5">
-                  						<div id="resumelist_none">
-                  						<strong>저장된 <span id="resumeStrong">이력서</span> 가 없습니다.</strong>
-                  						<p>지금 바로 나만의 이력서를 작성해보세요</p>
-                  						<a id="resumelist_none_btn" href="resumeInsert.unicol">이력서 작성</a>
-                  						</div>
-                  					</td>
+                  				<c:forEach items="${resumeList}" var="resumeList">
+	                  				<tr>
+	                  					<td><input type="checkbox"></td>
+	                  					<td><a href="resumeView.unicol?resume_no=${resumeList.resume_no}">${resumeList.resume_title}</a></td>
+	                  					<td>
+	                  						<a class="resumeBtn rmodify_btn" id="resumeModify_btn" data_num="${resumeList.resume_no}" href="#">수정</a>
+	                  						<a class="resumeBtn rdelete_btn" id="resumeDelete_btn" href="#">삭제</a>
+	                  					</td>
+	                  					<td><fmt:formatDate pattern="yyyy-MM-dd " value="${resumeList.regdate}"/></td>
+	                  					<td>-</td>
+	                  				</tr>
+                  				</c:forEach>
+                  				
+                  				<c:if test="${resumeList.size() == 0}">
+	                  				<tr>
+	                  					<td colspan="5">
+	                  						<div id="resumelist_none">
+	                  						<strong>저장된 <span id="resumeStrong">이력서</span> 가 없습니다.</strong>
+	                  						<p>지금 바로 나만의 이력서를 작성해보세요</p>
+	                  						<a id="resumelist_none_btn" href="resumeInsert.unicol">이력서 작성</a>
+	                  						</div>
+	                  					</td>
+	                  				</tr>
+                  				</c:if>	
                   				
                   			</table>
                   		</form>
@@ -622,21 +646,21 @@
                   					<th>최근 수정일</th>
                   				</tr>
                   				
-                  				<c:forEach items="${resumeList}" var="resumeList">
+                  				<c:forEach items="${coverletter}" var="coverletter">
                   				
                   				<tr>
                   					<td><input type="checkbox"></td>
-                  					<td><a href="#">${resumeList.title}</a></td>
+                  					<td><a href="#">${coverletter.title}</a></td>
                   					<td>
-                  						<a class="resumeBtn rmodify_btn" id="resumeModify_btn" data_num="${resumeList.num}" href="#">수정</a>
-                  						<a class="resumeBtn rdelete_btn" id="resumeDelete_btn" href="#">삭제</a>
+                  						<a class="resumeBtn cmodify_btn" id="resumeModify_btn" data_num="${coverletter.num}" href="#">수정</a>
+                  						<a class="resumeBtn cdelete_btn" id="resumeDelete_btn" href="#">삭제</a>
                   					</td>
-                  					<td><fmt:formatDate pattern="yyyy-MM-dd " value="${resumeList.regdate}"/></td>
+                  					<td><fmt:formatDate pattern="yyyy-MM-dd " value="${coverletter.regdate}"/></td>
                   					<td>-</td>
                   				</tr>
                   				</c:forEach>
                   				
-                  				<c:if test="${resumeList == null}">
+                  				<c:if test="${coverletter == null}">
                   				<tr>
                   					<td colspan="5">
                   						<div id="resumelist_none">

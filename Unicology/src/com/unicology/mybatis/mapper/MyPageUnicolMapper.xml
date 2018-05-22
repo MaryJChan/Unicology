@@ -51,4 +51,10 @@
 		INSERT INTO UNICOL_SCRAP
 		VALUES(#{mid}, #{scrap_eno}) 
 	</insert>
+	
+	<!-- 회원정보 관리 : 이력서 조회  -->
+	<select id="resumeSelectList" resultType="rDTO">
+		SELECT * FROM unicol_resume
+		WHERE UserId = #{UserId}
+	</select>
 </mapper>

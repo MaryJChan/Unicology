@@ -14,6 +14,7 @@ import com.unicology.dao.mypage.MemberUpdateDAO;
 import com.unicology.dao.mypage.ResumeManagementDAO;
 import com.unicology.dto.jasowrite.JasoWriteDTO;
 import com.unicology.dto.member.MemberDTO;
+import com.unicology.dto.resume.ResumeDTO;
 
 public class ResumeManagementAction implements Action {
 
@@ -25,10 +26,13 @@ public class ResumeManagementAction implements Action {
 		
 		String url = "mypage/resume_management.jsp";
 		
+		// 자기소개서 리스트  
 		ResumeManagementDAO rmDao = ResumeManagementDAO.getInstance();
-		List<JasoWriteDTO> resumeList = rmDao.resumeListSelect();
+		List<JasoWriteDTO> coverletter = rmDao.coverletterSelect();
 		
-		request.setAttribute("resumeList", resumeList);
+		request.setAttribute("coverletter", coverletter);
+		
+		
 		
 		// 현재 로그인 한 계정 가져오기 
 		HttpSession session = request.getSession();
@@ -44,6 +48,10 @@ public class ResumeManagementAction implements Action {
 			request.setAttribute("memUpdateList", memUpdateList);
 			
 		}
+		
+		// 이력서 리스트 
+		List<ResumeDTO> resumeList = rmDao.resumeList(writer);  
+		request.setAttribute("resumeList", resumeList);
 		
 		ActionForward forward = new ActionForward();
         forward.setPath(url);

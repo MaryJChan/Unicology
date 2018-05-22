@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ResumeDTO {
 
+	private String resume_no;
 	private String resume_title;
 	private String UserId;
 	private String UserName;
@@ -675,4 +676,11 @@ public class ResumeDTO {
 		this.regdate = regdate;
 	}
 
+	public String getResume_no() {
+		return resume_no;
+	}
+
+	public void setResume_no(String resume_no) {
+		this.resume_no = resume_no;
+	}
 }

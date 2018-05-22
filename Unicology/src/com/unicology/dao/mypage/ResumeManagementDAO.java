@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.unicology.dto.jasowrite.JasoWriteDTO;
+import com.unicology.dto.resume.ResumeDTO;
 import com.unicology.mybatis.SqlMapConfig;
 
 public class ResumeManagementDAO {
@@ -31,7 +32,7 @@ public class ResumeManagementDAO {
 		}
 		
 		// 이력서 리스트 조회 (mypage 화면에서)
-		public List<JasoWriteDTO> resumeListSelect() {
+		public List<JasoWriteDTO> coverletterSelect() {
 			System.out.println("이력서 리스트 조회 메서드 ====");
 			
 			sqlSession = sqlSessionFactory.openSession();
@@ -61,7 +62,7 @@ public class ResumeManagementDAO {
 			return resumelist;
 		}
 		
-		// 수정할 이력서 조회
+		// 수정할 자기소개서 조회
 		public List<JasoWriteDTO> resumeModifySelect(int rnum) {
 			
 			sqlSession = sqlSessionFactory.openSession();
@@ -94,5 +95,36 @@ public class ResumeManagementDAO {
 			
 			
 			return resumeModList;
+		}
+		
+		public List<ResumeDTO> resumeList(String writer) {
+			
+			System.out.println("resumeList 타요??");
+			sqlSession = sqlSessionFactory.openSession();
+			List<ResumeDTO> resumeList = new ArrayList<>();
+			try {
+				
+				ResumeDTO rDto = new ResumeDTO();
+				rDto.setUserId(writer);
+				String userid = rDto.getUserId();
+				System.out.println("userid : " + userid);
+				
+				resumeList = sqlSession.selectList("resumeSelectList", rDto);
+				
+				for (ResumeDTO resumeDTO : resumeList) {
+					String resume_no = resumeDTO.getResume_no();
+					String resume_title = resumeDTO.getResume_title();
+					
+					System.out.println("resume_no : " + resume_no);
+					System.out.println("resume_title : " + resume_title);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(sqlSession != null) sqlSession.close();
+			}
+			
+			return resumeList;
 		}
 }
