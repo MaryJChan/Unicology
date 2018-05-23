@@ -28,7 +28,7 @@ public class EmpinfoSearchAction implements Action {
 		// 객체 생성과 동시에 page = 1, perPageNum = 10이됨
         EmpInfoCriteriaDTO empInfoCriDto = new EmpInfoCriteriaDTO();
         EmpInfoDAO empInfoDao = EmpInfoDAO.getInstance();
-        int flag = 0;
+        int pageflag = 1;
         
         // action에서 사용하는 page변수
         int page = 1;
@@ -46,28 +46,26 @@ public class EmpinfoSearchAction implements Action {
         empInfoCriDto.setCategory_check_keyword(checkboxResult);
         String[] checkboxParentResult = request.getParameterValues("checkboxParentResult");
         empInfoCriDto.setCategory_keyword(checkboxParentResult);
-        
+/*        
         for (String chkBoxResult : checkboxResult) {
         	System.out.println(chkBoxResult);
 		}
         for (String chkParentresult : checkboxParentResult) {
         	System.out.println(chkParentresult);
-		}
+		}*/
         
-        empInfoDao.empinfoSearchSelect(empInfoCriDto);
+        if(checkboxResult != null || checkboxParentResult != null) {
+        	empInfoDao.empinfoSearchSelect(empInfoCriDto);
+        }
         
-        
+       
         // 검색 키워드(Tab)
 		String searchKey = request.getParameter("flag");
 		System.out.println("searchKey : " + searchKey);
 		empInfoCriDto.setKeyword(searchKey);
 		
-		if(searchKey == null || checkboxResult == null) {
-        	List<EmpInfoDTO> list = empInfoDao.jobListAll(empInfoCriDto);
-        	// list를 view딴으로 보냄
-            request.setAttribute("searchList", list);
-        } else {
-        	List<EmpInfoDTO> searchList = empInfoDao.empinfoSearchSelect(empInfoCriDto);
+		if(searchKey != null || checkboxResult != null) {
+			List<EmpInfoDTO> searchList = empInfoDao.empinfoSearchSelect(empInfoCriDto);
         	int searchCnt = searchList.size();
         	System.out.println("선택한 키워드 : " + searchKey + ", 총 건수 : " + searchCnt);
         	int keyCode;
@@ -92,8 +90,17 @@ public class EmpinfoSearchAction implements Action {
         	}
         	request.setAttribute("searchList", searchList);
         	
+        } else {
+        	List<EmpInfoDTO> list = empInfoDao.jobListAll(empInfoCriDto);
+        	// list를 view딴으로 보냄
+            request.setAttribute("searchList", list);
+        	
         }
+		
+		request.setAttribute("searchKey", searchKey);
+		request.setAttribute("pageflag", pageflag);
 
+		
 		// 페이지 메이커 설정
         // 페이지 메이커 객체 생성
         EmpInfoPageMakerDTO empInfoPageMaker = new EmpInfoPageMakerDTO();
@@ -107,10 +114,11 @@ public class EmpinfoSearchAction implements Action {
         System.out.println("next_boolean" + empInfoPageMaker.isNext());
         request.setAttribute("EmpInfoPageMaker", empInfoPageMaker);
         
+        request.setAttribute("totalcount", totalcount);
         ActionForward forward = new ActionForward();
         forward.setPath(url);
         forward.setRedirect(false);
-        return null;
+        return forward;
 		
 	}
 

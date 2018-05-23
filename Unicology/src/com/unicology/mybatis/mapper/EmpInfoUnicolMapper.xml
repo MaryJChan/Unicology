@@ -57,9 +57,6 @@
 							WHERE EMPLOYMENTTYPE LIKE '%'||#{keyword}||'%'
 						</otherwise>
 					</choose>
-					<choose>
-						<when test=""></when>
-					</choose>
 				<![CDATA[)
 			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
 			]]>

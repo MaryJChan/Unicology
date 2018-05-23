@@ -509,6 +509,10 @@
 	    border: 1px solid #5f75eb;
 	    background-color: #6b80f1;
 	}
+	
+	#cover_letter_wrap {
+		margin-top: 40px;
+	}
 </style>
 </head>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

@@ -22,7 +22,7 @@ public class EmpInfoAction implements Action {
             
             // 객체 생성과 동시에 page = 1, perPageNum = 10이됨
             EmpInfoCriteriaDTO empInfoCriDto = new EmpInfoCriteriaDTO();
-            int flag = 0;
+            int pageflag = 0;
             
             // action에서 사용하는 page변수
             int page = 1;
@@ -53,6 +53,7 @@ public class EmpInfoAction implements Action {
             }
             
            
+            request.setAttribute("pageflag", pageflag);
             // 페이지 메이커 설정
             // 페이지 메이커 객체 생성
             EmpInfoPageMakerDTO empInfoPageMaker = new EmpInfoPageMakerDTO();

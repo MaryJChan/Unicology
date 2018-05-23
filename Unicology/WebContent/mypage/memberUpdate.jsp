@@ -385,7 +385,7 @@
 	#member_update_profile {
 		width: 177px;
 		position: absolute;
-		top: 205px;
+		top: 330px;
 		text-align: center;
 		margin-left: 8px;
 	}
@@ -488,14 +488,12 @@
 	$(document).ready(function() {
 		
 		var birth = $("#mbirth").val();
-		alert("birth : " + birth);
 		var year = birth.substring(0,2);
 		var month = birth.substring(2,4);
 		var day = birth.substring(4,6);
 		var gender = $("#mgender").val();
 		var email = $("#memail").val();
 		
-		alert("email : " + email);
 		var emailStr = email.split('@');
 		
 	
@@ -505,11 +503,6 @@
 		// 이메일 값 
 		$("#email").val(emailStr[0]);
 		$("#email01").val(emailStr[1]);
-		
-		
-		alert(emailStr[0]);
-		alert(emailStr[1]);
-		
 		$("#selemail").val(emailStr[1]).prop("selected", true); //값이 1인 option 선택
 		
 		/* email selectBox 클릭했을 때 <input>창에 값 받기 */
@@ -592,7 +585,6 @@
 			var email = $("#email");
 			var email01 = $("#email01");
 			var memail = email.val() + "@" + email01.val();
-			alert("memail : " + memail);
 			
 			var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			if(email.val() == "") {
@@ -680,11 +672,11 @@
 					  			</colgroup>
 					  			
 					  			<tr>
-					  				<th>전화번호</th>
+					  				<th>*전화번호</th>
 					  				<td><input class="update_input" id="memphone" name="memphone" type="text" value="${memUpdateList.mphone}"></td>
 					  			</tr>
 					  			<tr>
-					  				<th>이메일 주소</th>
+					  				<th>*이메일 주소</th>
 					  				<td>
 					  					<input type="text" class="update_input" id="email" name="email" value="">
 										@

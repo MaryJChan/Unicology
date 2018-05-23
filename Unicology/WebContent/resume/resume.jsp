@@ -1141,7 +1141,7 @@
                         				</select>
                         			</div>
                         			<div class="input value profile_email">
-                        				<label for="UserEmail">생년월일</label>
+                        				<label for="UserEmail">Email</label>
                         				<input type="text" id="UserEmail" name="UserEmail">
                         			</div>
                         		</div>

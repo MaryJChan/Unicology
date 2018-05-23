@@ -624,7 +624,7 @@
 				<a href="#"><img id="preference_img" alt="" src="image/mypage/preference.png"></a>
 				<div class="profile_wrap">
 					<img alt="" src="image/mypage/user.png">
-					<h2 id="h_name">박아영 님</h2>
+					<h2 id="h_name">${sessionScope.loginUser.mname}님</h2>
 					<a id="resume_register" href="resumeInsert.unicol">내 이력서 등록</a>
 				</div>
 			</aside>

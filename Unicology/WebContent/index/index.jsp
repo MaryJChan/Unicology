@@ -734,7 +734,7 @@
             
             // 2018.05.15 박아영 추가
             // 마이페이지 클릭시 로그인 유무 판단하여 페이지 이동
-            $("#mypage").click(function() {
+/*             $("#mypage").click(function() {
             	var loginYn = $("#loginsession").val();
             	
             	if(loginYn == "") {
@@ -743,6 +743,11 @@
             	} else {
             		location.href = "mypage.unicol";
             	}
+            }); */
+            
+            $("#mypage").click(function() {
+            	alert("여기는 합격자소서 리스트 출력페이지 입니다.")
+            	location.href ="passjaso.unicol";
             });
             
             $(".close").click(function(){

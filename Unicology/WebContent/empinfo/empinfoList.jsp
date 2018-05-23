@@ -613,7 +613,6 @@
 		
 		/* 검색하기 버튼 클릭 시  */
 		$("#searchBtn").on("click", function() {
-			alert("!!!");
 			var checkboxValues = [];
 			var checkboxParentValues = [];
 			var frm = $("#search_panel_form");
@@ -621,20 +620,18 @@
 		    	var chkParent = $(this).parents('div').attr('id');
 				var chkParent_name = $("#"+chkParent+"_btn").text();
 				
-				alert(chkParent_name);
-				
 		        checkboxValues.push($(this).val());
 		        checkboxParentValues.push(chkParent_name);
 		    });
-		    alert(checkboxValues);
 		    $("#checkboxResult").val(checkboxValues);
 		    $("#checkboxParentResult").val(checkboxParentValues);
 		    frm.submit();
 		});
 		
-		$(".tabOn > a").append("<span>(1,508건)</span>");
+		var keywordCount = $("#keywordCount").val();
 		          
 		$(".tabArea > li").removeClass('tabOn');
+		
 		var keyCode = $("#keyCode").val();
 		if(keyCode == 1 || keyCode == "") {
 			$("#allTab").attr("class","tabOn");		
@@ -654,26 +651,19 @@
 			$(".tabArea > li").removeClass('tabOn');
 			$(this).attr("class","tabOn"); 
             var flag = $(this).text();
-            $(".tabOn > a").append("<span>(1,508건)</span>");
-            alert(flag);
+            var keywordCount = $("#keywordCount").val();
+            $(".tabOn > a").append("<span>"+ "("+ keywordCount+"건)" +"</span>");
             location.href = "empinfoSearch.unicol?flag=" + flag;
             
 		});
 		
 		// 채용공고 리스트 체크박스 클릭 시
-		var enochk = [];
-		$(".enochk").on("click", function() {
-			/* $("input[name=enochk]:checked").each(function(i) {
-		    	enochk.push($(this).val());
-			});			 */
-			if($("input[name=enochk]:checked"))
-			enochk.push($(this).val());
-			alert(enochk);
-		});
+
 		
+
 		/* $('#form1 input[name=check1]'').prop('checked', true) */
 		
-		
+		var enochk = [];
 		//스크랩 버튼 클릭 시
 		$("#scrap_btn").on("click", function() {
 			var loginSession = $("#loginsession").val();
@@ -682,7 +672,11 @@
 				$(".loginMsg").css("display","block");
         		$("#myModal").css("display","block");	
 			} else {
-				alert("enochk :" + enochk);
+				//alert("enochk :" + enochk);
+				if($("input[name=enochk]:checked")) {
+				enochk.push($("input[class=enochk]:checked").val());
+				alert(enochk);	
+				}
 				
 				$.ajax({
 					//서블릿이 어디로 갈건지 
@@ -704,21 +698,19 @@
 				
 			}
 		});
-	});
+		});
 </script>
 
 <body>
 	<div id="jobListContainer">
 	<input type="hidden" id="checkboxValues" name="checkboxValues">
 	<input type="hidden" id="keyCode" value="${keyCode}">
-	<input type="hidden" id="loginsession" value="${sessionScope.loginUser.mid}">    
+	<input type="hidden" id="loginsession" value="${sessionScope.loginUser.mid}">
+	<input type="hidden" id ="keywordCount" value="${totalcount}">    
 		<div id="inner_jogList">
 			<div class="jogList_content">
 				<div id="wrap_title">
 					<h1 id="jobTitle">직업별(직종)</h1>
-					<div id="searchKeyword_job">
-						<input type="text" placeholder="직종을 검색하세요">
-					</div>
 				</div>
 	
 				<!-- 검색 카테고리(직종별 분류)  -->
@@ -891,11 +883,11 @@
                 <!-- 채용공고 리스트  -->  
                 <div id="recruit_list">
                       <ul class="tabArea">
-                            <li class="tabOn" id="allTab"><a>전체</a></li>
-                            <li id="fulltimeTab"><a>정규직</a></li>
-                            <li id="contractWorkerTab"><a>계약직</a></li>
-                            <li id="internshipTab"><a>인턴직</a></li>
-                            <li id="studentTab"><a>교육생</a></li>
+                            <li class="tabOn" id="allTab"><a href="#">전체</a></li>
+                            <li id="fulltimeTab"><a href="#">정규직</a></li>
+                            <li id="contractWorkerTab"><a href="#">계약직</a></li>
+                            <li id="internshipTab"><a href="#">인턴직</a></li>
+                            <li id="studentTab"><a href="#">교육생</a></li>
                       </ul>
                       <div class="listArea">
                             <div id="list_info">
@@ -991,7 +983,12 @@
 	                            
 	                            <c:forEach begin="${EmpInfoPageMaker.startPage}" end="${EmpInfoPageMaker.endPage}" var="idx">
 	                                  <li <c:out value="${EmpInfoPageMaker.empInfoCriDto.page == idx? 'class=active':''}"/>>
-	                                        <a href="joblist.unicol?page=${idx}">${idx}</a></li>
+	                                        <c:if test="${pageflag==0}">
+	                                        	<a href="joblist.unicol?page=${idx}">${idx}</a></li>
+	                                        </c:if>
+	                                        <c:if test="${pageflag==1}">
+	                                        	<a href="empinfoSearch.unicol?page=${idx}&flag=${searchKey}">${idx}</a></li>	
+	                                        </c:if>
 	                            </c:forEach>
 	                            
 	                            <c:if test="${pageMaker.next}">
