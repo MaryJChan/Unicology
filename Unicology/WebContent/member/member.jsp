@@ -1035,7 +1035,7 @@
 						<div id="school_search_btn">검색</div>
 						<div id="schoolModal" class="school_modal">
 							<div class="school_modal_content">
-									<h2 style="color:#6495ED; font-weight: bold; display: inline-block;">대학 검색 </h2>
+									<h2 style="color:#6495ED; font-weight: bold; display: inline-block;">학교 검색 </h2>
 									<span class="close2">&times;</span>
 									<div id="schoolSearch">		
 											<input type="text" id="schoolName" name="schoolName" style=" height: 35px; width: 155px; margin-right: 10px; font-size: 18px; border-radius: 5px;">
