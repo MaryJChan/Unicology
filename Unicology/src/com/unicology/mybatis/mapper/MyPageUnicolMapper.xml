@@ -10,6 +10,7 @@
 	<select id="resumeSelect" resultType="jwDTO">
 		SELECT DISTINCT(num), title, regdate
   		FROM JASOWRITE
+  		WHERE writer = #{writer}
 
 	</select>
 	

@@ -31,8 +31,8 @@ public class ResumeManagementDAO {
 			return instance;
 		}
 		
-		// 이력서 리스트 조회 (mypage 화면에서)
-		public List<JasoWriteDTO> coverletterSelect() {
+		// 자기소개서 리스트 조회 (mypage 화면에서)
+		public List<JasoWriteDTO> coverletterSelect(String writer) {
 			System.out.println("이력서 리스트 조회 메서드 ====");
 			
 			sqlSession = sqlSessionFactory.openSession();
@@ -40,7 +40,7 @@ public class ResumeManagementDAO {
 			
 			try {
 				
-				resumelist = sqlSession.selectList("resumeSelect");
+				resumelist = sqlSession.selectList("resumeSelect",writer);
 				
 				for (JasoWriteDTO jasoWriteDTO : resumelist) {
 					int jnum = jasoWriteDTO.getNum();

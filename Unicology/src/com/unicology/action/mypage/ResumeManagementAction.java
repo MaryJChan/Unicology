@@ -26,17 +26,10 @@ public class ResumeManagementAction implements Action {
 		
 		String url = "mypage/resume_management.jsp";
 		
-		// 자기소개서 리스트  
-		ResumeManagementDAO rmDao = ResumeManagementDAO.getInstance();
-		List<JasoWriteDTO> coverletter = rmDao.coverletterSelect();
-		
-		request.setAttribute("coverletter", coverletter);
-		
-		
-		
 		// 현재 로그인 한 계정 가져오기 
 		HttpSession session = request.getSession();
 		
+		ResumeManagementDAO rmDao = ResumeManagementDAO.getInstance();
 		MemberDTO mDto = (MemberDTO)session.getAttribute("loginUser");
 		String writer = mDto.getMid();
 		System.out.println("ResumeManagementAction_writer : " + writer);
@@ -52,6 +45,11 @@ public class ResumeManagementAction implements Action {
 		// 이력서 리스트 
 		List<ResumeDTO> resumeList = rmDao.resumeList(writer);  
 		request.setAttribute("resumeList", resumeList);
+		
+		// 자기소개서 리스트  
+		
+		List<JasoWriteDTO> coverletter = rmDao.coverletterSelect(writer);
+		request.setAttribute("coverletter", coverletter);
 		
 		ActionForward forward = new ActionForward();
         forward.setPath(url);
