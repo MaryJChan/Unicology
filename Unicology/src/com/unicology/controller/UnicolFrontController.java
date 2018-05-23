@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.action.empinfo.EmpInfoAction;
+import com.unicology.action.empinfo.EmpinfoScrapAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
 import com.unicology.action.jasoanalysis.JasoAnalysisAction;
 import com.unicology.action.jasowrite.JasoModifyAction;
@@ -125,6 +126,12 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         }
  		
+ 		// ====================== 채용공고 스크랩 저장 ====================== //
+        else if (command.equals("/empinfoScrap.unicol")) {
+        	action = new EmpinfoScrapAction();
+        	forward = action.excute(request, response);
+        }
+ 		
  		// 김성민 추가
  		// ====================== 세션값 저장(아이디 비밀번호) =============== //
         else if (command.equals("/sessionaction.unicol")) {
@@ -207,6 +214,7 @@ public class UnicolFrontController extends HttpServlet{
         	forward = action.excute(request, response);
         }
  		
+ 		// ============================== MyPage에서 스크랩 보여주기 ============================ //  
         else if (command.equals("/scrap.unicol")) {
         	action = new ScrapAction();
         	forward = action.excute(request, response);

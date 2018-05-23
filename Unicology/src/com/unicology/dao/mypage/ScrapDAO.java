@@ -1,5 +1,8 @@
 package com.unicology.dao.mypage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -26,10 +29,11 @@ public class ScrapDAO {
 		return instance;
 	}
 	
-	public void scrapInsert(String writer, String[] enochk) {
+	public int scrapInsert(String writer, String[] enochk) {
 		
 		sqlSession = sqlSessionFactory.openSession();
 		ScrapDTO sDto = new ScrapDTO();
+		int scrapResult = 0;
 		try {
 			
 			for (String string : enochk) {
@@ -40,7 +44,7 @@ public class ScrapDAO {
 					int eno = Integer.parseInt(enochk_split);
 					sDto.setMid(writer);
 					sDto.setScrap_eno(eno);
-					sqlSession.insert("scrapInsert", sDto);
+					scrapResult = sqlSession.insert("scrapInsert", sDto);
 					sqlSession.commit();
 				}
 				
@@ -50,6 +54,22 @@ public class ScrapDAO {
 		} finally {
 			if(sqlSession != null) sqlSession.close();
 		}
+		return scrapResult;
 	}
 	
+	
+	public List<ScrapDTO> selectScrapEno(String writer){
+		sqlSession = sqlSessionFactory.openSession();
+		List<ScrapDTO> scrapEnoList = new ArrayList<>();
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return scrapEnoList;
+	}
 }

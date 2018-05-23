@@ -656,40 +656,35 @@
             location.href = "empinfoSearch.unicol?flag=" + flag;
             
 		});
-		
-		// 채용공고 리스트 체크박스 클릭 시
 
+		// 페이지 로드시 스크랩을 체크했으면 체크박스보여주지 않기 
 		
-
-		/* $('#form1 input[name=check1]'').prop('checked', true) */
 		
-		var enochk = [];
+		var scrapchk = [];
 		//스크랩 버튼 클릭 시
 		$("#scrap_btn").on("click", function() {
+			
 			var loginSession = $("#loginsession").val();
 			alert("loginSession : " + loginSession);
 			if(loginSession == "") {
 				$(".loginMsg").css("display","block");
         		$("#myModal").css("display","block");	
 			} else {
-				//alert("enochk :" + enochk);
-				if($("input[name=enochk]:checked")) {
-				enochk.push($("input[class=enochk]:checked").val());
-				alert(enochk);	
-				}
-				
+				$("input[name='enochk']:checked").each(function(i){
+					scrapchk.push($(this).val());
+				});
+
 				$.ajax({
 					//서블릿이 어디로 갈건지 
-					url: "mypage.unicol",
+					url: "empinfoScrap.unicol",
 					type: "POST",
 					dataType: "json",
-					data: "ehochk=" + enochk,
+					data: "scrapchk=" + scrapchk,
 					success: function(data) {
-						if(data.flag == "0") {
-							
-						} else {
-							
-						}
+						if(data.scrapflag == '1') {
+							alert("스크랩 되었습니다. 마이페이지에서 확인가능합니다.");
+							$("input[name='enochk']:checked").remove();
+						} 
 					},
 					error: function() {
 						alert("System Error!!!");
@@ -930,7 +925,6 @@
                                   <th>근무조건</th>
                                   <th>마감일·등록일</th>
                             </tr>
-                            
                             
                             <c:forEach items="${searchList}" var="empInfoDto"> 
                                   <tr>

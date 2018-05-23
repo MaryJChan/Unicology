@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.dao.mypage.MemberUpdateDAO;
@@ -23,13 +25,12 @@ public class MyPageAction implements Action {
 		
 		System.out.println("=======================MyPageAction========================");
 		String url = "mypage/mypage_include.jsp";
-		
+		 
 		//회원정보 수정
 		HttpSession session = request.getSession();
 		
 		MemberUpdateDAO muDao = MemberUpdateDAO.getInstance();
-		ScrapDTO sDto = new ScrapDTO();
-		ScrapDAO sDao = ScrapDAO.getInstance();
+		
 		
 		// 현재 로그인 한 계정 가져오기 
 		MemberDTO mDto = (MemberDTO)session.getAttribute("loginUser");
@@ -44,17 +45,10 @@ public class MyPageAction implements Action {
 			
 		}
 		
-		// 스크랩 기능 구현
-		String[] enochk = request.getParameterValues("ehochk");
-		
-		if(enochk != null) {
-			sDao.scrapInsert(writer, enochk);
-		}
-
 		ActionForward forward = new ActionForward();
         forward.setPath(url);
         forward.setRedirect(false);
-		
+
 		return forward;
 	}
 

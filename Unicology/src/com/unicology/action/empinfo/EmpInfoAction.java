@@ -5,12 +5,16 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.dao.empinfo.EmpInfoDAO;
+import com.unicology.dao.mypage.ScrapDAO;
 import com.unicology.dto.empinfo.EmpInfoCriteriaDTO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.dto.empinfo.EmpInfoPageMakerDTO;
+import com.unicology.dto.member.MemberDTO;
 public class EmpInfoAction implements Action {
       @Override
       public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
@@ -51,6 +55,17 @@ public class EmpInfoAction implements Action {
             	List<EmpInfoDTO> searchList = empInfoDao.empinfoSearchSelect(empInfoCriDto);
             	request.setAttribute("searchList", searchList);
             }
+            
+         // 현재 로그인 계정 가져오기
+    		HttpSession session = request.getSession();
+    		
+    		MemberDTO mDto = (MemberDTO)session.getAttribute("loginUser");
+    		String writer = mDto.getMid();
+    		System.out.println("MyPageAction_writer : " + writer);
+    		
+            // 채용공고 로드시 스크랩 번호 조회 
+            ScrapDAO sDao = ScrapDAO.getInstance();
+            sDao.selectScrapEno(writer);
             
            
             request.setAttribute("pageflag", pageflag);
