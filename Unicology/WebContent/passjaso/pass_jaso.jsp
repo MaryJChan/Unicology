@@ -254,7 +254,12 @@
 	});
 	
 	$(document).on("click", "#passJaso_Option", function(){
-		$("#select_List").css("display", "block");
+		if($("#select_List").attr("style") == "display: block;"){
+			$("#select_List").css("display", "none");
+		} else if ($("#select_List").css("display") == "none"){
+			$("#select_List").css("display", "block");
+		}
+		
 	});
 	$(document).on("click", ".select_Option", function(){
 		

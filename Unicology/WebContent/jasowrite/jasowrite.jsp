@@ -413,7 +413,6 @@
 	$(document).on("click", ".select_jaso_pm", function (){
 		var data_num = parseInt($(".select_jaso_num:last").text()) + 1;
 		var sessionUser = "${sessionScope.loginUser.mid}";
-		
 		if(sessionUser !="") {
 			// 자소서 작성 페이지 추가 클릭시 코드
 			if($(this).text() == "+"){
@@ -425,9 +424,7 @@
 				$("#jaso_form").append("<input type='hidden' name='jaso_index" + data_num + "' id='jaso_index" + data_num + "' data_num ='" + data_num + " class='jaso_index' value='" + data_num + "'>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
-				
 				$("#select_jaso_num" + data_num).click();
-				
 			} 
 			// 자소서 작성 페이지 제거 클릭시 코드
 			else if ($(this).text() == "-") {
@@ -490,18 +487,18 @@
 		$("#jasowrite_answer").keyup();
 	});
 	
-	// 자소서 번호 삭제
+	// 자소서 문항 삭제
 	$(document).on("click", ".delete_jaso_num", function(){
 		var sessionUser = "${sessionScope.loginUser.mid}";
 		var data_num = $(this).attr("data_num");
 		if(sessionUser !="") {
-			$(".new_jasowrite").text("자소서 제거");
+			$(".new_jasowrite").text(data_num + "번째 문항 제거");
 			$("#jasowritejasowritemodal").css("display", "block");
 			
 			$(".jasomodalY").on("click", function(){
 				var text = $(".new_jasowrite").text();
 				// 자소서 제거
-				if (text == "자소서 제거") {
+				if (text == data_num + "번째 문항 제거") {
 					$("#jaso_index" + data_num).remove();
 					$("#jaso_question" + data_num).remove();
 					$("#jaso_answer" + data_num).remove();

@@ -498,13 +498,13 @@
 		var sessionUser = "${sessionScope.loginUser.mid}";
 		var data_num = $(this).attr("data_num");
 		if(sessionUser !="") {
-			$(".new_jasowrite").text("자소서 제거");
+			$(".new_jasowrite").text(data_num + "번째 문항 제거");
 			$("#jasowritejasowritemodal").css("display", "block");
 			
 			$(".jasomodalY").on("click", function(){
 				var text = $(".new_jasowrite").text();
 				// 자소서 제거
-				if (text == "자소서 제거") {
+				if (text == data_num + "번째 문항 제거") {
 					$("#jaso_index" + data_num).remove();
 					$("#jaso_question" + data_num).remove();
 					$("#jaso_answer" + data_num).remove();
