@@ -19,7 +19,10 @@ public class JasoWriteRegisterAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "jasowrite/jasowrite.jsp";
+		
+		String url = "resume_management.unicol";
+		
+		int flag = 1;
 		
 		int jaso_cnt = Integer.parseInt(request.getParameter("jaso_cnt"));
 		String title = request.getParameter("jaso_title");
@@ -38,6 +41,8 @@ public class JasoWriteRegisterAction implements Action{
 				jwDao.jasoWriteRegister(jwDto);
 			}
 		}
+		
+		request.setAttribute("flag", flag);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

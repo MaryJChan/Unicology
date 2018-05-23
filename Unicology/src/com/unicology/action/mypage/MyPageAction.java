@@ -8,14 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-
 import com.unicology.action.Action;
 import com.unicology.action.ActionForward;
 import com.unicology.dao.mypage.MemberUpdateDAO;
-import com.unicology.dao.mypage.ScrapDAO;
 import com.unicology.dto.member.MemberDTO;
-import com.unicology.dto.mypage.ScrapDTO;
 
 public class MyPageAction implements Action {
 
@@ -44,6 +40,13 @@ public class MyPageAction implements Action {
 			request.setAttribute("memUpdateList", memUpdateList);
 			
 		}
+		
+		if(request.getParameter("flag") != null) {
+			int flag = Integer.parseInt(request.getParameter("flag"));
+			if(flag == 1) {
+				request.setAttribute("flag", flag);
+			}
+		}		
 		
 		ActionForward forward = new ActionForward();
         forward.setPath(url);

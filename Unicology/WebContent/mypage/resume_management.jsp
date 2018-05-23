@@ -519,8 +519,10 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
-
+		var flag = "${flag}";
+		if(flag == 1) {
+			location.href="mypage.unicol?flag=" + flag;
+		}
 		// 자기소개서 수정버튼 클릭시
 	    $(".cmodify_btn").on("click", function() {
 	    	var rnum = $(this).attr("data_num");

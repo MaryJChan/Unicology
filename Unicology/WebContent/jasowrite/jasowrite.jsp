@@ -384,11 +384,6 @@
 		// 새자소서 작성 모달창 확인버튼 클릭시 value값들 초기화 코드
 		if(text == "새 자소서 작성") {
 			$("#jasowrite_title").text("새 자기소개서");
-			/* $("#jasowrite_question").val("");
-			$("#jasowrite_answer").val("");
-			$(".jaso_question").val("");
-			$(".jaso_answer").val("");
-			$("#jasowritejasowritemodal").css("display", "none"); */
 			location.href = "jasowrite.unicol";
 		} 
 		// 맞춤법검사 모달창 확인버튼 클릭시 코드
@@ -427,6 +422,9 @@
 				$("#jaso_form").append("<input type='hidden' name='jaso_index" + data_num + "' id='jaso_index" + data_num + "' data_num ='" + data_num + " class='jaso_index' value='" + data_num + "'>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
+				
+				$("#select_jaso_num" + data_num).click();
+				
 			} 
 			// 자소서 작성 페이지 제거 클릭시 코드
 			else if ($(this).text() == "-") {
@@ -444,8 +442,8 @@
 	
 	// 자소서 작성 페이지 클릭시 css 및 value값 저장, 뿌려주는 코드
 	$(document).on("click", ".select_jaso_num", function(){
-		$(".select_jaso_num").css("width", "38px").css("background-color", "white").css("color", "#6495ed").css("margin-left", "7px")
-		$(this).css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0")
+		$(".select_jaso_num").css("width", "38px").css("background-color", "white").css("color", "#6495ed").css("margin-left", "7px");
+		$(this).css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
 		var data_num = $("#jasowrite_question").attr("data_num");
 		var data_num2 = $(this).attr("data_num");
 		
@@ -507,7 +505,13 @@
 					$("#jaso_num_wrap" + data_num).remove();
 					$("#jasowritejasowritemodal").css("display", "none");
 					$(".delete_jaso_num").attr("class", "hide delete_jaso_num");
-					$("a[data_num=1]").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
+					$(".select_jaso_num").css("width", "38px").css("background-color", "white").css("color", "#6495ed").css("margin-left", "7px");
+					$(".jaso_num_wrap:first-child > a").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
+					var data_num2 = $(".jaso_num_wrap:first-child > a").attr("data_num");
+					var answer = $("#jaso_answer" + data_num2).val();
+					var question = $("#jaso_question" + data_num2).val();
+					$("#jasowrite_question").val(question);
+					$("#jasowrite_answer").val(answer);
 				}
 			});
 		}

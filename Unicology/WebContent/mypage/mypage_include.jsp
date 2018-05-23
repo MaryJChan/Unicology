@@ -554,7 +554,21 @@
 <script type="text/javascript">
 	
 	$(document).ready(function() {
-		mypage();
+		var flag = "${flag}";
+		if(flag == 1) {
+			$.ajax({
+				//서블릿이 어디로 갈건지 
+				url: "resume_management.unicol",
+				type: "POST",
+				/* data: "bno=" + bno, */
+				success: function(result) {
+					$("#resumelistTitle_wrap").html(result);
+				}
+			});
+
+		} else {
+			mypage();	
+		}
 		
 		$(".recruit_list_navigation li").on("click", function() {
 			$(".recruit_list_navigation li").removeClass('on');
