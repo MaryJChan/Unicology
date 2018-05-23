@@ -15,6 +15,7 @@ import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
 import com.unicology.action.jasoanalysis.JasoAnalysisAction;
 import com.unicology.action.jasowrite.JasoModifyAction;
+import com.unicology.action.jasowrite.JasoModifyUpdateAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
 import com.unicology.action.jasowrite.JasoWriteRegisterAction;
 import com.unicology.action.member.ConstractAction;
@@ -97,6 +98,9 @@ public class UnicolFrontController extends HttpServlet{
  	    // ======================= 자소서 수정 페이지 ======================= //
  		else if (command.equals("/jasoModify.unicol")) {
  			action = new JasoModifyAction();	
+			forward = action.excute(request, response);
+ 		} else if (command.equals("/jasowriteupdate.unicol")) {
+ 			action = new JasoModifyUpdateAction();	
 			forward = action.excute(request, response);
  		}
  		

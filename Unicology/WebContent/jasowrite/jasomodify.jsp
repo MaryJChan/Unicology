@@ -487,10 +487,9 @@
 			<a href="#" class="select_jaso_pm"  id="">+</a>
 			<a href="#" class="select_jaso_pm"  id="">-</a>
 		</div>
-		<c:forEach items="${jasoModifyList}" var="jasoModifyList">
 		<div id="jasowrite_title_wrap">
 			<div id="jasowrite_title_info">
-				<span id="jasowrite_title">${jasoModifyList.title}</span>
+				<span id="jasowrite_title">${jasoModifyList.get(0).title}</span>
 				<a href="#" id="jasowrite_title_change">변경</a>
 			</div>
 		</div>
@@ -512,7 +511,6 @@
 				</div>
 			</div>
 		</div>
-		</c:forEach>
 	</div>
 	<div id="jasowrite_rimot_wrap">
 		<div id="jasowrite_rimot_area">

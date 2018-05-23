@@ -161,7 +161,7 @@
 		top: 37px;
 	}
 	.select_jaso_num {
-		display: block;
+		display: inline-block;
 		text-align: center;
 		color: #6495ed;
 		font-size: 14px;
@@ -288,6 +288,30 @@
 		font-size: 15px;
 		font-weight: bold;
 	}
+	.delete_jaso_num {
+		display: inline-block;
+		font-size: 10px;
+		color: white;
+		background-color: #999;
+		border-radius: 100px;
+		width: 14px;
+		height: 14px;
+		line-height: 14px;
+		float: left;
+		margin: 5px 0 0 5px;
+		text-align: center;
+		position: absolute;
+		left: 2px;
+		top: 2px;
+		cursor: pointer;
+		z-index: 100;
+	}
+	.hide {
+		display: none;
+	}
+	.jaso_num_wrap {
+		position: relative;
+	}
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -309,7 +333,7 @@
 		// 자소서작성 페이지 접속시
 		$(".jasowrite_title_write").val($("#jasowrite_title").text());
 		$("#jaso_title").val($("#jasowrite_title").text());	
-		$("a[data_num=1]").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0")
+		$("a[data_num=1]").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
 	
 		// 자소서 제목 모달창 인풋태그 작성시 제목란 text값 Update 코드
 		$(".jasowrite_title_write").keyup(function(){
@@ -360,11 +384,12 @@
 		// 새자소서 작성 모달창 확인버튼 클릭시 value값들 초기화 코드
 		if(text == "새 자소서 작성") {
 			$("#jasowrite_title").text("새 자기소개서");
-			$("#jasowrite_question").val("");
+			/* $("#jasowrite_question").val("");
 			$("#jasowrite_answer").val("");
 			$(".jaso_question").val("");
 			$(".jaso_answer").val("");
-			$("#jasowritejasowritemodal").css("display", "none");
+			$("#jasowritejasowritemodal").css("display", "none"); */
+			location.href = "jasowrite.unicol";
 		} 
 		// 맞춤법검사 모달창 확인버튼 클릭시 코드
 		else if (text == "맞춤법 검사") {
@@ -383,7 +408,7 @@
 			$("#jaso_answer" + data_num).val(jaso_answer);
 			$("#jaso_cnt").val(cnt);
 			$("#jaso_form").submit();
-		}
+		} 
 	});
 	
 	// 자소서 작성 페이지 추가 제거 클릭시 코드
@@ -394,14 +419,23 @@
 		if(sessionUser !="") {
 			// 자소서 작성 페이지 추가 클릭시 코드
 			if($(this).text() == "+"){
-				$("#select_append").append("<a href='#' class='select_jaso_num' data_num='" + data_num + "'>" + data_num + "</a>");
+				var display = $(".delete_jaso_num").attr("class");
+				if (display == "delete_jaso_num") {
+					$(".delete_jaso_num").attr("class", "hide delete_jaso_num");
+				}
+				$("#select_append").append("<div id='jaso_num_wrap" + data_num + "' class='jaso_num_wrap' data_num ='" + data_num + "'><a href='#' class='select_jaso_num'  id='select_jaso_num" + data_num + "' data_num='" + data_num + "'>" + data_num + "</a><span class='hide delete_jaso_num' id='delete_jaso_num" + data_num + "' data_num='" + data_num + "'>Ⅹ</span></div>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_index" + data_num + "' id='jaso_index" + data_num + "' data_num ='" + data_num + " class='jaso_index' value='" + data_num + "'>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_question" + data_num + "' id='jaso_question" + data_num + "' data_num ='" + data_num + " class='jaso_question''>");
 				$("#jaso_form").append("<input type='hidden' name='jaso_answer" + data_num + "' id='jaso_answer" + data_num + "' data_num ='" + data_num + "class='jaso_answer''>");
 			} 
 			// 자소서 작성 페이지 제거 클릭시 코드
 			else if ($(this).text() == "-") {
-				
+				var display = $(".delete_jaso_num").attr("class");
+				if(display == "hide delete_jaso_num") {
+					$(".hide").attr("class", "delete_jaso_num");
+				} else if (display == "delete_jaso_num") {
+					$(".delete_jaso_num").attr("class", "hide delete_jaso_num");
+				}
 			}
 		} else {
 			$("#myModal").css("display", "block");
@@ -454,7 +488,30 @@
 			});
 		$("#jasowrite_answer").keyup();
 	});
-
+	
+	// 자소서 번호 삭제
+	$(document).on("click", ".delete_jaso_num", function(){
+		var sessionUser = "${sessionScope.loginUser.mid}";
+		var data_num = $(this).attr("data_num");
+		if(sessionUser !="") {
+			$(".new_jasowrite").text("자소서 제거");
+			$("#jasowritejasowritemodal").css("display", "block");
+			
+			$(".jasomodalY").on("click", function(){
+				var text = $(".new_jasowrite").text();
+				// 자소서 제거
+				if (text == "자소서 제거") {
+					$("#jaso_index" + data_num).remove();
+					$("#jaso_question" + data_num).remove();
+					$("#jaso_answer" + data_num).remove();
+					$("#jaso_num_wrap" + data_num).remove();
+					$("#jasowritejasowritemodal").css("display", "none");
+					$(".delete_jaso_num").attr("class", "hide delete_jaso_num");
+					$("a[data_num=1]").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
+				}
+			});
+		}
+	});
 </script>
 </head>
 <body>
@@ -469,7 +526,10 @@
 	<div id="jasowrite_wrap">
 		<div id="select_jaso">
 			<div id="select_append">
-				<a href="#" class="select_jaso_num"  data_num="1">1</a>
+				<div id="jaso_num_wrap1" class="jaso_num_wrap" data_num ="1">
+					<a href="#" class="select_jaso_num"  id="select_jaso_num1" data_num="1">1</a>
+					<span class="hide delete_jaso_num" id="delete_jaso_num1" data_num="1">Ⅹ</span>
+				</div>
 			</div>
 			<a href="#" class="select_jaso_pm"  id="">+</a>
 			<a href="#" class="select_jaso_pm"  id="">-</a>
