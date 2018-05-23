@@ -57,7 +57,7 @@ public class ScrapDAO {
 		return scrapResult;
 	}
 	
-	
+	// 스크랩 번호만 조회 
 	public List<ScrapDTO> selectScrapEno(String writer){
 		sqlSession = sqlSessionFactory.openSession();
 		List<ScrapDTO> scrapEnoList = new ArrayList<>();
@@ -73,4 +73,5 @@ public class ScrapDAO {
 		
 		return scrapEnoList;
 	}
+	
 }

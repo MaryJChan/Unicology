@@ -969,8 +969,9 @@
                                         <td class="deadline_info">
                                               <p class="deadline_btn"><a href="#">즉시지원</a></p>
                                               <p class="deadline_date">
-                                                    ~07/02(월)
-                                                    <span class="reg_date">(4일전등록)</span>
+                                              		${empInfoDto.deadlines}
+                                                    <!-- ~07/02(월) -->
+                                                   <!--  <span class="reg_date">(4일전등록)</span> -->
                                               </p>
                                         </td>
                                   </tr> 

@@ -161,4 +161,19 @@ public class EmpInfoDAO {
 		}
 	}
 	
+	// 스크랩 eno 를 이용해서 채용공고 조회하기 
+	public List<EmpInfoDTO> scrapSelect(int eno) {
+		sqlSession = sqlSessionFactory.openSession();
+		List<EmpInfoDTO> scrapList = new ArrayList<>(); 
+		try {
+			scrapList = sqlSession.selectList("scrapSelectView", eno);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return scrapList;
+	}
 }

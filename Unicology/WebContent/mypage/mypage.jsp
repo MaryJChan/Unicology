@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,6 +124,33 @@
 		box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.12);
 		display: block;
 		margin-top: 10px;
+	}
+	
+	#scrapCntNone {
+		background-color: #fff;
+		padding: 82px 30px;
+		box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.12);
+		margin-top: 10px;	
+		text-align: center;
+	} 
+	
+	#scrapCntNone p {
+		margin-bottom: 23px;
+		color: #888;
+		font-size: 14px;
+	}
+	
+	#scrapGo_btn {
+	    height: 32px;
+	    padding: 5px 13px 9px;
+	    border: 1px solid #5f75eb;
+	    box-sizing: border-box;
+	    background-color: #6b80f1;
+	    color: #fff;
+	    font-size: 13px;
+	    letter-spacing: -1px;
+	    line-height: normal;
+	    vertical-align: top;
 	}
 	
 	#desc {
@@ -723,11 +752,7 @@
 					$("#section_rightmenu").css("display","none");
 				}
 			});
-		
-			
-			
 		});
-		
 	});
 	
 	/* 우편번호 검색 */
@@ -800,178 +825,50 @@
 		<div id="recruit_Tab">
 			<ul class="recruit_list_navigation">
 				<li class="on"><a>스크랩 공고</a></li>
-				<li><a>관심기업 공고</a></li>
-				<li><a>test</a></li>
-				<li><a>test</a></li>
+				<li><a>관심기업</a></li>
+				<li><a>최근 본 공고 </a></li>
+				<li><a>맞춤 채용</a></li>
 			</ul>
 		</div>
 
 		<!-- 반복할 부분  -->
+		<c:forEach items="${empinfoListEno}" var="empinfoListEno">
 		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
+			<div id="desc">${empinfoListEno.companyName}</div>
 			<div id="summary_inner">
 				<ul id="info_list">
 					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
+					<li class="recruit_name">${empinfoListEno.title}</li>
+					<li class="recurit_sector">
+						<span>${empinfoListEno.career} </span> 
+						<span class="bar">|</span> 
+						<span>${empinfoListEno.education}</span> 
+						<span class="bar">|</span>
+						<span>${empinfoListEno.work_place}</span> 
+						<span class="bar">|</span> 
+						<span>${empinfoListEno.employmentType}</span>
 					</li>
 				</ul>
 
 				<div class="info_date">
-					<span>~05/04(금)</span><br>
+					<span>${empinfoListEno.deadlines}</span><br>
 					<button class="btn_immediately">
 						<span class="span_immediately">즉시지원</span>
 					</button>
 				</div>
 			</div>
 		</div>
-
-		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
-			<div id="summary_inner">
-				<ul id="info_list">
-					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
-					</li>
-				</ul>
-
-				<div class="info_date">
-					<span>~05/04(금)</span><br>
-					<button class="btn_immediately">
-						<span class="span_immediately">즉시지원</span>
-					</button>
-				</div>
-			</div>
+		</c:forEach>
+		
+		<c:if test="${empinfoListEno==null}">
+		<div id="scrapCntNone">
+			<p>스크랩 하신 채용공고가 없습니다.</p>
+			<p>지금 채용공고를 스크랩 해보세요.</p>
+			<a id="scrapGo_btn" href="joblist.unicol">채용공고로 이동하기</a>
 		</div>
-
-		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
-			<div id="summary_inner">
-				<ul id="info_list">
-					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
-					</li>
-				</ul>
-
-				<div class="info_date">
-					<span>~05/04(금)</span><br>
-					<button class="btn_immediately">
-						<span class="span_immediately">즉시지원</span>
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
-			<div id="summary_inner">
-				<ul id="info_list">
-					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
-					</li>
-				</ul>
-
-				<div class="info_date">
-					<span>~05/04(금)</span><br>
-					<button class="btn_immediately">
-						<span class="span_immediately">즉시지원</span>
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
-			<div id="summary_inner">
-				<ul id="info_list">
-					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
-					</li>
-				</ul>
-
-				<div class="info_date">
-					<span>~05/04(금)</span><br>
-					<button class="btn_immediately">
-						<span class="span_immediately">즉시지원</span>
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
-			<div id="summary_inner">
-				<ul id="info_list">
-					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
-					</li>
-				</ul>
-
-				<div class="info_date">
-					<span>~05/04(금)</span><br>
-					<button class="btn_immediately">
-						<span class="span_immediately">즉시지원</span>
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<div id="recruit_summary">
-			<div id="desc">한국디자인진흥원</div>
-			<div id="summary_inner">
-				<ul id="info_list">
-					<li class="company_name"></li>
-					<li class="recruit_name">2018년 중소중견기업 디자인인력지원사업 인력모집 공고</li>
-					<li class="recurit_sector"><span>신입 · 경력 </span> <span
-						class="bar">|</span> <span>학력무관</span> <span class="bar">|</span>
-						<span>서울전체</span> <span class="bar">|</span> <span>정규직, 계약직</span>
-					</li>
-				</ul>
-
-				<div class="info_date">
-					<span>~05/04(금)</span><br>
-					<button class="btn_immediately">
-						<span class="span_immediately">즉시지원</span>
-					</button>
-				</div>
-			</div>
-		</div>
+		</c:if>
 	</div>
 
-	<!-- 이력서 관리  -->
-	<div id="resume_management_wrap">
-		<div class="resume_management_title">
-			<h3>이력서 관리</h3>
-			<ul class="resume_guide">
-				<li>- 이력서는 <strong>최대5개</strong>까지 작성하여 등록 가능합니다.
-				</li>
-				<li>- 지원하고자 하는 회사마다 이력서 내용을 다르게 하여 지원 가능합니다.<br>
-					&nbsp;&nbsp;&nbsp;(입사지원을 한 후 이력서의 내용을 수정해도 이전에 지원한 이력서의 내용은 변경되지
-					않습니다.)
-				</li>
-				<li>- 인재정보는 1개의 이력서만 공개 가능합니다.</li>
-				<li></li>
-			</ul>
-		</div>
 
-
-	</div>
 </body>
 </html>

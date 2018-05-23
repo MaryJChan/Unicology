@@ -57,24 +57,27 @@ public class EmpInfoAction implements Action {
             	request.setAttribute("searchList", searchList);
             }
             
-         // 현재 로그인 계정 가져오기
+            // 현재 로그인 계정 가져오기
     		HttpSession session = request.getSession();
     		
     		MemberDTO mDto = (MemberDTO)session.getAttribute("loginUser");
-    		String writer = mDto.getMid();
-    		System.out.println("MyPageAction_writer : " + writer);
     		
-            // 채용공고 로드시 스크랩 번호 조회 
-            ScrapDAO sDao = ScrapDAO.getInstance();
-            List<ScrapDTO> scrapEnoList = sDao.selectScrapEno(writer);
-            
-            for (ScrapDTO scrapDTO : scrapEnoList) {
-            	System.out.println(scrapDTO.getScrap_eno());
-			}
-            request.setAttribute("scrapEnoList", scrapEnoList);
-            
-            
-           
+    		if(mDto != null) {
+    			String writer = mDto.getMid();
+    			
+    			// 채용공고 로드시 스크랩 번호 조회 
+        		if(writer != null) {
+        			
+        			ScrapDAO sDao = ScrapDAO.getInstance();
+                    List<ScrapDTO> scrapEnoList = sDao.selectScrapEno(writer);
+                    
+                    for (ScrapDTO scrapDTO : scrapEnoList) {
+                    	System.out.println(scrapDTO.getScrap_eno());
+        			}
+                    request.setAttribute("scrapEnoList", scrapEnoList);
+        		}
+    		}
+
             request.setAttribute("pageflag", pageflag);
             // 페이지 메이커 설정
             // 페이지 메이커 객체 생성
