@@ -80,4 +80,11 @@
 		WHERE title = #{title}
 	</update>
 	
+	<!-- 스크랩  eno 조회 -->
+	<select id="scrapEnoList" resultType="sDTO">
+		SELECT SCRAP_ENO 
+		  FROM UNICOL_SCRAP
+		 WHERE mid = #{mid}  
+	</select>
+	
 </mapper>

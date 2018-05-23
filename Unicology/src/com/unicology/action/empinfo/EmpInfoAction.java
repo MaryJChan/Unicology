@@ -15,6 +15,7 @@ import com.unicology.dto.empinfo.EmpInfoCriteriaDTO;
 import com.unicology.dto.empinfo.EmpInfoDTO;
 import com.unicology.dto.empinfo.EmpInfoPageMakerDTO;
 import com.unicology.dto.member.MemberDTO;
+import com.unicology.dto.mypage.ScrapDTO;
 public class EmpInfoAction implements Action {
       @Override
       public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
@@ -65,7 +66,13 @@ public class EmpInfoAction implements Action {
     		
             // 채용공고 로드시 스크랩 번호 조회 
             ScrapDAO sDao = ScrapDAO.getInstance();
-            sDao.selectScrapEno(writer);
+            List<ScrapDTO> scrapEnoList = sDao.selectScrapEno(writer);
+            
+            for (ScrapDTO scrapDTO : scrapEnoList) {
+            	System.out.println(scrapDTO.getScrap_eno());
+			}
+            request.setAttribute("scrapEnoList", scrapEnoList);
+            
             
            
             request.setAttribute("pageflag", pageflag);

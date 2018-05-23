@@ -46,13 +46,13 @@ public class EmpinfoSearchAction implements Action {
         empInfoCriDto.setCategory_check_keyword(checkboxResult);
         String[] checkboxParentResult = request.getParameterValues("checkboxParentResult");
         empInfoCriDto.setCategory_keyword(checkboxParentResult);
-/*        
+ 
         for (String chkBoxResult : checkboxResult) {
         	System.out.println(chkBoxResult);
 		}
         for (String chkParentresult : checkboxParentResult) {
         	System.out.println(chkParentresult);
-		}*/
+		}
         
         if(checkboxResult != null || checkboxParentResult != null) {
         	empInfoDao.empinfoSearchSelect(empInfoCriDto);

@@ -63,6 +63,7 @@ public class ScrapDAO {
 		List<ScrapDTO> scrapEnoList = new ArrayList<>();
 		
 		try {
+			scrapEnoList = sqlSession.selectList("scrapEnoList",writer);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

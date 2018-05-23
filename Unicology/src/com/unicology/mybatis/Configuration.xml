@@ -35,7 +35,8 @@
 		<typeAlias type="com.unicology.dto.jasowrite.JasoWriteDTO" alias="jwDTO"/>
 		<!-- 이력서 DTO -->
 		<typeAlias type="com.unicology.dto.resume.ResumeDTO" alias="rDTO"/>
-				
+		<!-- 스크랩 DTO  -->
+		<typeAlias type="com.unicology.dto.mypage.ScrapDTO" alias="sDTO"/>
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->

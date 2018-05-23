@@ -657,8 +657,13 @@
             
 		});
 
-		// 페이지 로드시 스크랩을 체크했으면 체크박스보여주지 않기 
-		
+		// 페이지 로드시 스크랩을 체크했으면 체크박스보여주지 않기		
+		var size = parseInt($(".enoscrap").length);
+		for (var i = 0; i < size; i++) {
+			var value = $(".enoscrap").eq(i).val();
+			alert(value);
+			$(".enochk[value=" + value + "]").remove();
+		}
 		
 		var scrapchk = [];
 		//스크랩 버튼 클릭 시
@@ -701,7 +706,12 @@
 	<input type="hidden" id="checkboxValues" name="checkboxValues">
 	<input type="hidden" id="keyCode" value="${keyCode}">
 	<input type="hidden" id="loginsession" value="${sessionScope.loginUser.mid}">
-	<input type="hidden" id ="keywordCount" value="${totalcount}">    
+	<input type="hidden" id ="keywordCount" value="${totalcount}">
+	
+	<c:forEach items="${scrapEnoList}" var="scrapEnoList">
+		<input type="hidden" class="enoscrap" id="enoscrap" value="${scrapEnoList.scrap_eno}">
+	</c:forEach>
+	    
 		<div id="inner_jogList">
 			<div class="jogList_content">
 				<div id="wrap_title">
