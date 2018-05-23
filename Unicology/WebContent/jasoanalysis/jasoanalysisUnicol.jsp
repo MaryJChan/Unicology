@@ -78,67 +78,6 @@
 		
 	}
 	
-	/* 핵심키워드 10개의 단어의 위치  */
-	.managementOffice01 {
-		position: absolute;
-		top: 20px;
-    	left: 203px;
-	}
-	
-	.managementOffice02 {
-		position: absolute;
-		top: 20px;
-		left: 365px;
-	}
-	
-	.managementOffice03 {
-		position: absolute;
-		top: 64px;
-		left: 203px;
-	}
-	
-	.managementOffice04 {
-		position: absolute;
-		top: 64px;
-		left: 365px;
-	}
-	
-	.managementOffice05 {
-		position: absolute;
-		top: 108px;
-		left: 203px;
-	}
-	
-	.managementOffice06 {
-		position: absolute;
-		top: 108px;
-		left: 365px;
-	}
-	
-	.managementOffice07 {
-		position: absolute;
-		top: 152px;
-		left: 203px;
-	}
-	
-	.managementOffice08 {
-		position: absolute;
-		top: 152px;
-		left: 365px;
-	}
-	
-	.managementOffice09 {
-		position: absolute;
-		top: 196px;
-		left: 203px;
-	}
-	
-	.managementOffice10 {
-		position: absolute;
-		top: 196px;
-		left: 365px;
-	}
-	
 	.keypointWrap {
 		width: 546px;
 		margin: 0 auto;
@@ -371,211 +310,71 @@
 							<h3 class="keypointTitle top10_title">KEYPOINT TOP10</h3>
 							<div class="top10_img group Management_Office">
 									<img src="image/keyword_img/Management_Office_top10.png">
-									<a class="managementOffice01" href="#">대학교</a>
-									<a class="managementOffice02" href="#">책임감</a>
-									<a class="managementOffice03" href="#">대학</a>
-									<a class="managementOffice04" href="#">고등학교</a>
-									<a class="managementOffice05" href="#">고등학교</a>
-									<a class="managementOffice06" href="#">고등학교</a>
-									<a class="managementOffice07" href="#">고등학교</a>
-									<a class="managementOffice08" href="#">고등학교</a>
-									<a class="managementOffice09" href="#">고등학교</a>
-									<a class="managementOffice10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Marketing_Advertising">
 									<img src="image/keyword_img/Marketing_Advertising_top10.png">
-									<a class="marketingAdvertising01" href="#">대학교</a>
-									<a class="marketingAdvertising02" href="#">책임감</a>
-									<a class="marketingAdvertising03" href="#">대학</a>
-									<a class="marketingAdvertising04" href="#">고등학교</a>
-									<a class="marketingAdvertising05" href="#">고등학교</a>
-									<a class="marketingAdvertising06" href="#">고등학교</a>
-									<a class="marketingAdvertising07" href="#">고등학교</a>
-									<a class="marketingAdvertising08" href="#">고등학교</a>
-									<a class="marketingAdvertising09" href="#">고등학교</a>
-									<a class="marketingAdvertising10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group IT_Internet">
 									<img src="image/keyword_img/IT_Internet_top10.png">
-									<a class="ITInternet01" href="#">대학교</a>
-									<a class="ITInternet02" href="#">책임감</a>
-									<a class="ITInternet03" href="#">대학</a>
-									<a class="ITInternet04" href="#">고등학교</a>
-									<a class="ITInternet05" href="#">고등학교</a>
-									<a class="ITInternet06" href="#">고등학교</a>
-									<a class="ITInternet07" href="#">고등학교</a>
-									<a class="ITInternet08" href="#">고등학교</a>
-									<a class="ITInternet09" href="#">고등학교</a>
-									<a class="ITInternet10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Design">
 									<img src="image/keyword_img/Design_top10.png">
-									<a class="design01" href="#">대학교</a>
-									<a class="design02" href="#">책임감</a>
-									<a class="design03" href="#">대학</a>
-									<a class="design04" href="#">고등학교</a>
-									<a class="design05" href="#">고등학교</a>
-									<a class="design06" href="#">고등학교</a>
-									<a class="design07" href="#">고등학교</a>
-									<a class="design08" href="#">고등학교</a>
-									<a class="design09" href="#">고등학교</a>
-									<a class="design10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Trade_Distribution">
 									<img src="image/keyword_img/Trade_Distribution_top10.png">
-									<a class="trade_Distribution01" href="#">대학교</a>
-									<a class="trade_Distribution02" href="#">책임감</a>
-									<a class="trade_Distribution03" href="#">대학</a>
-									<a class="trade_Distribution04" href="#">고등학교</a>
-									<a class="trade_Distribution05" href="#">고등학교</a>
-									<a class="trade_Distribution06" href="#">고등학교</a>
-									<a class="trade_Distribution07" href="#">고등학교</a>
-									<a class="trade_Distribution08" href="#">고등학교</a>
-									<a class="trade_Distribution09" href="#">고등학교</a>
-									<a class="trade_Distribution10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Sales_Customer">
 									<img src="image/keyword_img/Sales_Customer_top10.png">
-									<a class="sales_Customer01" href="#">대학교</a>
-									<a class="sales_Customer02" href="#">책임감</a>
-									<a class="sales_Customer03" href="#">대학</a>
-									<a class="sales_Customer04" href="#">고등학교</a>
-									<a class="sales_Customer05" href="#">고등학교</a>
-									<a class="sales_Customer06" href="#">고등학교</a>
-									<a class="sales_Customer07" href="#">고등학교</a>
-									<a class="sales_Customer08" href="#">고등학교</a>
-									<a class="sales_Customer09" href="#">고등학교</a>
-									<a class="sales_Customer10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Service">
 									<img src="image/keyword_img/Service_top10.png">
-									<a class="service01" href="#">대학교</a>
-									<a class="service02" href="#">책임감</a>
-									<a class="service03" href="#">대학</a>
-									<a class="service04" href="#">고등학교</a>
-									<a class="service05" href="#">고등학교</a>
-									<a class="service06" href="#">고등학교</a>
-									<a class="service07" href="#">고등학교</a>
-									<a class="service08" href="#">고등학교</a>
-									<a class="service09" href="#">고등학교</a>
-									<a class="service10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Research_Development">
 									<img src="image/keyword_img/Research_Development_top10.png">
-									<a class="researchDevelopment01" href="#">대학교</a>
-									<a class="researchDevelopment02" href="#">책임감</a>
-									<a class="researchDevelopment03" href="#">대학</a>
-									<a class="researchDevelopment04" href="#">고등학교</a>
-									<a class="researchDevelopment05" href="#">고등학교</a>
-									<a class="researchDevelopment06" href="#">고등학교</a>
-									<a class="researchDevelopment07" href="#">고등학교</a>
-									<a class="researchDevelopment08" href="#">고등학교</a>
-									<a class="researchDevelopment09" href="#">고등학교</a>
-									<a class="researchDevelopment10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Production_Manufacturing">
 									<img src="image/keyword_img/Production_Manufacturing_top10.png">
-									<a class="productionManufacturing01" href="#">대학교</a>
-									<a class="productionManufacturing02" href="#">책임감</a>
-									<a class="productionManufacturing03" href="#">대학</a>
-									<a class="productionManufacturing04" href="#">고등학교</a>
-									<a class="productionManufacturing05" href="#">고등학교</a>
-									<a class="productionManufacturing06" href="#">고등학교</a>
-									<a class="productionManufacturing07" href="#">고등학교</a>
-									<a class="productionManufacturing08" href="#">고등학교</a>
-									<a class="productionManufacturing09" href="#">고등학교</a>
-									<a class="productionManufacturing10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Education">
 									<img src="image/keyword_img/Education_top10.png">
-									<a class="education01" href="#">대학교</a>
-									<a class="education02" href="#">책임감</a>
-									<a class="education03" href="#">대학</a>
-									<a class="education04" href="#">고등학교</a>
-									<a class="education05" href="#">고등학교</a>
-									<a class="education06" href="#">고등학교</a>
-									<a class="education07" href="#">고등학교</a>
-									<a class="education08" href="#">고등학교</a>
-									<a class="education09" href="#">고등학교</a>
-									<a class="education10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Build">
 									<img src="image/keyword_img/Build_top10.png">
-									<a class="build01" href="#">대학교</a>
-									<a class="build02" href="#">책임감</a>
-									<a class="build03" href="#">대학</a>
-									<a class="build04" href="#">고등학교</a>
-									<a class="build05" href="#">고등학교</a>
-									<a class="build06" href="#">고등학교</a>
-									<a class="build07" href="#">고등학교</a>
-									<a class="build08" href="#">고등학교</a>
-									<a class="build09" href="#">고등학교</a>
-									<a class="build10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Medical_Treatment">
 									<img src="image/keyword_img/Medical_Treatment_top10.png">
-									<a class="medicalTreatment01" href="#">대학교</a>
-									<a class="medicalTreatment02" href="#">책임감</a>
-									<a class="medicalTreatment03" href="#">대학</a>
-									<a class="medicalTreatment04" href="#">고등학교</a>
-									<a class="medicalTreatment05" href="#">고등학교</a>
-									<a class="medicalTreatment06" href="#">고등학교</a>
-									<a class="medicalTreatment07" href="#">고등학교</a>
-									<a class="medicalTreatment08" href="#">고등학교</a>
-									<a class="medicalTreatment09" href="#">고등학교</a>
-									<a class="medicalTreatment10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Media">
 									<img src="image/keyword_img/Media_top10.png">
-									<a class="media01" href="#">대학교</a>
-									<a class="media02" href="#">책임감</a>
-									<a class="media03" href="#">대학</a>
-									<a class="media04" href="#">고등학교</a>
-									<a class="media05" href="#">고등학교</a>
-									<a class="media06" href="#">고등학교</a>
-									<a class="media07" href="#">고등학교</a>
-									<a class="media08" href="#">고등학교</a>
-									<a class="media09" href="#">고등학교</a>
-									<a class="media10" href="#">고등학교</a>
 								
 							</div>
 							
 							<div class="top10_img group Proffesional">
 									<img src="image/keyword_img/Proffesional_top10.png">
-									<a class="proffesional01" href="#">대학교</a>
-									<a class="proffesional02" href="#">책임감</a>
-									<a class="proffesional03" href="#">대학</a>
-									<a class="proffesional04" href="#">고등학교</a>
-									<a class="proffesional05" href="#">고등학교</a>
-									<a class="proffesional06" href="#">고등학교</a>
-									<a class="proffesional07" href="#">고등학교</a>
-									<a class="proffesional08" href="#">고등학교</a>
-									<a class="proffesional09" href="#">고등학교</a>
-									<a class="proffesional10" href="#">고등학교</a>
 								
 							</div>
 							
@@ -653,59 +452,59 @@
 							<h3 class="top2040_title">TOP20-40</h3>
 							<!-- 이미지 추가시 될 작업 -->
 							<div class="top2040_img group Management_Office">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Management_Office.png">
 							</div>
 							
 							<div class="top2040_img group Marketing_Advertising">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Marketing_Advertising1.png">
 							</div>
 							
 							<div class="top2040_img group IT_Internet">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/IT_Internet.png">
 							</div>
 							
 							<div class="top2040_img group Design">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Design.png">
 							</div>
 							
 							<div class="top2040_img group Trade_Distribution">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Trade_Distribution.png">
 							</div>
 							
 							<div class="top2040_img group Sales_Customer">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Sales_Customer.png">
 							</div>
 							
 							<div class="top2040_img group Service">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Service.png">
 							</div>
 							
 							<div class="top2040_img group Research_Development">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Research_Development.png">
 							</div>
 							
 							<div class="top2040_img group Production_Manufacturing">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Production_Manufacturing.png">
 							</div>
 							
 							<div class="top2040_img group Education">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Education.png">
 							</div>
 							
 							<div class="top2040_img group Build">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Build.png">
 							</div>
 							
 							<div class="top2040_img group Medical_Treatment">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Medical_Treatment.png">
 							</div>
 							
 							<div class="top2040_img group Media">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Media.png">
 							</div>
 							
 							<div class="top2040_img group Proffesional">
-								<img alt="" src="image/jasoanalys_img/managementOffice_top2040.png">
+								<img alt="" src="image/keyword_img/Proffesional.png">
 							</div>
 							
 						</div>
