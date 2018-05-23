@@ -16,29 +16,40 @@ public class JasoModifyUpdateAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "jasowrite/jasowrite.jsp";
 		
-		Integer num = Integer.parseInt(request.getParameter("jaso_num"));
-		int jaso_cnt = Integer.parseInt(request.getParameter("jaso_cnt"));
-		String title = request.getParameter("jaso_title");
-		String writer = request.getParameter("jaso_writer");
-		
-		JasoWriteDTO jwDto = null;
-		JasoWriteDAO  jwDao = JasoWriteDAO.getInstance();
-		
-		jwDao.jasoWriteDelete(num);
-		
-		num = jwDao.jasoWriteSelectNum();
-		
-		for (int i = 1; i < jaso_cnt+1; i++) {
-			int jindex = Integer.parseInt(request.getParameter("jaso_index" + i));
-			String question = request.getParameter("jaso_question" + i);
-			String answer = request.getParameter("jaso_answer" + i);
-			if(question != null) {
-				jwDto = new JasoWriteDTO(num ,title, jindex, question, answer, writer);
-				jwDao.jasoWriteRegister(jwDto);
+		String url = "resume_management.unicol";
+		int flag = 0;
+		System.out.println(request.getParameter("flag"));
+		if(request.getParameter("flag") != null) {
+			flag = Integer.parseInt(request.getParameter("flag"));
+			
+			if(flag != 1) {
+				Integer num = Integer.parseInt(request.getParameter("jaso_num"));
+				int jaso_cnt = Integer.parseInt(request.getParameter("jaso_cnt"));
+				String title = request.getParameter("jaso_title");
+				String writer = request.getParameter("jaso_writer");
+				
+				JasoWriteDTO jwDto = null;
+				JasoWriteDAO  jwDao = JasoWriteDAO.getInstance();
+				
+				jwDao.jasoWriteDelete(num);
+				
+				num = jwDao.jasoWriteSelectNum();
+				
+				for (int i = 1; i < jaso_cnt+1; i++) {
+					int jindex = Integer.parseInt(request.getParameter("jaso_index" + i));
+					String question = request.getParameter("jaso_question" + i);
+					String answer = request.getParameter("jaso_answer" + i);
+					if(question != null) {
+						jwDto = new JasoWriteDTO(num ,title, jindex, question, answer, writer);
+						jwDao.jasoWriteRegister(jwDto);
+					}
+				}
 			}
 		}
+		flag = 1;
+		
+		request.setAttribute("flag", flag);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);

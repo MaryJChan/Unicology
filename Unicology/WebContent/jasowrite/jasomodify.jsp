@@ -366,8 +366,9 @@
 				$("#jaso_writer").val(sessionUser);
 				$(".new_jasowrite").text("자소서 저장");
 				$("#jasowritejasowritemodal").css("display", "block");
-			} else if (rimot_option == "불러오기") {
-				$("#myModal").css("display", "block");
+			} else if (rimot_option == "자소서 관리") {
+				$(".new_jasowrite").text("자소서 관리");
+				$("#jasowritejasowritemodal").css("display", "block");
 			}
 		} else {
 			$("#myModal").css("display", "block");
@@ -395,6 +396,7 @@
 		// 맞춤법검사 모달창 확인버튼 클릭시 코드
 		else if (text == "맞춤법 검사") {
 			alert("맞춤법 검사");
+			$("#jasowritejasowritemodal").css("display", "none");
 		} 
 		// 저장하기 모달창 확인버튼 클릭시 코드
 		else if (text == "자소서 저장") {
@@ -410,6 +412,8 @@
 			
 			$("#jaso_cnt").val(cnt);
 			$("#jaso_form").submit();
+		} else if (text == "자소서 관리") {
+			location.href = "jasowriteupdate.unicol?flag=1";
 		}
 	});
 	
@@ -501,38 +505,20 @@
 				var text = $(".new_jasowrite").text();
 				// 자소서 제거
 				if (text == "자소서 제거") {
-					$.ajax({
-						// 가야할 서블릿 지정
-						url : "jasodelete.unicol",
-						// 방식 지정 [GET | POST]
-						type : "POST",
-						// 타입 지정
-						dataType : "JSON",
-						// 쿼리스트링과 같은 =에 공백X     //data를 dataTpye가방에 담아 type방식으로 url로 보냄
-						data : "writer=" + sessionUser + "&jindex=" + data_num,
-						//성공했을때	
-						success : function(data) {
-							if (data.flag == "1") {
-								$("#jaso_index" + data_num).remove();
-								$("#jaso_question" + data_num).remove();
-								$("#jaso_answer" + data_num).remove();
-								$("#jaso_num_wrap" + data_num).remove();
-								$("#jasowritejasowritemodal").css("display", "none");
-								$(".delete_jaso_num").attr("class", "hide delete_jaso_num");
-								$(".select_jaso_num").css("width", "38px").css("background-color", "white").css("color", "#6495ed").css("margin-left", "7px");
-								$(".jaso_num_wrap:first-child > a").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
-								var data_num2 = $(".jaso_num_wrap:first-child > a").attr("data_num");
-								var answer = $("#jaso_answer" + data_num2).val();
-								var question = $("#jaso_question" + data_num2).val();
-								$("#jasowrite_question").val(question);
-								$("#jasowrite_answer").val(answer);
-							}
-						},
-						//실패했을떄
-						error : function(data) {
-							alert("System Error!!!");
-						}
-					});
+					$("#jaso_index" + data_num).remove();
+					$("#jaso_question" + data_num).remove();
+					$("#jaso_answer" + data_num).remove();
+					$("#jaso_num_wrap" + data_num).remove();
+					$("#jasowritejasowritemodal").css("display", "none");
+					$(".delete_jaso_num").attr("class", "hide delete_jaso_num");
+					$(".select_jaso_num").css("width", "38px").css("background-color", "white").css("color", "#6495ed").css("margin-left", "7px");
+					$(".jaso_num_wrap:first-child > a").css("width", "50px").css("background-color", "#6495ed").css("color", "white").css("margin-left", "0");
+					$(".jaso_num_wrap:first-child > a").click();
+					var data_num2 = $(".jaso_num_wrap:first-child > a").attr("data_num");
+					var answer = $("#jaso_answer" + data_num2).val();
+					var question = $("#jaso_question" + data_num2).val();
+					$("#jasowrite_question").val(question);
+					$("#jasowrite_answer").val(answer);
 				}
 			});
 		}
@@ -606,8 +592,8 @@
 				<div id="jasowrite_rimot_save">저장하기</div>
 			</div>
 			<div class="jasowirte_rimot_option">
-				<img alt="" src="">
-				<div id="jasowrite_rimot_load">불러오기</div>
+				<img alt="자소서 관리" src="image/jasowrite_img/folder.png">
+				<div id="jasowrite_rimot_load">자소서 관리</div>
 			</div>
 		</div>
 	</div>			

@@ -183,6 +183,7 @@
 		vertical-align: top;
 	}
 	#passJaso_Head_Title {
+		cursor: pointer;
 		display: inline-block;
 		color: #444;
 		font-size: 32px;
@@ -273,20 +274,15 @@
 	$(document).on("click", "#search_btn", function(){
 		var searchKeyword = $("#passJaso_Search").val();
 		
-		if(searchKeyword == "") {
-			alert("키워드를 입력하세요.");
-			$("#passJaso_Search").focus();
-		} else {
-			var selectOption = $("#passJaso_Option").text();
+		var selectOption = $("#passJaso_Option").text();
 			
-			if(selectOption == "C#"){
-				selectOption = "C+%23";
-			} else if (selectOption == "C++") {
-				selectOption = "C+%2B+%2B";
-			}
-			location.href="passjasooption.unicol?selectOption=" + selectOption + "&searchKeyword=" + searchKeyword;
+		if(selectOption == "C#"){
+			selectOption = "C+%23";
+		} else if (selectOption == "C++") {
+			selectOption = "C+%2B+%2B";
 		}
-		
+		location.href="passjasooption.unicol?selectOption=" + selectOption + "&searchKeyword=" + searchKeyword;
+	
 	});
 	
 	$('html').click(function(e) {
@@ -295,6 +291,9 @@
 		} 
 	}); 
 
+	$(document).on("click", "#passJaso_Head_Title", function(){
+		location.href="passjaso.unicol";
+	});
 </script>
 </head>
 <body>
