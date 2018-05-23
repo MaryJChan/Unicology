@@ -7,8 +7,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body,url{
+		margin: 0;
+		padding: 0;
+	}
+	.resumeView{
+		background-color: #f2f4f7;
+		height: 500px;
+	}
+	.resume_container{
+		width: 80%;
+		margin: 0 auto;
+		border: 1px solid black;
+	}
+	
+</style>
 </head>
 <body>
-
+<%@include file="../include/header.jsp"%>
+	<div class="resumeView">
+		<div class="resume_container">
+		
+		</div>
+	</div>
+<%@include file="../include/footer.jsp"%>
 </body>
 </html>

@@ -20,9 +20,6 @@ public class ResumeAction implements Action{
 			
 		String url = "resume/resume.jsp";
 		
-		
-		
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

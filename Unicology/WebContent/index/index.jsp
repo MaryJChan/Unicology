@@ -104,8 +104,30 @@
       #info1_text{
       	background-color: #FEFEFE;
       	height: 370px;
-      	padding:0 50px;
+      	padding:1px 50px;
       	word-wrap: normal;
+      	position: relative;
+      }
+      #info1_div1{
+   	    padding: 67px 30px;
+	    font-size: 15px;
+	    font-weight: bold;
+	    width: 190px;
+	    display: inline-block;
+      }
+      #info1_div2{
+      	height: 200px;
+	    width: 200px;
+	    display: inline-block;
+	    vertical-align: middle;
+      }
+       #info1_div2 > img{
+      	width: 155px;
+	    display: inline-block;
+	    padding-left: 50px;
+      }
+      .info1_p{
+      	color: #8CAF51;
       }
       #Index_function_info_wrap2{
       		width: 100%;
@@ -145,8 +167,28 @@
       #info2_text{
       	background-color: #FEFEFE;
       	height: 370px;
-      	padding:0 50px;
+      	padding:1px 50px;
       	word-wrap: normal;
+      	position: relative;
+      }
+      #info2_div1{
+   	    padding: 65px 22px;
+	    font-size: 15px;
+	    font-weight: bold;
+	    width: 241px;
+	    display: inline-block;
+      }
+      #info2_div2{
+      	height: 200px;
+	    width: 200px;
+	    display: inline-block;
+	    vertical-align: middle;
+      }
+      #info2_div2>img{
+      	width: 155px;
+      }
+      .info2_p{
+      	color: #4EA3AF;
       }
       #Index_function_info_wrap3{
       		width: 100%;
@@ -187,10 +229,29 @@
       #info3_text{
       	background-color: #FEFEFE;
       	height: 370px;
-      	padding:0 50px;
+      	padding:1px 50px;
       	word-wrap: normal;
+      	position: relative;
       }
-      
+      #info3_div1{
+   	    padding: 65px 34px;
+	    font-size: 15px;
+	    font-weight: bold;
+	    width: 225px;
+	    display: inline-block;
+      }
+      #info3_div2{
+      	height: 200px;
+	    width: 200px;
+	    display: inline-block;
+	    vertical-align: middle;
+      }
+      #info3_div2>img{
+      	width: 155px;
+      }
+      .info3_p{
+      	color: #AF4E5E;
+      }
       #scroll_top{
       	width: 80px;
       	height: 80px;
@@ -288,7 +349,9 @@
       	border-radius: 8px;
       	margin: 0 auto;
       	text-align: center;
-      	margin-top: 250px;
+      	position: absolute;
+      	right: 180px;
+      	bottom: 50px;
       }
       #go_keyword{
       	background-color: #4EA3AF;
@@ -302,7 +365,9 @@
       	border-radius: 8px;
       	margin: 0 auto;
       	text-align: center;
-      	margin-top: 250px;
+      	position: absolute;
+      	right: 155px;
+      	bottom: 50px;
       }
       #go_resume{
       	background-color: #AF4E5E;
@@ -316,7 +381,9 @@
       	border-radius: 8px;
       	margin: 0 auto;
       	text-align: center;
-      	margin-top: 250px;
+      	position: absolute;
+      	right: 195px;
+      	bottom: 50px;
       }
       #example_keyword{
       	height: 480px;
@@ -412,8 +479,16 @@
 	            			자기소개서 작성
 	            		</div>
 	            		<div id="info1_text">
-	            			원하는 기업을 선택하면 기업에 맞는 자소서 작성가능 + 
-	            			합격자소서  문구 랜덤 선택~ (설명)
+	            			<div>
+	            				<div id="info1_div1">
+	            					<p class="info1_p">① 자기소개서 글자수 카운팅</p>
+	            					<p>② 간편한 사용법</p>
+	            					<p class="info1_p">③ 자기소개서 맞춤법 검사</p>
+	            				</div>
+	            				<div id="info1_div2">
+	            					<img alt="inspecting" src="image/index_Img/inspection.png">
+	            				</div>
+	            			</div>
 	            			<a href="jasowrite.unicol" id="go_write">자기소개서 작성페이지로 이동</a>
 	            		</div>
 	            	</div>
@@ -427,7 +502,16 @@
 	            			직무별 합격자소서의 핵심키워드 분석
 	            		</div>
 	            		<div id="info2_text">
-	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
+	            			<div>
+	            				<div id="info2_div1">
+	            					<p class="info2_p">① 합격자소서 열람</p>
+	            					<p>② 합격자소서에 많이 쓰인 단어추출</p>
+	            					<p class="info2_p">③ 한 눈에 보기쉬운 핵심키워드</p>
+	            				</div>
+	            				<div id="info2_div2">
+	            					<img alt="inspecting" src="image/index_Img/analysis.png">
+	            				</div>
+	            			</div>
 	            			<a href="jasoanalysis.unicol" id="go_keyword">자기소개서 핵심 키워드페이지로 이동</a>
 	            		</div>
 	            	</div>
@@ -441,7 +525,15 @@
 	            			이력서관리
 	            		</div>
 	            		<div id="info3_text">
-	            			빅데이터를 이용하여 자주나오는 키워드 분석 한눈에 보기쉽게~(설명)
+	            			<div style="padding-top: 30px;">
+	            				<div id="info3_div1">
+	            					<p class="info3_p">① 이력서 항목 추가/제거 가능</p>
+	            					<p>② 이력서 작성</p>
+	            				</div>
+	            				<div id="info3_div2">
+	            					<img alt="inspecting" src="image/index_Img/policy.png">
+	            				</div>
+	            			</div>
 	            			<a href="#" id="go_resume">이력서등록페이지로 이동</a>
 	            		</div>
 	            	</div>

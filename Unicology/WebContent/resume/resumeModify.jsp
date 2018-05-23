@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -619,8 +619,8 @@
             display: inline-block;
             outline: none;
             font-size: 16px;
-            padding: 0 15px;
-      }
+            padding:15px 15px 0 15px;
+	  }
       .award_div{
             display: inline-block;
       }
@@ -789,7 +789,7 @@
             height: 60px;
             color: #333;
             outline: none;
-            padding: 0 30px 0 15px;
+            padding: 15px 30px 0 15px;
             box-sizing: border-box;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -810,7 +810,7 @@
             height: 60px;
             color: #333;
             outline: none;
-            padding: 0 30px 0 15px;
+            padding: 15px 30px 0 15px;
             box-sizing: border-box;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -820,17 +820,17 @@
       }
       #country_end_label{
             position: absolute;
-            top: 40px;
+            top: 28px;
             left: 710px;
             color: gray;
-            font-size: 14px;
+            font-size: 11px;
       }
       #country_end{
             width:20%;
             height: 60px;
             color: #333;
             outline: none;
-            padding: 0 30px 0 15px;
+            padding: 15px 30px 0 15px;
             box-sizing: border-box;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -1116,10 +1116,11 @@
 <!-- //==========================================================성민resume(body시작)=========================================== -->
 <form action="resumeInsert.unicol" method="post" name="frm_resume" id="frm_resume" enctype="multipart/form-data">
       <div class="resume_page">
+            <c:forEach items="${resumeSearch}" var="resumeSearch">
             <div class="resume_inner_page1">
                  
                         <div class="resume_title">
-                              <input id="resume_title" name="resume_title" type="text" placeholder="기업에게 나에대해 알려보세요. 강점,목표,관심분야도 좋아요" maxlength="100">
+                              <input id="resume_title" name="resume_title" type="text" value="${resumeSearch.resume_title}" placeholder="기업에게 나에대해 알려보세요. 강점,목표,관심분야도 좋아요" maxlength="100">
                         </div>
                         <!-- 추가및 수정한 부분  -->
                         <!-- 인적사항 -->
@@ -1129,37 +1130,47 @@
                         		<div class="row">
                         			<div class="input value profile_name">
                         				<label for="UserName">이름</label>
-                        				<input type="text" name="UserName" id="UserName" value="세션이름" >
+                        				<input type="text" name="UserName" id="UserName" value="${resumeSearch.userName}">
                         			</div>
                         			<div class="input value profile_birth">
                         				<label for="UserBirth">생년월일</label>
-                        				<input type="text" id="UserBirth" name="UserBirth" value="세션생년월일">
+                        				<input type="text" id="UserBirth" name="UserBirth" value="${resumeSearch.userBirth}">
                         			</div>
                         			<div class="selectbox profile_sex">
                         				<label>성별</label>
                         				<select name="UserSex">
-                        					<option value="man">남자</option>
-                        					<option value="woman">여자</option>
+                        					<c:choose>
+                        						<c:when test="${resumeSearch.userSex=='man'}">
+		                        					<select name="UserSex">
+		                        					<option value="남자">남자</option>
+		                        					<option value="여자">여자</option>
+		                        					</select>
+	                        					</c:when>
+	                        					<c:when test="${resumeSearch.userSex=='woman'}">
+		                        					<option value="여자">여자</option>
+		                        					<option value="남자">남자</option>
+	                        					</c:when>
+                        					</c:choose>
                         				</select>
                         			</div>
                         			<div class="input value profile_email">
-                        				<label for="UserEmail">생년월일</label>
-                        				<input type="text" id="UserEmail" name="UserEmail" value="세션email">
+                        				<label for="UserEmail">Email</label>
+                        				<input type="text" id="UserEmail" name="UserEmail" value="${resumeSearch.userEmail}">
                         			</div>
                         		</div>
                         		<button type="button" class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value profile_tel">
                         				<label for="UserTel">전화번호</label>
-                        				<input type="text" name="UserTel" id="UserTel" value="" >
+                        				<input type="text" name="UserTel" id="UserTel"  value="${resumeSearch.userTel}">
                         			</div>
                         			<div class="input value profile_phone">
                         				<label for="UserPhone">휴대폰번호</label>
-                        				<input type="text" name="UserPhone" id="UserPhone" value="세션휴대폰" >
+                        				<input type="text" name="UserPhone" id="UserPhone"  value="${resumeSearch.userPhone}">
                         			</div>
                         			<div class="input value profile_adress">
                         				<label for="UserAdress">주소</label>
-                        				<input type="text" name="UserAdress" id="UserAdress" value="세션주소" >
+                        				<input type="text" name="UserAdress" id="UserAdress"  value="${resumeSearch.userAdress}">
                         			</div>
                         		</div>
 <!--                         		<button type="button" id="plus_img_btn">증명사진 <img alt="" id="imgplus_img" src="image/resume_img/plus.png"></button> -->
@@ -1174,30 +1185,60 @@
 	                        		<div class="selectbox school_grade" >
 	                        				<label>학교구분</label>
 	                        				<select name="SchoolGrade" style="letter-spacing: -1px; padding-left: 15px;">
-	                        					<option value="고등학교" >고등학교</option>
-												<option value="대학(2,3년)">대학(2,3년)</option>
-												<option value="대학교">대학교</option>
-												<option value="대학원">대학원</option>
+	                        					<c:choose>
+	                        						<c:when test="${resumeSearch.schoolGrade=='고등학교'}">
+			                        					<option value="고등학교" >고등학교</option>
+														<option value="대학(2,3년)">대학(2,3년)</option>
+														<option value="대학교">대학교</option>
+														<option value="대학원">대학원</option>
+													</c:when>
+													<c:when test="${resumeSearch.schoolGrade=='대학(2,3년)'}">
+														<option value="대학(2,3년)">대학(2,3년)</option>
+														<option value="고등학교" >고등학교</option>
+														<option value="대학교">대학교</option>
+														<option value="대학원">대학원</option>
+													</c:when>	
+													<c:when test="${resumeSearch.schoolGrade=='대학교'}">
+														<option value="대학교">대학교</option>
+														<option value="대학(2,3년)">대학(2,3년)</option>
+														<option value="고등학교" >고등학교</option>
+														<option value="대학원">대학원</option>
+													</c:when>
+													<c:when test="${resumeSearch.schoolGrade=='대학원'}">
+														<option value="대학원">대학원</option>
+														<option value="대학교">대학교</option>
+														<option value="대학(2,3년)">대학(2,3년)</option>
+														<option value="고등학교" >고등학교</option>
+													</c:when>	
+												</c:choose>
 	                        				</select>
 	                       			</div>
 	                       			<div class="input value school_name" style="margin: 0;  border-left: 0;">
 	                        				<label for="SchoolName">학교명</label>
-	                        				<input type="text" name="SchoolName" id="SchoolName" value="학교명" >
+	                        				<input type="text" name="SchoolName" id="SchoolName" value="${resumeSearch.schoolName}">
 	                       			</div>
 	                       			<div class="graduation_college" style="display: inline-block;">
 		                       			<div class="input value entrance_year">
 		                       				<label for="entranceYear">입학년도</label>
-		                       				<input type="text" name="entranceYear" id="entranceYear">
+		                       				<input type="text" name="entranceYear" id="entranceYear" value="${resumeSearch.entranceYear}">
 		                       			</div>
 		                       			<div class="input value graduation_year" style="margin-left: -10px;">
 		                       				<label for="graduationYear">졸업년도</label>
-		                       				<input type="text" name="graduationYear" id="graduationYear">
+		                       				<input type="text" name="graduationYear" id="graduationYear" value="${resumeSearch.graduationYear}">
 		                       			</div>
 		                       			<div class="selectbox graduation_status univ" style="margin: 0;">
 		                        				<label style="margin-left: -10px;">졸업상태</label>
 		                        				<select name="GraduationStatus" style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
-		                        					<option value="졸업">졸업</option>
-													<option value="졸업예정">졸업예정</option>
+		                        					<c:choose>
+		                        						<c:when test="${resumeSearch.graduationStatus=='졸업'}">
+				                        					<option value="졸업">졸업</option>
+															<option value="졸업예정">졸업예정</option>
+														</c:when>
+														<c:when test="${resumeSearch.graduationStatus=='졸업예정'}">
+				                        					<option value="졸업예정">졸업예정</option>
+				                        					<option value="졸업">졸업</option>
+														</c:when>
+													</c:choose>
 		                        				</select>
 		                       			</div>
 	                       			</div>
@@ -1206,19 +1247,41 @@
 	                        	<div class="row non_high" style="display: inline-block;">
 	                        		<div class="input value major" style="width: 465px;">
 			                       				<label for="major">전공명</label>
-			                       				<input type="text" name="major" id="major">
+			                       				<input type="text" name="major" id="major" value="${resumeSearch.major}">
 	                       			</div>
 	                       			<div class="input value major_grade" style="width: 105px;">
 		                       				<label for="majorGrade">학점</label>
-		                       				<input type="text" name="majorGrade" id="majorGrade">
+		                       				<input type="text" name="majorGrade" id="majorGrade" value="${resumeSearch.majorGrade}">
 	                       			</div>
 	                       			<div class="selectbox major_totalgrade">
 		                        				<label style="margin-left: -10px; ">총점</label>
 		                        				<select name="MajorTotalgrade" style="letter-spacing: -1px; padding-left: 15px; margin-left: 0; border-left: 0;">
-		                        					<option value="4.5">4.5</option>
-		                        					<option value="4.3">4.3</option>
-		                        					<option value="4.0">4.0</option>
-		                        					<option value="100">100</option>
+		                        					<c:choose>
+				                        				<c:when test="${resumeSearch.majorTotalgrade=='4.5'}">
+				                        					<option value="4.5">4.5</option>
+				                        					<option value="4.3">4.3</option>
+				                        					<option value="4.0">4.0</option>
+				                        					<option value="100">100</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.majorTotalgrade=='4.3'}">
+				                        					<option value="4.3">4.3</option>
+				                        					<option value="4.5">4.5</option>
+				                        					<option value="4.0">4.0</option>
+				                        					<option value="100">100</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.majorTotalgrade=='4.0'}">
+				                        					<option value="4.0">4.0</option>
+				                        					<option value="4.3">4.3</option>
+				                        					<option value="4.5">4.5</option>
+				                        					<option value="100">100</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.majorTotalgrade=='100'}">
+				                        					<option value="100">100</option>
+				                        					<option value="4.0">4.0</option>
+				                        					<option value="4.3">4.3</option>
+				                        					<option value="4.5">4.5</option>
+		                        						</c:when>
+		                        					</c:choose>
 		                        				</select>
 	                       			</div>
 	                        	</div>
@@ -1232,40 +1295,40 @@
                         		<div class="row">
                         			<div class="input value company" style="width: 278px;">
 			                       				<label for="company">회사명</label>
-			                       				<input type="text" name="company" id="company">
+			                       				<input type="text" name="company" id="company" value="${resumeSearch.company}">
 	                       			</div>
                         			<div class="input value division" style="width: 278px; margin-left: 0; border-left: 0;">
 			                       				<label for="division">부서명</label>
-			                       				<input type="text" name="division" id="division">
+			                       				<input type="text" name="division" id="division" value="${resumeSearch.division}">
 	                       			</div>
                         			<div class="input value joincom" style="width: 115px;">
 			                       				<label for="joincom">입사년월</label>
-			                       				<input type="text" name="joincom" id="joincom" placeholder="2016.03">
+			                       				<input type="text" name="joincom" id="joincom" placeholder="2016.03" value="${resumeSearch.joincom}">
 	                       			</div>
                         			<div class="input value resigncom" style="width: 115px; margin-left: 0; border-left: 0;">
 			                       				<label for="resigncom">퇴사년월</label>
-			                       				<input type="text" name="resigncom" id="resigncom" placeholder="2016.06">
+			                       				<input type="text" name="resigncom" id="resigncom" placeholder="2016.06" value="${resumeSearch.resigncom}">
 	                       			</div>
                         		</div>
                         		<button class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value position" style="width: 278px;">
 			                       				<label for="position">직급/직책</label>
-			                       				<input type="text" name="position" id="position">
+			                       				<input type="text" name="position" id="position" value="${resumeSearch.position}">
 	                       			</div>
 	                       			<div class="input value duty" style="width: 278px; margin-left: 0; border-left: 0;">
 			                       				<label for="duty">직무</label>
-			                       				<input type="text" name="duty" id="duty">
+			                       				<input type="text" name="duty" id="duty" value="${resumeSearch.duty}">
 	                       			</div>
 	                       			<div class="input value sal" style="width: 115px;">
 			                       				<label for="joincom">연봉</label>
-			                       				<input type="text" name="sal" id="sal" placeholder="">
+			                       				<input type="text" name="sal" id="sal" placeholder="" value="${resumeSearch.sal}">
 	                       			</div>
                         		</div>
                         		<div class="row">
 	                       			<div class="textarea value businesswork" style="width: 898px; height: 122px;">
 			                       				<label for="businesswork">담당업무</label>
-			                       				<textarea rows="30" cols="10" name="businesswork" id="businesswork" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요."></textarea>
+			                       				<textarea rows="30" cols="10" name="businesswork" id="businesswork" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요.">${resumeSearch.businesswork}</textarea>
 	                       			</div>
                         		</div>
                         	</div>
@@ -1279,32 +1342,76 @@
                         			<div class="selectbox intern_activity" style="width: 115px; margin: 0;">
 		                        				<label style="margin-left: 0;">활동구분</label>
 		                        				<select name="InternActivity" style="letter-spacing: -1px; padding-left: 15px;">
-		                        					<option value="인턴">인턴</option>
-		                        					<option value="아르바이트">아르바이트</option>
-		                        					<option value="동아리">동아리</option>
-		                        					<option value="자원봉사">자원봉사</option>
-		                        					<option value="사회활동">사회활동</option>
-		                        					<option value="교내활동">교내활동</option>
+		                        					<c:choose>
+		                        						<c:when test="${resumeSearch.internActivity=='인턴'}">
+				                        					<option value="인턴">인턴</option>
+				                        					<option value="아르바이트">아르바이트</option>
+				                        					<option value="동아리">동아리</option>
+				                        					<option value="자원봉사">자원봉사</option>
+				                        					<option value="사회활동">사회활동</option>
+				                        					<option value="교내활동">교내활동</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.internActivity=='아르바이트'}">
+				                        					<option value="아르바이트">아르바이트</option>
+				                        					<option value="인턴">인턴</option>
+				                        					<option value="동아리">동아리</option>
+				                        					<option value="자원봉사">자원봉사</option>
+				                        					<option value="사회활동">사회활동</option>
+				                        					<option value="교내활동">교내활동</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.internActivity=='동아리'}">
+				                        					<option value="동아리">동아리</option>
+				                        					<option value="아르바이트">아르바이트</option>
+				                        					<option value="인턴">인턴</option>
+				                        					<option value="자원봉사">자원봉사</option>
+				                        					<option value="사회활동">사회활동</option>
+				                        					<option value="교내활동">교내활동</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.internActivity=='자원봉사'}">
+				                        					<option value="자원봉사">자원봉사</option>
+				                        					<option value="아르바이트">아르바이트</option>
+				                        					<option value="인턴">인턴</option>
+				                        					<option value="동아리">동아리</option>
+				                        					<option value="사회활동">사회활동</option>
+				                        					<option value="교내활동">교내활동</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.internActivity=='사회활동'}">
+				                        					<option value="사회활동">사회활동</option>
+				                        					<option value="자원봉사">자원봉사</option>
+				                        					<option value="아르바이트">아르바이트</option>
+				                        					<option value="인턴">인턴</option>
+				                        					<option value="동아리">동아리</option>
+				                        					<option value="교내활동">교내활동</option>
+		                        						</c:when>
+		                        						<c:when test="${resumeSearch.internActivity=='교내활동'}">
+				                        					<option value="교내활동">교내활동</option>
+				                        					<option value="사회활동">사회활동</option>
+				                        					<option value="자원봉사">자원봉사</option>
+				                        					<option value="아르바이트">아르바이트</option>
+				                        					<option value="인턴">인턴</option>
+				                        					<option value="동아리">동아리</option>
+		                        						</c:when>
+		                        					</c:choose>
 		                        				</select>
 	                       			</div>
                         			<div class="input value interncompany" style="width: 514px; border-left: 0;">
 			                       				<label for="interncompany">회사/기관/단체명</label>
-			                       				<input type="text" name="interncompany" id="interncompany">
+			                       				<input type="text" name="interncompany" id="interncompany" value="${resumeSearch.interncompany}">
 	                       			</div>
 	                       			<div class="input value startintern" style="width: 115px;">
 			                       				<label for="startintern">시작년월</label>
-			                       				<input type="text" name="startintern" id="startintern" placeholder="2016.03">
+			                       				<input type="text" name="startintern" id="startintern" placeholder="2016.03" value="${resumeSearch.startintern}">
 	                       			</div>
                         			<div class="input value endintern" style="width: 115px; margin-left: 0; border-left: 0;">
 			                       				<label for="endintern">종료년월</label>
-			                       				<input type="text" name="endintern" id="endintern" placeholder="2016.06">
+			                       				<input type="text" name="endintern" id="endintern" placeholder="2016.06" value="${resumeSearch.endintern}">
 	                       			</div>
                         		</div>
                         		<button type="button" class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
 	                       			<div class="textarea value interncontent" style="width: 898px; height: 122px;">
 			                       				<label for="interncontent">활동내용</label>
-			                       				<textarea rows="30" cols="10" name="interncontent" id="interncontent" placeholder="직무와 관련된 경험에 대해 (상황 - 노력 - 결과)순으로 작성하는 것이 좋습니다."></textarea>
+			                       				<textarea rows="30" cols="10" name="interncontent" id="interncontent" placeholder="직무와 관련된 경험에 대해 (상황 - 노력 - 결과)순으로 작성하는 것이 좋습니다.">${resumeSearch.interncontent}</textarea>
 	                       			</div>
                         		</div>
                         	</div>
@@ -1317,26 +1424,26 @@
                         		<div class="row">
                         			<div class="input value learningname" style="width: 310px;">
 			                       				<label for="learningname">교육명</label>
-			                       				<input type="text" name="learningname" id="learningname">
+			                       				<input type="text" name="learningname" id="learningname" value="${resumeSearch.learningname}">
 	                       			</div>
                         			<div class="input value learningorgan" style="width: 310px;">
 			                       				<label for="learningorgan">교육기관</label>
-			                       				<input type="text" name="learningorgan" id="learningorgan">
+			                       				<input type="text" name="learningorgan" id="learningorgan" value="${resumeSearch.learningorgan}">
 	                       			</div>
 	                       			<div class="input value startlearning" style="width: 115px;">
 			                       				<label for="startlearning">시작년월</label>
-			                       				<input type="text" name="startlearning" id="startlearning" placeholder="2016.03">
+			                       				<input type="text" name="startlearning" id="startlearning" placeholder="2016.03" value="${resumeSearch.startlearning}">
 	                       			</div>
                         			<div class="input value endlearning" style="width: 115px; margin-left: 0; border-left: 0;">
 			                       				<label for="endlearning">종료년월</label>
-			                       				<input type="text" name="endlearning" id="endlearning" placeholder="2016.06">
+			                       				<input type="text" name="endlearning" id="endlearning" placeholder="2016.06" value="${resumeSearch.endlearning}">
 	                       			</div>
                         		</div>
                         		<button type="button" class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="textarea value learningcontent" style="width: 898px; height: 122px;">
 			                       				<label for="learningcontent">교육내용</label>
-			                       				<textarea rows="30" cols="10" name="learningcontent" id="learningcontent" placeholder="이수하신 교육과정에 대해 적어주세요."></textarea>
+			                       				<textarea rows="30" cols="10" name="learningcontent" id="learningcontent" placeholder="이수하신 교육과정에 대해 적어주세요.">${resumeSearch.learningcontent}</textarea>
 	                       			</div>
                         		</div>
                         	</div>
@@ -1349,15 +1456,15 @@
                         		<div class="row">
                         			<div class="input value licensename" style="width: 450px;">
 			                       				<label for="licensename">자격증명</label>
-			                       				<input type="text" name="licensename" id="licensename">
+			                       				<input type="text" name="licensename" id="licensename" value="${resumeSearch.licensename}">
 	                       			</div>
                         			<div class="input value licensepublish" style="width: 284px;">
 			                       				<label for="licensepublish">발행처</label>
-			                       				<input type="text" name="licensepublish" id="licensepublish">
+			                       				<input type="text" name="licensepublish" id="licensepublish" value="${resumeSearch.licensepublish}">
 	                       			</div>
 	                       			<div class="input value startlearning" style="width: 115px;">
 			                       				<label for="startlearning">시작년월</label>
-			                       				<input type="text" name="startlicense" id="startlearning" placeholder="2016.03">
+			                       				<input type="text" name="startlicense" id="startlearning" placeholder="2016.03" value="${resumeSearch.startlicense}">
 	                       			</div>
                         		</div>
                         		<button type="button" class="x_btn" id="award_x">&times;</button>
@@ -1365,14 +1472,16 @@
                         	<button type="button" class="plus_btn_front"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">자격증 추가</button>
                         </div>
             	</div>
+            	</c:forEach>
       	</div>
 <!-- //==========================================================성민resume(body끝)=========================================== -->
 
 <!-- //==========================================================성민resume(body시작)=========================================== -->
       <!-- .unicology로 임의로 정함 -->
       <div class="resume_page">
+      <c:forEach items="${resumeSearch}" var="resumeSearch">
             <div class="resume_inner_page">
-                        
+                       
                         <!-- 수상 --------------------------------------------------------------------------------------------------------------->
                         <div class="award_box">
 	                        <!-- 수상1 -->
@@ -1380,26 +1489,26 @@
 	                        <div class="container" id="award_container">
 	                              <div class="award_div">
 	                                    <label for="award_title" id="award_title_label">수상명</label>
-	                                    <input type="text" name="award_title" id="award_title" class="award" maxlength="50">
+	                                    <input type="text" name="award_title" id="award_title" class="award" maxlength="50" value="${resumeSearch.award_title}">
 	                              </div>
 	                              <div class="award_div">
 	                                    <label for="award_inst" id="award_inst_label">수여기관</label>
-	                                    <input type="text" name="award_inst" id="award_inst" class="award">
+	                                    <input type="text" name="award_inst" id="award_inst" class="award" value="${resumeSearch.award_inst}">
 	                              </div>
 	                              <div class="award_div">
 	                                    <label for="award_year" id="award_year_label">연도</label>
-	                                    <input type="text" name="award_year" id="award_year" class="award">
+	                                    <input type="text" name="award_year" id="award_year" class="award" placeholder="2016.03" value="${resumeSearch.award_year}">
 	                              </div>
 	                              <button class="x_btn" type="button" id="award_x">&times;</button>
 	                              <div class="award_div" id="award_content_div">
 	                                    <label id="award_content_label" for="award_content">
 	                                        	  수여내용
-	                                          <textarea name="award_content" id="award_content" cols="30" rows="10" placeholder="수여 내용 및 결과를 자세히 입력해주세요."></textarea>
+	                                          <textarea name="award_content" id="award_content" cols="30" rows="10" placeholder="수여 내용 및 결과를 자세히 입력해주세요.">${resumeSearch.award_content}</textarea>
 	                                    </label>
 	                              </div>
 	                        </div>
 	                        <button type="button" class="plus_btn" id="award_plus_btn1"><img alt="plus" src="image/resume_img/plus_btn.png" id="award_btn">수상추가</button>
-	                        <!-- 수상2 -->
+	                      <!--   수상2 -->
 	                        <div class="container" id="award_container2">
 	                              <div class="award_div">
 	                                    <label for="award_title" id="award_title_label">수상명</label>
@@ -1453,16 +1562,16 @@
 	                        <!-- 해외경험1 -->
 	                        <div class="container" id="abroad_container">
 	                              <label for="country_name" id="country_name_label">국가명</label>
-	                              <input type="text" id="country_name" name="country_name">
+	                              <input type="text" id="country_name" name="country_name" value="${resumeSearch.country_name}">
 	                              <label for="country_start" id="country_start_label">시작년월</label>
-	                              <input type="text" id="country_start" name="country_start">
+	                              <input type="text" id="country_start" name="country_start" placeholder="2016.03" value="${resumeSearch.country_start}">
 	                              <label for="country_end" id="country_end_label">종료년월</label>
-	                              <input type="text" id="country_end" name="country_end">
+	                              <input type="text" id="country_end" name="country_end"placeholder="2016.03" value="${resumeSearch.country_end}">
 	                              <button class="x_btn" type="button" id="abroad_x">&times;</button>
 	                              <div class="abroad_div" id="abroad_content_div">
 	                                    <label id="abroad_content_label" for="abroad_content">
 	                                        	내용
-	                                          <textarea name="abroad_content" id="abroad_content" cols="30" rows="10" placeholder="해외에서 어떤 경험을 했는지 자세히 적어주세요.(ex.어학연수, 워킹홀리데이, 교한학생, 해외근무)"></textarea>
+	                                          <textarea name="abroad_content" id="abroad_content" cols="30" rows="10" placeholder="해외에서 어떤 경험을 했는지 자세히 적어주세요.(ex.어학연수, 워킹홀리데이, 교한학생, 해외근무)">${resumeSearch.abroad_content}</textarea>
 	                                    </label>
 	                              </div>
 	                        </div>
@@ -1508,11 +1617,19 @@
 	                        <div class="abroad_title">어학</div>
 	                        <div class="container" id="language_container">
 	                              <select name="kind" id="kind" class="select">
-	                                    <option value="">구분</option>
-	                                    <option value="회화능력">회화능력</option>
-	                                    <option value="공인시험">공인시험</option>
+	                              	<c:choose>
+	                              		<c:when test="${resumeSearch.kind=='회화능력'}">
+			                                    <option value="회화능력">회화능력</option>
+			                                    <option value="공인시험">공인시험</option>
+			                            </c:when> 
+			                            <c:when test="${resumeSearch.kind=='공인시험'}">
+			                           			 <option value="공인시험">공인시험</option>
+			                                     <option value="회화능력">회화능력</option>
+			                            </c:when>  
+	                              	</c:choose>
 	                              </select>
 	                              <select name="language_kind" id="language_kind" class="select" class="select">
+	                              		<option value="${resumeSearch.language_kind}">${resumeSearch.language_kind}</option>
 	                                    <option value="">외국어명</option>
 	                                    <option value="영어">영어</option>
 	                                    <option value="일본어">일본어</option>
@@ -1544,10 +1661,23 @@
 	                                    <option value="세르비아어">세르비아어</option>
 	                              </select>
 	                              <select name="language_level" id="language_level" class="select">
-	                                    <option value="">회화능력</option>
-	                                    <option value="일상회화 가능">일상회화 가능</option>
-	                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
-	                                    <option value="원어민 수준">원어민 수준</option>
+	                              	<c:choose>
+	                              		<c:when test="${resumeSearch.language_level=='일상회화 가능'}">
+			                                    <option value="일상회화 가능">일상회화 가능</option>
+			                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
+			                                    <option value="원어민 수준">원어민 수준</option>
+			                              </c:when>
+			                              <c:when test="${resumeSearch.language_level=='비즈니스 회화가능'}">
+			                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
+			                                    <option value="일상회화 가능">일상회화 가능</option>
+			                                    <option value="원어민 수준">원어민 수준</option>
+			                              </c:when>
+			                              <c:when test="${resumeSearch.language_level=='원어민 수준'}">
+			                              		<option value="원어민 수준">원어민 수준</option>
+			                                    <option value="일상회화 가능">일상회화 가능</option>
+			                                    <option value="비즈니스 회화가능">비즈니스 회화가능</option>
+			                              </c:when>
+	                              	</c:choose>
 	                              </select>
 	                              <button class="x_btn"type="button"  id="language_x">&times;</button>
 	                        </div>
@@ -1619,31 +1749,80 @@
 	                        <div class="abroad_title">취업우대</div>
 	                        <div class="container" id="protect_container">
 	                              <select name="bohun" id="bohun" class="select2">
-	                                    <option value="">보훈대상</option>
-	                                    <option value="대상">대상</option>
-	                                    <option value="비대상">비대상</option>
+	                              		<c:choose>
+	                              			<c:when test="${resumeSearch.bohun=='대상'}">
+			                                    <option value="대상">대상</option>
+			                                    <option value="비대상">비대상</option>
+	                                    	</c:when>
+	                                    	<c:when test="${resumeSearch.bohun=='비대상'}">
+			                                    <option value="비대상">비대상</option>
+			                                    <option value="대상">대상</option>
+	                                    	</c:when>
+	                              		</c:choose>      
 	                              </select>
 	                              <select name="job_protection" id="Job_protection" class="select2">
-	                                    <option value="">취업보호대상</option>
-	                                    <option value="대상">대상</option>
-	                                    <option value="비대상">비대상</option>
+	                                    <c:choose>	
+	                                    	<c:when test="${resumeSearch.job_protection=='대상'}">
+			                                    <option value="대상">대상</option>
+			                                    <option value="비대상">비대상</option>
+	                                    	</c:when>
+	                                    	<c:when test="${resumeSearch.job_protection=='비대상'}">
+			                                    <option value="비대상">비대상</option>
+			                                    <option value="대상">대상</option>
+	                                    	</c:when>
+	                                    </c:choose>	
 	                              </select>
 	                              <select name="subsidy" id="subsidy" class="select2">
-	                                    <option value="">고용지원금 대상</option>
-	                                    <option value="대상">대상</option>
-	                                    <option value="비대상">비대상</option>
+	                                   <c:choose>	
+	                                    	<c:when test="${resumeSearch.subsidy=='대상'}">
+			                                    <option value="대상">대상</option>
+			                                    <option value="비대상">비대상</option>
+	                                    	</c:when>
+	                                    	<c:when test="${resumeSearch.subsidy=='비대상'}">
+			                                    <option value="비대상">비대상</option>
+			                                    <option value="대상">대상</option>
+	                                    	</c:when>
+	                                    </c:choose>	
 	                              </select>
 	                              <select name="obstacle" id="obstacle" class="select2">
-	                                    <option value="">장애여부</option>
-	                                    <option value="대상">대상</option>
-	                                    <option value="비대상">비대상</option>
+	                                     <c:choose>	
+	                                    	<c:when test="${resumeSearch.obstacle=='대상'}">
+			                                    <option value="대상">대상</option>
+			                                    <option value="비대상">비대상</option>
+	                                    	</c:when>
+	                                    	<c:when test="${resumeSearch.obstacle=='비대상'}">
+			                                    <option value="비대상">비대상</option>
+			                                    <option value="대상">대상</option>
+	                                    	</c:when>
+	                                    </c:choose>	
 	                              </select>
 	                              <select name="MilitaryService" id="obstacle" class="select2">
-	                                    <option value="">병역</option>
-	                                    <option value="군필">군필</option>
-	                                    <option value="미필">미필</option>
-	                                    <option value="면제">면제</option>
-	                                    <option value="해당없음">해당없음</option>
+	                                   <c:choose>	
+	                                    	<c:when test="${resumeSearch.militaryService=='군필'}">
+			                                    <option value="군필">군필</option>
+			                                    <option value="미필">미필</option>
+			                                    <option value="면제">면제</option>
+			                                    <option value="해당없음">해당없음</option>
+	                                    	</c:when>
+	                                    	<c:when test="${resumeSearch.militaryService=='미필'}">
+			                                   	<option value="미필">미필</option>
+			                                    <option value="군필">군필</option>
+			                                    <option value="면제">면제</option>
+			                                    <option value="해당없음">해당없음</option>
+	                                    	</c:when>
+	                                   		<c:when test="${resumeSearch.militaryService=='면제'}">
+			                                    <option value="면제">면제</option>
+			                                    <option value="군필">군필</option>
+			                                    <option value="미필">미필</option>
+			                                    <option value="해당없음">해당없음</option>
+	                                    	</c:when>
+	                                    	<c:when test="${resumeSearch.militaryService=='해당없음'}">
+			                                    <option value="해당없음">해당없음</option>
+			                                    <option value="군필">군필</option>
+			                                    <option value="미필">미필</option>
+			                                    <option value="면제">면제</option>
+	                                    	</c:when>
+	                                    </c:choose>		
 	                              </select>
 	                        </div>
                         </div>
@@ -1670,6 +1849,7 @@
                         </div>
                  
             </div>
+            </c:forEach>
       </div>
 </form>
 <!-- //==========================================================다슬resume(body끝)================================================================= -->
