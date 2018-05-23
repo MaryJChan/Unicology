@@ -30,16 +30,15 @@ public class MyPageAction implements Action {
 		
 		// 현재 로그인 한 계정 가져오기 
 		MemberDTO mDto = (MemberDTO)session.getAttribute("loginUser");
-		String writer = mDto.getMid();
-		System.out.println("MyPageAction_writer : " + writer);
 		
-		if(writer != null) {
-			
-			List<MemberDTO> memUpdateList = muDao.memUpdateSelect(writer);
-			
-			request.setAttribute("memUpdateList", memUpdateList);
-			
+		if (mDto != null) {
+			String writer = mDto.getMid();
+			if (writer != null) {
+				List<MemberDTO> memUpdateList = muDao.memUpdateSelect(writer);
+				request.setAttribute("memUpdateList", memUpdateList);
+			}
 		}
+		
 		
 		if(request.getParameter("flag") != null) {
 			int flag = Integer.parseInt(request.getParameter("flag"));

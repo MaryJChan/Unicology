@@ -936,46 +936,44 @@
                                   <th>마감일·등록일</th>
                             </tr>
                             
-                            <c:forEach items="${searchList}" var="empInfoDto"> 
-                                  <tr>
-                                        <td>
-                                              <label class="chk_recruit">
-                                                    <input class="enochk" name="enochk" type="checkbox" value="${empInfoDto.eno}">
-                                              </label>
-                                        </td>
-                                        <td class="company_name">
-                                              <a href="#">${empInfoDto.companyName}</a>
-                                        </td>
-                                        <td class="notification_info">
-                                              <div class="job_title">
-                                                    <a href="${empInfoDto.href}">
-                                                          <span>${empInfoDto.title}</span>
-                                                    </a>
-                                              </div>
-                                              <p class="job_sector">
-                                                    <span>${empInfoDto.subclass}</span>
-                                              </p>
-                                        </td>
-                                        <td class="recruit_condition">
-                                              <p class="careerApply">${empInfoDto.career}</p>
-                                              <p class="education">${empInfoDto.education}</p>
-                                        </td>
-                                        
-                                        <td class="working_condition">
-                                              <p class="employment_type">${empInfoDto.employmentType}</p>
-                                              <p class="work_place">${empInfoDto.work_place}</p>
-                                        </td>
-                                        
-                                        <td class="deadline_info">
-                                              <p class="deadline_btn"><a href="#">즉시지원</a></p>
-                                              <p class="deadline_date">
-                                              		${empInfoDto.deadlines}
-                                                    <!-- ~07/02(월) -->
-                                                   <!--  <span class="reg_date">(4일전등록)</span> -->
-                                              </p>
-                                        </td>
-                                  </tr> 
-                            </c:forEach>
+                            <c:forEach items="${searchList}" var="empInfoDto">
+							<tr>
+								<td>
+									<label class="chk_recruit"> 
+								    <input class="enochk" name="enochk" type="checkbox" value="${empInfoDto.eno}">
+									</label>
+								</td>
+								<td class="company_name"><a href="#">${empInfoDto.companyName}</a>
+								</td>
+								<td class="notification_info">
+									<div class="job_title">
+										<a href="${empInfoDto.href}"> <span>${empInfoDto.title}</span>
+										</a>
+									</div>
+									<p class="job_sector">
+										<span>${empInfoDto.subclass}</span>
+									</p>
+								</td>
+								<td class="recruit_condition">
+									<p class="careerApply">${empInfoDto.career}</p>
+									<p class="education">${empInfoDto.education}</p>
+								</td>
+
+								<td class="working_condition">
+									<p class="employment_type">${empInfoDto.employmentType}</p>
+									<p class="work_place">${empInfoDto.work_place}</p>
+								</td>
+
+								<td class="deadline_info">
+									<p class="deadline_btn">
+										<a href="#">즉시지원</a>
+									</p>
+									<p class="deadline_date">
+										${empInfoDto.deadlines}
+									</p>
+								</td>
+							</tr>
+						</c:forEach>
                       </table>
                       
                       <div id="jobListpaginate">

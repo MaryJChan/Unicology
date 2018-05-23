@@ -47,14 +47,15 @@ public class EmpinfoSearchAction implements Action {
         String[] checkboxParentResult = request.getParameterValues("checkboxParentResult");
         empInfoCriDto.setCategory_keyword(checkboxParentResult);
  
-        for (String chkBoxResult : checkboxResult) {
-        	System.out.println(chkBoxResult);
-		}
-        for (String chkParentresult : checkboxParentResult) {
-        	System.out.println(chkParentresult);
-		}
-        
         if(checkboxResult != null || checkboxParentResult != null) {
+        	
+        	for (String chkBoxResult : checkboxResult) {
+            	System.out.println(chkBoxResult);
+    		}
+            for (String chkParentresult : checkboxParentResult) {
+            	System.out.println(chkParentresult);
+    		}
+            
         	empInfoDao.empinfoSearchSelect(empInfoCriDto);
         }
         
@@ -66,8 +67,7 @@ public class EmpinfoSearchAction implements Action {
 		
 		if(searchKey != null || checkboxResult != null) {
 			List<EmpInfoDTO> searchList = empInfoDao.empinfoSearchSelect(empInfoCriDto);
-        	int searchCnt = searchList.size();
-        	System.out.println("선택한 키워드 : " + searchKey + ", 총 건수 : " + searchCnt);
+			
         	int keyCode;
         	if(searchKey.equals("전체")) {
         		keyCode = 1;
