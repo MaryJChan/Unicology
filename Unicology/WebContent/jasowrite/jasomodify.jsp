@@ -220,17 +220,12 @@
 	    font-size: 28px;
 	    font-weight: bold;
 	}
-	
 	.close:hover,
 	.close:focus {
 	    color: #000;
 	    text-decoration: none;
 	    cursor: pointer;
 	}
-	
-	
-	
-	
 	.new_jasowrite {
 		text-align: center;
 		margin: 100px 0 70px;
