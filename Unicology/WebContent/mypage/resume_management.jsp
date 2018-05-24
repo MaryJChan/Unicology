@@ -513,6 +513,88 @@
 	#cover_letter_wrap {
 		margin-top: 40px;
 	}
+	
+	/* 모달창 css */
+	/* The jasowritemodal (background) */
+	.jasowritemodal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 250px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	
+	/* jasowritemodal Content */
+	.jasowritemodal-content {
+	    background-color: #fefefe;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 300px;
+		height: 250px;
+	}
+	
+	/* The Close Button */
+	.close {
+	    color: #aaaaaa;
+	    float: right;
+	    font-size: 28px;
+	    font-weight: bold;
+	}
+	
+	.close:hover,
+	.close:focus {
+	    color: #000;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	
+	
+	
+	
+	.new_jasowrite {
+		text-align: center;
+		margin: 100px 0 70px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.jasomodalYN {
+		display: inline-block;
+		width: 78px;
+		height: 38px;
+		line-height: 38px;
+		text-align: center;
+	}
+	.modalY {
+		border: 1px solid #6495ed;
+		background-color: #6495ed;
+		float: left;
+		margin-left: 30px;
+	}
+	.jasomodalYN > a {
+		display: inline-block;
+		width: 78px;
+		height: 38px;
+	}
+	.modalY >a {
+		color: white;	
+	}
+	.modalN {
+		border: 1px solid #ccc;
+		float: right;
+		margin-right: 30px;
+	}
+	
+	.jaso_title_modalContent {
+		box-shadow: 0 0 5px #d8d8d8;
+	}
+
 </style>
 </head>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -566,10 +648,46 @@
 		});
 
 	}); 
+	
+	// 이력서 삭제 버튼 클릭시 
+	$(document).on("click", ".cdelete_btn", function(){
+		var num = $(this).attr("data_num");
+		$("#jasodeletenum").val(num);
+		$(".new_jasowrite").text("자소서 삭제");
+		$("#jasowritejasowritemodal").css("display", "block");
+	});
+	
+	//리모컨 모달창 닫는 코드
+	$(document).on("click", ".close", function(){
+		$("#jasowritejasowritemodal").css("display", "none");
+	});
+	$(document).on("click", ".jasomodalN", function(){
+		$("#jasowritejasowritemodal").css("display", "none");
+	});
+	
+	$(document).on("click", ".jasomodalY", function(){
+		var num = $("#jasodeletenum").val();
+		$.ajax({
+			url : "jasodelete.unicol",
+			type : "POST",
+			dataType : "JSON",
+			data : "num=" + num,
+			success : function(data) {
+				if (data.flag == "1") {
+					$("tr[data_num=" + num + "]").remove();
+					$("#jasowritejasowritemodal").css("display", "none");
+				}
+			},
+			error : function(data) {
+				alert("System Error!!!");
+			}
+			
+		});
+	});
 
 </script>
 <body>
- 
+ 				  <input type="hidden" value=""  id="jasodeletenum">
                   <!-- 이력서 관리  --> 
                   <div id="resume_management_wrap">
                   	<div class="resume_management_title">
@@ -653,17 +771,16 @@
                   				</tr>
                   				
                   				<c:forEach items="${coverletter}" var="coverletter">
-                  				
-                  				<tr>
-                  					<td><input type="checkbox"></td>
-                  					<td><a href="#">${coverletter.title}</a></td>
-                  					<td>
-                  						<a class="resumeBtn cmodify_btn" id="resumeModify_btn" data_num="${coverletter.num}" href="#">수정</a>
-                  						<a class="resumeBtn cdelete_btn" id="resumeDelete_btn" href="#">삭제</a>
-                  					</td>
-                  					<td><fmt:formatDate pattern="yyyy-MM-dd " value="${coverletter.regdate}"/></td>
-                  					<td>-</td>
-                  				</tr>
+	                  				<tr data_num="${coverletter.num}" class="resumewrap">
+	                  					<td><input type="checkbox"></td>
+	                  					<td><a href="#">${coverletter.title}</a></td>
+	                  					<td>
+	                  						<a class="resumeBtn cmodify_btn" id="resumeModify_btn" data_num="${coverletter.num}" href="#">수정</a>
+	                  						<a class="resumeBtn cdelete_btn" id="resumeDelete_btn" data_num="${coverletter.num}">삭제</a>
+	                  					</td>
+	                  					<td><fmt:formatDate pattern="yyyy-MM-dd " value="${coverletter.regdate}"/></td>
+	                  					<td>-</td>
+	                  				</tr>
                   				</c:forEach>
                   				
                   				<c:if test="${coverletter == null}">
@@ -715,5 +832,18 @@
                   		</form>
                   	</div>
                   </div>
+                  
+                  <div id="jasowritejasowritemodal" class="jasowritemodal">
+					<!-- jasowritemodal content -->
+					<div class="jasowritemodal-content">
+						<span class="close">&times;</span>
+						<div class="new_jasowrite"></div>
+						<div>
+							<span class="jasomodalYN modalY"><a href="#" class="jasomodalY">확인</a></span>
+							<span class="jasomodalYN modalN"><a href="#" class="jasomodalN">취소</a></span>
+						</div>
+					</div>
+				</div>
+                  
 </body>
 </html>

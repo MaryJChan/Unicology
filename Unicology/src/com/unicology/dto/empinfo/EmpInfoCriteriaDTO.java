@@ -7,6 +7,8 @@ public class EmpInfoCriteriaDTO {
       private String flag;    // 검색 조건
       private String[] category_keyword; //카테코리 키워드
       private String[] category_check_keyword; //카테코리 체크박스 키워드
+      private String middleClassification;
+      private String subclass;
       
       public EmpInfoCriteriaDTO(int page, int perPageNum, String keyword, String flag) {
             super();
@@ -71,6 +73,22 @@ public class EmpInfoCriteriaDTO {
 
 	public void setCategory_check_keyword(String[] category_check_keyword) {
 		this.category_check_keyword = category_check_keyword;
+	}
+
+	public String getMiddleClassification() {
+		return middleClassification;
+	}
+
+	public void setMiddleClassification(String middleClassification) {
+		this.middleClassification = middleClassification;
+	}
+
+	public String getSubclass() {
+		return subclass;
+	}
+
+	public void setSubclass(String subclass) {
+		this.subclass = subclass;
 	}
       
       

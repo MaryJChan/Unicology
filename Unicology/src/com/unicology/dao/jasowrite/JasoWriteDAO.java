@@ -69,16 +69,17 @@ public class JasoWriteDAO {
 		}		
 	}
 
-	public void jasoWriteDelete(Integer num) {
+	public int jasoWriteDelete(Integer num) {
 		sqlSession = sqlSessionFactory.openSession();
 		try {
 			result = sqlSession.update("jasoWriteDelete", num);
-			
 			sqlSession.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
-		}				
+		}			
+		return result;
 	}
+	
 }

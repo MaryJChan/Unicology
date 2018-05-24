@@ -105,6 +105,7 @@
 		resize: none;
 		border: none;
 		outline: none;
+		height: 578px;
 	}	
 	#jasowrite_answer_count_wrap{
 		height: 50px;

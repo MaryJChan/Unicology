@@ -15,6 +15,7 @@ import com.unicology.action.empinfo.EmpInfoAction;
 import com.unicology.action.empinfo.EmpinfoScrapAction;
 import com.unicology.action.empinfo.EmpinfoSearchAction;
 import com.unicology.action.jasoanalysis.JasoAnalysisAction;
+import com.unicology.action.jasowrite.JasoDeleteAction;
 import com.unicology.action.jasowrite.JasoModifyAction;
 import com.unicology.action.jasowrite.JasoModifyUpdateAction;
 import com.unicology.action.jasowrite.JasoWriteAction;
@@ -104,6 +105,12 @@ public class UnicolFrontController extends HttpServlet{
  			action = new JasoModifyUpdateAction();	
 			forward = action.excute(request, response);
  		}
+ 		
+ 		// ======================= 자소서 삭제 페이지 ======================= //
+ 		else if (command.equals("/jasodelete.unicol")) {
+ 			action = new JasoDeleteAction();	
+			forward = action.excute(request, response);
+ 		} 		
  		
  		// ======================= 합격 자소서 페이지 ======================= //
  		else if (command.equals("/passjaso.unicol")) {

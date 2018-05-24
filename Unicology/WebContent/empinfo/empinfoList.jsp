@@ -590,15 +590,26 @@
 		
 		/* 세분류 카테고리 체크박스 클릭시 검색창에 값 전달  */
 		$(".depth_category_chk").on("click", function() {
-			
-			$(".result_guide").css("display", "none");
-			$(".select_result").css("display", "block");
-			
+			var data_num = parseInt($("#empSearchCount").attr("data_num")) + 1;
+			alert(data_num);
 			var chkID = $(this).attr("value");
 			var chkParent = $(this).parents('div').attr('id');
 			var chkParent_name = $("#"+chkParent+"_btn").text();
-			
-			$('.select_result').append('<span>' + chkParent_name + ' > ' + chkID + '</span>');
+			$(".result_guide").css("display", "none");
+			if($(this).is(":checked")){
+				$(".select_result").css("display", "block");
+				$('.select_result').append("<span data_num=" + chkID + ">" + chkParent_name + " > " + chkID + "</span>");
+	       		$("#empSearch_form").append("<input type='hidden' class='searchInput' data_num=" + chkID + " value='" + chkParent_name + " | " + chkID + "'>");
+			}else{
+	        	$("span[data_num=" + chkID + "]").remove();
+	        	$("input[data_num=" + chkID + "]").remove();
+	        }
+			var length = parseInt($(".select_result > span").length);
+			if(length == 0) {
+				$(".result_guide").css("display", "block");
+				$(".select_result").css("display", "none");
+			}
+			$("#empSearchCount").val(length);
 		});
 		
 		/* 세분류 카테고리 검색창 선택 초기화  */
@@ -702,6 +713,9 @@
 </script>
 
 <body>
+	<form action="" method="POST"  id="empSearch_form">
+		<input type="hidden" name="empSearchCount" id="empSearchCount" value="0" data_num="0">
+	</form>
 	<div id="jobListContainer">
 	<input type="hidden" id="checkboxValues" name="checkboxValues">
 	<input type="hidden" id="keyCode" value="${keyCode}">
