@@ -456,7 +456,7 @@
 	                  <a href="#" id="resume"><img alt="rhombus"src="image/index_Img/main3_1.png"id="main3"></a>
 	            </div>
 	            <div class="Main_rhom" id="Main_rhom2">
-	                  <a href="#" id="mypage"><img alt="rhombus"src="image/index_Img/RECRUITMENT.png"id="main4"></a>
+	                  <a href="#" id="mypage"><img alt="rhombus"src="image/index_Img/coverletter.png"id="main4"></a>
 	                  <a href="joblist.unicol" id="careers"><img alt="rhombus"src="image/index_Img/main5_1.png"id="main5"></a>
 	            </div>
 	      </div>
@@ -627,9 +627,9 @@
             
          	// 마이페이지 hover
             $("#mypage").hover(function(){
-            	$("#main4").attr("src","image/index_Img/RECRUITMENT2.png");
+            	$("#main4").attr("src","image/index_Img/coverletter2.png");
             },function(){
-            	$("#main4").attr("src","image/index_Img/RECRUITMENT.png");
+            	$("#main4").attr("src","image/index_Img/coverletter.png");
             });
             
             // 이력서관리 이동
