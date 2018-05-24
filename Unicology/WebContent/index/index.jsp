@@ -746,7 +746,6 @@
             }); */
             
             $("#mypage").click(function() {
-            	alert("여기는 합격자소서 리스트 출력페이지 입니다.")
             	location.href ="passjaso.unicol";
             });
             
