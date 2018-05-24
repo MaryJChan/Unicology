@@ -594,6 +594,10 @@
 	.jaso_title_modalContent {
 		box-shadow: 0 0 5px #d8d8d8;
 	}
+	
+	#file_list_wrap {
+		margin-top: 50px;
+	}
 
 </style>
 </head>
@@ -800,7 +804,7 @@
                   	</div>
                   	
                   	<!--첨부파일 리스트  --> 
-                  	<div>
+                  	<div id="file_list_wrap">
                   		<h3 id="Attachments_list_title">첨부파일 리스트</h3>
                   		<form action="">
                   			<table class="resume_list_table">

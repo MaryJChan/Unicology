@@ -1158,7 +1158,6 @@
                         				<input type="text" id="UserEmail" name="UserEmail" value="${resumeSearch.userEmail}">
                         			</div>
                         		</div>
-                        		<button type="button" class="x_btn" id="award_x">&times;</button>
                         		<div class="row">
                         			<div class="input value profile_tel">
                         				<label for="UserTel">전화번호</label>
@@ -1243,7 +1242,6 @@
 		                       			</div>
 	                       			</div>
 	                       		</div>
-	                       		<button type="button" class="x_btn" id="award_x">&times;</button>
 	                        	<div class="row non_high" style="display: inline-block;">
 	                        		<div class="input value major" style="width: 465px;">
 			                       				<label for="major">전공명</label>
